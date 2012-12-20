@@ -18,5 +18,9 @@
 
 	<string name="cyanide_settings_title">CyanideMods</string>
 	<string name="interface_settings_title">Interface</string>
+	
+	<!-- About device screen, CPU and RAM info. -->
+    <string name="cpu_info">CPU</string>
+    <string name="mem_info">Memory</string>
 
 </resources>
