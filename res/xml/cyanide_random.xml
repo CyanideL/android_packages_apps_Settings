@@ -60,6 +60,9 @@
 			android:summary="@string/privacy_guard_notifiation_summary"
 			android:defaultValue="true"/>
 	
+	<Preference android:key="restart_systemui"
+        android:title="@string/restart_systemui" />
+	
 	<!-- Superuser Switch -->
 	<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="show_su_icon"

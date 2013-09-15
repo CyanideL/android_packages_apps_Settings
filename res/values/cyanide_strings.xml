@@ -1675,5 +1675,8 @@
     <string name="papie_action_expanded_desktop">Expanded Desktop</string>
     <string name="papie_action_notifications">Notifications</string>
     <string name="papie_action_settings_panel">Quick Settings</string>
+    
+    <!-- Restart SystemUI -->
+    <string name="restart_systemui">Restart SystemUI</string>
 
 </resources>

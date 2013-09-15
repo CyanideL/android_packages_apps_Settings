@@ -28,15 +28,21 @@ import android.provider.Settings.SettingNotFoundException;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
+import com.android.settings.cyanide.util.Helpers;
 
 public class StatusBarRandom extends SettingsPreferenceFragment {
-
+	
+	private static final String RESTART_SYSTEMUI = "restart_systemui";
+	
+	private Preference mRestartSystemUI;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.cyanide_random);
+        
+        mRestartSystemUI = findPreference(RESTART_SYSTEMUI);
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
@@ -46,6 +52,9 @@ public class StatusBarRandom extends SettingsPreferenceFragment {
 
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         boolean value;
+        if (preference == mRestartSystemUI) {
+            Helpers.restartSystemUI();
+ 		}
  		return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 }
