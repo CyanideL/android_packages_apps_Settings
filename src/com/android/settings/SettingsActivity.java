@@ -233,6 +233,7 @@ public class SettingsActivity extends SettingsDrawerActivity
     private static final int REQUEST_SUGGESTION = 42;
 
     private static final String CYANIDEMODS = "com.android.settings.CyanideMods";
+    private static final String SUPERSU_FRAGMENT = "com.android.settings.SuperSU";
 
     private String mFragmentClass;
 
@@ -1030,6 +1031,13 @@ public class SettingsActivity extends SettingsDrawerActivity
             Intent cyanideModsIntent = new Intent();
             cyanideModsIntent.setClassName("com.rogersb11.cyanide", "com.rogersb11.cyanide.MainActivity");
             startActivity(cyanideModsIntent);
+            finish();
+            return null;
+        }
+        if (SUPERSU_FRAGMENT.equals(fragmentName)) {
+            Intent superSUIntent = new Intent();
+            superSUIntent.setClassName("eu.chainfire.supersu", "eu.chainfire.supersu.MainActivity");
+            startActivity(superSUIntent);
             finish();
             return null;
         }
