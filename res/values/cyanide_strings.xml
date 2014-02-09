@@ -1023,4 +1023,7 @@
     <string name="shake_pulse_mode">Shake and pulse</string>
     <string name="pulse_only_mode">Pulse (default)</string>
 
+    <!-- Slim Shortcuts -->
+    <string name="slim_shortcut_picker">Cyanide Actions</string>
+
 </resources>
