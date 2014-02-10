@@ -36,6 +36,7 @@
 	<string name="battery_style_reset_message">Reset battery bar color?</string>
     <string name="reset_message">Reset all entries to default?</string>
     <string name="reset_default_message">Reset default?</string>
+    <string name="additional_options_title">Additional options</string>
 
 	<!-- CyanideL Settings. -->
 	<string name="cyanide_about_title">About CyanideL</string>
@@ -1014,6 +1015,8 @@
     <string name="icon_color_mode_all_icons">All Icons</string>
     <string name="icon_color_mode_system_icons">System Icons</string>
     <string name="icon_color_mode_system_custom_icons">System and Custom Icons</string>
+    <string name="pie_disable_ime_triggers_title">Reduce trigger size on keyboard</string>
+    <string name="pie_disable_ime_triggers_summary">Reduces left and right trigger size if keyboard is active</string>
 
     <!-- Navigation bar visibility -->
     <string name="navigation_menu_default_jb_behavior">Show on request (default)</string>
