@@ -55,6 +55,11 @@
                 android:title="@string/notification_volume_option_title"
                 settings:advanced="true"/>
 
+        <!-- Also vibrate for calls -->
+        <SwitchPreference
+                android:key="vibrate_when_ringing"
+                android:title="@string/vibrate_when_ringing_title"
+                android:persistent="false" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -116,6 +121,11 @@
                 android:title="@string/advanced_sound_title"
                 android:persistent="false"
                 android:fragment="com.android.settings.slim.SoundSettings" />
+                
+        <PreferenceScreen
+                android:key="volume_steps"
+                android:fragment="com.android.settings.cyanide.VolumeSteps"
+                android:title="@string/volume_steps_title" />
 
     </PreferenceCategory>
 
