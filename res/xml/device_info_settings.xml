@@ -68,6 +68,15 @@
             android:fragment="com.android.settings.cyanogenmod.ContributorsCloud" >
         </PreferenceScreen> -->
 
+        <!-- Cyanide Extra Info -->
+        <PreferenceScreen android:key="extrainfo"
+                android:title="@string/cyanideextrainfo"
+                android:summary="@string/cyanideextrainfo_summary">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.android.settings"
+                    android:targetClass="com.android.settings.cyanide.extrainfo.MainActivity" />
+        </PreferenceScreen>
+
         <!-- Legal Information -->
         <PreferenceScreen
                 android:key="container"
