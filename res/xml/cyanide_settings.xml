@@ -50,6 +50,12 @@
         android:fragment="com.android.settings.ButtonSettings"
         />
 
+    <!-- Identicons -->
+    <PreferenceScreen
+        android:id="@+id/identicons"
+        android:title="@string/identicons_title"
+        android:fragment="com.android.settings.cyanide.identicons.IdenticonsSettings" />
+    
     <!-- Interface -->
     <PreferenceScreen
         android:id="@+id/interface_settings"

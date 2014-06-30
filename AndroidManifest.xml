@@ -2361,6 +2361,7 @@
         <activity android:name=".applications.LockPatternActivity"
                   android:label="@string/protected_apps"
                   android:excludeFromRecents="true">
+
             <intent-filter>
                 <action android:name=".applications.LockPatternActivity" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -2435,6 +2436,12 @@
         </receiver>
 
         <service android:name="com.android.settings.cyanide.hfm.CheckHosts" />
+        
+        <service android:name=".cyanide.identicons.IdenticonCreationService"
+                 android:exported="false" />
+
+        <service android:name=".cyanide.identicons.IdenticonRemovalService"
+                 android:exported="false" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
