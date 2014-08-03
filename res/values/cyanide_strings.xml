@@ -1203,5 +1203,12 @@
     <!-- Alarms and no interrupt zen mode -->
     <string name="zen_mode_none_category">No interruptions</string>
     <string name="zen_mode_alarms">Allow alarms</string>
+    
+    <!-- User Selectable Tether Networks-->
+    <string name="tether_usb_network_summary">Press to change USB Network</string>
+    <string name="tether_usb_network_text">USB Tether Network</string>
+    <string name="tether_user_network_default">Use System Default</string>
+    <string name="tether_wifi_network_text">WiFi Tether Network</string>
+
 
 </resources>
