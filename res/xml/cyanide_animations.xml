@@ -43,6 +43,12 @@
             	android:defaultValue="0" />
 		
 			<PreferenceScreen
+				android:key="overscroll_effects"
+				android:title="@string/ui_overscroll_title"
+				android:summary="@string/overscroll_weight_summary"
+				android:fragment="com.android.settings.cyanide.OverscrollEffects" />
+			
+			<PreferenceScreen
 				android:key="interface_animation_scroll"
 				android:fragment="com.android.settings.cyanide.ScrollAnimationInterfaceSettings"
 				android:title="@string/scrolling_title"
