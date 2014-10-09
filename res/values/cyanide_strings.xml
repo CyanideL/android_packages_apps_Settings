@@ -64,7 +64,11 @@
     <string name="lock_clock_weather_general_summary">General cLock weather settings</string>
     <string name="changelog_summary">View the latest changes to CyanideL source code</string>
     <string name="visualizer_summary">Display the visualizer on the lock screen</string>
-	
+    
+    <!-- Changelog -->
+    <string name="changelog_crdroid_title">Changelog</string>
+    <string name="changelog_crdroid_error">Unable to load changelog</string>
+    
 	<!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
     <string name="press_color_to_apply">Press on color below to apply</string>
@@ -369,10 +373,6 @@
     <string name="rogersb11_donate_summary">Click here IF you would like to donate to Rogersb11</string>
     <string name="geeky_donate_title">TheGeekyNimrod</string>
     <string name="geeky_donate_summary">Click here IF you would like to donate to TheGeekyNimrod</string>
-    
-    <!-- Changelog -->
-    <string name="changelog_crdroid_title">Changelog</string>
-    <string name="changelog_crdroid_error">Unable to load changelog</string>
     
     <!-- DLC Devices -->
     <string name="cyanide_s2_title">Samsung Galaxy S2 i777</string>
