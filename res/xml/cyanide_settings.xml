@@ -19,6 +19,12 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/cyanide_settings_title" >
 
+    <!-- AdBlocker -->
+    <PreferenceScreen
+        android:key="hfm_settings"
+        android:title="@string/hfm_pref_screen_title"
+        android:fragment="com.android.settings.cyanide.hfm.HfmSettings" /> 
+
     <!-- Animation settings -->
 	<PreferenceScreen
 		android:id="@+id/animations"
