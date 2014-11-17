@@ -302,32 +302,7 @@
     <!-- Padding between the radio buttons/checkbox and text on the redaction interstitial -->
     <dimen name="redaction_padding_start">16dp</dimen>
 
-    <!-- Padding for Gestures settings screen -->
-    <dimen name="gestures_settings_padding_top_bottom">20dp</dimen>
-    <dimen name="gestures_play_button_size">36dp</dimen>
-    <dimen name="gesture_animation_padding">0dp</dimen>
-
-    <!-- Support tile minimum height -->
-    <dimen name="support_tile_min_height">48dp</dimen>
-    <!-- support spacer layout height -->
-    <dimen name="support_spacer_height">8dp</dimen>
-
-    <dimen name="password_requirement_textsize">14sp</dimen>
-    <!-- Visible vertical space we want to show below password edittext field when ime is shown.
-         The unit is sp as it is related to the text size of password requirement item. -->
-    <dimen name="visible_vertical_space_below_password">20sp</dimen>
-
-    <!-- Color picker -->
-    <dimen name="color_swatch_size">16dp</dimen>
-    <dimen name="color_swatch_stroke_width">4dp</dimen>
-
-    <!-- FAB Dimensions -->
-    <dimen name="fab_size">56dp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
-    <dimen name="fab_icon_size">24dp</dimen>
-    <dimen name="fab_elevation_normal">8dp</dimen>
-    <dimen name="fab_elevation_pressed">6dp</dimen>
-
-    <dimen name="shortcut_picker_left_padding">40dip</dimen>
+    <dimen name="profile_instruction_padding">8dp</dimen>
+    <dimen name="fab_line_width">2dp</dimen>
 
 </resources>
