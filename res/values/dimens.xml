@@ -296,4 +296,7 @@
     <!-- Padding between the radio buttons/checkbox and text on the redaction interstitial -->
     <dimen name="redaction_padding_start">16dp</dimen>
 
+    <dimen name="profile_instruction_padding">8dp</dimen>
+    <dimen name="fab_line_width">2dp</dimen>
+
 </resources>
