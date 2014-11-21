@@ -2091,6 +2091,8 @@
                 android:resource="@id/sound_settings" />
         </activity>
 
+		<activity android:name=".cyanide.Density" />
+
         <!-- Show apps for which application-level notification settings are applicable -->
         <activity android:name="Settings$NotificationAppListActivity"
                 android:label="@string/app_notifications_title"
