@@ -1371,5 +1371,9 @@
     <string name="overscroll_summary">Choose how scrollable objects look when they overshoot</string>
     <string name="overscroll_weight_title">Over scrolling weight</string>
     <string name="overscroll_weight_summary">Select the weight of the scrollable objects</string>
+    
+    <!-- Lockscreen Power Menu -->
+    <string name="lockscreen_enable_power_menu_title">Show power menu lock screen</string>
+    <string name="lockscreen_enable_power_menu_summary">This option will only disable the power menu on secure lock screens</string>
 
 </resources>
