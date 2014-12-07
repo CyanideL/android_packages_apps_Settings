@@ -1148,6 +1148,10 @@
     <string name="media_scanner_on_boot_title">MediaScanner behavior on boot</string>
     <string name="media_scanner_on_boot_enabled">Scan media</string>
     <string name="media_scanner_on_boot_ask">Ask to scan (notification)</string>
-	<string name="media_scanner_on_boot_disabled">Do not scan media</string> 
+	<string name="media_scanner_on_boot_disabled">Do not scan media</string>
+	
+	<!-- Screenshot sound -->
+    <string name="screenshot_sound_title">Screenshot sound</string>
+    <string name="screenshot_sound_summary">Plays sound effect when screenshot is taken</string>
 
 </resources>
