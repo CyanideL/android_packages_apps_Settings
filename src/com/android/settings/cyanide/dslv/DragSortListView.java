@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.slim.dslv;
+package com.android.settings.cyanide.dslv;
 
 import android.content.Context;
 import android.content.res.TypedArray;
