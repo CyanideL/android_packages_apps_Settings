@@ -16,9 +16,18 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+	<!-- General strings -->
+    <string name="ok">OK</string>
+    <string name="reset">Reset</string>
+    <string name="help">Help</string>
+    <string name="attention">Attention</string>
+    <string name="enabled">Enabled</string>
+    <string name="default_string">Default</string>
+    <string name="reset_message">Reset all entries to default?</string>
+	
+	<!-- CyanideL Settings. -->
 	<string name="cyanide_settings_title">CyanideMods</string>
 	<string name="interface_settings_title">Interface</string>
-	<string name="reset_message">Reset all entries to default?</string>
 	
 	<!-- About device screen, CPU and RAM info. -->
     <string name="cpu_info">CPU</string>
