@@ -2288,7 +2288,10 @@
 
         <activity
              android:name=".cyanide.dlc.CyanideCentral" />
-        
+
+        <activity android:name=".cyanide.gestureanywhere.GestureAnywhereBuilderActivity" />
+        <activity android:name=".cyanide.gestureanywhere.GestureAnywhereCreateGestureActivity" />
+
         <provider
             android:name=".search.SettingsSearchIndexablesProvider"
             android:authorities="com.android.settings"
