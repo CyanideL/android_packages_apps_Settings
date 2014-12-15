@@ -569,4 +569,8 @@
     <string name="cyanideextrainfo">Extra information</string>
     <string name="cyanideextrainfo_summary">Display extra info for cpu, display, etc</string>
     
+    <!-- Battery saver -->
+    <string name="battery_saver_title">Warning color</string>
+    <string name="battery_saver_style_reset_message">Reset battery saver warning color?</string>
+    
 </resources>
