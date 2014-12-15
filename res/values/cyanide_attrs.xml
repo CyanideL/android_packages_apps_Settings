@@ -44,4 +44,7 @@
         <attr name="click_remove_id" format="integer" />
         <attr name="use_default_controller" format="boolean" />
     </declare-styleable>
+    
+    <!-- Minimum prediction score required to pass a gesture as recognized -->
+    <integer name="min_gesture_prediction_score">2</integer>
 </resources>
