@@ -72,7 +72,12 @@
     <PreferenceScreen
         android:id="@+id/status_bar_settings"
         android:title="@string/status_bar_title"
-        android:fragment="com.android.settings.cyanogenmod.StatusBarSettings"
-        />
+        android:fragment="com.android.settings.cyanogenmod.StatusBarSettings" />
+        
+    <!-- Wakelock blocker -->
+    <PreferenceScreen
+        android:key="wakelock_blocker"
+        android:title="@string/wakelock_blocker_title"
+        android:fragment="com.android.settings.cyanide.WakeLockBlocker" />
 
 </PreferenceScreen>
