@@ -112,13 +112,21 @@
             android:id="@+id/device_section"
             android:title="@string/header_category_device" >
 
+        <!-- CyanideMods -->
+        <dashboard-tile
+                android:id="@+id/main_settings"
+				android:title="@string/cyanide_settings_title"
+				android:fragment="com.android.settings.cyanide.MainSettings"
+				android:icon="@drawable/ic_settings_cyanide"
+				/>
+        
         <!-- Sound -->
         <dashboard-tile
                 android:id="@+id/sound_settings"
                 android:title="@string/category_sounds"
                 android:fragment="com.android.settings.SoundSettings"
                 android:icon="@drawable/ic_settings_notifications"
-                />
+				/>
 
         <!-- Display & lights -->
         <dashboard-tile

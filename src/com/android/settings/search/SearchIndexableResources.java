@@ -24,6 +24,7 @@ import com.android.settings.DateTimeSettings;
 import com.android.settings.DevelopmentSettings;
 import com.android.settings.DeviceInfoSettings;
 import com.android.settings.DisplaySettings;
+import com.android.settings.cyanide.MainSettings;
 import com.android.settings.HomeSettings;
 import com.android.settings.ScreenPinningSettings;
 import com.android.settings.PrivacySettings;
@@ -141,6 +142,13 @@ public final class SearchIndexableResources {
                         DisplaySettings.class.getName(),
                         R.drawable.ic_settings_display));
 
+        sResMap.put(MainSettings.class.getName(),
+				new SearchIndexableResource(
+						Ranking.getRankForClassName(MainSettings.class.getName()),
+						NO_DATA_RES_ID,
+						MainSettings.class.getName(),
+                        R.drawable.ic_cyanide_interface));
+        
         sResMap.put(SoundSettings.class.getName(),
                 new SearchIndexableResource(
                         Ranking.getRankForClassName(SoundSettings.class.getName()),
