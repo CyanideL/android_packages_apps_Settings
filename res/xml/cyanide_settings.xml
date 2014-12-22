@@ -54,6 +54,14 @@
         settings:advanced="true"
         />
     
+    <!-- Recent Apps Panel -->
+	<PreferenceScreen
+		android:key="recents_panel"
+		android:fragment="com.android.settings.cyanide.RecentsSettings"
+		android:title="@string/Recents_panel" >
+
+	</PreferenceScreen>
+    
     <!-- Status bar -->
     <PreferenceScreen
         android:id="@+id/status_bar_settings"

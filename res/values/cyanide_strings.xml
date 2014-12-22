@@ -40,9 +40,13 @@
 	<string name="cyanide_settings_title">CyanideMods</string>
 	<string name="interface_settings_title">Interface</string>
     <string name="cyanide_animations_title">Animations</string>
+<<<<<<< HEAD
     <string name="cyanide_central_title">Cyanide Central</string>
 	<string name="cyanide_dlc_title">Download Center</string>
 	<string name="cyanide_about_title">About CyanideL</string>
+=======
+    <string name="Recents_panel">Recent Apps Panel</string>
+>>>>>>> 844f737... recents panel clear all button tweaks (1/2)
 	
 	<!-- Summary Strings -->
     <string name="appcirclebar_settings_summary">Activate and configure circle bar trigger spot and included applications</string>
@@ -417,5 +421,12 @@
     <string name="trigger_top_summary">Adjust the vertical postion of the trigger area</string>
     <string name="trigger_bottom_title">Trigger height</string>
     <string name="trigger_bottom_summary">Adjust the height of the trigger area</string>
+    
+    <!-- Recents panel settings -->
+	<string name="show_clear_all_recents_button_title">Clear all recents button</string>
+	<string name="show_clear_all_recents_button_summary">Show clear all button on recents panel</string>
+	<string name="recents_clear_all_location_title">Clear all recents location</string>
+	<string name="recents_clear_all_location_right">Top right</string>
+	<string name="recents_clear_all_location_left">Top left</string>
 
 </resources>
