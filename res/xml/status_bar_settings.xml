@@ -20,12 +20,12 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
         android:title="@string/status_bar_title">
 
-    <!-- Status Bar Battery Options -->
+    <!-- Battery Options -->
 	<PreferenceScreen
-		android:key="status_bar_battery_status_settings"
-		android:title="@string/status_bar_battery_status_settings_title"
+		android:key="battery_style_pref"
+		android:title="@string/status_bar_battery_style"
 		android:summary="@string/battery_settings_summary"
-		android:fragment="com.android.settings.cyanide.StatusBarBatteryStatusSettings" />
+		android:fragment="com.android.settings.cyanide.BatteryStyle" />
 
     <SwitchPreference
             android:key="status_bar_brightness_control"

@@ -10,5 +10,12 @@
         android:title="@string/status_bar_battery_status_settings_title"
         android:summary="@string/status_bar_battery_status_settings_summary"
         android:fragment="com.android.settings.cyanide.StatusBarBatteryStatusSettings" />
+        
+    <!-- Battery Bar -->
+    <PreferenceScreen
+		android:key="battery_bar"
+		android:title="@string/battery_bar_title"
+		android:summary="@string/batterybar_settings_summary"
+		android:fragment="com.android.settings.cyanide.BatteryBar" />
 
 </PreferenceScreen>
