@@ -520,6 +520,15 @@
 		<item>@string/clock_font_light</item>
 		<item>@string/clock_font_light_italic</item>
 		<item>@string/clock_font_normal</item>
+
+    <!-- Recents kill all button -->
+	<string-array name="recents_clear_all_location_entries">
+		<item>@string/recents_clear_all_location_top_center</item>
+		<item>@string/recents_clear_all_location_top_right</item>
+		<item>@string/recents_clear_all_location_top_left</item>
+		<item>@string/recents_clear_all_location_bottom_right</item>
+		<item>@string/recents_clear_all_location_bottom_left</item>
+		<item>@string/recents_clear_all_location_bottom_center</item>
 	</string-array>
 
 	<string-array name="clock_font_style_values" translatable="false">
@@ -532,17 +541,21 @@
 
     <!-- Recents kill all button -->
 	<string-array name="recents_clear_all_location_entries">
-	<item>@string/recents_clear_all_location_top_right</item>
-	<item>@string/recents_clear_all_location_top_left</item>
-	<item>@string/recents_clear_all_location_bottom_right</item>
-	<item>@string/recents_clear_all_location_bottom_left</item>
+		<item>@string/recents_clear_all_location_top_center</item>
+		<item>@string/recents_clear_all_location_top_right</item>
+		<item>@string/recents_clear_all_location_top_left</item>
+		<item>@string/recents_clear_all_location_bottom_right</item>
+		<item>@string/recents_clear_all_location_bottom_left</item>
+		<item>@string/recents_clear_all_location_bottom_center</item>
 	</string-array>
 
 	<string-array name="recents_clear_all_location_values" translatable="false">
-	<item>0</item>
-	<item>1</item>
-	<item>2</item>
-	<item>3</item>
+		<item>0</item>
+		<item>1</item>
+		<item>2</item>
+		<item>3</item>
+		<item>4</item>
+		<item>5</item>
 	</string-array>
 	
 	<!-- long press back to kill configurable timeout -->
