@@ -53,5 +53,12 @@
             android:fragment="com.android.settings.cyanide.navbar.NavbarTabHostFragment"
             android:summary="@string/navbar_settings_summary"
             android:title="@string/category_navbar" />
-
+        
+    <!-- Pie control -->
+    <PreferenceScreen
+        android:key="pie_settings"
+        android:title="@string/pie_control_title"
+        android:summary="@string/piecontrol_settings_summary"
+        android:fragment="com.android.settings.cyanide.PieControl" />
+	
 </PreferenceScreen>

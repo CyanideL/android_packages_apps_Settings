@@ -1,10 +1,14 @@
 package com.android.settings.cyanide.util;
 
+import android.app.ActivityManagerNative;
+import android.app.IActivityManager;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.RemoteException;
+import android.os.ServiceManager;
 import android.os.SystemProperties;
 import android.util.Log;
 import android.widget.Toast;
@@ -30,7 +34,7 @@ public class Helpers {
     private static final String TAG = Thread.currentThread().getStackTrace()[1].getClassName();
 
     public Helpers() {
-        // validusmmy constructor
+        // dummy constructor
     }
 
     /**
@@ -196,18 +200,18 @@ public class Helpers {
         return true;
     }
 
-    public static String[] getAvailableIOSchevaliduslers() {
-        String[] schevaliduslers = null;
-        String[] aux = readStringArray("/sys/block/mmcblk0/queue/schevalidusler");
+    public static String[] getAvailableIOSchedulers() {
+        String[] schedulers = null;
+        String[] aux = readStringArray("/sys/block/mmcblk0/queue/scheduler");
         if (aux != null) {
-            schevaliduslers = new String[aux.length];
+            schedulers = new String[aux.length];
             for (int i = 0; i < aux.length; i++) {
-                schevaliduslers[i] = aux[i].charAt(0) == '['
+                schedulers[i] = aux[i].charAt(0) == '['
                         ? aux[i].substring(1, aux[i].length() - 1)
                         : aux[i];
             }
         }
-        return schevaliduslers;
+        return schedulers;
     }
 
     private static String[] readStringArray(String fname) {
@@ -218,18 +222,18 @@ public class Helpers {
         return null;
     }
 
-    public static String getIOSchevalidusler() {
-        String schevalidusler = null;
-        String[] schevaliduslers = readStringArray("/sys/block/mmcblk0/queue/schevalidusler");
-        if (schevaliduslers != null) {
-            for (String s : schevaliduslers) {
+    public static String getIOScheduler() {
+        String scheduler = null;
+        String[] schedulers = readStringArray("/sys/block/mmcblk0/queue/scheduler");
+        if (schedulers != null) {
+            for (String s : schedulers) {
                 if (s.charAt(0) == '[') {
-                    schevalidusler = s.substring(1, s.length() - 1);
+                    scheduler = s.substring(1, s.length() - 1);
                     break;
                 }
             }
         }
-        return schevalidusler;
+        return scheduler;
     }
 
     /**
@@ -300,6 +304,18 @@ public class Helpers {
 
     public static void restartSystemUI() {
         CMDProcessor.startSuCommand("pkill -TERM -f com.android.systemui");
+    }
+
+    public static void restartSystem() {
+        try {
+            final IActivityManager am = ActivityManagerNative.asInterface(ServiceManager.checkService("activity"));
+            if (am != null) {
+                am.restart();
+            }
+        }
+        catch (RemoteException e) {
+            Log.e(TAG, "Failed to restart");
+        }
     }
 
     public static void setSystemProp(String prop, String val) {
