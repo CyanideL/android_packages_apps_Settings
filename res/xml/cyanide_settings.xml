@@ -62,6 +62,12 @@
 
 	</PreferenceScreen>
     
+    <!-- System App Remover -->
+    <PreferenceScreen
+		android:key="slimsizer"
+		android:fragment="com.android.settings.cyanide.SlimSizer"
+		android:title="@string/sizer_title" />
+    
     <!-- Status bar -->
     <PreferenceScreen
         android:id="@+id/status_bar_settings"

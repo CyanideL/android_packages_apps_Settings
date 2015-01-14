@@ -1846,6 +1846,11 @@
         <activity android:name=".cyanogenmod.ContributorsCloud" />
 
         <activity android:name=".cyanogenmod.SpamList" />
+        
+        <activity
+			android:name=".cyanide.SlimSizer"
+			android:label="@string/sizer_title" >
+		</activity>
 
         <!-- "Blacklist settings" UI, used only on voice-capable phone devices. -->
         <activity android:name="Settings$BlacklistSettingsActivity"
