@@ -50,6 +50,7 @@
 	<string name="qs_colors_title">Custom Color Options</string>
 	<string name="general_title">General Options</string>
 	<string name="header_weather_title">Status Bar Weather</string>
+	<string name="status_bar_battery_style">Battery Options</string>
 	
 	<!-- Summary Strings -->
     <string name="appcirclebar_settings_summary">Activate and configure circle bar trigger spot and included applications</string>
@@ -75,7 +76,7 @@
     <!-- Changelog -->
     <string name="changelog_crdroid_title">Changelog</string>
     <string name="changelog_crdroid_error">Unable to load changelog</string>
-    
+
 	<!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
     <string name="press_color_to_apply">Press on color below to apply</string>
@@ -629,5 +630,31 @@
     <string name="expanded_header_show_weather_summary">Enable to show the weather</string>
     <string name="expanded_header_show_weather_location_title">Show Location</string>
     <string name="expanded_header_show_weather_location_summary">Enable to show the location</string>
+    
+    <!-- Status bar battery status settings -->
+    <string name="status_bar_battery_status_settings_title">StatusBar Battery Options</string>
+    <string name="battery_status_cat_circle_options_title">Customize the circle</string>
+    <string name="battery_status_style_title">Indicator</string>
+    <string name="battery_status_style_icon_portrait">Icon portrait</string>
+    <string name="battery_status_style_icon_landscape">Icon landscape</string>
+    <string name="battery_status_style_circle">Circle</string>
+    <string name="battery_status_style_text">Text</string>
+    <string name="battery_status_style_hidden">Hidden</string>
+    <string name="battery_status_percent_style_title">Percentage text position</string>
+    <string name="battery_status_percent_style_dialog_title">Choose a position</string>
+    <string name="battery_status_percent_style_text_inside">Inside the icon</string>
+    <string name="battery_status_percent_style_text_next">Next to the icon</string>
+    <string name="battery_status_percent_style_default">Hidden (default)</string>
+    <string name="battery_status_charge_animation_speed_title">Charging animation speed</string>
+    <string name="battery_status_charge_animation_speed_none">Disabled</string>
+    <string name="battery_status_charge_animation_speed_slow">Slow</string>
+    <string name="battery_status_charge_animation_speed_normal">Normal</string>
+    <string name="battery_status_charge_animation_speed_fast">Fast</string>
+    <string name="battery_status_show_circle_dotted_title">Circle dotted</string>
+    <string name="battery_status_show_circle_dotted_summary">Activate to show the circle dotted</string>
+    <string name="battery_status_circle_dot_length_title">Circle dot length</string>
+    <string name="battery_status_circle_dot_interval_title">Circle dot interval</string>
+    <string name="battery_status_battery_color_title">Fill</string>
+    <string name="battery_status_text_color_title">Text</string>    
 
 </resources>
