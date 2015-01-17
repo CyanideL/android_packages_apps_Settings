@@ -411,6 +411,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment
 			Settings.System.putInt(mResolver,
 					Settings.System.LOCK_SCREEN_SHORTCUTS_COLORIZE_CUSTOM_ICONS,
 					value ? 1 : 0);
+			return true;
         } else if (KEY_LOCK_AFTER_TIMEOUT.equals(key)) {
             int timeout = Integer.parseInt((String) newValue);
             try {
@@ -447,7 +448,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment
         } else if (KEY_POWER_INSTANTLY_LOCKS.equals(key)) {
             mLockPatternUtils.setPowerButtonInstantlyLocks((Boolean) newValue);
         }
-        return result;
+        return false;
     }
 
     @Override

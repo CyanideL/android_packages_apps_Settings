@@ -80,6 +80,7 @@ import com.android.settings.blacklist.BlacklistSettings;
 import com.android.settings.cyanide.MainSettings;
 import com.android.settings.cyanide.dlc.CyanideCentral;
 import com.android.settings.bluetooth.BluetoothSettings;
+import com.android.settings.cyanogenmod.qs.QSTiles;
 import com.android.settings.dashboard.DashboardCategory;
 import com.android.settings.dashboard.DashboardSummary;
 import com.android.settings.dashboard.DashboardTile;
