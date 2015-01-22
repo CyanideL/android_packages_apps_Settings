@@ -109,6 +109,6 @@ public class Settings extends SettingsActivity {
     public static class MainSettingsActivity extends SettingsActivity { /* empty */ }
     public static class CyanideCentralActivity extends SettingsActivity { /* empty */ }
     public static class QSTilesSettingsActivity extends SettingsActivity { /* empty */ }
-    
+    public static class ExpandedDesktopSettingsActivity extends SettingsActivity { /* empty */ }
 }
 

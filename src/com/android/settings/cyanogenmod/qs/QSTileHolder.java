@@ -151,15 +151,32 @@ public class QSTileHolder {
 				break;
             case QSConstants.TILE_SCREENSHOT:
                 resourceName = "ic_qs_screenshot";
-                stringId = R.string.qs_screenshot_tile;
+                stringId = R.string.qs_tile_screenshot;
                 break;
             case QSConstants.TILE_SYNC:
                 resourceName = "ic_qs_sync_on";
-                stringId = R.string.qs_sync_tile;
+                stringId = R.string.qs_tile_sync_tile;
                 break;
-            case QSConstants.TILE_SCREEN_TIMEOUT:
-                resourceName = "ic_qs_zen_on";
-				stringId = R.string.qs_notifications_tile;
+            case QSConstants.TILE_NOTIFICATIONS:
+                resourceName = "ic_qs_ringer_audible";
+                stringId = R.string.qs_tile_notifications;
+                break;
+            case QSConstants.TILE_BATTERY_SAVER:
+                resourceName = "ic_qs_battery_saver_on";
+                stringId = R.string.qs_tile_battery_saver;
+                break;
+            case QSConstants.TILE_BRIGHTNESS:
+                resourceName = "ic_qs_brightness_auto_off";
+                stringId = R.string.qs_tile_brightness;
+                break;
+            case QSConstants.TILE_EXPANDED_DESKTOP:
+                resourceName = "ic_qs_expanded_desktop";
+                stringId = R.string.qs_tile_expanded_desktop;
+                break;
+            case QSConstants.TILE_SCREEN_OFF:
+                resourceName = "ic_qs_power";
+                stringId = R.string.qs_tile_screen_off;
+                break;
             default:
                 return null;
         }
