@@ -40,6 +40,12 @@
             	android:defaultValue="0" />
 
 		<PreferenceScreen
+				android:key="interface_animation_scroll"
+				android:fragment="com.android.settings.cyanide.ScrollAnimationInterfaceSettings"
+				android:title="@string/scrolling_title"
+				android:summary="@string/scrolling_summary" />
+		
+		<PreferenceScreen
                android:id="@+id/animations"
                android:title="@string/title_animation_controls"
                android:summary="@string/header_summary_animation"
