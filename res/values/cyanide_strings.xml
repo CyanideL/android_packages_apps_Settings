@@ -403,9 +403,8 @@
     <string name="wallpaper_close_title">Wallpaper Close Animation</string>
     <string name="wallpaper_intra_open_title">Wallpaper Intra Open Animation</string>
     <string name="wallpaper_intra_close_title">Wallpaper Intra Close Animation</string>
+    <string name="task_open_behind_title">Task open behind animation</string>
     <string name="animation_duration_title">Animation Duration</string>
-    <string name="title_animation_no_override">Prevent App Overrides</string>
-    <string name="summary_animation_no_override">Prevent apps from overriding transitions.</string>
     <string name="animation_duration_default">Default</string>
     <string name="header_summary_animation">@null</string>
     <string name="animation_exit_only_title">Enter only animation</string>
@@ -506,7 +505,7 @@
     <string name="volume_steps_15">15</string>
     <string name="volume_steps_7">7</string>
     <string name="volume_steps_5">5</string>
-   
+    
     <!-- Cyanide Extra Info -->
     <string name="cyanideextrainfo">Extra information</string>
     <string name="cyanideextrainfo_summary">Display extra info for cpu, display, etc</string>
