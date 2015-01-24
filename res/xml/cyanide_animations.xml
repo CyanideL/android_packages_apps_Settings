@@ -41,6 +41,12 @@
 
 		<PreferenceScreen
 				android:key="interface_animation_scroll"
+				android:title="@string/ime_animation_title"
+				android:summary="@string/ime_animation_summary"
+				android:fragment="com.android.settings.cyanide.KeyboardAnimationInterfaceSettings" />
+		
+		<PreferenceScreen
+				android:key="interface_animation_scroll"
 				android:fragment="com.android.settings.cyanide.ScrollAnimationInterfaceSettings"
 				android:title="@string/scrolling_title"
 				android:summary="@string/scrolling_summary" />
