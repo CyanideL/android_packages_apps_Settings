@@ -1290,5 +1290,9 @@
     <string name="trigger_top_summary">Adjust the vertical postion of the trigger area</string>
     <string name="trigger_bottom_title">Trigger height</string>
     <string name="trigger_bottom_summary">Adjust the height of the trigger area</string>
+    
+    <!-- Text for forcing expanded notifications -->
+	<string name="disable_fc_notifications_title">Disable FC Notifications</string>
+	<string name="disable_fc_notifications_summary">This will hide all force close notificaitons</string>
 
 </resources>
