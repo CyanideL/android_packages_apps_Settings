@@ -149,6 +149,17 @@ public class QSTileHolder {
 				resourceName = "ic_qs_cyanide_on";
 				stringId = R.string.qs_tile_cyanide;
 				break;
+            case QSConstants.TILE_SCREENSHOT:
+                resourceName = "ic_qs_screenshot";
+                stringId = R.string.qs_screenshot_tile;
+                break;
+            case QSConstants.TILE_SYNC:
+                resourceName = "ic_qs_sync_on";
+                stringId = R.string.qs_sync_tile;
+                break;
+            case QSConstants.TILE_SCREEN_TIMEOUT:
+                resourceName = "ic_qs_zen_on";
+				stringId = R.string.qs_notifications_tile;
             default:
                 return null;
         }
