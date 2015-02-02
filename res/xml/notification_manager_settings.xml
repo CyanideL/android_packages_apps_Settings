@@ -28,6 +28,12 @@
             android:summary="@string/block_notifications_summary"
             android:fragment="com.android.settings.cyanogenmod.SpamList" />
     
+    <!-- Heads up notifications -->
+    <Preference
+             android:key="heads_up_enabled"
+             android:fragment="com.android.settings.cyanide.HeadsUpSettings"
+             android:title="@string/category_heads_up" />
+    
     <!-- Notification access -->
     <Preference
             android:key="manage_notification_access"
