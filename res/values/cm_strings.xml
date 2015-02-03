@@ -623,17 +623,6 @@
     <string name="duplicate_appgroup_name">Duplicate app group name!</string>
     <string name="profile_app_delete_confirm">Remove this app?</string>
 
-    <!-- Profile Settings sound modes labels -->
-    <string name="sound_mode">Notification mode</string>
-    <string name="ringer_mode">Ring mode</string>
-    <string name="lights_mode">Lights mode</string>
-    <string name="vibrate_mode">Vibrate mode</string>
-    <string name="choose_soundtone">Choose notification tone</string>
-    <string name="choose_ringtone">Choose ringtone</string>
-    <!-- Sound settings screen, setting option name to pick ringtone (a list dialog comes up)-->
-    <string name="soundtone_title">Notification tone</string>
-    <string name="soundtone_summary" translatable="false">""</string>
-
     <string name="no_bluetooth_triggers">No Bluetooth devices paired.\nTap to pair Bluetooth device before configuring triggers.</string>
     <string name="no_wifi_triggers">No Wi\u2011Fi access points configured.\nTap to connect Wi\u2011Fi before configuring triggers.</string>
     <string name="no_triggers_configured">No triggers configured. Tap to add more.</string>
@@ -704,9 +693,6 @@
 
     <!-- Message when bluetooth dialog for pin entry is showing  when HIGH security enabled-->
     <string name="bluetooth_enter_pin_msg_hs">To pair with:<xliff:g id="bold">&lt;br>&lt;b></xliff:g><xliff:g id="device_name">%1$s</xliff:g><xliff:g id="end_bold">&lt;/b>&lt;br>&lt;br></xliff:g>Type the device\'s required PIN (16 digits or more):</string>
-
-    <!-- Bluetooth settings.  Message when connected to a device, except for pbap. [CHAR LIMIT=40] -->
-    <string name="bluetooth_connected_no_pbap">Connected (no phonebook access)</string>
 
     <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the DUN profile. -->
     <string name="bluetooth_profile_dun">Dial-up Network Access</string>
@@ -796,10 +782,6 @@
     <string name="usb_unmount_inform_text" product="default">USB storage will be unmounted.</string>
     <string name="uicc_unmount_inform_text" product="default">UICC storage will be unmounted.</string>
 
-    <string name="usb_media_format_title" product="default">Erase USB Storage</string>
-    <string name="uicc_media_format_title" product="default">Erase UICC Storage</string>
-    <string name="usb_media_format_summary" product="default">Erases all data on the USB storage</string>
-    <string name="uicc_media_format_summary" product="default">Erases all data on the UICC storage</string>
     <string name="sdcard_media_format_desc" product="default">Erase the SD card? You will lose <b>all</b> data on the card!</string>
     <string name="usb_media_format_desc" product="default">Erase the USB storage? You will lose <b>all</b> data on the storage!</string>
     <string name="uicc_media_format_desc" product="default">Erase the UICC storage? You will lose <b>all</b> data on the storage!</string>
@@ -855,8 +837,6 @@
     <string name="sim_enabler_enabling">Activating <xliff:g id="name">%s</xliff:g>\u2026</string>
     <string name="sim_enabler_disabling">Deactivating <xliff:g id="name">%s</xliff:g>\u2026</string>
     <string name="sim_enabler_deactivate">Deactivate</string>
-    <string name="sub_activate_success">SIM activated.</string>
-    <string name="sub_deactivate_success">SIM deactivated.</string>
 
     <string name="primary_sub_select_title">Default 3G/LTE Subscription</string>
 
@@ -1013,13 +993,11 @@
     <string name="expanded_hide_navigation">Hide Navigation Bar</string>
     <string name="expanded_hide_both">Hide Both</string>
     <string name="expanded_nothing_to_show">To add a custom per-app configuration for expanded state, set \'Enabled for all\' to the off position</string>
-    <string name="expanded_desktop_state">Expanded State</string>
     <string name="expanded_enabled_for_all">Enabled For All</string>
     <string name="expanded_desktop_style">Expanded desktop style</string>
 	<string name="expanded_desktop_style_description">Choose a default expanded desktop style</string>
 	<string name="expanded_desktop_title">Expanded desktop options</string>
 
-    <string name="lockscreen_settings_title">Lockscreen</string>
     <string name="lockscreen_targets_message">Slider Shortcuts</string>
     <string name="lockscreen_default_target">Default</string>
     <string name="lockscreen_none_target">None</string>
@@ -1030,9 +1008,6 @@
     <!-- WhisperPush -->
     <string name="whisperpush_title">WhisperPush</string>
     <string name="whisperpush_summary">Manage secure SMS settings</string>
-    <string name="whisperpush_registration_title">Register</string>
-    <string name="whisperpush_registration_summary">Register for WhisperPush to enable encrypted SMS.</string>
-    <string name="whisperpush_identitykey_title">Review identity keys</string>
     
     <!-- Stylus Icon -->
     <string name="stylus_icon_enabled_title">Show icon when using stylus</string>
