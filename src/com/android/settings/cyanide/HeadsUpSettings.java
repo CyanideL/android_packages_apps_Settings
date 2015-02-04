@@ -30,6 +30,8 @@ import android.os.Handler;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceGroup;
+import android.preference.SwitchPreference;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.Gravity;
@@ -63,6 +65,12 @@ public class HeadsUpSettings extends SettingsPreferenceFragment
     private static final int DIALOG_DND_APPS = 0;
     private static final int DIALOG_BLACKLIST_APPS = 1;
 
+    private static final String PREF_HEADS_UP_TIME_OUT = "heads_up_time_out";
+    private static final String PREF_HEADS_UP_DISMISS_ON_REMOVE = "heads_up_dismiss_on_remove";
+
+    private ListPreference mHeadsUpTimeOut;
+    private SwitchPreference mHeadsUpDismissOnRemove;
+
     private PackageListAdapter mPackageAdapter;
     private PackageManager mPackageManager;
     private PreferenceGroup mDndPrefList;
@@ -78,6 +86,8 @@ public class HeadsUpSettings extends SettingsPreferenceFragment
     private BaseSystemSettingSwitchBar mEnabledSwitch;
     private boolean mLastEnabledState;
 
+    private boolean mHeadsUpDismiss;
+
     private ViewGroup mPrefsContainer;
     private View mDisabledText;
 
@@ -88,6 +98,28 @@ public class HeadsUpSettings extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.heads_up_settings);
         mPackageManager = getPackageManager();
         mPackageAdapter = new PackageListAdapter(getActivity());
+
+        Resources systemUiResources;
+        try {
+            systemUiResources = mPackageManager.getResourcesForApplication("com.android.systemui");
+        } catch (Exception e) {
+            return;
+        }
+
+        mHeadsUpDismissOnRemove = (SwitchPreference) findPreference(PREF_HEADS_UP_DISMISS_ON_REMOVE);
+        mHeadsUpDismissOnRemove.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.HEADS_UP_DISMISS_ON_REMOVE, mHeadsUpDismiss ? 1 : 0) == 1);
+        mHeadsUpDismissOnRemove.setOnPreferenceChangeListener(this);
+        updateHeadsUpDismissOnRemoveSummary(mHeadsUpDismiss);
+
+        int defaultTimeOut = systemUiResources.getInteger(systemUiResources.getIdentifier(
+                    "com.android.systemui:integer/heads_up_notification_decay", null, null));
+        mHeadsUpTimeOut = (ListPreference) findPreference(PREF_HEADS_UP_TIME_OUT);
+        mHeadsUpTimeOut.setOnPreferenceChangeListener(this);
+        int headsUpTimeOut = Settings.System.getInt(getContentResolver(),
+                Settings.System.HEADS_UP_NOTIFCATION_DECAY, defaultTimeOut);
+        mHeadsUpTimeOut.setValue(String.valueOf(headsUpTimeOut));
+        updateHeadsUpTimeOutSummary(headsUpTimeOut);
 
         mDndPrefList = (PreferenceGroup) findPreference("dnd_applications_list");
         mDndPrefList.setOrderingAsAdded(false);
@@ -283,6 +315,25 @@ public class HeadsUpSettings extends SettingsPreferenceFragment
     }
 
     @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mHeadsUpDismissOnRemove) {
+            boolean checked = (Boolean) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.HEADS_UP_DISMISS_ON_REMOVE, checked ? 1 : 0);
+            updateHeadsUpDismissOnRemoveSummary(checked);
+            return true;
+        } else if (preference == mHeadsUpTimeOut) {
+            int headsUpTimeOut = Integer.valueOf((String) newValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.HEADS_UP_NOTIFCATION_DECAY,
+                    headsUpTimeOut);
+            updateHeadsUpTimeOutSummary(headsUpTimeOut);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
     public boolean onPreferenceClick(Preference preference) {
         if (preference == mAddDndPref) {
             showDialog(DIALOG_DND_APPS);
@@ -431,5 +482,26 @@ public class HeadsUpSettings extends SettingsPreferenceFragment
 
         builder.show();
         return true;
+    }
+
+    private void updateHeadsUpDismissOnRemoveSummary(boolean checked) {
+        if (checked) {
+            mHeadsUpDismissOnRemove.setSummary(
+                    getResources().getString(R.string.heads_up_dismiss_on_remove_summary_enabled));
+        } else {
+            mHeadsUpDismissOnRemove.setSummary(
+                    getResources().getString(R.string.heads_up_dismiss_on_remove_summary_disabled));
+        }
+    }
+
+    private void updateHeadsUpTimeOutSummary(int value) {
+        String summary = getResources().getString(R.string.heads_up_time_out_summary,
+                value / 1000);
+        if (value == 0) {
+            mHeadsUpTimeOut.setSummary(
+                    getResources().getString(R.string.heads_up_time_out_never_summary));
+        } else {
+            mHeadsUpTimeOut.setSummary(summary);
+        }
     }
 }
