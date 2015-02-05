@@ -2311,7 +2311,6 @@
             </intent-filter>
         </activity>		
 
-<<<<<<< HEAD
         <activity android:name=".cyanogenmod.PerformanceSettings" />
 
         <!-- Cyanide Extra info -->
@@ -2321,21 +2320,6 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-=======
-        <activity android:name=".bliss.gestureanywhere.GestureAnywhereBuilderActivity" />
-        <activity android:name=".bliss.gestureanywhere.GestureAnywhereCreateGestureActivity" />
-        <activity android:name=".bliss.ChangeLog" android:label="@string/changelog_title">
-           <intent-filter>
-               <action android:name="android.intent.action.MAIN"/>
-           </intent-filter>
-        </activity>            
-        
-        <!-- Device Control Activity -->
-        <activity android:name="org.namelessrom.devicecontrol.MainActivity"/>
-
-    	<!-- Bliss Roms OTA Update -->
-		<activity android:name="com.chummy.blissroms.updates.activities.MainActivity" />
->>>>>>> ecaf7d4... Settings: Add HWKeys tile.
 
         <receiver android:name=".widget.SettingsAppWidgetProvider"
                 android:label="@string/gadget_title"
