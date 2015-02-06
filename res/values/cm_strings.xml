@@ -1024,6 +1024,7 @@
 	<string name="qs_tile_navbar">Navigation Bar</string>
 	<string name="qs_tile_hwkeys">Hardware Keys</string>
 	<string name="qs_tile_screenrecord">Screenrecord</string>
+	<string name="qs_tile_heads_up">Heads Up</string>
 
     <string name="qs_main_tiles_title">Enlarge First Row</string>
     <string name="qs_main_tiles_summary_on">Two main tiles on the first row</string>
