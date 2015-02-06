@@ -85,6 +85,12 @@
     </PreferenceCategory>
     
     <PreferenceScreen
+		android:key="lock_screen_color_settings"
+		android:title="@string/lock_clock_color_title"
+		android:summary="@string/lock_screen_color_settings_summary"
+		android:fragment="com.android.settings.cyanide.LockScreenColorSettings" />
+    
+    <PreferenceScreen
 		android:key="lock_screen_weather_settings"
 		android:title="@string/lock_screen_weather_settings_title"
 		android:summary="@string/lock_screen_weather_settings_summary"

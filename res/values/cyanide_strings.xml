@@ -44,6 +44,7 @@
 	<string name="cyanide_dlc_title">Download Center</string>
 	<string name="cyanide_about_title">About CyanideL</string>
     <string name="Recents_panel">Recent Apps Panel</string>
+    <string name="lock_clock_color_title">Lock Clock Colors</string>
 	
 	<!-- Summary Strings -->
     <string name="appcirclebar_settings_summary">Activate and configure circle bar trigger spot and included applications</string>
@@ -536,7 +537,8 @@
     <!-- Weather settings -->
     <string name="lock_screen_weather_settings_title">Weather</string>
     <string name="lock_screen_weather_settings_summary">Customize Weather</string>
-    <string name="weather_show_weather_title">Show weather</string>
+    <string name="lock_screen_color_settings_summary">Customize Colors</string>
+    <string name="weather_show_weather_title">Show Weather</string>
     <string name="weather_show_weather_summary">Enable to show weather informations</string>
     <string name="weather_show_location_title">Show location</string>
     <string name="weather_show_location_summary">Enable to show the location</string>
