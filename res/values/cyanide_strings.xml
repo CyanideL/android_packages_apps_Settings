@@ -44,7 +44,8 @@
 	<string name="cyanide_dlc_title">Download Center</string>
 	<string name="cyanide_about_title">About CyanideL</string>
     <string name="Recents_panel">Recent Apps Panel</string>
-    <string name="lock_clock_color_title">Lock Clock Colors</string>
+    <string name="lock_clock_color_title">Global Lock Screen Colors</string>
+    <string name="weather_settings_title">Weather</string>
 	
 	<!-- Summary Strings -->
     <string name="appcirclebar_settings_summary">Activate and configure circle bar trigger spot and included applications</string>
