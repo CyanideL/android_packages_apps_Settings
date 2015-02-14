@@ -79,5 +79,11 @@
         android:key="wakelock_blocker"
         android:title="@string/wakelock_blocker_title"
         android:fragment="com.android.settings.cyanide.WakeLockBlocker" />
+        
+    <!-- Weather/cLock -->
+    <PreferenceScreen
+        android:key="weather_control"
+        android:title="@string/weather_control_master_title"
+        android:fragment="com.android.settings.cyanide.WeatherControl" />
 
 </PreferenceScreen>
