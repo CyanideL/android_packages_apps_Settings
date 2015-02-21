@@ -1024,6 +1024,7 @@
     <string name="qs_tile_usb_tether">USB Tethering</string>
     <string name="qs_tile_slimpie">Pie Control</string>
 	<string name="qs_tile_gesture_anywhere">Gesture Anywhere</string>
+	<string name="qs_tile_navbar">Navigation Bar</string>
 
     <string name="qs_main_tiles_title">Enlarge First Row</string>
     <string name="qs_main_tiles_summary_on">Two main tiles on the first row</string>
