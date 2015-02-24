@@ -32,6 +32,12 @@
 		android:key="clock_style_pref"
 		android:title="@string/status_bar_clock" />
 
+    <!-- Status bar CyanideL logo -->
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="status_bar_cyanide_logo"
+        android:title="@string/status_bar_cyanide_logo_title"
+        android:summary="@string/status_bar_cyanide_logo_summary" />
+
     <!-- Greeting -->
 	<PreferenceScreen
 		android:key="status_bar_greeting"

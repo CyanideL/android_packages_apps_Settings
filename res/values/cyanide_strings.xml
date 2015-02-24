@@ -664,5 +664,9 @@
 	<string name="status_bar_greeting_dialog">Set your greeting</string>
 	<string name="status_bar_greeting_main">You\'ve been poisoned</string>
 	<string name="status_bar_greeting_timeout_title">Greeting timeout</string>
+	
+	<!-- Statusbar CyanideL logo -->
+	<string name="status_bar_cyanide_logo_title">CyanideL logo</string>
+	<string name="status_bar_cyanide_logo_summary">Enable to show CyanideL logo on the left side of statusbar</string>
 
 </resources>
