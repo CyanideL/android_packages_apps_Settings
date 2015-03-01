@@ -17,7 +17,8 @@
 -->
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/status_bar_title">
+        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+        android:title="@string/status_bar_title">
 
     <!-- Status Bar Battery Options -->
 	<PreferenceScreen
@@ -25,7 +26,13 @@
 		android:title="@string/status_bar_battery_status_settings_title"
 		android:summary="@string/status_bar_battery_status_settings_summary"
 		android:fragment="com.android.settings.cyanide.StatusBarBatteryStatusSettings" />
-    
+
+    <SwitchPreference
+        android:key="status_bar_greeting"
+        android:title="@string/status_bar_greeting_title"
+        android:summary="@string/status_bar_greeting_summary"
+        android:defaultValue="true" />
+
     <PreferenceScreen
 		android:fragment="com.android.settings.cyanide.StatusBarClockStyle"
 		android:key="clock_style_pref"
