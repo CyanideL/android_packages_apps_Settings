@@ -1103,5 +1103,9 @@
     
     <string name="qs_slim_action_title">CyanideActions</string>
 	<string name="qs_slim_action_summary">Add and set the order of CyanideActions for CyanideAction tile</string>
+	
+	<!-- Force expand notifications -->
+    <string name="notification_force_expand_title">Force expanded notification</string>
+    <string name="notification_force_expand_summary">Force expanded notifications on all apps that support it</string>
 
 </resources>
