@@ -185,6 +185,10 @@ public class QSTileHolder {
                 resourceName = "ic_qs_reboot";
                 stringId = R.string.qs_tile_reboot;
                 break;
+            case QSConstants.TILE_AMBIENT_DISPLAY:
+                resourceName = "ic_qs_doze";
+                stringId = R.string.qs_tile_ambient_display;
+                break;
             default:
                 return null;
         }
