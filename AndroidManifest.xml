@@ -2002,6 +2002,33 @@
                 android:resource="@id/display_and_lights_settings" />
         </activity>
 
+        <!-- Buttons options -->
+        <activity android:name="Settings$ButtonSettings"
+                android:uiOptions="splitActionBarWhenNarrow"
+                android:label="@string/button_pref_title"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.ButtonSettings" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/security_settings" />
+        </activity>
+
+        <activity-alias android:name="com.android.settings.ButtonSettings"
+                android:taskAffinity="com.android.settings"
+                android:label="@string/button_pref_title"
+                android:targetActivity="Settings$ButtonSettings"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:exported="true">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                       android:value="com.android.settings.ButtonSettings" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                       android:resource="@id/security_settings" />
+        </activity-alias>
+
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"
                 android:label="@string/crypt_keeper_encrypt_title">
@@ -2284,6 +2311,7 @@
             </intent-filter>
         </activity>		
 
+<<<<<<< HEAD
         <activity android:name=".cyanogenmod.PerformanceSettings" />
 
         <!-- Cyanide Extra info -->
@@ -2293,6 +2321,21 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
+=======
+        <activity android:name=".bliss.gestureanywhere.GestureAnywhereBuilderActivity" />
+        <activity android:name=".bliss.gestureanywhere.GestureAnywhereCreateGestureActivity" />
+        <activity android:name=".bliss.ChangeLog" android:label="@string/changelog_title">
+           <intent-filter>
+               <action android:name="android.intent.action.MAIN"/>
+           </intent-filter>
+        </activity>            
+        
+        <!-- Device Control Activity -->
+        <activity android:name="org.namelessrom.devicecontrol.MainActivity"/>
+
+    	<!-- Bliss Roms OTA Update -->
+		<activity android:name="com.chummy.blissroms.updates.activities.MainActivity" />
+>>>>>>> ecaf7d4... Settings: Add HWKeys tile.
 
         <receiver android:name=".widget.SettingsAppWidgetProvider"
                 android:label="@string/gadget_title"

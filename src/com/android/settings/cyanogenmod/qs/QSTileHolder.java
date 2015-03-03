@@ -209,6 +209,10 @@ public class QSTileHolder {
                 resourceName = "ic_qs_navbar_on";
                 stringId = R.string.qs_tile_navbar;
                 break;
+            case QSConstants.TILE_HWKEYS:
+                resourceName = "ic_qs_buttons_on";
+                stringId = R.string.qs_tile_hwkeys;
+                break;
             default:
                 return null;
         }

@@ -81,6 +81,7 @@ import com.android.settings.blacklist.BlacklistSettings;
 import com.android.settings.cyanide.MainSettings;
 import com.android.settings.cyanide.dlc.CyanideCentral;
 import com.android.settings.cyanide.CyanideNotifs;
+import com.android.settings.ButtonSettings;
 import com.android.settings.bluetooth.BluetoothSettings;
 import com.android.settings.cyanogenmod.qs.QSTiles;
 import com.android.settings.dashboard.DashboardCategory;
@@ -337,7 +338,8 @@ public class SettingsActivity extends Activity
             ExpandedDesktopPreferenceFragment.class.getName(),
             AmbientSettings.class.getName(),
             PieControl.class.getName(),
-            GestureAnywhereSettings.class.getName()
+            GestureAnywhereSettings.class.getName(),
+            ButtonSettings.class.getName()
     };
 
 
