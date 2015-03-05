@@ -1198,5 +1198,9 @@
     
     <!-- Navring targets (enable/disable) -->
     <string name="navigation_ring_enable_title">Enable Navring</string>
+    
+    <!-- Alarms and no interrupt zen mode -->
+    <string name="zen_mode_none_category">No interruptions</string>
+    <string name="zen_mode_alarms">Allow alarms</string>
 
 </resources>
