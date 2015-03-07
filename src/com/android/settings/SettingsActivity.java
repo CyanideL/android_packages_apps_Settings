@@ -84,6 +84,7 @@ import com.android.settings.ButtonSettings;
 import com.android.settings.cyanide.HeadsUpSettings;
 import com.android.settings.bluetooth.BluetoothSettings;
 import com.android.settings.cyanogenmod.qs.QSTiles;
+import com.android.settings.cyanogenmod.DisplayRotation;
 import com.android.settings.dashboard.DashboardCategory;
 import com.android.settings.dashboard.DashboardSummary;
 import com.android.settings.dashboard.DashboardTile;
@@ -344,7 +345,8 @@ public class SettingsActivity extends Activity
             ButtonSettings.class.getName(),
             NavigationSettings.class.getName(),
             HeadsUpSettings.class.getName(),
-            AppCircleBar.class.getName()
+            AppCircleBar.class.getName(),
+            DisplayRotation.class.getName()
     };
 
 
