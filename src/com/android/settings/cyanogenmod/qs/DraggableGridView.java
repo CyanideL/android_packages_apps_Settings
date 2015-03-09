@@ -56,7 +56,6 @@ public class DraggableGridView extends ViewGroup implements
     protected OnClickListener mSecondaryOnClickListener;
     private AdapterView.OnItemClickListener mOnItemClickListener;
     private boolean mUseLargerFirstRow = false;
-    private int mDefaultColor;
 
     /**
      * Use three or four columns.
@@ -100,7 +99,6 @@ public class DraggableGridView extends ViewGroup implements
 
         setListeners();
         setChildrenDrawingOrderEnabled(true);
-        mDefaultColor = mContext.getResources().getColor(R.color.qs_tile_default_background_color);
     }
 
     public void setUseLargeFirstRow(boolean largeFirstRow) {
@@ -134,14 +132,14 @@ public class DraggableGridView extends ViewGroup implements
     public void addView(View child, int index) {
         super.addView(child, index);
         mNewPositions.add(-1);
-        child.setBackgroundColor(0xff000000);
+        child.setBackgroundColor(0x00000000);
     }
 
     @Override
     public void addView(View child) {
         super.addView(child);
         mNewPositions.add(-1);
-        child.setBackgroundColor(0xff000000);
+        child.setBackgroundColor(0x00000000);
     };
 
     @Override
@@ -381,7 +379,12 @@ public class DraggableGridView extends ViewGroup implements
                     mIsDelete = mOnRearrangeListener != null
                             && mOnRearrangeListener.isDeleteTarget(getIndexFromCoordinate(x, y));
 
-                    draggedView.setColor(mIsDelete ? Color.RED : mDefaultColor);
+                    //Set the background color of the draggedView to a solid white
+                    //if the state is delete, so the color filter turns the background color
+                    //to a light transparent red, set the default background color (black) again,
+                    //if the state isn`t delete any more
+                    draggedView.setBackgroundColor(mIsDelete ? 0xffffffff : 0xff000000);
+                    draggedView.setColor(mIsDelete ? Color.RED : Color.TRANSPARENT);
 
                     // check for new target hover
                     int target = getTargetFromCoordinate(x, y);

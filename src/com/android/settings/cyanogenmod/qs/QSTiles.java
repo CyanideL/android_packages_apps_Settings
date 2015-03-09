@@ -56,6 +56,7 @@ public class QSTiles extends Fragment implements
             Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.settings_qs_tiles, container, false);
         mDraggableGridView = (DraggableGridView) v.findViewById(R.id.qs_gridview);
+        mDraggableGridView.setBackgroundColor(getBackgroundColor());
         return v;
     }
 
@@ -216,18 +217,16 @@ public class QSTiles extends Fragment implements
         if (item == null) {
             return null;
         }
-        ColoringCardView qsTile = (ColoringCardView) getLayoutInflater(null)
-                .inflate(R.layout.qs_item, null);
-        int defaultColor = getResources().getColor(R.color.qs_tile_default_background_color);
-        qsTile.setColor(defaultColor);
+        View qsTile = getLayoutInflater(null).inflate(R.layout.qs_item, null);
+
         if (item.name != null) {
             ImageView icon = (ImageView) qsTile.findViewById(android.R.id.icon);
             Drawable d = Utils.getNamedDrawable(mSystemUiContext, item.resourceName);
-            d.setColorFilter(getResources().getColor(R.color.qs_tile_tint_color),
-                    PorterDuff.Mode.SRC_ATOP);
+            d.setColorFilter(getIconColor(), PorterDuff.Mode.SRC_ATOP);
             icon.setImageDrawable(d);
             TextView title = (TextView) qsTile.findViewById(android.R.id.title);
             title.setText(item.name);
+            title.setTextColor(getTextColor());
         }
         qsTile.setTag(tileType);
 
@@ -241,5 +240,24 @@ public class QSTiles extends Fragment implements
             order = QSUtils.getDefaultTilesAsString(context);
         }
         return order.split(",").length;
+    }
+
+    private int getBackgroundColor() {
+        int bgColor = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.QS_BACKGROUND_COLOR, 0xff263238);
+        return bgColor;
+    }
+
+    private int getIconColor() {
+        int iconColor = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.QS_ICON_COLOR, 0xffffffff);
+        return iconColor;
+    }
+
+
+    private int getTextColor() {
+        int textColor = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.QS_TEXT_COLOR, 0xffffffff);
+        return textColor;
     }
 }

@@ -16,6 +16,8 @@
 package com.android.settings.cyanogenmod.qs;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
@@ -58,7 +60,7 @@ public class QSListAdapter extends ArrayAdapter<QSTileHolder> {
         holder.entry.setText(item.name);
         if (item.resourceName != null) {
             Drawable d = Utils.getNamedDrawable(mSystemUiContext, item.resourceName);
-            d.setColorFilter(getContext().getResources().getColor(R.color.qs_tile_tint_color),
+            d.setColorFilter(getContext().getResources().getColor(R.color.qs_dialog_add_tile_icon_color),
                     PorterDuff.Mode.SRC_ATOP);
             holder.icon.setImageDrawable(d);
             holder.icon.setVisibility(View.VISIBLE);
