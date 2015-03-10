@@ -132,6 +132,8 @@ import com.android.settings.wifi.p2p.WifiP2pSettings;
 import com.android.settings.cyanogenmod.qs.QSTiles;
 import com.android.settings.cyanide.PieControl;
 import com.android.settings.cyanide.gestureanywhere.GestureAnywhereSettings;
+import com.android.settings.cyanide.NavigationSettings;
+import com.android.settings.cyanide.AppCircleBar;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -339,7 +341,9 @@ public class SettingsActivity extends Activity
             AmbientSettings.class.getName(),
             PieControl.class.getName(),
             GestureAnywhereSettings.class.getName(),
-            ButtonSettings.class.getName()
+            ButtonSettings.class.getName(),
+            NavigationSettings.class.getName(),
+            AppCircleBar.class.getName()
     };
 
 

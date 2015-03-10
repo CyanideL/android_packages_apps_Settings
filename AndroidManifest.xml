@@ -2016,6 +2016,34 @@
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
                 android:resource="@id/security_settings" />
         </activity>
+        
+        <!-- Navbar settings activity. -->
+        <activity android:name="Settings$NavigationSettingsSettingsActivity"
+                android:label="@string/navigation_bar_category"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.cyanide.NavigationSettings" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/display_and_lights_settings" />
+        </activity>
+        
+        <!-- AppCircleBar settings activity. -->
+        <activity android:name="Settings$AppCircleBarSettingsActivity"
+                android:label="@string/app_circle_bar_title"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.cyanide.AppCircleBar" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/display_and_lights_settings" />
+        </activity>
 
         <activity-alias android:name="com.android.settings.ButtonSettings"
                 android:taskAffinity="com.android.settings"
