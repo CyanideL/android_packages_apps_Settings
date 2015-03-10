@@ -193,6 +193,14 @@ public class QSTileHolder {
                 resourceName = "ic_qs_usb_tether_on";
                 stringId = R.string.qs_tile_usb_tether;
                 break;
+            case QSConstants.TILE_SLIMPIE:
+                resourceName = "ic_qs_pie_on";
+                stringId = R.string.qs_tile_slimpie;
+                break;
+            case QSConstants.TILE_GESTURE_ANYWHERE:
+                resourceName = "ic_qs_gestures_on";
+                stringId = R.string.qs_tile_gesture_anywhere;
+                break;
             default:
                 return null;
         }

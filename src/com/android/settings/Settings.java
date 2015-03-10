@@ -112,5 +112,7 @@ public class Settings extends SettingsActivity {
     public static class ExpandedDesktopSettingsActivity extends SettingsActivity { /* empty */ }
     public static class AmbientDisplaySettingsActivity extends SettingsActivity { /* empty */ }
     public static class CyanideNotifsActivity extends SettingsActivity { /* empty */ }
+    public static class PieControlSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class GestureAnywhereSettingsSettingsActivity extends SettingsActivity { /* empty */ }
 }
 

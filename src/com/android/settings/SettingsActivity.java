@@ -128,6 +128,9 @@ import com.android.settings.wifi.AdvancedWifiSettings;
 import com.android.settings.wifi.SavedAccessPointsWifiSettings;
 import com.android.settings.wifi.WifiSettings;
 import com.android.settings.wifi.p2p.WifiP2pSettings;
+import com.android.settings.cyanogenmod.qs.QSTiles;
+import com.android.settings.cyanide.PieControl;
+import com.android.settings.cyanide.gestureanywhere.GestureAnywhereSettings;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -332,7 +335,9 @@ public class SettingsActivity extends Activity
             CyanideNotifs.class.getName(),
             QSTiles.class.getName(),
             ExpandedDesktopPreferenceFragment.class.getName(),
-            AmbientSettings.class.getName()
+            AmbientSettings.class.getName(),
+            PieControl.class.getName(),
+            GestureAnywhereSettings.class.getName()
     };
 
 
