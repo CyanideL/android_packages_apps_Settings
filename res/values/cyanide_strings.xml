@@ -19,11 +19,32 @@
 	<!-- General strings -->
     <string name="ok">OK</string>
     <string name="reset">Reset</string>
+    <string name="reset_android">Android</string>
+    <string name="reset_cyanide">Cyanide</string>
+    <string name="options_title">Options</string>
     <string name="help">Help</string>
     <string name="attention">Attention</string>
     <string name="enabled">Enabled</string>
     <string name="default_string">Default</string>
+    <string name="color_title">Color</string>
+    <string name="colors_title">Colors</string>
+    <string name="background_title">Background</string>
+    <string name="icon_title">Icon</string>
+    <string name="icons_title">Icons</string>
+	<string name="text_title">Text</string>
+	<string name="category_colors_title">Customize Colors</string>
+	<string name="battery_style_reset_message">Reset battery bar color?</string>
     <string name="reset_message">Reset all entries to default?</string>
+    
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Color Picker</string>
+    <string name="press_color_to_apply">Press on color below to apply</string>
+    <string name="arrow_right" translatable="false">→</string>
+    <string name="arrow_down" translatable="false">↓</string>
+    <string name="hex">Hex:</string>
+    <string name="hex_hint">#ff000000</string>
+    <string name="set">Set</string>
+    <string name="color_default">Default</string>
 	
 	<!-- CyanideL Settings. -->
 	<string name="cyanide_settings_title">CyanideMods</string>
