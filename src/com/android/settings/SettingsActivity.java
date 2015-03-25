@@ -1268,6 +1268,7 @@ public class SettingsActivity extends Activity
                     if (!supported) {
                         removeTile = true;
                     }
+				}
 
                 if (UserHandle.MU_ENABLED && UserHandle.myUserId() != 0
                         && !ArrayUtils.contains(SETTINGS_FOR_RESTRICTED, id)) {

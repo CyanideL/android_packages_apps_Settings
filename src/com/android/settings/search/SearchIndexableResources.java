@@ -147,7 +147,7 @@ public final class SearchIndexableResources {
 						Ranking.getRankForClassName(MainSettings.class.getName()),
 						NO_DATA_RES_ID,
 						MainSettings.class.getName(),
-                        R.drawable.ic_cyanide_interface));
+                        R.drawable.ic_settings_cyanide));
         
         sResMap.put(SoundSettings.class.getName(),
                 new SearchIndexableResource(
