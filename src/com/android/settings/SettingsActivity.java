@@ -1256,6 +1256,8 @@ public class SettingsActivity extends Activity
                             getResources().getBoolean(R.bool.config_hidePerformanceSettings);
                     if (forceHide ||
                             !(pm.hasPowerProfiles() || (showDev && !Build.TYPE.equals("user")))) {
+						removeTile = true;
+                    }
                 } else if (id == R.id.supersu_settings) {
                     // Embedding into Settings is supported from SuperSU v1.85 and up
                     boolean supported = false;
@@ -1266,13 +1268,6 @@ public class SettingsActivity extends Activity
                     if (!supported) {
                         removeTile = true;
                     }
-                } else if (id == R.id.button_settings) {
-                    boolean hasDeviceKeys = getResources().getInteger(
-                            com.android.internal.R.integer.config_deviceHardwareKeys) != 0;
-                    if (!hasDeviceKeys) {
-                        removeTile = true;
-                    }
-                }
 
                 if (UserHandle.MU_ENABLED && UserHandle.myUserId() != 0
                         && !ArrayUtils.contains(SETTINGS_FOR_RESTRICTED, id)) {
