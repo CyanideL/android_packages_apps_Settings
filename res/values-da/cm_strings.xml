@@ -153,7 +153,6 @@
   <string name="sunlight_enhancement_summary">Øger skærmens lysstyrke og læsbarhed under direkte sollys</string>
   <string name="color_enhancement_title">Farveforbedring</string>
   <string name="color_enhancement_summary">Forbedrer dynamisk farven på skærmen</string>
-  <string name="app_security_title">App-sikkerhed</string>
   <string name="blacklist_title">Sortliste</string>
   <string name="blacklist_edit_dialog_title">Redigér sortlistet nummer</string>
   <string name="blacklist_prefs">Indstillinger</string>
@@ -627,6 +626,8 @@
   <string name="menu_hidden_apps_reset_lock">Nulstil mønster lås</string>
   <string name="protected_apps">Beskyttede apps</string>
   <string name="saving_protected_components">Gemmer komponenttilstand\u2026</string>
+  <string name="stats_collection_title">Indsamling af statistik</string>
+  <string name="stats_collection_summary">Når aktiveret, tillades indsamling af målinger</string>
   <string name="power_notifications_category_title">Strømlyde</string>
   <string name="power_notifications_enable_title">Slå til</string>
   <string name="power_notifications_enable_summary">Afspiller en lyd, når du tilslutter eller frakobler en strømkilde</string>
