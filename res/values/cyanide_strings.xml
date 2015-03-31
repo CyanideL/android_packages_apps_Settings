@@ -40,6 +40,30 @@
 	<string name="cyanide_settings_title">CyanideMods</string>
 	<string name="interface_settings_title">Interface</string>
     <string name="cyanide_animations_title">Animations</string>
+    <string name="cyanide_central_title">Cyanide Central</string>
+	<string name="cyanide_dlc_title">Download Center</string>
+	<string name="cyanide_about_title">About CyanideL</string>
+	
+	<!-- Summary Strings -->
+    <string name="appcirclebar_settings_summary">Activate and configure circle bar trigger spot and included applications</string>
+    <string name="gestureanywhere_settings_summary">Activate and configure custom screen gestures</string>
+    <string name="lcddensity_settings_summary">Set a custom screen DPI</string>
+    <string name="battery_settings_summary">Customize the status bar battery icon and percent style</string>
+    <string name="clock_settings_summary">Customize the status bar clock style and color</string>
+    <string name="header_settings_summary">Customize text and icon color in the pulldown header</string>
+    <string name="trafficmeter_settings_summary">Activate and customize network traffic meter and color</string>
+    <string name="navbar_settings_summary">Customize navbar and select custom shortcuts and actions</string>
+    <string name="omniswitch_settings_summary">Option to use OmniSwitch as you default recents app</string>
+    <string name="batterybar_settings_summary">Customize battery bar color and thickness</string>
+    <string name="status_bar_battery_status_settings_summary">Customize the status bar battery style</string>
+    <string name="expanded_desktop_summary">Some shit I\'ve never used</string>
+    <string name="cyanide_about_summary">Click here for all the CyanideL information you may need</string>
+    <string name="cyanide_dlc_summary">Click here for the latest CyanideL downloads</string>
+    <string name="piecontrol_settings_summary">Customize pie trigger point, buttons and color</string>
+    <string name="lockscreen_sliders_summary">Customize or disable the bottom corner slide shortcuts</string>
+    <string name="lock_clock_weather_general_summary">General cLock weather settings</string>
+    <string name="changelog_summary">View the latest changes to CyanideL source code</string>
+    <string name="visualizer_summary">Display the visualizer on the lock screen</string>
 	
 	<!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
@@ -320,5 +344,45 @@
 	<string name="clock_font_normal">Normal</string>
 	<string name="clock_use_second">Use second clock</string>
 	<string name="clock_use_second_summary">Show second in clock</string>
+	
+	<!-- Cyanide Download Center -->
+    <string name="download_category">Download Central</string>
+    <string name="download_category_summary">Find all of your CyanideL support needs inside</string>
+    <string name="rom_category">Rom Download</string>
+    <string name="extra_category">Extra</string>
+    <string name="gapps_category">GAPPS Packages</string>
+    <string name="cyanide_official_title">CyanideL Official Builds</string>
+    <string name="cyanide_official_summary">Download the latest Stable release of CyanideL</string>
+    <string name="shift_kernel_title">Shift Kernel</string>
+    <string name="shift_kernel_summary">Download Shift Kernel, not all devices supported</string>
+    <string name="pa_gapps_title">PA Gapps</string>
+    <string name="pa_gapps_summary">Fully packed with the majority of GAPPS, these are commonly used by users that do not want to download/install them later</string>
+    
+    <!-- Cyanide About Section -->
+    <string name="about_category">About CyanideL</string>
+    <string name="donate_category">Donations</string>
+    <string name="cyanide_source_title">CyanideL Rom Source</string>
+    <string name="cyanide_source_summary">Click here to view the latest CyanideL source code</string>
+    <string name="cyanide_google_title">CyanideL Official Google+</string>
+    <string name="cyanide_google_summary">See the latest news regarding CyanideL WIP</string>
+    <string name="rogersb11_donate_title">Rogersb11</string>
+    <string name="rogersb11_donate_summary">Click here IF you would like to donate to Rogersb11</string>
+    <string name="geeky_donate_title">TheGeekyNimrod</string>
+    <string name="geeky_donate_summary">Click here IF you would like to donate to TheGeekyNimrod</string>
+    
+    <!-- Changelog -->
+    <string name="changelog_crdroid_title">Changelog</string>
+    <string name="changelog_crdroid_error">Unable to load changelog</string>
+    
+    <!-- DLC Devices -->
+    <string name="cyanide_s2_title">Samsung Galaxy S2 i777</string>
+    <string name="cyanide_s3_title">Samsung Galaxy S3</string>
+    <string name="cyanide_n2_title">Samsung Galaxy Note 2 LTE</string>
+    <string name="cyanide_m8_title">HTC One M8</string>
+    <string name="cyanide_bacon_title">One Plus Bacon</string>
+    <string name="cyanide_nexus_title">Nexus 5</string>
+    <string name="cyanide_s5_title">Samsung Galaxy S5 GSM</string>
+    <string name="cyanide_d850_title">LG G3 ATT d850</string>
+    <string name="cyanide_d855_title">LG G3 Int\'l d855</string>
 
 </resources>
