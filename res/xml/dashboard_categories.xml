@@ -124,14 +124,6 @@
 				android:icon="@drawable/ic_settings_cyanide"
 				/>
         
-        <!-- Cyanide Central -->
-		<dashboard-tile
-				android:id="@+id/cyanide_dlc_settings"
-				android:title="@string/cyanide_central_title"
-				android:fragment="com.android.settings.cyanide.dlc.CyanideCentral"
-				android:icon="@drawable/ic_settings_cyanide_central"
-				/>
-        
         <!-- Sound -->
         <dashboard-tile
                 android:id="@+id/sound_settings"
