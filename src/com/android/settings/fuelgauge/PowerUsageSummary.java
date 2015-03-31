@@ -459,9 +459,6 @@ public class PowerUsageSummary extends SettingsPreferenceFragment
                     if (percentOfTotal < 10) {
                         continue;
                     }
-                    if ("user".equals(Build.TYPE) || "userdebug".equals(Build.TYPE)) {
-                        continue;
-                    }
                     if (!showUnacAndOvercounted) {
                         continue;
                     }
@@ -473,9 +470,6 @@ public class PowerUsageSummary extends SettingsPreferenceFragment
                         continue;
                     }
                     if (percentOfTotal < 5) {
-                        continue;
-                    }
-                    if ("user".equals(Build.TYPE) || "userdebug".equals(Build.TYPE)) {
                         continue;
                     }
                     if (!showUnacAndOvercounted) {

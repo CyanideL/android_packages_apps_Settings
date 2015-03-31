@@ -41,6 +41,7 @@
 	<string name="interface_settings_title">Interface</string>
     <string name="cyanide_animations_title">Animations</string>
     <string name="cyanide_dlc_title">Download Central</string>
+    <string name="cyanide_central_title">Cyanide Central</string>
     
     <!-- DLC Devices -->
     <string name="cyanide_s2_title">Samsung Galaxy S2 i777</string>
