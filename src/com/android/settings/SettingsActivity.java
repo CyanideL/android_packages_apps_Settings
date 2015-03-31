@@ -78,6 +78,7 @@ import com.android.settings.applications.ManageApplications;
 import com.android.settings.applications.ProcessStatsUi;
 import com.android.settings.blacklist.BlacklistSettings;
 import com.android.settings.cyanide.MainSettings;
+import com.android.settings.cyanide.dlc.DownloadCentral;
 import com.android.settings.bluetooth.BluetoothSettings;
 import com.android.settings.dashboard.DashboardCategory;
 import com.android.settings.dashboard.DashboardSummary;
@@ -324,7 +325,8 @@ public class SettingsActivity extends Activity
             NotificationManagerSettings.class.getName(),
             LockScreenSettings.class.getName(),
             LiveDisplay.class.getName(),
-            MainSettings.class.getName()
+            MainSettings.class.getName(),
+            DownloadCentral.class.getName()
     };
 
 

@@ -2265,6 +2265,20 @@
 
         <activity
              android:name=".cyanide.MainSettings" />
+             
+        <activity android:name="Settings$MainSettingsActivity"
+			android:label="@string/cyanide_dlc_title"
+			android:taskAffinity="">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+			<meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+				android:value="com.android.settings.cyanide.dlc.DownloadCentral" />
+			</activity>
+
+			<activity
+				android:name=".cyanide.dlc.DownloadCentral" />
         
         <provider
             android:name=".search.SettingsSearchIndexablesProvider"
