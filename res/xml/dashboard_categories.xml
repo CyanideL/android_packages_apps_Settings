@@ -152,14 +152,6 @@
             </intent>
         </dashboard-tile>
 
-        <!-- Notification manager -->
-        <dashboard-tile
-                android:id="@+id/notification_manager"
-                android:title="@string/notification_manager"
-                android:fragment="com.android.settings.notification.NotificationManagerSettings"
-                android:icon="@drawable/ic_settings_notifications"
-                />
-
         <!-- Buttons -->
         <dashboard-tile
                 android:id="@+id/button_settings"
