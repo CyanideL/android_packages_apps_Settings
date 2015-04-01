@@ -394,11 +394,11 @@ public class ButtonBacklightBrightness extends DialogPreference implements
             } else if (mSeekBar != null && !persisted) {
                 return mSeekBar.getProgress();
             }
-            return Settings.Secure.getInt(mResolver, mSetting, mDefaultBrightness);
+            return Settings.System.getInt(mResolver, mSetting, mDefaultBrightness);
         }
 
         public void applyBrightness() {
-            Settings.Secure.putInt(mResolver, mSetting, getBrightness(false));
+            Settings.System.putInt(mResolver, mSetting, getBrightness(false));
         }
 
         /* Behaviors when it's a seekbar */
