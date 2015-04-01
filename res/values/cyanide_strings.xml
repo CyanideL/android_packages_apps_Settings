@@ -48,6 +48,8 @@
     <string name="weather_control_title">General cLock Weather</string>
 	<string name="weather_control_master_title">Weather Control</string>
 	<string name="qs_colors_title">Custom Color Options</string>
+	<string name="general_title">General Options</string>
+	<string name="header_weather_title">Status Bar Weather</string>
 	
 	<!-- Summary Strings -->
     <string name="appcirclebar_settings_summary">Activate and configure circle bar trigger spot and included applications</string>
@@ -594,5 +596,38 @@
     <string name="ime_exit_animation_title">Exit animation</string>
     <string name="ime_interpolator_title">Interpolator</string>
     <string name="ime_duration_title">IME duration</string>
+    
+    <!-- Status bar notifications and system icons -->
+    <string name="status_bar_notif_system_icons_settings_title">Notifications &amp; System Icons</string>
+    <string name="status_bar_notif_system_icons_settings_summary">Customize the notifications &amp; system icons</string>
+    <string name="notif_system_icons_colorize_notif_icons_title">Colorize Notification Icons</string>
+    <string name="notif_system_icons_colorize_notif_icons_title_phone">Colorize Notif. Icons</string> 
+    <string name="notif_system_icons_colorize_notif_icons_summary">Enable to colorize the notification icons color</string>
+    <string name="notif_system_icons_show_ticker_title">Notification Ticker</string>
+    <string name="notif_system_icons_show_ticker_summary">Notification text animation in the statusbar</string>
+    <string name="notif_system_icons_show_count_title">Show Notification Count</string>
+    <string name="notif_system_icons_show_count_summary">Display the number of pending notifications</string>
+    <string name="notif_system_icons_icon_color_title">Icons</string>
+    <string name="notif_system_icons_notif_text_color_title">Ticker Text</string>
+    <string name="notif_system_icons_count_icon_color_title">Notification Count Icon</string>
+    <string name="notif_system_icons_count_text_color_title">Notification Count Text</string>
+    
+    <!-- Status bar signals icon settings  -->
+    <string name="status_bar_signal_settings_title">Mobile &amp; Wifi Network Icons</string>
+    <string name="status_bar_signal_settings_summary">Customize the status bar Mobile and Wifi network icons</string>
+    <string name="signal_wifi_show_activity_title">Show Network Activity</string>
+    <string name="signal_wifi_show_activity_summary">Enable to show the network activity</string>
+    <string name="cat_network_icons_title">Network Icons</string>
+    <string name="cat_network_activity_icons_title">Activity Icons</string>
+    <string name="cat_airplane_mode_icon_title">Airplane Mode Icon</string>
+    <string name="color_normal_title">Normal</string>
+    <string name="color_fully_title">Fully Connected</string>
+    
+    <!-- Status bar Header -->
+    <string name="status_bar_expanded_header_settings_title">Status Bar Header</string>
+    <string name="expanded_header_show_weather_title">Show Weather</string>
+    <string name="expanded_header_show_weather_summary">Enable to show the weather</string>
+    <string name="expanded_header_show_weather_location_title">Show Location</string>
+    <string name="expanded_header_show_weather_location_summary">Enable to show the location</string>
 
 </resources>
