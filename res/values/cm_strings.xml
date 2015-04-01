@@ -1062,10 +1062,7 @@
     <string name="whisperpush_registration_title">Register</string>
     <string name="whisperpush_registration_summary">Register for WhisperPush to enable encrypted SMS.</string>
     <string name="whisperpush_identitykey_title">Review identity keys</string>
-
-    <string name="navigation_ring_title">Navigation ring targets</string>
-    <string name="navigation_ring_message">Tap the edit icon to open the navigation ring for editing.\n\nSelect a target to configure its behavior.\n\nTap the check mark icon to save your changes, or restore to reset the settings to defaults.</string>
-
+    
     <!-- Stylus Icon -->
     <string name="stylus_icon_enabled_title">Show icon when using stylus</string>
     <string name="stylus_icon_enabled_summary">Show the pointer icon when hovering or drawing with the stylus</string>
@@ -1139,4 +1136,5 @@
     <string name="battery_saver_threshold">Battery saver threshold</string>
     <string name="battery_saver_summary">Reduce performance and limit background data</string>
     <string name="battery_saver_summary_unavailable">Not available while charging</string>
+
 </resources>
