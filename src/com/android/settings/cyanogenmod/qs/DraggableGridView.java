@@ -23,11 +23,14 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Handler;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.android.settings.R;
 
@@ -116,12 +119,14 @@ public class DraggableGridView extends ViewGroup implements
     public void addView(View child, int index) {
         super.addView(child, index);
         mNewPositions.add(-1);
+        child.setBackgroundColor(0xff000000);
     }
 
     @Override
     public void addView(View child) {
         super.addView(child);
         mNewPositions.add(-1);
+        child.setBackgroundColor(0xff000000);
     };
 
     @Override

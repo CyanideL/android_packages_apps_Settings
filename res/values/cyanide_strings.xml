@@ -47,6 +47,7 @@
     <string name="lock_clock_color_title">Global Lock Screen Colors</string>
     <string name="weather_control_title">General cLock Weather</string>
 	<string name="weather_control_master_title">Weather Control</string>
+	<string name="qs_colors_title">Custom Color Options</string>
 	
 	<!-- Summary Strings -->
     <string name="appcirclebar_settings_summary">Activate and configure circle bar trigger spot and included applications</string>
