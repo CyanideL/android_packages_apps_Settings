@@ -17,8 +17,4 @@
 <resources>
     <dimen name="phone_height">210dp</dimen>
     <dimen name="phone_width">420dp</dimen>
-
-    <!-- Minimum prediction score required to pass a gesture as recognized -->
-    <integer name="min_gesture_prediction_score">2</integer>
-
 </resources>
