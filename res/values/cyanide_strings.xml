@@ -51,6 +51,7 @@
 	<string name="general_title">General Options</string>
 	<string name="header_weather_title">Status Bar Weather</string>
 	<string name="status_bar_battery_style">Battery Options</string>
+	<string name="status_bar_logo_title">CyanideL Logo</string>
 	
 	<!-- Summary Strings -->
     <string name="appcirclebar_settings_summary">Activate and configure circle bar trigger spot and included applications</string>
@@ -666,7 +667,8 @@
 	<string name="status_bar_greeting_timeout_title">Greeting timeout</string>
 	
 	<!-- Statusbar CyanideL logo -->
-	<string name="status_bar_cyanide_logo_title">CyanideL logo</string>
+	<string name="status_bar_cyanide_logo_title">CyanideL Logo</string>
 	<string name="status_bar_cyanide_logo_summary">Enable to show CyanideL logo on the left side of statusbar</string>
+	<string name="status_bar_cyanide_logo_color">CyanideL Logo Color</string>
 
 </resources>

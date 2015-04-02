@@ -25,12 +25,6 @@
 		android:title="@string/cyanide_animations_title"
 		android:fragment="com.android.settings.cyanide.Animations"/> 
     
-    <!-- Gesture anywhere -->
-    <PreferenceScreen
-        android:key="gesture_anywhere"
-        android:fragment="com.android.settings.cyanide.gestureanywhere.GestureAnywhereSettings"
-        android:title="@string/gesture_anywhere_title" />
-    
     <!-- Interface -->
     <PreferenceScreen
         android:id="@+id/interface_settings"
