@@ -395,6 +395,7 @@
     <string name="cyanide_s5_title">Samsung Galaxy S5 GSM</string>
     <string name="cyanide_d850_title">LG G3 ATT d850</string>
     <string name="cyanide_d855_title">LG G3 Int\'l d855</string>
+    <string name="cyanide_vs985_title">LG G3 Vzw vs985</string>
     
     <!-- Animation Controls -->
     <string name="title_animation_controls">System Animations</string>

@@ -66,17 +66,17 @@ public class N2 extends SettingsPreferenceFragment
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mCyanideOfficial) {
-            Uri uri = Uri.parse("https://www.androidfilehost.com/?w=files&flid=22839");
+            Uri uri = Uri.parse("https://www.androidfilehost.com/?w=files&flid=28648");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
             return true;
         } else if (preference == mPAGapps) {
-            Uri uri = Uri.parse("https://s.basketbuild.com/devs/TKruzze/Android%205.0.1%20GApps");
+            Uri uri = Uri.parse("http://104.236.22.120/index.php?device=gapps/lollipop");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
             return true;
         } else if (preference == mShiftKernel) {
-            Uri uri = Uri.parse("https://www.androidfilehost.com/?w=files&flid=22335");
+            Uri uri = Uri.parse("https://www.androidfilehost.com/?fid=95916177934550120");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
             return true;

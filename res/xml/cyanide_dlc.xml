@@ -34,6 +34,12 @@
     <!-- LG G3 d855 -->
     <PreferenceScreen
         android:id="@+id/cyanide_dlc"
+        android:title="@string/cyanide_vs985_title"
+        android:fragment="com.android.settings.cyanide.dlc.vs985" />
+    
+    <!-- LG G3 vs985 -->
+    <PreferenceScreen
+        android:id="@+id/cyanide_dlc"
         android:title="@string/cyanide_d855_title"
         android:fragment="com.android.settings.cyanide.dlc.d855" />
     
