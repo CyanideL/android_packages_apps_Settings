@@ -449,8 +449,8 @@
     <string name="cyanide_official_summary">Download the latest Stable release of CyanideL</string>
     <string name="shift_kernel_title">Shift Kernel</string>
     <string name="shift_kernel_summary">Download Shift Kernel, not all devices supported</string>
-    <string name="pa_gapps_title">PA Gapps</string>
-    <string name="pa_gapps_summary">Fully packed with the majority of GAPPS, these are commonly used by users that do not want to download/install them later</string>
+    <string name="slim_gapps_title">Slim Gapps</string>
+    <string name="slim_gapps_summary">Fully packed with the majority of GAPPS, these are commonly used by users that do not want to download/install them later</string>
     
     <!-- Cyanide About Section -->
     <string name="about_category">About CyanideL</string>
