@@ -135,6 +135,7 @@ public class ShortcutPickHelper {
 
             Intent pickIntent = new Intent(Intent.ACTION_PICK_ACTIVITY);
             pickIntent.putExtra(Intent.EXTRA_INTENT, mainIntent);
+            pickIntent.putExtra(Intent.EXTRA_TITLE, mParent.getText(R.string.select_custom_app_title));
             startFragmentOrActivity(pickIntent, requestCodeApplication);
         } else if (application2name != null && application2name.equals(shortcutName)){
             final List<PackageInfo> pInfos = mPackageManager.getInstalledPackages(PackageManager.GET_ACTIVITIES);

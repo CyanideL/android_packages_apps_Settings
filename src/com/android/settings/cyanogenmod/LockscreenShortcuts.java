@@ -8,7 +8,9 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.graphics.PorterDuff.Mode;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -17,6 +19,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.android.internal.util.cm.LockscreenShortcutsHelper;
 import com.android.settings.R;
+
+import com.android.settings.cyanogenmod.GlowBackground;
+import com.android.settings.cyanogenmod.ShortcutPickHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -110,7 +115,14 @@ public class LockscreenShortcuts extends Fragment implements View.OnClickListene
         Drawable d = mShortcutHelper.getDrawableFromSystemUI("ic_lock_24dp");
         if (d != null) {
             unlock.setImageDrawable(d);
+            unlock.setColorFilter(getIconColor(), Mode.SRC_ATOP);
         }
+    }
+
+    private int getIconColor() {
+        int color = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.LOCK_SCREEN_ICON_COLOR, 0xffffffff);
+        return color;
     }
 
     private void initiateViews(View view) {
@@ -119,7 +131,7 @@ public class LockscreenShortcuts extends Fragment implements View.OnClickListene
             View v = view.findViewById(id);
             v.setOnClickListener(this);
             v.setOnTouchListener(this);
-            GlowBackground background = new GlowBackground(Color.WHITE);
+            GlowBackground background = new GlowBackground(getIconColor());
             background.setBounds(0, 0, size, size);
             v.setBackground(background);
         }
@@ -131,7 +143,6 @@ public class LockscreenShortcuts extends Fragment implements View.OnClickListene
             LockscreenShortcutsHelper.TargetInfo item = items.get(i);
             int id = sIconIds[i];
             ImageView v = (ImageView) getView().findViewById(id);
-            v.setColorFilter(item.colorFilter);
             if (LockscreenShortcutsHelper.NONE.equals(item.uri)) {
                 v.setImageResource(R.drawable.ic_lockscreen_shortcuts_blank);
             } else {
@@ -140,9 +151,9 @@ public class LockscreenShortcuts extends Fragment implements View.OnClickListene
             v.setTag(item.uri);
             if (LockscreenShortcutsHelper.DEFAULT.equals(item.uri) ||
                     LockscreenShortcutsHelper.NONE.equals(item.uri)) {
-                v.setImageTintList(mDefaultTintList);
+                v.setColorFilter(getIconColor(), Mode.SRC_ATOP);
             } else {
-                v.setImageTintList(null);
+                v.setColorFilter(null);
             }
         }
     }

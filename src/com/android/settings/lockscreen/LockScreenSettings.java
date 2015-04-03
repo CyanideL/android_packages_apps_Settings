@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
 import android.content.res.Resources;
+import android.content.ContentResolver;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.os.UserManager;
@@ -56,6 +57,7 @@ import static android.provider.Settings.System.SCREEN_OFF_TIMEOUT;
 public class LockScreenSettings extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
 
+    private static final String PREF_COLORIZE_CUSTOM_ICONS = "shortcuts_colorize_custom_icons";
     private static final String KEY_SECURITY_CATEGORY = "security_category";
     private static final String KEY_OWNER_INFO_SETTINGS = "owner_info_settings";
 
@@ -91,6 +93,8 @@ public class LockScreenSettings extends SettingsPreferenceFragment
     private SwitchPreference mBiometricWeakLiveliness;
     private SwitchPreference mVisiblePattern;
     private SwitchPreference mPowerButtonInstantlyLocks;
+    private SwitchPreference mColorizeCustomIcons;
+	private ContentResolver mResolver;
 
     private DevicePolicyManager mDPM;
 
@@ -102,9 +106,16 @@ public class LockScreenSettings extends SettingsPreferenceFragment
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+		mResolver = getActivity().getContentResolver();
         super.onCreate(savedInstanceState);
         mLockPatternUtils = new LockPatternUtils(getActivity());
         mChooseLockSettingsHelper = new ChooseLockSettingsHelper(getActivity());
+        
+        mColorizeCustomIcons =
+				(SwitchPreference) findPreference(PREF_COLORIZE_CUSTOM_ICONS);
+		mColorizeCustomIcons.setChecked(Settings.System.getInt(mResolver,
+				Settings.System.LOCK_SCREEN_SHORTCUTS_COLORIZE_CUSTOM_ICONS, 0) == 1);
+		mColorizeCustomIcons.setOnPreferenceChangeListener(this);
 
         if (savedInstanceState != null
                 && savedInstanceState.containsKey(TRUST_AGENT_CLICK_INTENT)) {
@@ -395,7 +406,11 @@ public class LockScreenSettings extends SettingsPreferenceFragment
         boolean result = true;
         final String key = preference.getKey();
         final LockPatternUtils lockPatternUtils = mChooseLockSettingsHelper.utils();
-        if (KEY_LOCK_AFTER_TIMEOUT.equals(key)) {
+        if (preference == mColorizeCustomIcons) {
+			Settings.System.putInt(mResolver,
+					Settings.System.LOCK_SCREEN_SHORTCUTS_COLORIZE_CUSTOM_ICONS,
+					value ? 1 : 0);
+        } else if (KEY_LOCK_AFTER_TIMEOUT.equals(key)) {
             int timeout = Integer.parseInt((String) value);
             try {
                 Settings.Secure.putInt(getContentResolver(),

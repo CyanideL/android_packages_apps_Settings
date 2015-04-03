@@ -827,5 +827,9 @@
     <string name="hfm_dialog_failed">Updating hosts file failed. Please try again.</string>
     <string name="hfm_dialog_success">/4 hosts sources successfully applied!</string>
 	<string name="hfm_dialog_conn_error">Error: No network connectivity</string>
+	
+	<!-- Lockscreen Shortcuts color switch -->
+	<string name="shortcuts_colorize_custom_icons_title">Colorize all icons</string>
+	<string name="shortcuts_colorize_custom_icons_summary">Enable to colorize all icons, disable to colorize only default icons</string>
 
 </resources>
