@@ -402,16 +402,17 @@ public class LockScreenSettings extends SettingsPreferenceFragment
     }
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object value) {
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
         boolean result = true;
         final String key = preference.getKey();
         final LockPatternUtils lockPatternUtils = mChooseLockSettingsHelper.utils();
         if (preference == mColorizeCustomIcons) {
+			boolean value = (Boolean) newValue;
 			Settings.System.putInt(mResolver,
 					Settings.System.LOCK_SCREEN_SHORTCUTS_COLORIZE_CUSTOM_ICONS,
 					value ? 1 : 0);
         } else if (KEY_LOCK_AFTER_TIMEOUT.equals(key)) {
-            int timeout = Integer.parseInt((String) value);
+            int timeout = Integer.parseInt((String) newValue);
             try {
                 Settings.Secure.putInt(getContentResolver(),
                         Settings.Secure.LOCK_SCREEN_LOCK_AFTER_TIMEOUT, timeout);
@@ -420,11 +421,11 @@ public class LockScreenSettings extends SettingsPreferenceFragment
             }
             updateLockAfterPreferenceSummary();
         } else if (KEY_LOCK_ENABLED.equals(key)) {
-            lockPatternUtils.setLockPatternEnabled((Boolean) value);
+            lockPatternUtils.setLockPatternEnabled((Boolean) newValue);
         } else if (KEY_VISIBLE_PATTERN.equals(key)) {
-            lockPatternUtils.setVisiblePatternEnabled((Boolean) value);
+            lockPatternUtils.setVisiblePatternEnabled((Boolean) newValue);
         } else  if (KEY_BIOMETRIC_WEAK_LIVELINESS.equals(key)) {
-            if ((Boolean) value) {
+            if ((Boolean) newValue) {
                 lockPatternUtils.setBiometricWeakLivelinessEnabled(true);
             } else {
                 // In this case the user has just unchecked the checkbox, but this action requires
@@ -444,7 +445,7 @@ public class LockScreenSettings extends SettingsPreferenceFragment
                 }
             }
         } else if (KEY_POWER_INSTANTLY_LOCKS.equals(key)) {
-            mLockPatternUtils.setPowerButtonInstantlyLocks((Boolean) value);
+            mLockPatternUtils.setPowerButtonInstantlyLocks((Boolean) newValue);
         }
         return result;
     }
