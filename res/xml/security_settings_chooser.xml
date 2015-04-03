@@ -28,6 +28,12 @@
             android:summary="@string/unlock_set_unlock_mode_none"
             android:persistent="false"/>
 
+    </PreferenceCategory>
+    
+    <PreferenceCategory
+        android:key="shortcuts_category"
+        android:title="@string/lock_shortcuts">
+        
         <PreferenceScreen
                  android:key="lockscreen_shortcuts"
                  android:fragment="com.android.settings.cyanide.dslv.ActionListViewSettings"
@@ -41,22 +47,10 @@
         </PreferenceScreen>
 
         <PreferenceScreen
-            android:key="owner_info_settings"
-            android:fragment="com.android.settings.OwnerInfoSettings"
-            android:title="@string/owner_info_settings_title"
-            android:summary="@string/owner_info_settings_summary"/>
-
-        <PreferenceScreen
                 android:key="lockscreen_shortcuts_settings"
                 android:fragment="com.android.settings.cyanogenmod.LockscreenShortcuts"
                 android:title="@string/lockscreen_targets_message"
                 android:summary="@string/lockscreen_sliders_summary"
-                settings:advanced="true"/>
-
-        <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
-                android:key="lockscreen_visualizer"
-                android:title="@string/lockscreen_visualizer_title"
-                android:defaultValue="true"
                 settings:advanced="true"/>
 
     </PreferenceCategory>
@@ -66,5 +60,17 @@
 		android:title="@string/lock_clock_color_title"
 		android:summary="@string/lock_screen_color_settings_summary"
 		android:fragment="com.android.settings.cyanide.LockScreenColorSettings" />
+		
+    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+                android:key="lockscreen_visualizer"
+                android:title="@string/lockscreen_visualizer_title"
+                android:defaultValue="true"
+                settings:advanced="true"/>
+    
+    <PreferenceScreen
+            android:key="owner_info_settings"
+            android:fragment="com.android.settings.OwnerInfoSettings"
+            android:title="@string/owner_info_settings_title"
+            android:summary="@string/owner_info_settings_summary"/>
 
 </PreferenceScreen>

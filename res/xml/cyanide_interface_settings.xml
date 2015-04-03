@@ -26,6 +26,14 @@
         android:summary="@string/appcirclebar_settings_summary"
         android:title="@string/app_circle_bar_title" />
     
+    <!-- expanded desktop -->
+    <PreferenceScreen
+        android:key="expanded_desktop"
+        android:title="@string/power_menu_expanded_desktop"
+        android:fragment="com.android.settings.applications.ExpandedDesktopPreferenceFragment"
+        android:summary="@string/expanded_desktop_summary"
+        settings:advanced="true"/>
+    
     <!-- Gesture anywhere -->
     <PreferenceScreen
         android:key="gesture_anywhere"

@@ -21,14 +21,6 @@
         android:key="display"
         android:title="@string/display_label">
 
-        <!-- Brightness slider -->
-        <PreferenceScreen
-                android:key="brightness"
-                android:title="@string/brightness"
-                settings:keywords="@string/keywords_display_brightness_level">
-            <intent android:action="android.intent.action.SHOW_BRIGHTNESS_DIALOG" />
-        </PreferenceScreen>
-
         <!-- Adaptive brightness -->
         <SwitchPreference
                 android:key="auto_brightness"
@@ -37,6 +29,27 @@
                 android:summary="@string/auto_brightness_summary"
                 android:persistent="false" />
 
+        <!-- Doze // Ambient display -->
+        <SwitchPreference
+                android:key="doze"
+                android:title="@string/doze_title"
+                android:summary="@string/doze_summary"
+                android:persistent="false" />
+        
+        <!-- Auto rotate screen -->
+        <SwitchPreference
+                android:key="accelerometer"
+                android:title="@string/accelerometer_title"
+                settings:advanced="false"/>
+        
+        <!-- Brightness slider -->
+        <PreferenceScreen
+                android:key="brightness"
+                android:title="@string/brightness"
+                settings:keywords="@string/keywords_display_brightness_level">
+            <intent android:action="android.intent.action.SHOW_BRIGHTNESS_DIALOG" />
+        </PreferenceScreen>
+        
         <!-- LiveDisplay -->
         <PreferenceScreen
                 android:key="live_display"
@@ -50,19 +63,6 @@
                 android:title="@string/display_rotation_title"
                 android:fragment="com.android.settings.cyanogenmod.DisplayRotation"
                 settings:advanced="true"/>
-
-        <!-- Auto rotate screen -->
-        <SwitchPreference
-                android:key="accelerometer"
-                android:title="@string/accelerometer_title"
-                settings:advanced="false"/>
-
-        <!-- Doze // Ambient display -->
-        <SwitchPreference
-                android:key="doze"
-                android:title="@string/doze_title"
-                android:summary="@string/doze_summary"
-                android:persistent="false" />
 
         <!-- Lift to wake -->
         <SwitchPreference
@@ -119,13 +119,7 @@
     <PreferenceCategory
             android:key="interface"
             android:title="@string/category_interface">
-        <!-- expanded desktop -->
-        <PreferenceScreen
-                android:key="expanded_desktop"
-                android:title="@string/power_menu_expanded_desktop"
-                android:fragment="com.android.settings.applications.ExpandedDesktopPreferenceFragment"
-                settings:advanced="true"/>
-
+            
         <!-- Day dream -->
         <PreferenceScreen
                 android:key="screensaver"
