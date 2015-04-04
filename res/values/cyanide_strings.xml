@@ -52,6 +52,7 @@
 	<string name="header_weather_title">Status Bar Weather</string>
 	<string name="status_bar_battery_style">Battery Options</string>
 	<string name="status_bar_logo_title">CyanideL Logo</string>
+	<string name="cyanide_ls_shortcuts_title">Lock Screen Shortcuts</string>
 	
 	<!-- Summary Strings -->
     <string name="appcirclebar_settings_summary">Activate and configure circle bar trigger spot and included applications</string>
@@ -74,6 +75,7 @@
     <string name="changelog_summary">View the latest changes to CyanideL source code</string>
     <string name="visualizer_summary">Display the visualizer on the lock screen</string>
     <string name="qs_colors_summary">Text and Icon Colors</string>
+    <string name="cyanide_ls_shortcuts_summary">Custom Circle and Slider Shortcuts</string>
     
     <!-- Changelog -->
     <string name="changelog_crdroid_title">Changelog</string>

@@ -24,7 +24,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
 import android.content.res.Resources;
-import android.content.ContentResolver;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.os.UserManager;
@@ -57,7 +56,6 @@ import static android.provider.Settings.System.SCREEN_OFF_TIMEOUT;
 public class LockScreenSettings extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
 
-    private static final String PREF_COLORIZE_CUSTOM_ICONS = "shortcuts_colorize_custom_icons";
     private static final String KEY_SECURITY_CATEGORY = "security_category";
     private static final String KEY_OWNER_INFO_SETTINGS = "owner_info_settings";
 
@@ -93,8 +91,6 @@ public class LockScreenSettings extends SettingsPreferenceFragment
     private SwitchPreference mBiometricWeakLiveliness;
     private SwitchPreference mVisiblePattern;
     private SwitchPreference mPowerButtonInstantlyLocks;
-    private SwitchPreference mColorizeCustomIcons;
-	private ContentResolver mResolver;
 
     private DevicePolicyManager mDPM;
 
@@ -106,16 +102,9 @@ public class LockScreenSettings extends SettingsPreferenceFragment
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-		mResolver = getActivity().getContentResolver();
         super.onCreate(savedInstanceState);
         mLockPatternUtils = new LockPatternUtils(getActivity());
         mChooseLockSettingsHelper = new ChooseLockSettingsHelper(getActivity());
-        
-        mColorizeCustomIcons =
-				(SwitchPreference) findPreference(PREF_COLORIZE_CUSTOM_ICONS);
-		mColorizeCustomIcons.setChecked(Settings.System.getInt(mResolver,
-				Settings.System.LOCK_SCREEN_SHORTCUTS_COLORIZE_CUSTOM_ICONS, 0) == 1);
-		mColorizeCustomIcons.setOnPreferenceChangeListener(this);
 
         if (savedInstanceState != null
                 && savedInstanceState.containsKey(TRUST_AGENT_CLICK_INTENT)) {
@@ -402,18 +391,12 @@ public class LockScreenSettings extends SettingsPreferenceFragment
     }
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
+    public boolean onPreferenceChange(Preference preference, Object value) {
         boolean result = true;
         final String key = preference.getKey();
         final LockPatternUtils lockPatternUtils = mChooseLockSettingsHelper.utils();
-        if (preference == mColorizeCustomIcons) {
-			boolean value = (Boolean) newValue;
-			Settings.System.putInt(mResolver,
-					Settings.System.LOCK_SCREEN_SHORTCUTS_COLORIZE_CUSTOM_ICONS,
-					value ? 1 : 0);
-			return true;
-        } else if (KEY_LOCK_AFTER_TIMEOUT.equals(key)) {
-            int timeout = Integer.parseInt((String) newValue);
+        if (KEY_LOCK_AFTER_TIMEOUT.equals(key)) {
+            int timeout = Integer.parseInt((String) value);
             try {
                 Settings.Secure.putInt(getContentResolver(),
                         Settings.Secure.LOCK_SCREEN_LOCK_AFTER_TIMEOUT, timeout);
@@ -422,11 +405,11 @@ public class LockScreenSettings extends SettingsPreferenceFragment
             }
             updateLockAfterPreferenceSummary();
         } else if (KEY_LOCK_ENABLED.equals(key)) {
-            lockPatternUtils.setLockPatternEnabled((Boolean) newValue);
+            lockPatternUtils.setLockPatternEnabled((Boolean) value);
         } else if (KEY_VISIBLE_PATTERN.equals(key)) {
-            lockPatternUtils.setVisiblePatternEnabled((Boolean) newValue);
+            lockPatternUtils.setVisiblePatternEnabled((Boolean) value);
         } else  if (KEY_BIOMETRIC_WEAK_LIVELINESS.equals(key)) {
-            if ((Boolean) newValue) {
+            if ((Boolean) value) {
                 lockPatternUtils.setBiometricWeakLivelinessEnabled(true);
             } else {
                 // In this case the user has just unchecked the checkbox, but this action requires
@@ -446,9 +429,9 @@ public class LockScreenSettings extends SettingsPreferenceFragment
                 }
             }
         } else if (KEY_POWER_INSTANTLY_LOCKS.equals(key)) {
-            mLockPatternUtils.setPowerButtonInstantlyLocks((Boolean) newValue);
+            mLockPatternUtils.setPowerButtonInstantlyLocks((Boolean) value);
         }
-        return false;
+        return result;
     }
 
     @Override

@@ -325,7 +325,8 @@ public class SettingsActivity extends Activity
             LockScreenSettings.class.getName(),
             LiveDisplay.class.getName(),
             MainSettings.class.getName(),
-            CyanideCentral.class.getName()
+            CyanideCentral.class.getName(),
+            QSTiles.class.getName()
     };
 
 

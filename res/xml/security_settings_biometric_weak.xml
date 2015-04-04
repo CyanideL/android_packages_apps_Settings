@@ -54,23 +54,12 @@
 
     </PreferenceCategory>
     
-    <PreferenceCategory
-        android:key="shortcuts_category"
-        android:title="@string/lock_shortcuts">
-        
-        <PreferenceScreen
-                 android:key="lockscreen_shortcuts"
-                 android:fragment="com.android.settings.cyanide.dslv.ActionListViewSettings"
-                 android:summary="@string/lockscreen_shortcuts_summary"
-                 android:title="@string/lockscreen_shortcuts_title">
-             <extra android:name="actionMode" android:value="4" />
-             <extra android:name="maxAllowedActions" android:value="5" />
-             <extra android:name="disableLongpress" android:value="true" />
-             <extra android:name="useAppPickerOnly" android:value="true" />
-             <extra android:name="fragment" android:value="com.android.settings.cyanide.fragments.LockscreenShortcutFragment" />
-        </PreferenceScreen>
-
-    </PreferenceCategory>
+    <!-- Lockscreen Shortcuts -->
+    <PreferenceScreen
+        android:id="@+id/cyanide_ls_shortcuts"
+        android:title="@string/cyanide_ls_shortcuts_title"
+        android:summary="@string/cyanide_ls_shortcuts_summary"
+        android:fragment="com.android.settings.cyanide.LockS" />
     
     <PreferenceScreen
             android:key="owner_info_settings"
