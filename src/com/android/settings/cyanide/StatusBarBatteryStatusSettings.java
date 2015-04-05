@@ -22,7 +22,7 @@ import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
+import android.preference.SwitchPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
@@ -76,7 +76,7 @@ public class StatusBarBatteryStatusSettings extends SettingsPreferenceFragment i
     private ListPreference mStyle;
     private ListPreference mPercentStyle;
     private ListPreference mChargeAnimationSpeed;
-    private CheckBoxPreference mShowCircleDotted;
+    private SwitchPreference mShowCircleDotted;
     private ListPreference mCircleDotLength;
     private ListPreference mCircleDotInterval;
     private ColorPickerPreference mBatteryColor;
@@ -122,7 +122,7 @@ public class StatusBarBatteryStatusSettings extends SettingsPreferenceFragment i
         PreferenceCategory catColors =
                 (PreferenceCategory) findPreference(PREF_CAT_COLORS);
         mShowCircleDotted =
-                (CheckBoxPreference) findPreference(PREF_SHOW_CIRCLE_DOTTED);
+                (SwitchPreference) findPreference(PREF_SHOW_CIRCLE_DOTTED);
         mCircleDotLength =
                 (ListPreference) findPreference(PREF_CIRCLE_DOT_LENGTH);
         mCircleDotInterval =
@@ -214,6 +214,7 @@ public class StatusBarBatteryStatusSettings extends SettingsPreferenceFragment i
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.add(0, MENU_RESET, 0, R.string.reset)
+                .setIcon(R.drawable.ic_settings_backup_restore)
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
     }
 

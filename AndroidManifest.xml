@@ -136,7 +136,7 @@
                 android:parentActivityName="Settings">
         </activity>
 
-        <activity android:name="CreateShortcut" android:label="@string/settings_shortcut"
+        <activity android:name="CreateShortcut" android:label="@string/shortcut_label"
             android:theme="@style/Theme.SubSettingsDialogWhenLarge">
             <intent-filter>
                 <action android:name="android.intent.action.CREATE_SHORTCUT" />
@@ -2369,7 +2369,7 @@
         <activity
             android:name="com.android.settings.cyanide.CreateShortcut"
             android:label="@string/shortcut_label"
-            android:icon="@drawable/cyanide_actions">
+            android:icon="@drawable/ic_settings_applications">
             <intent-filter>
                 <action android:name="android.intent.action.CREATE_SHORTCUT" />
                 <action android:name="android.intent.action.MAIN" />
