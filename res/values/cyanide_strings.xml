@@ -1099,5 +1099,8 @@
     <string name="smart_pulldown_dismissable">No dismissable</string>
     <string name="smart_pulldown_persistent">No persistent</string>
     <string name="smart_pulldown_all">No dismissable or persistent</string>
+    
+    <string name="qs_slim_action_title">CyanideActions</string>
+	<string name="qs_slim_action_summary">Add and set the order of CyanideActions for CyanideAction tile</string>
 
 </resources>
