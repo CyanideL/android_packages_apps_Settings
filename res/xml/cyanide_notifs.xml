@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2014 CyanideL
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/cyanide_notifs_title" >
+        
+		<!-- Heads Up Notifications -->
+		<Preference
+			android:key="heads_up_enabled"
+			android:fragment="com.android.settings.cyanide.HeadsUpSettings"
+			android:title="@string/category_heads_up" />
+			
+		<!-- Notifications -->
+		<PreferenceScreen
+			android:id="@+id/notification_manager"
+			android:title="@string/notification_manager"
+			android:fragment="com.android.settings.notification.NotificationManagerSettings"
+			/>
+             
+
+</PreferenceScreen>

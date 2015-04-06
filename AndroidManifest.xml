@@ -2380,6 +2380,7 @@
         <activity android:name=".cyanide.gestureanywhere.GestureAnywhereBuilderActivity" />
         <activity android:name=".cyanide.gestureanywhere.GestureAnywhereCreateGestureActivity" />
         <activity android:name=".cyanide.WeatherSettings" />
+        <activity android:name=".cyanide.CyanideNotifs" />
 
         <provider
             android:name=".search.SettingsSearchIndexablesProvider"

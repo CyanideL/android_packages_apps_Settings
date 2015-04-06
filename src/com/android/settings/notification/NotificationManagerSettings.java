@@ -49,17 +49,7 @@ public class NotificationManagerSettings extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.notification_manager_settings);
         mSecure = new LockPatternUtils(getActivity()).isSecure();
         initLockscreenNotifications();
-        
-        mHeadsUp = findPreference(Settings.System.HEADS_UP_NOTIFICATION);
-    }
-    
-    @Override
-    public void onResume() {
-        super.onResume();
-        boolean headsUpEnabled = Settings.System.getInt(
-                getContentResolver(), Settings.System.HEADS_UP_NOTIFICATION,1) != 0;
-        mHeadsUp.setSummary(headsUpEnabled
-               ? R.string.summary_heads_up_enabled : R.string.summary_heads_up_disabled);
+
     }
 
     // === Lockscreen (public / private) notifications ===

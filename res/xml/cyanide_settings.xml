@@ -55,8 +55,8 @@
     <!-- Notifications -->
     <PreferenceScreen
         android:id="@+id/notification_manager"
-        android:title="@string/notification_manager"
-        android:fragment="com.android.settings.notification.NotificationManagerSettings"
+        android:title="@string/cyanide_notifs_title"
+        android:fragment="com.android.settings.cyanide.CyanideNotifs"
         />
     
     <!-- Quick Settings -->

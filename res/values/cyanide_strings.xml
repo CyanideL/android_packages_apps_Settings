@@ -53,6 +53,7 @@
 	<string name="status_bar_battery_style">Battery Options</string>
 	<string name="status_bar_logo_title">CyanideL Logo</string>
 	<string name="cyanide_ls_shortcuts_title">Lock Screen Shortcuts</string>
+	<string name="cyanide_notifs_title">Notifications</string>
 	
 	<!-- Summary Strings -->
     <string name="appcirclebar_settings_summary">Activate and configure circle bar trigger spot and included applications</string>
@@ -898,7 +899,7 @@
     <string name="action_icon">Custom icon</string>
     <string name="custom_app_icon_successfully">"'s icon set successfully!"</string>
     <string name="add_button">Add button</string>
-    <string name="category_navbar">Navigation Bar</string>
+    <string name="category_navbar">NavBar Customization</string>
     <string name="navbar_tab_arrange">Editor</string>
     <string name="navbar_tab_settings">Settings</string>
     <string name="change_layouts_title"> Layout </string>

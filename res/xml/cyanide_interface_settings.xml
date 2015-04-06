@@ -48,12 +48,6 @@
         android:summary="@string/lcddensity_settings_summary"
         android:fragment="com.android.settings.cyanide.Density" />
         
-    <PreferenceScreen
-            android:key="navigation_bar"
-            android:fragment="com.android.settings.cyanide.navbar.NavbarTabHostFragment"
-            android:summary="@string/navbar_settings_summary"
-            android:title="@string/category_navbar" />
-        
     <!-- Pie control -->
     <PreferenceScreen
         android:key="pie_settings"
