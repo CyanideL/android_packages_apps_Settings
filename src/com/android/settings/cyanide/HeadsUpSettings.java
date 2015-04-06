@@ -23,10 +23,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.UserHandle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
@@ -60,7 +62,8 @@ import java.util.Map;
 
 public class HeadsUpSettings extends SettingsPreferenceFragment
         implements BaseSystemSettingSwitchBar.SwitchBarChangeCallback,
-                AdapterView.OnItemLongClickListener, Preference.OnPreferenceClickListener {
+                AdapterView.OnItemLongClickListener, Preference.OnPreferenceClickListener,
+                            OnPreferenceChangeListener {
 
     private static final int DIALOG_DND_APPS = 0;
     private static final int DIALOG_BLACKLIST_APPS = 1;
@@ -152,7 +155,7 @@ public class HeadsUpSettings extends SettingsPreferenceFragment
         super.onStart();
         final SettingsActivity activity = (SettingsActivity) getActivity();
         mEnabledSwitch = new BaseSystemSettingSwitchBar(activity, activity.getSwitchBar(),
-                Settings.System.HEADS_UP_NOTIFICATION, false, this);
+                Settings.System.HEADS_UP_NOTIFICATION, true, this);
     }
 
     @Override

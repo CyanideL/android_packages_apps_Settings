@@ -187,7 +187,7 @@ public class QSTileHolder {
                 break;
             case QSConstants.TILE_SLIMACTION:
                 resourceName = "ic_qs_reboot_recovery";
-                stringId = R.string.qs_tile_slimaction;
+                stringId = R.string.qs_slim_action_title;
                 break;
             case QSConstants.TILE_AMBIENT_DISPLAY:
                 resourceName = "ic_qs_doze";
