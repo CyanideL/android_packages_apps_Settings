@@ -46,8 +46,14 @@
     <!-- Nexus 5 -->
     <PreferenceScreen
         android:id="@+id/cyanide_dlc"
-        android:title="@string/cyanide_nexus_title"
+        android:title="@string/cyanide_nexus5_title"
         android:fragment="com.android.settings.cyanide.dlc.Nexus5" />
+    
+    <!-- Nexus 6 -->
+    <PreferenceScreen
+        android:id="@+id/cyanide_dlc"
+        android:title="@string/cyanide_nexus6_title"
+        android:fragment="com.android.settings.cyanide.dlc.Nexus6" />
     
     <!-- One Plus Bacon -->
     <PreferenceScreen

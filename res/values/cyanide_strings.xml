@@ -509,11 +509,12 @@
     <string name="cyanide_n2_title">Samsung Galaxy Note 2 LTE</string>
     <string name="cyanide_m8_title">HTC One M8</string>
     <string name="cyanide_bacon_title">One Plus Bacon</string>
-    <string name="cyanide_nexus_title">Nexus 5</string>
+    <string name="cyanide_nexus5_title">Nexus 5</string>
     <string name="cyanide_s5_title">Samsung Galaxy S5 GSM</string>
     <string name="cyanide_d850_title">LG G3 ATT d850</string>
     <string name="cyanide_d855_title">LG G3 Int\'l d855</string>
     <string name="cyanide_vs985_title">LG G3 Vzw vs985</string>
+    <string name="cyanide_nexus6_title">Nexus 6</string>
     
     <!-- Animation Controls -->
     <string name="title_animation_controls">System Animations</string>
