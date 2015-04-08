@@ -386,6 +386,9 @@
         <item>airplane</item>
         <item>users</item>
         <item>bugreport</item>
+        <item>settings</item>
+        <item>silent</item>
+        <item>lockdown</item>
     </string-array>
 
     <!-- Stylus Gestures -->
