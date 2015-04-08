@@ -54,6 +54,7 @@
 	<string name="status_bar_logo_title">CyanideL Logo</string>
 	<string name="cyanide_ls_shortcuts_title">Lock Screen Shortcuts</string>
 	<string name="cyanide_notifs_title">Notifications</string>
+	<string name="cyanide_navbar_title">Navigation Bar</string>
 	
 	<!-- Summary Strings -->
     <string name="appcirclebar_settings_summary">Activate and configure circle bar trigger spot and included applications</string>
@@ -1111,5 +1112,16 @@
     <!-- The volume key answer -->
     <string name="volume_answer_call_title">Volume key Answer</string>
     <string name="volume_answer_call_summary">Volume up key Answer</string>
+    
+    <!-- Navigation bar -->
+    <string name="navigation_bar_category">Navigation bar</string>
+    <string name="navbar_force_enable_title">Turn on navigation bar</string>
+    <string name="navbar_force_enable_summary">May require a reboot</string>
+    <string name="navigation_bar_left_title">Left-Handed Mode</string>
+    <string name="navigation_bar_left_summary">Place the navigation bar on the left side of the screen in landscape mode</string>
+	
+	<!-- Ability to disable hardware keys via nav bar settings -->
+    <string name="hw_keys_title">Hardware keys</string>
+	<string name="hw_keys_summary">Enable hardware keys</string>
 
 </resources>
