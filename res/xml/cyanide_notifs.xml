@@ -16,13 +16,37 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/cyanide_notifs_title" >
         
+		<PreferenceCategory
+			android:key="breathing_notifications"
+			android:title="@string/breathing_notifications_title">
+    
+			<SwitchPreference
+				android:key="sms_breath"
+				android:title="@string/sms_breath"
+				android:summary="@string/sms_breath_summary"
+				android:defaultValue="false" />
+
+			<SwitchPreference
+				android:key="missed_call_breath"
+				android:title="@string/title_missed_call_breath"
+				android:summary="@string/missed_call_breath_summary"
+				android:defaultValue="false" />
+
+			<SwitchPreference
+				android:key="voicemail_breath"
+				android:title="@string/title_voicemail_breath"
+				android:summary="@string/voicemail_breath_summary"
+				android:defaultValue="false" />
+    
+    </PreferenceCategory>
+		
 		<!-- Heads Up Notifications -->
 		<Preference
 			android:key="heads_up_enabled"
 			android:fragment="com.android.settings.cyanide.HeadsUpSettings"
 			android:title="@string/category_heads_up" />
 			
-		<!-- Notifications -->
+		<!-- Notification Manager -->
 		<PreferenceScreen
 			android:id="@+id/notification_manager"
 			android:title="@string/notification_manager"

@@ -55,6 +55,7 @@
 	<string name="cyanide_ls_shortcuts_title">Lock Screen Shortcuts</string>
 	<string name="cyanide_notifs_title">Notifications</string>
 	<string name="cyanide_navbar_title">Navigation Bar</string>
+	<string name="breathing_notifications_title">Breathing Notifications</string>
 	
 	<!-- Summary Strings -->
     <string name="appcirclebar_settings_summary">Activate and configure circle bar trigger spot and included applications</string>
@@ -1153,5 +1154,14 @@
 	<!-- Screenshot sound -->
     <string name="screenshot_sound_title">Screenshot sound</string>
     <string name="screenshot_sound_summary">Plays sound effect when screenshot is taken</string>
+    
+    <!-- Breathing Notifications -->
+	<string name="breathing_notifications_title">Breathing Notifications</string>
+	<string name="sms_breath">Breathing SMS</string>
+	<string name="sms_breath_summary">This will give your sms notifications a breathing effect in the statusbar</string>
+	<string name="title_missed_call_breath">Breathing Missed Call</string>
+	<string name="missed_call_breath_summary">This will give your missed call notifications a breathing effect in the statusbar</string>
+	<string name="title_voicemail_breath">Breathing Voicemail</string>
+	<string name="voicemail_breath_summary">This will give your voicemail notifications a breathing effect in the statusbar</string>
 
 </resources>
