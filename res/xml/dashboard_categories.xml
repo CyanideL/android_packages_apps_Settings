@@ -134,6 +134,17 @@
 				settings:advanced="true"
 				/>
         
+        <!-- STweaks -->
+        <dashboard-tile
+            android:id="@+id/stweaks_settings"
+            android:icon="@drawable/ic_settings_shift"
+            android:title="@string/stweaks_title">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.gokhanmoral.stweaks.app"
+                android:targetClass="com.gokhanmoral.stweaks.app.MainActivity" />
+        </dashboard-tile>
+        
         <!-- Themes -->
         <!-- NOTE: Intent.parseIntent looks for "categories" tag and not "category" -->
         <dashboard-tile

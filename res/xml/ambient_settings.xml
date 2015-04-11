@@ -99,4 +99,11 @@
                         android:persistent="false"
                         android:dependency="doze" />
             </PreferenceCategory>
+            
+        <!-- Day dream -->
+        <PreferenceScreen
+                android:key="screensaver"
+                android:title="@string/screensaver_settings_title"
+                android:fragment="com.android.settings.DreamSettings" />
+                
 </PreferenceScreen>

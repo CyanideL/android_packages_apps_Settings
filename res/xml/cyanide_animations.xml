@@ -16,14 +16,17 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/cyanide_animations_title" >
 
-        <ListPreference
-                android:key="toast_animation"
-                android:title="@string/toast_animation_title"
-                android:entries="@array/toast_animation_entries"
-                android:entryValues="@array/toast_animation_values"
-                android:persistent="false" />
+        <PreferenceCategory
+			android:key="animations"
+			android:title="@string/animation_control_title">
 
-        <ListPreference
+			<PreferenceScreen
+				android:key="interface_animation_scroll"
+				android:title="@string/ime_animation_title"
+				android:summary="@string/ime_animation_summary"
+				android:fragment="com.android.settings.cyanide.KeyboardAnimationInterfaceSettings" />
+        
+			<ListPreference
             	android:key="listview_animation"
             	android:dialogTitle="@string/listview_animation_title"
             	android:title="@string/listview_animation_title"
@@ -31,30 +34,33 @@
             	android:entryValues="@array/listview_animation_values"
             	android:defaultValue="0" />
 
-        <ListPreference
+			<ListPreference
             	android:key="listview_interpolator"
             	android:dialogTitle="@string/listview_interpolator_title"
             	android:title="@string/listview_interpolator_title"
             	android:entries="@array/listview_interpolator_entries"
             	android:entryValues="@array/listview_interpolator_values"
             	android:defaultValue="0" />
-
-		<PreferenceScreen
-				android:key="interface_animation_scroll"
-				android:title="@string/ime_animation_title"
-				android:summary="@string/ime_animation_summary"
-				android:fragment="com.android.settings.cyanide.KeyboardAnimationInterfaceSettings" />
 		
-		<PreferenceScreen
+			<PreferenceScreen
 				android:key="interface_animation_scroll"
 				android:fragment="com.android.settings.cyanide.ScrollAnimationInterfaceSettings"
 				android:title="@string/scrolling_title"
 				android:summary="@string/scrolling_summary" />
 		
-		<PreferenceScreen
+			<PreferenceScreen
                android:id="@+id/animations"
                android:title="@string/title_animation_controls"
                android:summary="@string/header_summary_animation"
                android:fragment="com.android.settings.cyanide.fragments.AnimationControls" />
+               
+            <ListPreference
+                android:key="toast_animation"
+                android:title="@string/toast_animation_title"
+                android:entries="@array/toast_animation_entries"
+                android:entryValues="@array/toast_animation_values"
+                android:persistent="false" />
+                
+        </PreferenceCategory>
 
 </PreferenceScreen>

@@ -18,7 +18,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/Recents_panel">
 
-     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+     <PreferenceCategory
+			android:key="recents_panel"
+			android:title="@string/recents_control_title">
+     
+		<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="show_clear_all_recents"
             android:title="@string/show_clear_all_recents_button_title"
             android:summary="@string/show_clear_all_recents_button_summary"
@@ -44,5 +48,14 @@
             android:title="@string/recents_show_membar_title"
             android:summary="@string/recents_show_membar_summary"
             android:defaultValue="false" />
+            
+        <!-- Search in Recents -->
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="recents_show_search_bar"
+            android:title="@string/recents_show_searchbar"
+            android:summary="@string/keywords_recents_show_searchbar"
+            android:defaultValue="true" />
+            
+    </PreferenceCategory>
 
 </PreferenceScreen>

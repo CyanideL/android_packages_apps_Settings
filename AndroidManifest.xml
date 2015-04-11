@@ -159,7 +159,6 @@
         <activity
             android:name="CreateSlimShortcut"
             android:label="@string/slim_shortcut_picker"
-            android:icon="@drawable/cyanide_flush_memory"
             android:theme="@android:style/Theme.Holo.Dialog.NoActionBar"
             android:excludeFromRecents="true"
             android:configChanges="orientation|keyboardHidden|screenSize" >

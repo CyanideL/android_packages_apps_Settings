@@ -119,12 +119,6 @@
             android:key="interface"
             android:title="@string/category_interface">
             
-        <!-- Day dream -->
-        <PreferenceScreen
-                android:key="screensaver"
-                android:title="@string/screensaver_settings_title"
-                android:fragment="com.android.settings.DreamSettings" />
-
         <!-- Font size -->
         <com.android.settings.FontDialogPreference
                 android:key="font_size"
@@ -132,32 +126,6 @@
                 settings:keywords="@string/keywords_display_font_size"
                 android:summary="@string/summary_font_size"
                 android:dialogTitle="@string/dialog_title_font_size" />
-
-        <!-- Search in Recents -->
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-                android:key="recents_show_search_bar"
-                android:title="@string/recents_show_searchbar"
-                settings:keywords="@string/keywords_recents_show_searchbar"
-                android:defaultValue="true"
-                settings:advanced="true" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-            android:key="lights"
-            android:title="@string/category_lights">
-
-        <!-- Battery light -->
-        <PreferenceScreen
-                android:key="battery_light"
-                android:title="@string/battery_light_title"
-                android:fragment="com.android.settings.notificationlight.BatteryLightSettings" />
-
-        <!-- Notification lights -->
-        <PreferenceScreen
-                android:key="notification_light"
-                android:title="@string/notification_light_title"
-                android:fragment="com.android.settings.notificationlight.NotificationLightSettings" />
 
     </PreferenceCategory>
 

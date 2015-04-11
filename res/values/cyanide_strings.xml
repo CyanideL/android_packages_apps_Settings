@@ -56,6 +56,12 @@
 	<string name="cyanide_notifs_title">Notifications</string>
 	<string name="cyanide_navbar_title">Navigation Bar</string>
 	<string name="breathing_notifications_title">Breathing Notifications</string>
+	<string name="heads_up_title">Heads Up Settings</string>
+	<string name="animation_control_title">Animation Control</string>
+	<string name="interface_control_title">CyanideL Interface Control</string>
+	<string name="power_menu_control_title">Power Menu Addons</string>
+	<string name="recents_control_title">Recents Panel Options</string>
+	<string name="stweaks_title">STweaks</string>
 	
 	<!-- Summary Strings -->
     <string name="appcirclebar_settings_summary">Activate and configure circle bar trigger spot and included applications</string>

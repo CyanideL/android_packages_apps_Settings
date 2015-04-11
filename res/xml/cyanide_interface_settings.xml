@@ -19,40 +19,46 @@
     android:title="@string/interface_settings_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <!-- App Circle Bar -->
-    <PreferenceScreen
-        android:key="app_circle_bar"
-        android:fragment="com.android.settings.cyanide.AppCircleBar"
-        android:summary="@string/appcirclebar_settings_summary"
-        android:title="@string/app_circle_bar_title" />
+    <PreferenceCategory
+			android:key="interface"
+			android:title="@string/interface_control_title">
     
-    <!-- expanded desktop -->
-    <PreferenceScreen
-        android:key="expanded_desktop"
-        android:title="@string/power_menu_expanded_desktop"
-        android:fragment="com.android.settings.applications.ExpandedDesktopPreferenceFragment"
-        android:summary="@string/expanded_desktop_summary"
-        settings:advanced="true"/>
+		<!-- App Circle Bar -->
+		<PreferenceScreen
+			android:key="app_circle_bar"
+			android:fragment="com.android.settings.cyanide.AppCircleBar"
+			android:summary="@string/appcirclebar_settings_summary"
+			android:title="@string/app_circle_bar_title" />
     
-    <!-- Gesture anywhere -->
-    <PreferenceScreen
-        android:key="gesture_anywhere"
-        android:fragment="com.android.settings.cyanide.gestureanywhere.GestureAnywhereSettings"
-        android:summary="@string/gestureanywhere_settings_summary"
-        android:title="@string/gesture_anywhere_title" />
+		<!-- Expanded Desktop -->
+		<PreferenceScreen
+			android:key="expanded_desktop"
+			android:title="@string/power_menu_expanded_desktop"
+			android:fragment="com.android.settings.applications.ExpandedDesktopPreferenceFragment"
+			android:summary="@string/expanded_desktop_summary"
+			settings:advanced="true"/>
     
-    <!-- Density Changer -->
-	<PreferenceScreen
-        android:key="density_changer"
-        android:title="@string/lcd_density_title"
-        android:summary="@string/lcddensity_settings_summary"
-        android:fragment="com.android.settings.cyanide.Density" />
+		<!-- Gesture anywhere -->
+		<PreferenceScreen
+			android:key="gesture_anywhere"
+			android:fragment="com.android.settings.cyanide.gestureanywhere.GestureAnywhereSettings"
+			android:summary="@string/gestureanywhere_settings_summary"
+			android:title="@string/gesture_anywhere_title" />
+    
+		<!-- Density Changer -->
+		<PreferenceScreen
+			android:key="density_changer"
+			android:title="@string/lcd_density_title"
+			android:summary="@string/lcddensity_settings_summary"
+			android:fragment="com.android.settings.cyanide.Density" />
         
-    <!-- Pie control -->
-    <PreferenceScreen
-        android:key="pie_settings"
-        android:title="@string/pie_control_title"
-        android:summary="@string/piecontrol_settings_summary"
-        android:fragment="com.android.settings.cyanide.PieControl" />
+		<!-- Pie control -->
+		<PreferenceScreen
+			android:key="pie_settings"
+			android:title="@string/pie_control_title"
+			android:summary="@string/piecontrol_settings_summary"
+			android:fragment="com.android.settings.cyanide.PieControl" />
+			
+	</PreferenceCategory>
 	
 </PreferenceScreen>
