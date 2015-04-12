@@ -1177,5 +1177,9 @@
     <string name="lid_controls_sleep_summary">Turn screen off when lid closes</string>
     <string name="lid_controls_wake_title">Control wake</string>
     <string name="lid_controls_wake_summary">Turn screen on when lid opens</string>
+    
+    <!-- Chamber of Secrets -->
+    <string name="chamber_title">Chamber of secrets</string>
+    <string name="chamber_toast">The chamber of secrets has opened</string>
 
 </resources>
