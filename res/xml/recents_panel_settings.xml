@@ -57,5 +57,11 @@
             android:defaultValue="true" />
             
     </PreferenceCategory>
+    
+    <PreferenceScreen
+			android:id="@+id/omniswitch"
+			android:title="@string/omniswitch_settings_title"
+			android:summary="@string/omniswitch_settings_summary"
+			android:fragment="com.android.settings.cyanide.OmniSwitch" />
 
 </PreferenceScreen>

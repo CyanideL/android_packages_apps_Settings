@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2014 CyanideL
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/cyanide_animations_title" >
+
+        <!-- Advanced options -->
+        <PreferenceScreen
+            android:key="advanced_sound_settings"
+            android:title="@string/advanced_sound_title"
+            android:persistent="false"
+            android:fragment="com.android.settings.cyanide.SoundSettings" />
+                
+        <!-- Other sounds -->
+        <Preference
+            android:key="other_sounds"
+            android:title="@string/other_sound_settings"
+            android:persistent="false"
+            android:fragment="com.android.settings.notification.OtherSoundSettings" />
+
+        <!-- Screenshot tone -->
+		<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+			android:key="screenshot_sound"
+			android:title="@string/screenshot_sound_title"
+			android:summary="@string/screenshot_sound_summary"
+			android:defaultValue="true" />
+			
+		<!-- Volume Steps -->
+		<PreferenceScreen
+            android:key="volume_steps"
+            android:fragment="com.android.settings.cyanide.VolumeSteps"
+            android:title="@string/volume_steps_title" />
+
+</PreferenceScreen>

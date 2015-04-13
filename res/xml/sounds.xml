@@ -108,32 +108,6 @@
                 android:summary="@string/headset_connect_player_summary"
                 android:defaultValue="false" />
 
-        <!-- Other sounds -->
-        <Preference
-                android:key="other_sounds"
-                android:title="@string/other_sound_settings"
-                android:persistent="false"
-                android:fragment="com.android.settings.notification.OtherSoundSettings" />
-
-        <!-- Screenshot tone -->
-		<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-			android:key="screenshot_sound"
-			android:title="@string/screenshot_sound_title"
-			android:summary="@string/screenshot_sound_summary"
-			android:defaultValue="true" />
-        
-        <!-- Advanced options -->
-        <PreferenceScreen
-                android:key="advanced_sound_settings"
-                android:title="@string/advanced_sound_title"
-                android:persistent="false"
-                android:fragment="com.android.settings.slim.SoundSettings" />
-                
-        <PreferenceScreen
-                android:key="volume_steps"
-                android:fragment="com.android.settings.cyanide.VolumeSteps"
-                android:title="@string/volume_steps_title" />
-
     </PreferenceCategory>
 
     <PreferenceCategory

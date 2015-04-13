@@ -37,32 +37,33 @@
     <string name="reset_message">Reset all entries to default?</string>
 
 	<!-- CyanideL Settings. -->
-	<string name="cyanide_settings_title">CyanideMods</string>
-	<string name="interface_settings_title">Interface</string>
-    <string name="cyanide_animations_title">Animations</string>
-    <string name="cyanide_central_title">Cyanide Central</string>
-	<string name="cyanide_dlc_title">Download Center</string>
 	<string name="cyanide_about_title">About CyanideL</string>
-    <string name="Recents_panel">Recent Apps Panel</string>
-    <string name="lock_clock_color_title">Global Lock Screen Colors</string>
-    <string name="weather_control_title">General cLock Weather</string>
-	<string name="weather_control_master_title">Weather Control</string>
-	<string name="qs_colors_title">Custom Colors</string>
-	<string name="general_title">General Options</string>
-	<string name="header_weather_title">Status Bar Weather</string>
-	<string name="status_bar_battery_style">Battery Options</string>
-	<string name="status_bar_logo_title">CyanideL Logo</string>
-	<string name="cyanide_ls_shortcuts_title">Lock Screen Shortcuts</string>
-	<string name="cyanide_notifs_title">Notifications</string>
-	<string name="cyanide_navbar_title">Navigation Bar</string>
-	<string name="breathing_notifications_title">Breathing Notifications</string>
-	<string name="heads_up_title">Heads Up Settings</string>
+	<string name="cyanide_sound_title">Advanced Sounds</string>
 	<string name="animation_control_title">Animation Control</string>
+	<string name="cyanide_animations_title">Animations</string>
+	<string name="status_bar_battery_style">Battery Options</string>
+	<string name="breathing_notifications_title">Breathing Notifications</string>
+	<string name="qs_colors_title">Custom Colors</string>
+	<string name="cyanide_central_title">Cyanide Central</string>
 	<string name="interface_control_title">CyanideL Interface Control</string>
-	<string name="power_menu_control_title">Power Menu Addons</string>
-	<string name="recents_control_title">Recents Panel Options</string>
-	<string name="stweaks_title">STweaks</string>
+	<string name="status_bar_logo_title">CyanideL Logo</string>
+	<string name="cyanide_settings_title">CyanideMods</string>
+	<string name="cyanide_dlc_title">Download Center</string>
+	<string name="weather_control_title">General cLock Weather</string>
+	<string name="general_title">General Options</string>
+	<string name="lock_clock_color_title">Global Lock Screen Colors</string>
+	<string name="heads_up_title">Heads Up Settings</string>
+	<string name="interface_settings_title">Interface</string>
+	<string name="cyanide_ls_shortcuts_title">Lock Screen Shortcuts</string>
+	<string name="cyanide_navbar_title">Navigation Bar</string>
 	<string name="navigation_ring_title">Navigation Ring</string>
+	<string name="cyanide_notifs_title">Notifications</string>
+	<string name="power_menu_control_title">Power Menu Addons</string>
+    <string name="Recents_panel">Recent Apps Panel</string>
+    <string name="recents_control_title">Recents Panel Options</string>
+	<string name="header_weather_title">Status Bar Weather</string>
+	<string name="stweaks_title">STweaks</string>
+	<string name="weather_control_master_title">Weather Control</string>
 	
 	<!-- Summary Strings -->
     <string name="appcirclebar_settings_summary">Activate and configure circle bar trigger spot and included applications</string>
@@ -86,6 +87,7 @@
     <string name="visualizer_summary">Display the visualizer on the lock screen</string>
     <string name="qs_colors_summary">Text and Icon Colors</string>
     <string name="cyanide_ls_shortcuts_summary">Custom Circle and Slider Shortcuts</string>
+    <string name="omniswitch_settings_summary">Option to use OmniSwitch as you default recents app</string>
     
     <!-- Changelog -->
     <string name="changelog_crdroid_title">Changelog</string>
@@ -1217,5 +1219,15 @@
     
     <!-- Viper4Android -->
     <string name="viper_title">Viper4Android</string>
+    
+    <!-- OmniSwitch -->
+	<string name="omniswitch_settings_title">OmniSwitch</string>
+	<string name="omniswitch_category">OmniSwitch</string>
+	<string name="recents_use_omniswitch_title">Use For Recents</string>
+	<string name="recents_use_omniswitch_summary">Use OmniSwitch instead of default recents view</string>
+	<string name="omniswitch_start_settings_title">Settings</string>
+	<string name="omniswitch_start_settings_summary">Open OmniSwitch settings</string>
+	<string name="omniswitch_first_time_title">Information</string>
+	<string name="omniswitch_first_time_message">Make sure you have enabled OmniSwitch. You can do this by using \"Settings\" below</string>
 
 </resources>

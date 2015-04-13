@@ -25,6 +25,12 @@
         android:title="@string/hfm_pref_screen_title"
         android:fragment="com.android.settings.cyanide.hfm.HfmSettings" /> 
 
+    <!-- Advanced sounds -->
+    <PreferenceScreen
+        android:id="@+id/cyanide_sound_settings"
+        android:title="@string/cyanide_sound_title"
+        android:fragment="com.android.settings.cyanide.CyanideSound" />
+    
     <!-- Animation settings -->
 	<PreferenceScreen
 		android:id="@+id/animations"
