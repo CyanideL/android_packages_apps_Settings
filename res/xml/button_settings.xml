@@ -29,7 +29,8 @@
         android:key="navbar"
         android:title="@string/cyanide_navbar_title"
         android:summary="@string/navbar_settings_summary"
-        android:fragment="com.android.settings.cyanide.NavigationSettings" />
+        android:fragment="com.android.settings.cyanide.NavigationSettings"
+        settings:advanced="true"/>
 
     <PreferenceCategory
         android:key="hw_keys"

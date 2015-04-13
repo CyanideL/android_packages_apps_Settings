@@ -62,6 +62,7 @@
 	<string name="power_menu_control_title">Power Menu Addons</string>
 	<string name="recents_control_title">Recents Panel Options</string>
 	<string name="stweaks_title">STweaks</string>
+	<string name="navigation_ring_title">Navigation Ring</string>
 	
 	<!-- Summary Strings -->
     <string name="appcirclebar_settings_summary">Activate and configure circle bar trigger spot and included applications</string>
