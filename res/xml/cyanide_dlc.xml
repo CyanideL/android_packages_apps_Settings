@@ -61,6 +61,12 @@
         android:title="@string/cyanide_bacon_title"
         android:fragment="com.android.settings.cyanide.dlc.Bacon" />
     
+    <!-- Galaxy Note 2 Vzw -->
+	<PreferenceScreen
+		android:id="@+id/cyanide_dlc"
+		android:title="@string/cyanide_n2vzw_title"
+		android:fragment="com.android.settings.cyanide.dlc.i605"/>
+    
     <!-- Galaxy Note 2 LTE -->
 	<PreferenceScreen
 		android:id="@+id/cyanide_dlc"
