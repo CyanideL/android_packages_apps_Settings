@@ -877,9 +877,6 @@
     <string name="protected_apps">Protected Apps</string>
     <string name="saving_protected_components">Saving Component State</string>
 
-    <string name="stats_collection_title">Stats Collection</string>
-    <string name="stats_collection_summary">When enabled, allows metrics collection</string>
-
     <!-- Category title for Charging sounds (Power state change) specific Settings.
          [CHAR LIMIT=40] -->
     <string name="power_notifications_category_title">Charging Sounds</string>

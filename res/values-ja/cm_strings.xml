@@ -602,8 +602,6 @@
   <string name="menu_hidden_apps_reset_lock">パターンロックをリセット</string>
   <string name="protected_apps">アプリの保護</string>
   <string name="saving_protected_components">コンポーネントの状態を保存中\u2026</string>
-  <string name="stats_collection_title">統計の収集</string>
-  <string name="stats_collection_summary">メトリクスの収集を許可する</string>
   <string name="power_notifications_category_title">充電の音</string>
   <string name="power_notifications_enable_title">有効化</string>
   <string name="power_notifications_enable_summary">電源を接続または切断したときに音を鳴らす</string>

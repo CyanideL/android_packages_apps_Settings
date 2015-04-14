@@ -625,8 +625,6 @@
   <string name="menu_hidden_apps_reset_lock">Obnovit gesto zámku</string>
   <string name="protected_apps">Chráněné aplikace</string>
   <string name="saving_protected_components">Ukládání stavu komponent\u2026</string>
-  <string name="stats_collection_title">Sbírka statistik</string>
-  <string name="stats_collection_summary">Je-li povoleno, umožňuje shromažďovat statistická data</string>
   <string name="power_notifications_category_title">Zvuk nabíječky</string>
   <string name="power_notifications_enable_title">Povolit</string>
   <string name="power_notifications_enable_summary">Přehrát zvuk při připojení nebo odpojení nabíječky</string>

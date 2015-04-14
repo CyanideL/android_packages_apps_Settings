@@ -603,8 +603,6 @@
   <string name="menu_hidden_apps_reset_lock">Reestablecer patrón de bloqueo</string>
   <string name="protected_apps">Aplicaciones protegidas</string>
   <string name="saving_protected_components">Guardar el estado del componente\u2026</string>
-  <string name="stats_collection_title">Recogida de estadísticas</string>
-  <string name="stats_collection_summary">Obtener información sobre las operaciones realizadas por las aplicaciones</string>
   <string name="power_notifications_category_title">Cargador</string>
   <string name="power_notifications_enable_title">Sonido</string>
   <string name="power_notifications_enable_summary">Reproducir un sonido al conectar o desconectar el cargador</string>

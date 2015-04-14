@@ -627,8 +627,6 @@
   <string name="menu_hidden_apps_reset_lock">Επαναφέρετε το μοτίβο κλειδώματος</string>
   <string name="protected_apps">Προστατευμένες εφαρμογές</string>
   <string name="saving_protected_components">Αποθήκευση κατάστασης εφαρμογών\u2026</string>
-  <string name="stats_collection_title">Συλλογή στατιστικών</string>
-  <string name="stats_collection_summary">Όταν ενεργοποιηθεί, επιτρέπει τη συλλογή στατιστικών μετρήσεων</string>
   <string name="power_notifications_category_title">Ήχοι φόρτισης</string>
   <string name="power_notifications_enable_title">Ενεργοποίηση</string>
   <string name="power_notifications_enable_summary">Αναπαραγωγή ήχου κατά τη σύνδεση ή την αποσύνδεση μιας πηγής ισχύος</string>

@@ -623,8 +623,6 @@
   <string name="menu_hidden_apps_reset_lock">Nollaa kuviolukitus</string>
   <string name="protected_apps">Suojatut sovellukset</string>
   <string name="saving_protected_components">Tallennetaan komponentin tilaa\u2026</string>
-  <string name="stats_collection_title">Tilastojen keräys</string>
-  <string name="stats_collection_summary">Sallii käyttötietojen keräämisen kun käytössä</string>
   <string name="power_notifications_category_title">Latausäänet</string>
   <string name="power_notifications_enable_title">Ota käyttöön</string>
   <string name="power_notifications_enable_summary">Anna äänimerkki, kun virtalähde liitetään tai irrotetaan</string>

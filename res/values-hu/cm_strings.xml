@@ -603,8 +603,6 @@
   <string name="menu_hidden_apps_reset_lock">Minta visszaállítása</string>
   <string name="protected_apps">Védett alkalmazások</string>
   <string name="saving_protected_components">Összetevő állapotának mentése\u2026</string>
-  <string name="stats_collection_title">Statisztika gyűjtése</string>
-  <string name="stats_collection_summary">Ha engedélyezve van, lehetővé teszi a mérőszámok gyűjtését</string>
   <string name="power_notifications_category_title">Töltés jelzése</string>
   <string name="power_notifications_enable_title">Engedélyezve</string>
   <string name="power_notifications_enable_summary">Hangjelzés töltő csatlakoztatása, vagy leválasztása esetén</string>

@@ -624,8 +624,6 @@
   <string name="menu_hidden_apps_reset_lock">Tilbakestille mønster lås</string>
   <string name="protected_apps">Beskyttede apps</string>
   <string name="saving_protected_components">Lagre komponent status\u2026</string>
-  <string name="stats_collection_title">Statistikkinnsamling</string>
-  <string name="stats_collection_summary">Når aktivert, tillater innsamling av statistikk</string>
   <string name="power_notifications_category_title">Ladelyder</string>
   <string name="power_notifications_enable_title">Aktiver</string>
   <string name="power_notifications_enable_summary">Spill av en lyd når du kobler til eller kobler fra en strømkilde</string>

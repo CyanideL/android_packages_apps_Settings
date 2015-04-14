@@ -596,8 +596,6 @@
   <string name="menu_hidden_apps_reset_lock">Spärmuster zrécksetzen</string>
   <string name="protected_apps">Geschützt Appen</string>
   <string name="saving_protected_components">Komponentestatus gëtt gespäichert\u2026</string>
-  <string name="stats_collection_title">Statistiksammlung</string>
-  <string name="stats_collection_summary">Erlaabt d\'Sammele vu Metriken, wann aktivéiert</string>
   <string name="power_notifications_category_title">Téin beim Oplueden</string>
   <string name="power_notifications_enable_title">Aktivéieren</string>
   <string name="power_notifications_enable_summary">En Toun ofspille wann eng Stroumquell ugeschloss oder getrennt gëtt</string>

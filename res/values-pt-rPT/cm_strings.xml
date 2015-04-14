@@ -603,8 +603,6 @@
   <string name="menu_hidden_apps_reset_lock">Limpar o bloqueio padrão</string>
   <string name="protected_apps">Aplicações protegidas</string>
   <string name="saving_protected_components">A guardar o estado dos componentes\u2026</string>
-  <string name="stats_collection_title">Coleção de estatísticas</string>
-  <string name="stats_collection_summary">Quando ativado, permite a recolha de métricas</string>
   <string name="power_notifications_category_title">Sons de carregamento</string>
   <string name="power_notifications_enable_title">Ativar</string>
   <string name="power_notifications_enable_summary">Tocar um som quando conectar ou desconectar uma fonte de energia</string>

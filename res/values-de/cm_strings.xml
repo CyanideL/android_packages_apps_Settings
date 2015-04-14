@@ -610,8 +610,6 @@
   <string name="menu_hidden_apps_reset_lock">Sperrmuster zurücksetzen</string>
   <string name="protected_apps">Geschützte Apps</string>
   <string name="saving_protected_components">Geschützte Apps werden gespeichert\u2026</string>
-  <string name="stats_collection_title">Statistikaufzeichnung</string>
-  <string name="stats_collection_summary">Erlaubt das Sammeln von Statistiken</string>
   <string name="power_notifications_category_title">Ladegeräte-Töne</string>
   <string name="power_notifications_enable_title">Aktivieren</string>
   <string name="power_notifications_enable_summary">Beim Anschließen oder Trennen einer Stromquelle einen Ton abspielen</string>

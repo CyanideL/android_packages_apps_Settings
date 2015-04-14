@@ -605,8 +605,6 @@
   <string name="menu_hidden_apps_reset_lock">Ресетуј шаблон</string>
   <string name="protected_apps">Заштићене апликације</string>
   <string name="saving_protected_components">Чување компонената\u2026</string>
-  <string name="stats_collection_title">Колекција статистике</string>
-  <string name="stats_collection_summary">Када је омогућено дозвољава метричку колекцију</string>
   <string name="power_notifications_category_title">Звук пуњења батерије</string>
   <string name="power_notifications_enable_title">Омогућено</string>
   <string name="power_notifications_enable_summary">Пусти звук када се повезује или искључује извор напајања</string>

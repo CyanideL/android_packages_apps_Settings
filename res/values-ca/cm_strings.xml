@@ -603,8 +603,6 @@
   <string name="menu_hidden_apps_reset_lock">Reinicia el patró de bloqueig</string>
   <string name="protected_apps">Apps protegides</string>
   <string name="saving_protected_components">Desant l\'estat del component\u2026</string>
-  <string name="stats_collection_title">Recollida d\'estadístiques</string>
-  <string name="stats_collection_summary">Quan està activat, permet la recollida de mètriques</string>
   <string name="power_notifications_category_title">Sons de càrrega</string>
   <string name="power_notifications_enable_title">Habilita</string>
   <string name="power_notifications_enable_summary">Reprodueix un so en connectar o desconnectar d\'una font d\'energia</string>

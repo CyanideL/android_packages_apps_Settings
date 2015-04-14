@@ -604,8 +604,6 @@
   <string name="menu_hidden_apps_reset_lock">Zresetuj wzór blokady</string>
   <string name="protected_apps">Chronione aplikacje</string>
   <string name="saving_protected_components">Zapisywanie obecnego stanu\u2026</string>
-  <string name="stats_collection_title">Statystyki</string>
-  <string name="stats_collection_summary">Kiedy włączone pozwala na zbieranie metryk</string>
   <string name="power_notifications_category_title">Dźwięki ładowania</string>
   <string name="power_notifications_enable_title">Aktywuj dźwięki ładowania</string>
   <string name="power_notifications_enable_summary">Odtwarzaj dźwięk podczas podłączania lub odłączania źródła zasilania</string>

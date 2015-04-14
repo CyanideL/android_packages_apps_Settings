@@ -604,8 +604,6 @@
   <string name="menu_hidden_apps_reset_lock">Удалить граф. ключ</string>
   <string name="protected_apps">Заблокир. приложения</string>
   <string name="saving_protected_components">Сохранение состояния приложений\u2026</string>
-  <string name="stats_collection_title">Сбор статистики</string>
-  <string name="stats_collection_summary">Когда включено, разрешает сбор метрики</string>
   <string name="power_notifications_category_title">Зарядное устройство</string>
   <string name="power_notifications_enable_title">Звук при зарядке</string>
   <string name="power_notifications_enable_summary">Воспроизводить звук при подключении или отключении источника питания</string>

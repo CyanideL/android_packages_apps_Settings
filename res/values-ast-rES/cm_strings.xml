@@ -601,8 +601,6 @@ Calca pa empareyar el preséu Bluetooth enantes de configurar los disparadores.<
   <string name="menu_hidden_apps_reset_lock">Reanicia\'l patrón de bloquéu</string>
   <string name="protected_apps">Apps protexíes</string>
   <string name="saving_protected_components">Guardando l\'estáu del componente\u2026</string>
-  <string name="stats_collection_title">Colleición de datos</string>
-  <string name="stats_collection_summary">Cuando ta activáu, permite la recoleición de métriques</string>
   <string name="power_notifications_category_title">Cargador</string>
   <string name="power_notifications_enable_title">Soníu</string>
   <string name="power_notifications_enable_summary">Reproducir un soníu al coneutar o desconeutar el cargador</string>

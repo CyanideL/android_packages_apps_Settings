@@ -600,8 +600,6 @@
   <string name="menu_hidden_apps_reset_lock">Réinitialiser le schéma de verrouillage</string>
   <string name="protected_apps">Applications protégées</string>
   <string name="saving_protected_components">Enregistrement de l\'état du composant\u2026</string>
-  <string name="stats_collection_title">Collecte de statistiques</string>
-  <string name="stats_collection_summary">Une fois activé, autorise la collecte de paramètres</string>
   <string name="power_notifications_category_title">Son d\'alimentation</string>
   <string name="power_notifications_enable_title">Activer</string>
   <string name="power_notifications_enable_summary">Jouer un son lors du branchement ou débranchement de la source d\'alimentation</string>

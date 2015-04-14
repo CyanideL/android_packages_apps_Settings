@@ -623,8 +623,6 @@
   <string name="menu_hidden_apps_reset_lock">重置锁定图案</string>
   <string name="protected_apps">受保护的应用</string>
   <string name="saving_protected_components">正在保存组件状态\u2026</string>
-  <string name="stats_collection_title">统计数据收集</string>
-  <string name="stats_collection_summary">启用时，允许数据收集</string>
   <string name="power_notifications_category_title">充电提示音</string>
   <string name="power_notifications_enable_title">启用</string>
   <string name="power_notifications_enable_summary">连接或断开电源时发出声音</string>

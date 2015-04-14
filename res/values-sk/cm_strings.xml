@@ -628,8 +628,6 @@
   <string name="menu_hidden_apps_reset_lock">Obnoviť uzamknutie vzorom</string>
   <string name="protected_apps">Chránené aplikácie</string>
   <string name="saving_protected_components">Ukladanie stavu komponentu\u2026</string>
-  <string name="stats_collection_title">Zbieranie štatistík</string>
-  <string name="stats_collection_summary">Povoliť metrické zbieranie</string>
   <string name="power_notifications_category_title">Zvuky nabíjania</string>
   <string name="power_notifications_enable_title">Povoliť</string>
   <string name="power_notifications_enable_summary">Prehrať zvuk pri pripojení alebo odpojení zdroja nabíjania</string>
