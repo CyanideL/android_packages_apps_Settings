@@ -35,6 +35,7 @@ import android.os.UserHandle;
 import android.os.UserManager;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.PreferenceFragment;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
@@ -59,16 +60,13 @@ import java.util.List;
  * Displays a list of apps and subsystems that consume power, ordered by how much power was
  * consumed since the last time it was unplugged.
  */
-public class PowerUsageSummary extends SettingsPreferenceFragment
-        implements Preference.OnPreferenceChangeListener {
+public class PowerUsageSummary extends PreferenceFragment {
 
     private static final boolean DEBUG = false;
 
     static final String TAG = "PowerUsageSummary";
 
     private static final String KEY_APP_LIST = "app_list";
-
-    private static final String KEY_PERF_PROFILE = "pref_perf_profile";
 
     private static final String BATTERY_HISTORY_FILE = "tmp_bat_history.bin";
 
@@ -94,11 +92,6 @@ public class PowerUsageSummary extends SettingsPreferenceFragment
     private BatteryStatsHelper mStatsHelper;
 
     private PowerManager mPowerManager;
-    private ListPreference mPerfProfilePref;
-    private String[] mPerfProfileEntries;
-    private String[] mPerfProfileValues;
-    private String mPerfProfileDefaultEntry;
-    private PerformanceProfileObserver mPerformanceProfileObserver = null;
 
     private BroadcastReceiver mBatteryInfoReceiver = new BroadcastReceiver() {
 
@@ -114,22 +107,10 @@ public class PowerUsageSummary extends SettingsPreferenceFragment
         }
     };
 
-    private class PerformanceProfileObserver extends ContentObserver {
-        public PerformanceProfileObserver(Handler handler) {
-            super(handler);
-        }
-
-        @Override
-        public void onChange(boolean selfChange, Uri uri) {
-            updatePerformanceValue();
-        }
-    }
-
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         mUm = (UserManager) activity.getSystemService(Context.USER_SERVICE);
-        mPowerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
         mStatsHelper = new BatteryStatsHelper(activity, true);
     }
 
@@ -138,28 +119,9 @@ public class PowerUsageSummary extends SettingsPreferenceFragment
         super.onCreate(icicle);
         mStatsHelper.create(icicle);
 
-        mPerfProfileEntries = getResources().getStringArray(
-                com.android.internal.R.array.perf_profile_entries);
-        mPerfProfileValues = getResources().getStringArray(
-                com.android.internal.R.array.perf_profile_values);
-
         addPreferencesFromResource(R.xml.power_usage_summary);
         mAppListGroup = (PreferenceGroup) findPreference(KEY_APP_LIST);
         setHasOptionsMenu(true);
-
-        mPerfProfilePref = (ListPreference) findPreference(KEY_PERF_PROFILE);
-        if (mPerfProfilePref != null && !mPowerManager.hasPowerProfiles()) {
-            removePreference(KEY_PERF_PROFILE);
-            mPerfProfilePref = null;
-        } else if (mPerfProfilePref != null) {
-            mPerfProfilePref.setOrder(-1);
-            mPerfProfilePref.setEntries(mPerfProfileEntries);
-            mPerfProfilePref.setEntryValues(mPerfProfileValues);
-            updatePerformanceValue();
-            mPerfProfilePref.setOnPreferenceChangeListener(this);
-        }
-
-        mPerformanceProfileObserver = new PerformanceProfileObserver(new Handler());
     }
 
     @Override
@@ -179,13 +141,6 @@ public class PowerUsageSummary extends SettingsPreferenceFragment
             mStatsHelper.clearStats();
         }
         refreshStats();
-
-        if (mPerfProfilePref != null) {
-            updatePerformanceValue();
-            ContentResolver resolver = getActivity().getContentResolver();
-            resolver.registerContentObserver(Settings.Secure.getUriFor(
-                    Settings.Secure.PERFORMANCE_PROFILE), false, mPerformanceProfileObserver);
-        }
     }
 
     @Override
@@ -195,10 +150,6 @@ public class PowerUsageSummary extends SettingsPreferenceFragment
         getActivity().unregisterReceiver(mBatteryInfoReceiver);
         super.onPause();
 
-        if (mPerfProfilePref != null) {
-            ContentResolver resolver = getActivity().getContentResolver();
-            resolver.unregisterContentObserver(mPerformanceProfileObserver);
-        }
     }
 
     @Override
@@ -237,18 +188,6 @@ public class PowerUsageSummary extends SettingsPreferenceFragment
         PowerUsageDetail.startBatteryDetailPage((SettingsActivity) getActivity(), mStatsHelper,
                 mStatsType, entry, true);
         return super.onPreferenceTreeClick(preferenceScreen, preference);
-    }
-
-    @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (newValue != null) {
-            if (preference == mPerfProfilePref) {
-                mPowerManager.setPowerProfile(String.valueOf(newValue));
-                updatePerformanceSummary();
-                return true;
-            }
-        }
-        return false;
     }
 
     @Override
@@ -319,30 +258,6 @@ public class PowerUsageSummary extends SettingsPreferenceFragment
             }
         }
         return false;
-    }
-
-    private void updatePerformanceSummary() {
-        String value = mPowerManager.getPowerProfile();
-        String summary = "";
-        int count = mPerfProfileValues.length;
-        for (int i = 0; i < count; i++) {
-            try {
-                if (mPerfProfileValues[i].equals(value)) {
-                    summary = mPerfProfileEntries[i];
-                }
-            } catch (IndexOutOfBoundsException ex) {
-                // Ignore
-            }
-        }
-        mPerfProfilePref.setSummary(String.format("%s", summary));
-    }
-
-    private void updatePerformanceValue() {
-        if (mPerfProfilePref == null) {
-            return;
-        }
-        mPerfProfilePref.setValue(mPowerManager.getPowerProfile());
-        updatePerformanceSummary();
     }
 
     private void refreshStats() {
