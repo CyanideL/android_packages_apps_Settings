@@ -44,6 +44,7 @@
 	<string name="status_bar_battery_style">Battery Options</string>
 	<string name="breathing_notifications_title">Breathing Notifications</string>
 	<string name="qs_colors_title">Custom Colors</string>
+	<string name="custom_header_title">Customization</string>
 	<string name="cyanide_central_title">Cyanide Central</string>
 	<string name="interface_control_title">CyanideL Interface Control</string>
 	<string name="status_bar_logo_title">CyanideL Logo</string>
@@ -55,14 +56,17 @@
 	<string name="heads_up_title">Heads Up Settings</string>
 	<string name="interface_settings_title">Interface</string>
 	<string name="cyanide_ls_shortcuts_title">Lock Screen Shortcuts</string>
+	<string name="cyanide_misc_title">Miscellaneous</string>
 	<string name="cyanide_navbar_title">Navigation Bar</string>
 	<string name="navigation_ring_title">Navigation Ring</string>
+	<string name="navring_shortcuts_title">Navring Shortcuts</string>
 	<string name="cyanide_notifs_title">Notifications</string>
 	<string name="power_menu_control_title">Power Menu Addons</string>
     <string name="Recents_panel">Recent Apps Panel</string>
     <string name="recents_control_title">Recents Panel Options</string>
 	<string name="header_weather_title">Status Bar Weather</string>
 	<string name="stweaks_title">STweaks</string>
+	<string name="system_header_title">System Settings</string>
 	<string name="weather_control_master_title">Weather Control</string>
 	
 	<!-- Summary Strings -->
@@ -88,6 +92,7 @@
     <string name="qs_colors_summary">Text and Icon Colors</string>
     <string name="cyanide_ls_shortcuts_summary">Custom Circle and Slider Shortcuts</string>
     <string name="omniswitch_settings_summary">Option to use OmniSwitch as you default recents app</string>
+    <string name="navring_summary">Configure custom shortcuts for Navring</string>
     
     <!-- Changelog -->
     <string name="changelog_crdroid_title">Changelog</string>

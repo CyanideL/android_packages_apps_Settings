@@ -2495,11 +2495,12 @@
 
         <activity
              android:name=".cyanide.dlc.CyanideCentral" />
-
+        
         <activity android:name=".cyanide.gestureanywhere.GestureAnywhereBuilderActivity" />
         <activity android:name=".cyanide.gestureanywhere.GestureAnywhereCreateGestureActivity" />
         <activity android:name=".cyanide.WeatherSettings" />
         <activity android:name=".cyanide.CyanideNotifs" />
+        <activity android:name=".cyanide.Misc" />
 
         <provider
             android:name=".search.SettingsSearchIndexablesProvider"
