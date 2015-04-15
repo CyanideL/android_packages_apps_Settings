@@ -56,16 +56,24 @@
 
             <PreferenceCategory
                     android:key="doze_brightness_category"
-                    android:title="@string/doze_brightness_category_title" >
-                    <com.android.settings.euphoria.SeekBarPreference
+                    android:title="@string/doze_brightness_category_title"
+                    android:dependency="doze_overwrite_value" >
+                    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+                        android:key="doze_auto_brightness"
+                        android:title="@string/doze_auto_brightness_title"
+                        android:summary="@string/doze_auto_brightness_summary"
+                        android:defaultValue="false"
+                        android:disableDependentsState="true" />
+
+                    <com.android.settings.cyanide.SeekBarPreference
                         android:key="doze_brightness"
                         android:title="@string/doze_brightness_title"
                         android:max="30"
                         settings:min="0"
                         settings:unitsLeft=""
                         settings:unitsRight=""
-                        android:dependency="doze_overwrite_value"
-                        android:persistent="false" />
+                        android:persistent="false"
+                        android:dependency="doze_auto_brightness" />
 
             </PreferenceCategory>
 
