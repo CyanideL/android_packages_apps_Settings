@@ -66,7 +66,7 @@ public class S5 extends SettingsPreferenceFragment
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mCyanideOfficial) {
-            Uri uri = Uri.parse("https://www.androidfilehost.com/?w=files&flid=27993");
+            Uri uri = Uri.parse("http://renderserver.net/devs/fumes007/cyanideL/klte/");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
             return true;
