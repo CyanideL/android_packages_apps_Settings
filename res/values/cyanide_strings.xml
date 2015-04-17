@@ -93,6 +93,7 @@
     <string name="cyanide_ls_shortcuts_summary">Custom Circle and Slider Shortcuts</string>
     <string name="omniswitch_settings_summary">Option to use OmniSwitch as you default recents app</string>
     <string name="navring_summary">Configure custom shortcuts for Navring</string>
+    <string name="advanced_mode_summary">Enable the GOOD SHIT!!!!</string>
     
     <!-- Changelog -->
     <string name="changelog_crdroid_title">Changelog</string>
@@ -533,6 +534,8 @@
     <string name="cyanide_d855_title">LG G3 Int\'l d855</string>
     <string name="cyanide_vs985_title">LG G3 Vzw vs985</string>
     <string name="cyanide_nexus6_title">Nexus 6</string>
+    <string name="cyanide_nexus7_title">Nexus 7</string>
+    <string name="cyanide_xperia_title">Sony XperiaZ Ultra</string>
     
     <!-- Animation Controls -->
     <string name="title_animation_controls">System Animations</string>
@@ -1016,7 +1019,9 @@
     <string name="volume_panel_time_out_12sec">12 seconds</string>
     <string name="volume_panel_time_out_15sec">15 seconds</string>
 
-        <!-- Doze pulse (ambient display) options -->
+    <!-- Doze pulse (ambient display) options -->
+    <string name="summary_doze_enabled">Enabled</string>
+	<string name="summary_doze_disabled">Disabled</string>
     <string name="doze_overwrite_value_title">Overwrite value</string>
     <string name="doze_overwrite_value_summary">Allow to overwrite default value with user config</string>
 
@@ -1241,5 +1246,6 @@
 	<string name="omniswitch_start_settings_summary">Open OmniSwitch settings</string>
 	<string name="omniswitch_first_time_title">Information</string>
 	<string name="omniswitch_first_time_message">Make sure you have enabled OmniSwitch. You can do this by using \"Settings\" below</string>
+	
 
 </resources>

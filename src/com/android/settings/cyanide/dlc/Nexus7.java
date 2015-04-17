@@ -38,7 +38,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
-public class d855 extends SettingsPreferenceFragment 
+public class Nexus7 extends SettingsPreferenceFragment 
     implements OnPreferenceChangeListener {
 
     Preference mCyanideOfficial;
@@ -66,7 +66,7 @@ public class d855 extends SettingsPreferenceFragment
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mCyanideOfficial) {
-            Uri uri = Uri.parse("https://www.androidfilehost.com/?w=files&flid=27959");
+            Uri uri = Uri.parse("https://www.androidfilehost.com/?w=files&flid=28910");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
             return true;
@@ -76,7 +76,7 @@ public class d855 extends SettingsPreferenceFragment
             startActivity(intent);
             return true;
         } else if (preference == mShiftKernel) {
-            Uri uri = Uri.parse("https://www.androidfilehost.com/?w=files&flid=27994");
+            Uri uri = Uri.parse("https://www.androidfilehost.com/?w=files&flid=29746");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
             return true;

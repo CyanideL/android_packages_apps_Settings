@@ -71,7 +71,7 @@ public class Bacon extends SettingsPreferenceFragment
             startActivity(intent);
             return true;
         } else if (preference == mPAGapps) {
-            Uri uri = Uri.parse("https://s.basketbuild.com/devs/TKruzze/Android%205.0.1%20GApps");
+            Uri uri = Uri.parse("http://forum.xda-developers.com/android/software/reborn-gapps-5-t3074660");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
             return true;
