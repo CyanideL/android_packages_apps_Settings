@@ -26,7 +26,7 @@
 		<SwitchPreference
 			android:key="airplane"
 			android:title="@string/power_menu_airplane_title"
-			android:defaultValue="true" />
+			android:defaultValue="false" />
 		
 		<SwitchPreference
 			android:key="lockdown"

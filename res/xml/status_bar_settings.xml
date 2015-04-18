@@ -87,6 +87,13 @@
         android:summary="@string/status_bar_notif_system_icons_settings_summary"
         android:fragment="com.android.settings.cyanide.StatusBarNotifSystemIconsSettings" />
         
+    <!-- Random Options -->
+    <PreferenceScreen
+        android:key="status_bar_random"
+        android:title="@string/status_bar_random_title"
+        android:summary="@string/status_bar_random_summary"
+        android:fragment="com.android.settings.cyanide.StatusBarRandom" />
+    
     <!-- Header Color Options -->
     <PreferenceScreen
         android:key="status_bar_expanded_header_settings"

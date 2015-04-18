@@ -22,6 +22,9 @@ import android.os.Bundle;
 import android.os.UserHandle;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.PreferenceCategory;
+import android.preference.SwitchPreference;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 
@@ -34,14 +37,17 @@ import com.android.settings.search.Indexable;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.android.internal.widget.LockPatternUtils;
 
 public class NotificationDrawerSettings extends SettingsPreferenceFragment implements Indexable,
         Preference.OnPreferenceChangeListener {
     private static final String QUICK_PULLDOWN = "quick_pulldown";
     private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
+    private static final String PREF_BLOCK_ON_SECURE_KEYGUARD = "block_on_secure_keyguard";
 
     private ListPreference mQuickPulldown;
     private ListPreference mSmartPulldown;
+    private SwitchPreference mBlockOnSecureKeyguard;
     private Preference mQSTiles;
 
     @Override
@@ -73,6 +79,14 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
                 Settings.System.QS_SMART_PULLDOWN, 0);
         mSmartPulldown.setValue(String.valueOf(smartPulldown));
         updateSmartPulldownSummary(smartPulldown);
+        
+        final LockPatternUtils lockPatternUtils = new LockPatternUtils(getActivity());
+        mBlockOnSecureKeyguard = (SwitchPreference) findPreference(PREF_BLOCK_ON_SECURE_KEYGUARD);
+        if (lockPatternUtils.isSecure()) {
+            mBlockOnSecureKeyguard.setChecked(Settings.Secure.getInt(getContentResolver(),
+                    Settings.Secure.STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD, 1) == 1);
+            mBlockOnSecureKeyguard.setOnPreferenceChangeListener(this);
+		}
 
     }
 
@@ -100,7 +114,12 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
                     smartPulldown, UserHandle.USER_CURRENT);
             updateSmartPulldownSummary(smartPulldown);
             return true;
-        }
+        } else if (preference == mBlockOnSecureKeyguard) {
+            Settings.Secure.putInt(getContentResolver(),
+                    Settings.Secure.STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD,
+                    (Boolean) newValue ? 1 : 0);
+            return true;
+		}
         return false;
     }
 

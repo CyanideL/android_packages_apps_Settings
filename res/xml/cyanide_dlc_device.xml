@@ -41,9 +41,9 @@
         android:title="@string/gapps_category">
 
     <Preference
-        android:key="slim_gapps"
-        android:title="@string/slim_gapps_title"
-        android:summary="@string/slim_gapps_summary" />
+        android:key="pa_gapps"
+        android:title="@string/pa_gapps_title"
+        android:summary="@string/pa_gapps_summary" />
 
     </PreferenceCategory>
 
@@ -55,6 +55,17 @@
         android:key="shift_kernel"
         android:title="@string/shift_kernel_title"
         android:summary="@string/shift_kernel_summary" />
+
+    </PreferenceCategory>
+    
+    <PreferenceCategory
+        android:key="thread_category"
+        android:title="@string/thread_category">
+
+    <Preference
+        android:key="xda_thread"
+        android:title="@string/xda_thread_title"
+        android:summary="@string/xda_thread_summary" />
 
     </PreferenceCategory>
 

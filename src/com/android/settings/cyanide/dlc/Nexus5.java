@@ -44,6 +44,7 @@ public class Nexus5 extends SettingsPreferenceFragment
     Preference mCyanideOfficial;
     Preference mPAGapps;
     Preference mShiftKernel;
+    Preference mXDAThread;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,7 @@ public class Nexus5 extends SettingsPreferenceFragment
         mCyanideOfficial = findPreference("cyanide_official");
         mPAGapps = findPreference("pa_gapps");
         mShiftKernel = findPreference("shift_kernel");
+        mXDAThread = findPreference("xda_thread");
     }
 
     @Override
@@ -66,7 +68,7 @@ public class Nexus5 extends SettingsPreferenceFragment
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mCyanideOfficial) {
-            Uri uri = Uri.parse("https://www.androidfilehost.com/?w=files&flid=27823");
+            Uri uri = Uri.parse("https://www.androidfilehost.com/?a=show&w=files&flid=27800");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
             return true;
@@ -77,6 +79,11 @@ public class Nexus5 extends SettingsPreferenceFragment
             return true;
         } else if (preference == mShiftKernel) {
             Uri uri = Uri.parse("https://www.androidfilehost.com/?w=files&flid=27818");
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
+            return true;
+        } else if (preference == mXDAThread) {
+            Uri uri = Uri.parse("http://forum.xda-developers.com/google-nexus-5/development/rom-cyanide-l-rc-7-5-android-5-0-2-t3057711");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
             return true;

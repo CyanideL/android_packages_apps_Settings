@@ -17,6 +17,12 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="@string/development_settings_title">
 
+    <!-- Advanced mode -->
+    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+            android:key="advanced_mode"
+            android:title="@string/advanced_mode_title"
+            android:summary="@string/advanced_mode_summary" />
+    
     <PreferenceScreen
             android:key="development_tools"
             android:title="@string/development_tools_title"

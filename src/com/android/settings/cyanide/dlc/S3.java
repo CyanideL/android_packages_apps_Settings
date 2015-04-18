@@ -44,6 +44,7 @@ public class S3 extends SettingsPreferenceFragment
     Preference mCyanideOfficial;
     Preference mPAGapps;
     Preference mShiftKernel;
+    Preference mXDAThread;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,7 @@ public class S3 extends SettingsPreferenceFragment
         mCyanideOfficial = findPreference("cyanide_official");
         mPAGapps = findPreference("pa_gapps");
         mShiftKernel = findPreference("shift_kernel");
+        mXDAThread = findPreference("xda_thread");
     }
 
     @Override
@@ -77,6 +79,11 @@ public class S3 extends SettingsPreferenceFragment
             return true;
         } else if (preference == mShiftKernel) {
             Uri uri = Uri.parse("https://www.androidfilehost.com/?w=files&flid=24492");
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
+            return true;
+        } else if (preference == mXDAThread) {
+            Uri uri = Uri.parse("http://forum.xda-developers.com/galaxy-s3-att/development/rom-cyanide-l-v1-android-5-0-2-t2980174");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
             return true;

@@ -62,6 +62,7 @@
 	<string name="navring_shortcuts_title">Navring Shortcuts</string>
 	<string name="cyanide_notifs_title">Notifications</string>
 	<string name="power_menu_control_title">Power Menu Addons</string>
+	<string name="status_bar_random_title">Random Settings</string>
     <string name="Recents_panel">Recent Apps Panel</string>
     <string name="recents_control_title">Recents Panel Options</string>
 	<string name="header_weather_title">Status Bar Weather</string>
@@ -94,6 +95,7 @@
     <string name="omniswitch_settings_summary">Option to use OmniSwitch as you default recents app</string>
     <string name="navring_summary">Configure custom shortcuts for Navring</string>
     <string name="advanced_mode_summary">Enable the GOOD SHIT!!!!</string>
+    <string name="status_bar_random_summary">Configure random status bar settings</string>
     
     <!-- Changelog -->
     <string name="changelog_crdroid_title">Changelog</string>
@@ -506,8 +508,11 @@
     <string name="cyanide_official_summary">Download the latest Stable release of CyanideL</string>
     <string name="shift_kernel_title">Shift Kernel</string>
     <string name="shift_kernel_summary">Download Shift Kernel, not all devices supported</string>
-    <string name="slim_gapps_title">Slim Gapps</string>
-    <string name="slim_gapps_summary">Fully packed with the majority of GAPPS, these are commonly used by users that do not want to download/install them later</string>
+    <string name="thread_category">Support</string>
+    <string name="xda_thread_title">XDA</string>
+    <string name="xda_thread_summary">Visit the Official support thread for your device</string>
+    <string name="pa_gapps_title">PA Gapps</string>
+    <string name="pa_gapps_summary">Fully packed with the majority of GAPPS, these are commonly used by users that do not want to download/install them later</string>
     
     <!-- Cyanide About Section -->
     <string name="about_category">About CyanideL</string>
@@ -1247,5 +1252,19 @@
 	<string name="omniswitch_first_time_title">Information</string>
 	<string name="omniswitch_first_time_message">Make sure you have enabled OmniSwitch. You can do this by using \"Settings\" below</string>
 	
+	<!-- Quick settings Secure -->
+    <string name="quick_settings_category">Quick settings</string>
+    <string name="block_on_secure_keyguard_title">Disable on lockscreen</string>
+	<string name="block_on_secure_keyguard_summary">Disable quick settings on secure lockscreen.</string>
+	
+	<!-- Status Bar Indicator Switches-->
+    <string name="alarm_indicator">Alarm Indicator</string>
+	<string name="alarm_indicator_summary">Show alarm clock indicator if alarm is set</string>	
+    <string name="su_indicator">Superuser indicator</string>
+	<string name="su_indicator_summary">Show superuser indicator when a session is active</string>
+    <string name="status_bar_bluetooth_icon">Show Bluetooth icon</string>
+    <string name="status_bar_bluetooth_icon_summary">Display the bluetooth icon when it is enabled but not connected</string>
+    <string name="privacy_guard_notification_title">Privacy Guard</string>
+	<string name="privacy_guard_notifiation_summary">Show a notification if privacy guard is active</string>
 
 </resources>

@@ -44,6 +44,7 @@ public class vs985 extends SettingsPreferenceFragment
     Preference mCyanideOfficial;
     Preference mPAGapps;
     Preference mShiftKernel;
+    Preference mXDAThread;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,7 @@ public class vs985 extends SettingsPreferenceFragment
         mCyanideOfficial = findPreference("cyanide_official");
         mPAGapps = findPreference("pa_gapps");
         mShiftKernel = findPreference("shift_kernel");
+        mXDAThread = findPreference("xda_thread");
     }
 
     @Override
@@ -66,7 +68,7 @@ public class vs985 extends SettingsPreferenceFragment
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mCyanideOfficial) {
-            Uri uri = Uri.parse("https://www.androidfilehost.com/?w=files&flid=22980");
+            Uri uri = Uri.parse("https://www.androidfilehost.com/?w=files&flid=28438");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
             return true;
@@ -77,6 +79,11 @@ public class vs985 extends SettingsPreferenceFragment
             return true;
         } else if (preference == mShiftKernel) {
             Uri uri = Uri.parse("https://www.androidfilehost.com/?w=files&flid=24492");
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
+            return true;
+        } else if (preference == mXDAThread) {
+            Uri uri = Uri.parse("http://forum.xda-developers.com/verizon-lg-g3/development/rom-t3061094");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
             return true;
