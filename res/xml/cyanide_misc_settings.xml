@@ -31,12 +31,25 @@
         android:title="@string/print_settings"
         android:fragment="com.android.settings.print.PrintSettingsFragment"/>
     
+    <!-- Privacy -->
+    <PreferenceScreen
+        android:id="@+id/privacy_settings_cyanogenmod"
+        android:title="@string/privacy_settings_cyanogenmod_title"
+        android:fragment="com.android.settings.cyanogenmod.PrivacySettings"
+        />
+    
     <!-- Profiles -->
     <PreferenceScreen
         android:id="@+id/profile_settings"
         android:fragment="com.android.settings.profiles.ProfilesSettings"
         android:title="@string/profiles_settings_title"/>
         
+    <!-- Storage -->
+    <PreferenceScreen
+        android:id="@+id/storage_settings"
+        android:title="@string/storage_settings"
+        android:fragment="com.android.settings.deviceinfo.Memory"/>
+    
     <!-- Users -->
     <PreferenceScreen
         android:id="@+id/user_settings"

@@ -31,6 +31,12 @@
             android:summary="@string/status_bar_bluetooth_icon_summary"
 			android:defaultValue="true" />
 	
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="double_tap_sleep_gesture"
+            android:title="@string/double_tap_to_sleep_title"
+            android:summary="@string/double_tap_to_sleep_summary"
+            android:defaultValue="true" />
+	
 	<com.android.settings.cyanogenmod.SecureSettingSwitchPreference
 			android:key="privacy_guard_notification"
 			android:title="@string/privacy_guard_notification_title"

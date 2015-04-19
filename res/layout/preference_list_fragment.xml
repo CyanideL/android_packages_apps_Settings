@@ -46,7 +46,7 @@
 
     <TextView android:id="@android:id/empty"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
+              android:layout_height="@dimen/preference_title_height"
               android:padding="@*android:dimen/preference_fragment_padding_side"
               android:gravity="center"
               android:visibility="gone" />

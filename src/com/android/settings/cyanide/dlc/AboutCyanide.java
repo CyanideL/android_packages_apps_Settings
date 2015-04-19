@@ -57,7 +57,6 @@ public class AboutCyanide extends SettingsPreferenceFragment
         mCyanideSource = findPreference("cyanide_source");
         mCyanideGoogle = findPreference("cyanide_google");
         mRogersb11Donate = findPreference("rogersb11_donate");
-        mGeekyDonate = findPreference("geeky_donate");
     }
 
     @Override
@@ -79,11 +78,6 @@ public class AboutCyanide extends SettingsPreferenceFragment
             return true;
         } else if (preference == mRogersb11Donate) {
             Uri uri = Uri.parse("http://forum.xda-developers.com/donatetome.php?u=5554845");
-            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-            startActivity(intent);
-            return true;
-        } else if (preference == mGeekyDonate) {
-            Uri uri = Uri.parse("http://forum.xda-developers.com/donatetome.php?u=5315289");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
             return true;
