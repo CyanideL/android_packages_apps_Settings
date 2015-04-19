@@ -23,6 +23,13 @@
 			android:key="interface"
 			android:title="@string/interface_control_title">
     
+		<!-- Appbar -->
+		<PreferenceScreen
+            android:key="app_sidebar"
+            android:fragment="com.android.settings.cyanide.AppSidebar"
+            android:title="@string/app_sidebar_title"
+			android:summary="@string/app_sidebar_summary" />
+		
 		<!-- App Circle Bar -->
 		<PreferenceScreen
 			android:key="app_circle_bar"
