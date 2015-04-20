@@ -1,0 +1,1233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2015 CyanideL
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    
+    <!-- General strings -->
+    <string name="ok">OK</string>
+    <string name="reset">Reset</string>
+    <string name="reset_android">Android</string>
+    <string name="reset_cyanide">Cyanide</string>
+    <string name="options_title">Opciones</string>
+    <string name="help">Ayuda</string>
+    <string name="attention">Atención</string>
+    <string name="enabled">Activado</string>
+    <string name="default_string">Por defecto</string>
+    <string name="color_title">Color</string>
+    <string name="colors_title">Colores</string>
+    <string name="background_title">Fondo</string>
+    <string name="icon_title">Icono</string>
+    <string name="icons_title">Iconos</string>
+	<string name="text_title">Texto</string>
+	<string name="category_colors_title">Personaliza los colores</string>
+	<string name="battery_style_reset_message">¿Restablecer el color de la barra de batería?</string>
+    <string name="reset_message">¿Restablecer todo?</string>
+
+	<!-- CyanideL Settings. -->
+	<string name="cyanide_about_title">Sobre CyanideL</string>
+	<string name="cyanide_sound_title">Sonidos Avanzados</string>
+	<string name="animation_control_title">Control de Animaciones</string>
+	<string name="cyanide_animations_title">Animaciones</string>
+	<string name="status_bar_battery_style">Opciones de Batería</string>
+	<string name="breathing_notifications_title">Notificationes Vivas</string>
+	<string name="qs_colors_title">Colores Custom</string>
+	<string name="cyanide_central_title">Cyanide Central</string>
+	<string name="interface_control_title">Control del Interface de Cyanidel</string>
+	<string name="status_bar_logo_title">CyanideL Logo</string>
+	<string name="cyanide_settings_title">CyanideMods</string>
+	<string name="cyanide_dlc_title">Centro de Descargas</string>
+	<string name="weather_control_title">Control del Tiempo en cLock</string>
+	<string name="general_title">Opciones Generales</string>
+	<string name="lock_clock_color_title">Colores de la Pantalla de Bloqueo</string>
+	<string name="heads_up_title">Ajustes Heads Up</string>
+	<string name="interface_settings_title">Interface</string>
+	<string name="cyanide_ls_shortcuts_title">Atajos Pantalla de Bloqueo</string>
+	<string name="cyanide_navbar_title">Barra de Navegación</string>
+	<string name="navigation_ring_title">Anillo de Navegación</string>
+	<string name="cyanide_notifs_title">Notificaciones</string>
+	<string name="power_menu_control_title">Añadidos Menú Apagado</string>
+    <string name="Recents_panel">Panel de Aplicaciones Recientes</string>
+    <string name="recents_control_title">Opciones Panel de Recientes</string>
+	<string name="header_weather_title">Tiempo en Barra de Estado</string>
+	<string name="stweaks_title">STweaks</string>
+	<string name="weather_control_master_title">Control de Tiempo</string>
+	
+	<!-- Summary Strings -->
+    <string name="appcirclebar_settings_summary">Activa y configura los lugares de la Barra Circular con las Aplicaciones</string>
+    <string name="gestureanywhere_settings_summary">Activa y Configura gestos en pantalla</string>
+    <string name="lcddensity_settings_summary">Selecciona tus DPI Personalizados</string>
+    <string name="battery_settings_summary">Personaliza el icono de batería y el porcentaje en la Barra de Estado</string>
+    <string name="clock_settings_summary">Personaliza el color y estilo del Reloj en la Barra de Estado</string>
+    <string name="header_settings_summary">Personaliza el texto y el color de los iconos de la cortina de notificaciones</string>
+    <string name="trafficmeter_settings_summary">Activa y personaliza el color del indicador de tráfico de internet</string>
+    <string name="navbar_settings_summary">Personaliza la barra de navegación y selecciona, atajos y acciones</string>
+    <string name="omniswitch_settings_summary">Opción para usar OmniSwitch como tu panel de aplicaciones recientes</string>
+    <string name="batterybar_settings_summary">Personaliza color y espesor de la barra de batería</string>
+    <string name="status_bar_battery_status_settings_summary">Personaliza el estilo de la batería en la barra de estado</string>
+    <string name="expanded_desktop_summary">Alguna cosilla que no he usado</string>
+    <string name="cyanide_about_summary">Pulsa aquí para saber más de CyanideL</string>
+    <string name="cyanide_dlc_summary">Pulsa aquí para descargar lo último de CyanideL</string>
+    <string name="piecontrol_settings_summary">Personaliza botones y colores pie</string>
+    <string name="lockscreen_sliders_summary">Personaliza o desactiva los atajos de las esquinas</string>
+    <string name="lock_clock_weather_general_summary">Ajustes Principales del tiempo en cLock</string>
+    <string name="changelog_summary">Ver los últimos cambios del código fuente de CyanideL</string>
+    <string name="visualizer_summary">Despliega en la pantalla de bloqueo</string>
+    <string name="qs_colors_summary">Texto y colores de icono</string>
+    <string name="cyanide_ls_shortcuts_summary">Personaliza Atajos Circulares y Deslizables</string>
+    <string name="omniswitch_settings_summary">Opción para usar OmniSwitch como tu panel de aplicaciones recientes</string>
+    
+    <!-- Changelog -->
+    <string name="changelog_crdroid_title">Cambios</string>
+    <string name="changelog_crdroid_error">Incapaz de cargar Cambios</string>
+
+	<!-- Color Picker -->
+    <string name="dialog_color_picker">Color Picker</string>
+    <string name="press_color_to_apply">Presiona un color de abajo para aplicar</string>
+    <string name="arrow_right" translatable="false">→</string>
+    <string name="arrow_down" translatable="false">↓</string>
+    <string name="hex">Hex:</string>
+    <string name="hex_hint">#ff000000</string>
+    <string name="set">Set</string>
+    <string name="color_default">Por defecto</string>
+	
+	<!-- About device screen, CPU and RAM info. -->
+    <string name="cpu_info">CPU</string>
+    <string name="mem_info">Memoria</string>
+    
+    <!-- SuperSU header name - the app hides itself from launcher based on this resource name being present in com.android.settings -->
+    <string name="supersu_title">SuperSU</string>
+    
+    <!-- Density changer -->
+    <string name="dpi">DPI</string>
+    <string name="su_dialog_error_title">Aviso</string>
+    <string name="su_dialog_error_message">A ocurrido un error.\n\ncom.Comprueba que eres root.Activalo en los ajustes de superusuario.</string>
+    <string name="lcd_density_title">Densidad LCD</string>
+    <string name="lcd_density_category">Opciones</string>
+    <string name="follow_through_summary">Cambiar la densidad de pantalla a veces puede hacer que algunas aplicaciones no funcionen correctamente y/o que en playstore aparezcan como no compatibles con tu dispositivo</string>
+    <string name="stock_density_title">Cambia los valores de origen</string>
+    <string name="stock_density_summary">Las Tablets generalmente usan 160 dpi mientras otros dispositivos usan 320 o 480 dpi. Dispositivos antiguos usan 240 dpi</string>
+    <string name="stock_density_changed_summary">"Densidad puesta en: "</string>
+    <string name="reboot_title">Reinicia tu dispositivo</string>
+    <string name="reboot_summary">Necesitas reiniciar tu dispositivo para que los cambios sean efectuados</string>
+    <string name="custom_density_title">Cambia a lo que te guste</string>
+    <string name="custom_density_summary_invalid">"DENSIDAD ERRÓNEA!"</string>
+    <string name="custom_density">personal</string>
+    <string name="set_custom_density_title">Selecciona tu Densidad</string>
+    <string name="set_custom_density_set">Selecciona</string>
+    <string name="custom_density_dialog_title">AVISO!</string>
+    <string name="custom_density_dialog_summary">Cambiar la densidad de pantalla a veces puede hacer que algunas aplicaciones no funcionen correctamente y/o que en playstore aparezcan como no compatibles con tu dispositivo</string>
+    <string name="custom_density_dialog_button_got">Lo tengo!</string>
+    <string name="custom_density_dialog_button_reboot">Reinicia ahora</string>
+    
+    <string name="shortcut_action_none">Ninguna</string>
+    <string name="shortcut_action_none">Ninguna</string>
+    <string name="shortcut_action_app">Tu app</string>
+    <string name="shortcut_action_home">Home</string>
+    <string name="shortcut_action_back">Atrás</string>
+    <string name="shortcut_action_kill">Mata la app</string>
+    <string name="shortcut_action_lastapp">Última app</string>
+    <string name="shortcut_action_assist">Busca</string>
+    <string name="shortcut_action_screenshot">Captura de Pantalla</string>
+    <string name="shortcut_action_torch">Linterna</string>
+    <string name="shortcut_action_menu">Menu</string>
+    <string name="shortcut_action_ime">Abre Selector de IME</string>
+    <string name="shortcut_action_power_menu">Menú de encendido</string>
+    <string name="shortcut_action_recent">Recientes</string>
+    <string name="shortcut_action_power">Apagar Pantalla</string>
+    <string name="shortcut_action_search">Busca en la app</string>
+    <string name="shortcut_action_ring_silent">Sonido/Silencio</string>
+    <string name="shortcut_action_ring_vib">Sonido/Vibración</string>
+    <string name="shortcut_action_ring_vib_silent">Silencio/Vibración</string>
+
+    <string name="shortcut_action_longpress">Pulsación prolongada:</string>
+    <string name="shortcut_action_select_action_longpress">Seleciona acción en pulsación prolongada:</string>
+    <string name="shortcut_action_select_action">Selecciona acción:</string>
+    <string name="shortcut_action_select_action_newaction">Selecciona nueva acción:</string>
+    <string name="shortcut_action_reset">Borrar</string>
+    <string name="shortcut_action_add">Añadir</string>
+    <string name="shortcut_action_reset_message">Borrar todas las entradas?</string>
+    <string name="shortcut_action_max">Alcanzado el número máximo de entradas</string>
+    <string name="shortcut_action_warning">Aviso</string>
+    <string name="shortcut_action_warning_message">No es posible borrar la última entrada</string>
+    <string name="shortcut_action_disable_message">Desactivar\Añadir una entrada para activarlo</string>
+    <string name="shortcut_image_not_valid">La aplicación seleccionadano tiene un icono valido o éste no puede ser recortado.Usa otra aplicación.</string>
+    <string name="shortcut_duplicate_entry">La acción seleccionada no puede ser añadida dos veces</string>
+    <string name="shortcut_action_help_shortcut">Atajo</string>
+    <string name="shortcut_action_help_button">Botón</string>
+    <string name="shortcut_action_help_app">Aplicación</string>
+    <string name="shortcut_action_help_icon">,opciones de personalización cuando selecciones el icono</string>
+    <string name="shortcut_action_help_main">Para añadir un %1$s, selecciona añadir.Una vez que %1$s este añadido, seleccionando la fila cambiará el objetivot%2$s\n\nPara eliminar %1$s, desliza la fila horizontalmente a izquierda o derecha.Re-order a %1$s en la lista arrastrando verticalmente en la izquierda.\n\nPara limpiar o eliminar, selecciona el icono de Borrado.</string>
+    <string name="shortcut_action_help_delete_last_entry">Quitando cada %1$s en la lista lo desactivará totalmente.</string>
+    <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Quitando todo %1$s en la lista desactivará totalmente la segunda capa pie.</string>
+
+
+    <string name="shortcuts_applications">Aplicaciones</string>
+    <string name="shortcuts_select_custom_app_title">Selecciona tu aplicación</string>
+    <string name="shortcuts_icon_picker_type">Selecciona un tipo de icono:</string>
+    <string name="shortcuts_icon_default">Por defecto</string>
+    <string name="shortcuts_icon_presets">Iconos de Sistema</string>
+    <string name="shortcuts_icon_custom">Galería</string>
+    <string name="shortcuts_icon_picker_choose_icon_title">Selecciona Icono</string>
+
+    <string name="shortcuts_icon_picker_alarm">Alarma</string>
+    <string name="shortcuts_icon_picker_andy">Andy</string>
+    <string name="shortcuts_icon_picker_battery">Batería</string>
+    <string name="shortcuts_icon_picker_browser">Navegador</string>
+    <string name="shortcuts_icon_picker_calendar">Calendario</string>
+    <string name="shortcuts_icon_picker_camera">Camara</string>
+    <string name="shortcuts_icon_picker_chrome">Google Chrome</string>
+    <string name="shortcuts_icon_picker_snapchat">Snapchat</string>
+    <string name="shortcuts_icon_picker_cloud">Cloud</string>
+    <string name="shortcuts_icon_picker_contact">Contactos</string>
+    <string name="shortcuts_icon_picker_directdial">Marcador Directo</string>
+    <string name="shortcuts_icon_picker_directmessage">Mensaje Directo</string>
+    <string name="shortcuts_icon_picker_drive">Drive</string>
+    <string name="shortcuts_icon_picker_dropbox">Dropbox</string>
+    <string name="shortcuts_icon_picker_email">Email</string>
+    <string name="shortcuts_icon_picker_email2">Email Alternativo</string>
+    <string name="shortcuts_icon_picker_evernote">Evernote</string>
+    <string name="shortcuts_icon_picker_facebook">Facebook</string>
+    <string name="shortcuts_icon_picker_favorite">Favorito</string>
+    <string name="shortcuts_icon_picker_file_browser">Gestor Archivos</string>
+    <string name="shortcuts_icon_picker_file_browser2">Gestor de Archivos Alternativo</string>
+    <string name="shortcuts_icon_picker_fitness">Fitness</string>
+    <string name="shortcuts_icon_picker_gallery">Galeria</string>
+    <string name="shortcuts_icon_picker_gears">Gears</string>
+    <string name="shortcuts_icon_picker_github">Github</string>
+    <string name="shortcuts_icon_picker_google_small">Google</string>
+    <string name="shortcuts_icon_picker_gplus">Google Plus</string>
+    <string name="shortcuts_icon_picker_gtalk">Hangouts</string>
+    <string name="shortcuts_icon_picker_help">Ayuda</string>
+    <string name="shortcuts_icon_picker_joystick">Joystick</string>
+    <string name="shortcuts_icon_picker_key">Claves/Cuentas</string>
+    <string name="shortcuts_icon_picker_laptop">Laptop</string>
+    <string name="shortcuts_icon_picker_notes">Notas</string>
+    <string name="shortcuts_icon_picker_office">Office Suite</string>
+    <string name="shortcuts_icon_picker_luggage">Viajes</string>
+    <string name="shortcuts_icon_picker_maps">Mapas</string>
+    <string name="shortcuts_icon_picker_market">Market</string>
+    <string name="shortcuts_icon_picker_messenger">Messenger</string>
+    <string name="shortcuts_icon_picker_movie">Películas</string>
+    <string name="shortcuts_icon_picker_music">Musica</string>
+    <string name="shortcuts_icon_picker_nav">Navegación</string>
+    <string name="shortcuts_icon_picker_phone">Teléfono</string>
+    <string name="shortcuts_icon_picker_package">Paquete</string>
+    <string name="shortcuts_icon_picker_paypal">Paypal</string>
+    <string name="shortcuts_icon_picker_pinterest">Pinterest</string>
+    <string name="shortcuts_icon_picker_play">Play</string>
+    <string name="shortcuts_icon_picker_pocket">Pocket</string>
+    <string name="shortcuts_icon_picker_quicksettings">Quick Settings</string>
+    <string name="shortcuts_icon_picker_rss">RSS Feed</string>
+    <string name="shortcuts_icon_picker_sdcard">SDCard</string>
+    <string name="shortcuts_icon_picker_search">Búsqueda</string>
+    <string name="shortcuts_icon_picker_sms">Mensajes</string>
+    <string name="shortcuts_icon_picker_tapatalk">Tapatalk</string>
+    <string name="shortcuts_icon_picker_tasks">Tasks</string>
+    <string name="shortcuts_icon_picker_terminal">Terminal</string>
+    <string name="shortcuts_icon_picker_transit">Transit</string>
+    <string name="shortcuts_icon_picker_tv">TV</string>
+    <string name="shortcuts_icon_picker_twitter">Twitter</string>
+    <string name="shortcuts_icon_picker_unlock">Desbloqueo</string>
+    <string name="shortcuts_icon_picker_whatsapp">Whatsapp</string>
+	<string name="shortcuts_icon_picker_youtube">Youtube</string>
+	<string name="airplay">Airplay</string>
+    <string name="android">Android</string>
+    <string name="badoo">Badoo</string>
+    <string name="battery">Batería</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="bookmarks">Bookmarks</string>
+    <string name="browser">Navegador</string>
+    <string name="browser2">Navegador2</string>
+    <string name="calculator">Calculadora</string>
+    <string name="calendar">Calendario</string>
+    <string name="calls">LLamadas</string>
+    <string name="camera">Camara</string>
+    <string name="chrome">Chrome</string>
+    <string name="clock">Clock</string>
+    <string name="cnn">Cnn</string>
+    <string name="deezer2">Deezer2</string>
+    <string name="deezer">Deezer</string>
+    <string name="dolphin2">Dolphin</string>
+    <string name="downloads">Descargas</string>
+    <string name="dropbox">Dropbox</string>
+    <string name="ebay">Ebay</string>
+    <string name="email">Email</string>
+    <string name="evernote">Evernote</string>
+    <string name="explorer">Explorer</string>
+    <string name="falcon">Falcon</string>
+    <string name="fb">Facebook</string>
+    <string name="flipboard">Flipboard</string>
+    <string name="foursquare">Foursquare</string>
+    <string name="firefox">Firefox</string>
+    <string name="googlebuzz">Google buzz</string>
+    <string name="googledocs">Google docs</string>
+    <string name="googlewallet">Google wallet</string>
+    <string name="line">Meebo</string>
+    <string name="mic">Mic</string>
+    <string name="newyorktimes">Newyork times</string>
+    <string name="rootexplorer">Root explorer</string>
+    <string name="sim">Sim</string>
+    <string name="teamviewer">Teamviewer</string>
+    <string name="totalcommander">Total commander</string>
+    <string name="weather">Tiempo</string>
+    <string name="golocker">Go locker</string>   
+    <string name="googlecurrents">Google currents</string>
+    <string name="googletalk">Google talk</string>
+    <string name="gosms">Go sms</string>
+    <string name="meebo">Line</string>
+    <string name="maps2">Maps2</string>
+    <string name="memorycleaner">Memory cleaner</string>
+    <string name="navigation">Navegación</string>
+    <string name="pulse">Pulse</string>
+    <string name="shazam">Shazam</string>
+    <string name="swiftkey">Swiftkey</string>
+    <string name="tmobile">Tmobile</string>
+    <string name="trash">Trash</string>
+    <string name="games">Juegos</string>
+    <string name="gmail">Gmail</string>
+    <string name="docs">Documentos</string>
+    <string name="googledrive">Google Drive</string>
+    <string name="googleearth">Google earth</string>
+    <string name="googlehangouts">Google hangouts</string>
+    <string name="googlekeep">Google keep</string>
+    <string name="googleplay">Google play</string>
+    <string name="googletranslate">Google translate</string>
+    <string name="google">Google</string>
+    <string name="googleplus">Google plus</string>
+    <string name="imdb">imdb</string>
+    <string name="instagram">instagram</string>
+    <string name="lastfm">Lastfm</string>   
+    <string name="maps">Mapas</string>
+    <string name="messages">Mensajes</string>
+    <string name="music">Musica</string>
+    <string name="mxplayer">Mxplayer</string>
+    <string name="notepad">Direct Message</string>
+    <string name="opera">Opera</string>
+    <string name="paint">Paint</string>
+    <string name="paypal">Paypal</string>
+    <string name="phone">Phone</string>
+    <string name="picasa">Picasa</string>
+    <string name="pictures2">Pictures2</string>
+    <string name="player_pro">Player pro</string>
+    <string name="playstation">Play station</string>
+    <string name="reddit">Reddit</string>
+    <string name="settings">Ajustes</string>
+    <string name="skype">Skype</string>
+    <string name="soundscloud">Sounds cloud</string>
+    <string name="spotifiy">Spotifiy</string>
+    <string name="tapatalk">Tapatalk</string>
+    <string name="tunein">Tunein</string>
+    <string name="twitter">Twitter</string>
+    <string name="viber">Viber</string>
+    <string name="videocamera">Video camera</string>
+    <string name="whatsapp">Whatsapp</string>
+    <string name="wifi">Wifi</string>
+    <string name="xda">Xda</string>
+    <string name="yahoo">Yahoo</string>
+    <string name="youtube">Youtube</string>
+    <string name="zedge">Zedge</string>
+    
+    <!-- Keyboard and Input ASS methods  -->
+    <string name="title_keyboard_input">Opciones Avanzadas</string>
+    <string name="disable_fullscreen_keyboard_title">Desactiva teclado en pantalla completa</string>
+    <string name="disable_fullscreen_keyboard_summary">Teclado en modo Landscape nunca ocupará toda la pantalla</string>
+    <string name="volume_key_cursor_control_title">Tecla Volumen Controla el Cursor</string>
+    <string name="volume_key_cursor_control_on">Volumen arriba/abajo mueve el cursor a izquierda/derecha</string>
+    <string name="volume_key_cursor_control_on_reverse">Volumen arriba/abajo mueve el cursor a derecha/izquierda</string>
+    <string name="keyboard_rotation_toggle_title">Rotación Automática del Teclado</string>
+    <string name="keyboard_rotation_toggle_summary">Forzar autorrotación con teclado en pantalla</string>
+    <string name="keyboard_rotation_timeout_title">Tiempo Autorrotaciónr</string>
+    <string name="keyboard_rotation_timeout_summary">Desactiva sensor de autorrotación <xliff:g id="rotate_timeout">%1$s</xliff:g> segundos después de ocultar teclado</string>
+    <string name="keyboard_rotation_dialog">Forzar autorrotación activa temporalmente mientras se muestra el teclado. No tiene efecto si la autorrotación ya está activada.</string>
+    <string name="show_enter_key_title">Mostrar Tecla Enter</string>
+    <string name="show_enter_key_summary">Fuerza al teclado a mostrar tecla Enter</string> 
+    <string name="ime_switcher_notify">Selector de  Notificaciones</string>
+    <string name="ime_switcher_notify_summary">Selecciona método de entrada de notificaciones en pantalla</string>
+    
+    <!-- Lockscreen Shortcuts -->
+    <string name="lockscreen_shortcuts_title">Atajo en Circulo</string>
+    <string name="lockscreen_shortcuts_summary">Ver o cambiar atajos en pantalla de bloqueo</string>
+    <string name="lockscreen_shorcuts_longpress_title">Pulsación Prolongada en Atajos</string>
+    <string name="lockscreen_shorcuts_longpress_summary">Abrir atajos con pulsación prolongada en pantalla de bloqueo</string>
+    <string name="lock_shortcuts">Atajos en Pantalla de Bloqueo</string>
+    
+
+    <!-- Toast animations -->
+    <string name="toast_animation_title">Animaciones Toast</string>
+    <string name="toast_animation_summary">Selección y previsualización de animaciones toast de sistema</string>
+    <string name="toast_none_animation">Ninguna</string>
+    <string name="toast_default_animation">Por defecto</string>
+    <string name="toast_fade_animation">Animación Difuminada</string>
+    <string name="toast_SlideRight_animation">Desliza a Derecha</string>
+    <string name="toast_SlideLeft_animation">Desliza a Izquierda</string>
+    <string name="toast_Xylon_animation">Animación Xylon</string>
+    <string name="toast_Toko_animation">Animación Toko</string>
+    <string name="toast_Tn_animation">Animación Tn</string>
+    <string name="toast_Honami_animation">Animación Honami</string>
+    <string name="toast_FastFade_animation">Difuminado Rápido</string>
+    <string name="toast_GrowFade_animation">Difuminado Creciente</string>
+    <string name="toast_GrowFadeCenter_animation">Difuminado Central Creciente</string>
+    <string name="toast_GrowFadeBottom_animation">Difuminado Abajo Creciente</string>
+    <string name="toast_Translucent_animation">Animación Translúcida</string>
+    <string name="toast_SlideLeftRight_animation">Desliza de izquierda a derecha</string>
+	<string name="toast_SlideRightLeft_animation">Desliza de derecha a izquierda</string>
+    
+    <!-- ListView animation -->
+    <string name="interface_settings_animation_title">Opciones de Animación</string>
+    <string name="listview_animation_title">Animación Vista de Listados</string>
+    <string name="listview_off">Por Defecto</string>
+    <string name="listview_wave_left">Ola (Izquierda)</string>
+    <string name="listview_wave_right">Ola (Derecha)</string>
+    <string name="listview_alpha">Alfa</string>
+    <string name="listview_scale">Escala</string>
+    <string name="listview_stack_top">Amontonadas (arriba)</string>
+    <string name="listview_stack_bottom">Amontonadas (abajo)</string>
+    <string name="listview_unfold">Poco a poco</string>
+    <string name="listview_fold">Plegadas</string>
+    <string name="listview_translate_left">Translate (izquierda)</string>
+    <string name="listview_translate_right">Translate (derecha)</string>
+
+    <!-- ListView interpolator -->
+    <string name="listview_interpolator_title">Interpolación de Listados</string>
+    <string name="listview_accelerate_interpolator">Acelerados</string>
+    <string name="listview_decelerate_interpolator">Decelerados</string>
+    <string name="listview_accelerate_decelerate_interpolator">Acelerados y Decelerados</string>
+    <string name="listview_anticipate_interpolator">Anticipados</string>
+    <string name="listview_overshoot_interpolator">Excedidos</string>
+    <string name="listview_anticipate_overshoot_interpolator">Anticipados y Excedidos</string>
+    <string name="listview_bounce_interpolator">A saltos</string>
+    
+    <!-- Unaccounted and overcounted battery stats -->
+    <string name="show_unac_and_overcounted_stats_title">Mostrar estadísticas inexplicables</string>
+    <string name="show_unac_and_overcounted_stats_summary">Mostrar en las estadísticas de batería el uso inexplicable</string>  
+    
+    <!-- Partition Info -->
+    <string name="partition_info_title">Información de Particiones</string>
+    <string name="partition_info_system">/system</string>
+    <string name="partition_info_data">/data</string>
+    <string name="partition_info_cache">/cache</string>
+    <string name="partition_info_sdcard">/sdcard (FAT)</string>
+    <string name="partition_info_sdext">/sd-ext (EXT)</string>
+    <string name="partition_info_used_of">/</string>
+    
+    <!-- Sound settings -->
+    <string name="advanced_sound_title">Opciones Avanzadas</string>
+    <string name="sound_title">Sonido</string>
+
+    <!-- Safe headset volume restore checkbox -->
+    <string name="safe_headset_volume_title">Volumen Seguro de Auriculares</string>
+    <string name="safe_headset_volume_summary">Prevenir altos niveles de volumen el primer uso</string>
+    <string name="safe_headset_volume_warning_dialog_text">El uso de auriculares durante largos períodos de tiempo puede dañar tu audición. Desactivalo con precaución.</string>
+
+    <!-- Less Notification sounds -->
+    <string name="notifications_category_title">Notificaciones</string>
+    <string name="less_notification_sounds_title">Sonidos para notificaciones menos frecuentes</string>
+    <string name="less_notification_sounds_summary">Limita los sonidos de notificación de cada aplicación, dejándo sólo uno durante un período de tiempo</string>
+    <string name="less_notification_sounds_default">Comportamiento Por Defecto</string>
+    <string name="less_notification_sounds_3s">3 segundos</string>
+    <string name="less_notification_sounds_5s">5 segundos</string>
+    <string name="less_notification_sounds_10s">10 segundos</string>
+    <string name="less_notification_sounds_15s">15 segundos</string>
+    <string name="less_notification_sounds_30s">30 segundos</string>
+    <string name="less_notification_sounds_45s">45 segundos</string>
+    <string name="less_notification_sounds_1m">1 minutos</string>
+    <string name="less_notification_sounds_2m">2 minutos</string>
+    <string name="less_notification_sounds_5m">5 minutos</string>
+    
+    <!-- Status bar | Clock -->
+	<string name="status_bar_clock">Reloj &amp; Fecha</string>
+	<string name="status_bar_clock_title">Estilo de la Fecha y Reloj</string>
+	<string name="clock_title_enable">Alineación</string>
+	<string name="clock_enabled">Activado</string>
+	<string name="clock_disabled">Desactivado</string>
+	<string name="clock_color_title">Color</string>
+	<string name="status_bar_clock_style_reset">Resetea el color</string>
+	<string name="status_bar_show_clock_title">Mostrar fecha y reloj</string>
+	<string name="status_bar_am_pm_title">AM/PM</string>
+	<string name="status_bar_am_pm_info">Formato del reloj  24 horas está activado</string>
+	<string name="enable_clock_weekday">Día de la semana</string>
+	<string name="enable_clock_weekday_summary">Día de la semana abreviado antes de la hora</string>
+	<string name="right_clock">Reloj a la derecha</string>
+	<string name="center_clock">Centrar reloj</string>
+	<string name="left_clock">Reloj a la izquierda</string>
+	<string name="dont_show">No mostrar</string>
+	<string name="clock_date_display">Fecha</string>
+	<string name="clock_date_display_summary">Mostrar fecha antes del reloj</string>
+	<string name="clock_date_style">Estilo de fecha</string>
+	<string name="clock_date_format">Formato de fecha</string>
+	<string name="clock_date_string_edittext_title">El Formato debe ser mes/día/año</string>
+	<string name="clock_date_string_edittext_summary">Entrada</string>
+	<string name="am_pm_clock_normal">Tamaño de fuente normal</string>
+	<string name="am_pm_clock_small">Tamaño de fuente pequeña</string>
+	<string name="am_pm_clock_none">No mostrar</string>
+	<string name="clock_date_display_none">No mostrar</string>
+	<string name="clock_date_display_small">Tamaño de fuente pequeña</string>
+	<string name="clock_date_display_normal">Tamaño de fuente normal</string>
+	<string name="clock_date_style_normal">Normal</string>
+	<string name="clock_date_style_lowercase">Minúsculas</string>
+	<string name="clock_date_style_uppercase">Mayúsculas</string>
+	<string name="clock_date_format_custom">Formato propio</string>
+	<string name="status_bar_clock_style_reset_message">¿Resetear el color del reloj?</string>
+	<string name="clock_font_style_title">Fuente</string>
+	<string name="clock_font_bold">Negrita</string>
+	<string name="clock_font_condensed">Condensed</string>
+	<string name="clock_font_light">Ligera</string>
+	<string name="clock_font_light_italic">Ligera Italica</string>
+	<string name="clock_font_normal">Normal</string>
+	<string name="clock_use_second">Poner segundero al reloj</string>
+	<string name="clock_use_second_summary">Mostrar segundos en el reloj</string>
+	
+	<!-- Cyanide Download Center -->
+    <string name="download_category">Centro de Descargas</string>
+    <string name="download_category_summary">Encuentra todo lo que necesites de CyanideL aquí dentro</string>
+    <string name="rom_category">Descarga de Roms</string>
+    <string name="extra_category">Extra</string>
+    <string name="gapps_category">Paquetes de GAPPS</string>
+    <string name="cyanide_official_title">Roms Oficiales de CyanideL</string>
+    <string name="cyanide_official_summary">Descarga la última versión estable de CyanideL</string>
+    <string name="shift_kernel_title">Cambia el Kernel</string>
+    <string name="shift_kernel_summary">Descarga Kernels, no para todos los dispositivos</string>
+    <string name="slim_gapps_title">Slim Gapps</string>
+    <string name="slim_gapps_summary">Paquete con la mayoría de GAPPS, son las que normalmente ponen los usuarios que no quieren descargarlas o instalarlas más tarde</string>
+    
+    <!-- Cyanide About Section -->
+    <string name="about_category">Sobre CyanideL</string>
+    <string name="donate_category">Donaciones</string>
+    <string name="cyanide_source_title">Código fuente de CyanideL</string>
+    <string name="cyanide_source_summary">Pulsa aquí para ver el la última versión del código fuente de CyanideL</string>
+    <string name="cyanide_google_title">CyanideL Official Google+</string>
+    <string name="cyanide_google_summary">Últimas noticias relacionadas con CyanideL WIP</string>
+    <string name="rogersb11_donate_title">Rogersb11</string>
+    <string name="rogersb11_donate_summary">Pulsa aquí si quieres donar a Rogersb11</string>
+    <string name="geeky_donate_title">TheGeekyNimrod</string>
+    <string name="geeky_donate_summary">Pulsa aquí si quieres donar a TheGeekyNimrod</string>
+    
+    <!-- DLC Devices -->
+    <string name="cyanide_s2_title">Samsung Galaxy S2 i777</string>
+    <string name="cyanide_s3_title">Samsung Galaxy S3</string>
+    <string name="cyanide_n2_title">Samsung Galaxy Note 2 LTE</string>
+    <string name="cyanide_m8_title">HTC One M8</string>
+    <string name="cyanide_bacon_title">One Plus Bacon</string>
+    <string name="cyanide_nexus5_title">Nexus 5</string>
+    <string name="cyanide_s5_title">Samsung Galaxy S5 GSM</string>
+    <string name="cyanide_d850_title">LG G3 ATT d850</string>
+    <string name="cyanide_d855_title">LG G3 Int\'l d855</string>
+    <string name="cyanide_vs985_title">LG G3 Vzw vs985</string>
+    <string name="cyanide_nexus6_title">Nexus 6</string>
+    
+    <!-- Animation Controls -->
+    <string name="title_animation_controls">Animaciones del Sistema</string>
+    <string name="activity_open_title">Animación al Abrir una Actividad</string>
+    <string name="activity_close_title">Animación al Cerrar una Actividad</string>
+    <string name="task_open_title">Animación al abrir Tarea</string>
+    <string name="task_close_title">Animación al cerrar Tarea</string>
+    <string name="task_move_to_front_title">Animación al Frente</string>
+    <string name="task_move_to_back_title">Animación al Retroceder</string>
+    <string name="wallpaper_open_title">Animación al Abrir Wallpapers</string>
+    <string name="wallpaper_close_title">Animación al Cerrar Wallpapers</string>
+    <string name="wallpaper_intra_open_title">Animación Mientras Abres Wallpapers</string>
+    <string name="wallpaper_intra_close_title">Animación Mientras Cierras Wallpapers</string>
+    <string name="task_open_behind_title">Animación Trás Abrir Tarea</string>
+    <string name="animation_duration_title">Duración de las Animaciones</string>
+    <string name="animation_duration_default">Por Defecto</string>
+    <string name="header_summary_animation">@null</string>
+    <string name="animation_exit_only_title">Animación de Entrada</string>
+    <string name="animation_reverse_exit_title">Animación de Salida</string>
+	
+	<!-- App Circle Bar -->
+    <string name="category_app_circle_bar_title">Lanzador de la App Circular</string>
+    <string name="app_circle_bar_title">App Barra Circular</string>
+    <string name="app_circle_bar_summary">Mostrar la barra circular después de tocar la zona derecha de la pantalla</string>
+    <string name="app_circle_bar_included_apps_title">Apps Incluidas</string>
+    <string name="app_circle_bar_included_apps_summary">Que Apps se mostrarán en  la barra circular</string>
+    <string name="trigger_category">Espacio del lanador</string>
+    <string name="trigger_width_title">Anchura del lanzador</string>
+    <string name="trigger_width_summary">Ajusta la anchura del área del lanzador</string>
+    <string name="trigger_top_title">Posición del lanzador</string>
+    <string name="trigger_top_summary">Ajusta la posición vertical del área del lanzador</string>
+    <string name="trigger_bottom_title">Altura del Lanzador</string>
+    <string name="trigger_bottom_summary">Ajusta la altura del área del lanzador</string>
+      
+    <!-- Gesture Anywhere -->
+    <string name="gesture_anywhere_title">Gestos en cualquier sitio</string>
+    <string name="gesture_anywhere_enabled_title">Gestos en cualquier sitio</string>
+    <string name="gesture_anywhere_enabled_summary">Activa los Gestos</string>
+    <string name="gesture_anywhere_position_title">Lugar</string>
+    <string name="gesture_anywhere_position_left">Borde izquierdo</string>
+    <string name="gesture_anywhere_position_right">Borde derecho</string>
+    <string name="gesture_anywhere_gestures_title">Gestos</string>
+    <string name="gesture_anywhere_gestures_summary">Añadir, eliminar, y editar gestos</string>
+    <!-- Label, button used to add a gesture -->
+    <string name="ga_button_add">Añadir gesto</string>
+    <!-- Label, button used to reload all gestures -->
+    <string name="ga_button_reload">Recargar</string>
+    <!-- Label, button used to cancel the operation of adding a gesture -->
+    <string name="ga_button_discard">Descartar</string>
+    <!-- Label, button used to save a gesture newly created -->
+    <string name="ga_button_done">Hecho</string>
+    <!-- Label, prompt asking the user to enter the name of the gesture -->
+    <string name="ga_prompt_gesture_name">Nombre</string>
+    <!-- Error message, informs the user he needs to enter a name before saving a gesture -->
+    <string name="ga_error_missing_name">Debes poner un nombre</string>
+    <!-- success message, tells the user where the gesture was saved -->
+    <string name="ga_save_success">Gesto guardado en %s</string>
+    <!-- Buttons in Rename gesture dialog box -->
+    <string name="ga_rename_action">OK</string>
+    <!-- Buttons in Rename gesture dialog box -->
+    <string name="ga_cancel_action">Cancelar</string>
+    <!-- Message displayed when the user opens the gestures settings screen -->
+    <string name="ga_gestures_loading">Cargando gestos...</string>
+    <!-- Message displayed when the user has no gestures -->
+    <string name="ga_gestures_empty">Sin gestos</string>
+    <!-- Title of the screen used to view/manage gestures -->
+    <string name="ga_gestures_activity">Gestos</string>
+    <!-- Noun, menu item used to edit a gesture -->
+    <string name="ga_gestures_edit">Editar</string>
+    <!-- Noun, menu item used to remove a gesture -->
+    <string name="ga_gestures_delete">Borrar</string>
+    <!-- Message displayed when a gesture is successfully deleted -->
+    <string name="ga_gestures_delete_success">Gesto eliminado</string>
+    <!-- Title of dialog box -->
+    <string name="ga_gestures_rename_title">Renombrar Gesto</string>
+    <!-- Label of gesture name field in Rename gesture dialog box -->
+    <string name="ga_gestures_rename_label">Nombre del Gesto</string>
+    <!-- Message, displayed when the sdcard cannot be found, 1st parameter is the name of the file that stores the gestures.  CHAR LIMIT=80 -->
+    <string name="ga_gestures_error_loading">No se puede cargar %s. Asegúrate de tener espacio disponible</string>
+    
+    <!-- Recents panel settings -->
+	<string name="show_clear_all_recents_button_title">Botón para Cerrar Todas las Aplicaciones Recientes</string>
+	<string name="show_clear_all_recents_button_summary">Mostrar Botón para Cerrar en la pantalla de recientes</string>
+	<string name="recents_clear_all_location_title">Lugar del Boón para Cerrar Todas</string>
+	<string name="recents_clear_all_location_top_right">Arriba a la Derecha</string>
+	<string name="recents_clear_all_location_top_left">Arriba a la Izquierda</string>
+	<string name="recents_clear_all_location_top_center">Arriba Centrado</string>
+	<string name="recents_clear_all_location_bottom_right">Abajo a la Derecha</string>
+	<string name="recents_clear_all_location_bottom_left">Abajo a la Izquieda</string>
+	<string name="recents_clear_all_location_bottom_center">Abajo Centrado</string>
+	<string name="recents_clear_all_dismiss_all_title">Borrar Todas las Tareas</string>
+	<string name="recents_clear_all_dismiss_all_summary">Elige entre descartar todas las tareas o ignorar la tarea en primer plano</string>
+	<string name="recents_show_membar_title">Barra de Memoria</string>
+    <string name="recents_show_membar_summary">Mostrar barra con la memoria disponible en el dispositivo</string>
+	
+	<!-- long press back to kill configurable timeout -->
+    <string name="kill_app_longpress_timeout_title">Retraso en Pulsación Larga</string>
+    <string name="timeout_2000">2 segundos (por defecto)</string>
+    <string name="timeout_1500">1,5 segundos</string>
+    <string name="timeout_1000">1 segundo</string>
+    <string name="timeout_500">0,5 segundo</string>
+
+    <!-- Volume Steps -->
+    <string name="volume_steps_title">Niveles de Volumen</string>
+    <string name="volume_steps_alarm_title">Niveles de Volumen: Alarma</string>
+    <string name="volume_steps_dtmf_title">Niveles de Volumen: DTMF</string>
+    <string name="volume_steps_music_title">Niveles de Volumen: Musica</string>
+    <string name="volume_steps_notification_title">Niveles de Volumen: Notificcaciones</string>
+    <string name="volume_steps_ring_title">Niveles de Volumen: Llamadas</string>
+    <string name="volume_steps_system_title">Niveles de Volumen: Sistema</string>
+    <string name="volume_steps_voice_call_title">Niveles de Volumen: Voz en llamadas</string>
+    <string name="volume_steps_60">60</string>
+    <string name="volume_steps_45">45</string>
+    <string name="volume_steps_30">30</string>
+    <string name="volume_steps_15">15</string>
+    <string name="volume_steps_7">7</string>
+    <string name="volume_steps_5">5</string>
+    
+    <!-- Cyanide Extra Info -->
+    <string name="cyanideextrainfo">Información Extra</string>
+    <string name="cyanideextrainfo_summary">Muestra información extra de cpu, pantalla, etc</string>
+    
+    <!-- Battery saver -->
+    <string name="battery_saver_title">Color de aviso</string>
+    <string name="battery_saver_style_reset_message">¿Borrar color de aviso de batería?</string>
+    
+    <!-- QuickSettings haptic feedback -->
+	<string name="quick_settings_vibrate_title">Vibrar al Tocar</string>
+	<string name="quick_settings_vibrate_summary">Vibrar al tocar selección</string>
+    
+    <!-- Wakelock blocker -->
+    <string name="wakelock_blocker_title">Bloqueador de Wakelocks</string>
+    <string name="wakelock_blocker_summary">Bloquear wakelocks del sistema</string>
+    <string name="wakelock_blocker_save">Guardar</string>
+    <string name="wakelock_list_header">Wakelocks disponibles</string>
+    <string name="wakelock_blocker_reload">Recargar</string>
+    <string name="wakelock_blocker_warning_title">Procede con cuidado</string>
+    <string name="wakelock_blocker_warning">Bloquear wakelocks puede causar inestabilidad, bloqueos o pérdida de datos</string>    
+    
+    <!-- Lock clock -->
+	<string name="lock_clock_title">Widget Clock</string>
+	<string name="lock_clock_summary">Ver o cambiar como \'cLock\' se mostrará el widget</string>
+	<string name="lock_clock_clock_section_title">Reloj y alarma</string>
+	<string name="lock_clock_clock_section_summary">Ver o cambiar como se mostrará el reloj del \'cLock\' widget</string>
+	<string name="lock_clock_weather_section_title">Mostrar Tiempo en DeskClock</string>
+	<string name="lock_clock_weather_section_summary">Ver o cambiar como se mostrará el tiempo del \'cLock\' widget</string>
+	<string name="lock_clock_calendar_section_title">Eventos del Calendario</string>
+	<string name="lock_clock_calendar_section_summary">Ver o cambiar como se mostrará el calendario del \'cLock\' widget</string>
+    
+    <!-- Weather settings -->
+    <string name="lock_screen_weather_settings_title">Tiempo en Pantalla de Bloqueo</string>
+    <string name="lock_screen_weather_settings_summary">Personalia el Tiempo en la Pantalla de Bloqueo</string>
+    <string name="lock_screen_color_settings_summary">Personaliza los Colores</string>
+    <string name="weather_show_weather_title">Mostrar el Tiempo</string>
+    <string name="weather_show_weather_summary">Activar para mostrar información del tiempo</string>
+    <string name="weather_show_location_title">Mostrar localización</string>
+    <string name="weather_show_location_summary">Activar para mostrar localización</string>
+    <string name="weather_show_timestamp_title">Mostrar sello de tiempo</string>
+    <string name="weather_show_timestamp_summary">Activar para mostrar sello de tiempo</string>
+    <string name="weather_condition_icon_title">Icono de estado</string>
+    <string name="weather_condition_icon_dlg_title">Selecciona un icono para mostrar el estado el tiempo</string>
+    <string name="weather_condition_icon_monochrome_title">Monocromático</string>
+    <string name="weather_condition_icon_colored_title">Coloreado</string>
+    <string name="weather_condition_icon_vclouds_title">VClouds</string>
+    <string name="weather_colorize_all_icons_title">Colorea todos los iconos</string>
+    <string name="weather_colorize_all_icons_summary">Activa para colorear todos los iconos, desactiva para colorear solo los iconos monocromáticos</string>
+    
+    <!-- Scrolling Animation Controls -->
+	<string name="scrolling_title">Animaciones de Desplazamientos</string>
+	<string name="scrolling_summary">Ver o cambiar las animaciones de los desplazamientos</string>
+	<string name="animation_fling_velocity_title">Velocidad de lanzado</string>
+	<string name="animation_scroll_friction_title">Fricción del desplazamiento</string>
+	<string name="animation_overscroll_distance_title">Distancia sobre desplazamiento</string>
+	<string name="animation_overfling_distance_title">Distancia sobre lanzado</string>
+	<string name="animation_duration_summary">Selecciona duración</string>
+	<string name="animation_no_scroll_title">Personalizar modificador del desplazamiento</string>
+	<string name="animation_no_scroll_summary_on">Activado</string>
+	<string name="animation_no_scroll_summary_off">Desactivado</string>
+	<string name="scroll_disclaimer_summary">Nota: Muchas aplicaciones necesitan ser reiniciadas para que los valores personalizados tengan efecto</string>
+	<string name="animation_settings_reset_message">¿Eliminar todos los ajustes personalizados de animaciones?</string>
+	
+	<!-- IME animations -->
+    <string name="ime_animation_title">Animaciones IME</string>
+    <string name="ime_animation_summary">Selecciona animaciones personalizadas para el teclado</string>
+    <string name="animation_settings_reset_message">¿Eliminar las animaciones?</string>
+    <string name="animation_default">Po Defecto</string>
+    <string name="animation_fade">Desvanecer</string>
+    <string name="animation_slide_right">Deslizar a la derecha</string>
+    <string name="animation_slide_left">Deslizar a la izquierda</string>
+    <string name="animation_slide_right_no_fade">Deslizar a la derecha (sin desvanecer)</string>
+    <string name="animation_slide_left_no_fade">Deslizar a la izquierda (sin desvanecer)</string>
+    <string name="animation_slide_up">Deslizar abajo</string>
+    <string name="animation_slide_down">Deslizar arriba</string>
+    <string name="animation_translucent">Translúcido</string>
+    <string name="animation_grow_shrink">Creciente (arriba)</string>
+    <string name="animation_grow_shrink_center">Creciente (centrado)</string>
+    <string name="animation_grow_shrink_bottom">Creciente (abajo)</string>
+    <string name="animation_grow_shrink_left">Creciente (izquierda)</string>
+    <string name="animation_grow_shrink_right">Creciente (derecha)</string>
+    <string name="animation_random">Aleatorio</string>
+    <string name="ime_animation_test_title">Probar animación IME</string>
+    <string name="ime_enter_animation_title">Animación de entrada</string>
+    <string name="ime_exit_animation_title">Animación de salida</string>
+    <string name="ime_interpolator_title">Interpolación</string>
+    <string name="ime_duration_title">Duración IME </string>
+    
+    <!-- Status bar notifications and system icons -->
+    <string name="status_bar_notif_system_icons_settings_title">Notificaciones &amp; Iconos del Sistema</string>
+    <string name="status_bar_notif_system_icons_settings_summary">Personaliza las notificaciones &amp; iconos del sistema</string>
+    <string name="notif_system_icons_colorize_notif_icons_title">Colorear Iconos de Notificaciones</string>
+    <string name="notif_system_icons_colorize_notif_icons_title_phone">Colorear Iconos de Notificaciones</string> 
+    <string name="notif_system_icons_colorize_notif_icons_summary">Activar para colorear los iconos de notificaciones</string>
+    <string name="notif_system_icons_show_ticker_title">Ticker Notificación</string>
+    <string name="notif_system_icons_show_ticker_summary">Animación del texto de notificación en la barra de estado</string>
+    <string name="notif_system_icons_show_count_title">Mostrar Contador de Notificaciones</string>
+    <string name="notif_system_icons_show_count_summary">Mostrar el número de notificaciones pendientes</string>
+    <string name="notif_system_icons_icon_color_title">Iconos</string>
+    <string name="notif_system_icons_notif_text_color_title">Ticker Texto</string>
+    <string name="notif_system_icons_count_icon_color_title">Icono Contador de Notificaciones</string>
+    <string name="notif_system_icons_count_text_color_title">Texto Contador de Notificaciones</string>
+    
+    <!-- Status bar signals icon settings  -->
+    <string name="status_bar_signal_settings_title">Red Móvil &amp; Icono de Red wifi</string>
+    <string name="status_bar_signal_settings_summary">Personalizar iconos de red móvil y wifi de la barra de estado</string>
+    <string name="signal_wifi_show_activity_title">Mostrar Actividad de Red</string>
+    <string name="signal_wifi_show_activity_summary">Activar para mostrar la actividad en red</string>
+    <string name="cat_network_icons_title">Iconos de Red</string>
+    <string name="cat_network_activity_icons_title">Iconos de Actividad</string>
+    <string name="cat_airplane_mode_icon_title">Icono de Modo Avión</string>
+    <string name="color_normal_title">Normal</string>
+    <string name="color_fully_title">Conectado Plenamente</string>
+    
+    <!-- Status bar Header -->
+    <string name="status_bar_expanded_header_settings_title">Encabezado de la Barra de Estado</string>
+    <string name="expanded_header_show_weather_title">Mostrar Tiempo</string>
+    <string name="expanded_header_show_weather_summary">Activar para mostrar tiempo</string>
+    <string name="expanded_header_show_weather_location_title">Mostrar Localización</string>
+    <string name="expanded_header_show_weather_location_summary">Activar para mostrar localización</string>
+    
+    <!-- Status bar battery status settings -->
+    <string name="status_bar_battery_status_settings_title">Opciones de Batería</string>
+    <string name="battery_status_cat_circle_options_title">Personalizar el círculo</string>
+    <string name="battery_status_style_title">Indicador</string>
+    <string name="battery_status_style_icon_portrait">Icono vertical</string>
+    <string name="battery_status_style_icon_landscape">Icono horizontal</string>
+    <string name="battery_status_style_circle">Circulo</string>
+    <string name="battery_status_style_text">Texto</string>
+    <string name="battery_status_style_hidden">Oculto</string>
+    <string name="battery_status_percent_style_title">Posición del porcentaje</string>
+    <string name="battery_status_percent_style_dialog_title">Seleccionar posición</string>
+    <string name="battery_status_percent_style_text_inside">Dentro del icono</string>
+    <string name="battery_status_percent_style_text_next">Cerca del icono</string>
+    <string name="battery_status_percent_style_default">Oculto (por defecto)</string>
+    <string name="battery_status_charge_animation_speed_title">Velocidad de la animación de carga</string>
+    <string name="battery_status_charge_animation_speed_none">Desactivado</string>
+    <string name="battery_status_charge_animation_speed_slow">Lento</string>
+    <string name="battery_status_charge_animation_speed_normal">Normal</string>
+    <string name="battery_status_charge_animation_speed_fast">Rápida</string>
+    <string name="battery_status_show_circle_dotted_title">Circulo punteado</string>
+    <string name="battery_status_show_circle_dotted_summary">Activar para mostrar el circulo punteado</string>
+    <string name="battery_status_circle_dot_length_title">Longitud de los puntos del circulo</string>
+    <string name="battery_status_circle_dot_interval_title">Intervalo de los puntos del circulo</string>
+    <string name="battery_status_battery_color_title">Rellenar</string>
+    <string name="battery_status_text_color_title">Texto</string>
+    
+    <!-- Status bar greeting -->
+    <string name="status_bar_greeting_category_title">Saludo en la Barra de Estado</string>
+	<string name="status_bar_greeting_title">Saludo</string>
+	<string name="status_bar_greeting_summary">Mostrar un saludo personalizado en la barra de estado después de desbloquear el dispositivo</string>
+	<string name="status_bar_greeting_dialog">Pon tu saludo</string>
+	<string name="status_bar_greeting_main">You\'ve been poisoned</string>
+	<string name="status_bar_greeting_timeout_title">Retraso del saludo</string>
+	
+	<!-- Statusbar CyanideL logo -->
+	<string name="status_bar_cyanide_logo_title">Logo de CyanideL</string>
+	<string name="status_bar_cyanide_logo_summary">Cambiar Color del Logo</string>
+	<string name="status_bar_cyanide_logo_color">CyanideL Logo Color</string>
+	
+	<!-- Show carrier label and custom -->
+    <string name="carrier_options">Personalización de la Etiqueta de Operador</string>
+    <string name="show_status_bar_carrier_title">Operador en la Barra de Estado</string>
+    <string name="show_status_bar_carrier_summary">Opciones para Personalizar Texto y Color</string>
+    <string name="custom_carrier_label_title">Personaliza Etiqueta de Operador</string>
+    <string name="custom_carrier_label_explain">Nueva etiqueta. Déjalo vacio para restaurar la etiqueta original</string>
+    <string name="custom_carrier_label_notset">Actualmente sin etiqueta personalizada</string>
+    <string name="status_bar_carrier_color">Color de la etiqueta del operador</string>
+
+	<!-- SlimSizer  -->
+    <string name="listsystem">lista</string>
+    <string name="sizer_title">Eliminar Aplicaciones de Sistema</string>
+    <string name="caution">Precaución!</string>
+    <string name="sizer_message_startup">Ésta herramienta te permite eliminar aplicaciones de sistema. Usalo con precaución y elimina sólo las aplicaciones que sepas que es seguro eliminar.</string>
+    <string name="cancel">Cancelar</string>
+    <string name="sizer_message_delete">¿Seguro que quieres eliminar ésta aplicación?</string>
+    <string name="sizer_message_delete_multi_one">¿Seguro que quieres eliminar la aplicación seleccionada?</string>
+    <string name="sizer_message_delete_multi">¿Seguro que quieres eliminar las aplicaciones seleccionadas?</string>
+    <string name="btn_delete">!Elimina las aplicaciones seleccionadas ahora!</string>
+    <string name="delete_progress_title">Borrando</string>
+    <string name="delete_progress">Los archivos seleccionados están siendo borrados, espera por favor.</string>
+    <string name="delete_success">Borrados</string>
+    <string name="delete_fail">Imposible eliminar</string>
+    <string name="btn_profile">Perfil</string>
+    <string name="sizer_message_sdnowrite">No se puede escribir en la SD Card.</string>
+    <string name="sizer_message_sdnoread">No se puede leer la SD Card.</string>
+    <string name="sizer_message_filesuccess">Perfil Creado.</string>
+    <string name="sizer_message_filefail">Fallo al crear perfil.</string>
+    <string name="sizer_message_noselect">Nada seleccionado.</string>
+    <string name="reboot">!Todo hecho! Reinicia ahora tu dispositivo.</string>
+    <string name="reboot_ok">Reinicia ahora</string>
+    <string name="reboot_cancel">No reiniciado</string>    
+
+    <!-- QuickSettings 4 columns -->
+    <string name="qs_four_columns_title">Cuatro Azulejos por Fila</string>
+    
+    <string name="status_bar_network_speed_settings_title">Indicador de Velocidad de Red</string>
+    <string name="status_bar_network_speed_settings_summary">Personaliza el indicador de velocidad de red</string>
+    
+    <!-- Status bar Network speed -->
+    <string name="network_speed_indicator_title">Indicador</string>
+    <string name="network_speed_indicator_down_up">Descarga &amp; Subida</string>
+    <string name="network_speed_indicator_down">Descarga</string>
+    <string name="network_speed_indicator_up">Subida</string>
+    <string name="network_speed_indicator_disabled">Desactivar</string>
+    <string name="network_speed_show_icon_title">Icono</string>
+    <string name="network_speed_show_icon_summary">Activado, para motrar el icono</string>
+    <string name="network_speed_summary_title">Mostrar resumen del tráfico</string>
+    <string name="network_speed_traffic_timeout_dlg_title">Retraso</string>
+    <string name="network_speed_traffic_timeout_0s">No mostrar</string>
+    <string name="network_speed_traffic_timeout_1s">1 segundo</string>
+    <string name="network_speed_traffic_timeout_2s">2 segundos</string>
+    <string name="network_speed_traffic_timeout_3s">3 segundos</string>
+    <string name="network_speed_traffic_timeout_5s">5 segundos</string>
+    <string name="network_speed_traffic_timeout_8s">8 segundos</string>
+    <string name="network_speed_traffic_timeout_10s">10 segundos</string>
+    <string name="network_speed_traffic_timeout_15s">15 segundos</string>
+    <string name="network_speed_traffic_timeout_25s">25 segundos</string>
+    <string name="network_speed_bit_byte_title">Mostrar valores de bits</string>
+    <string name="network_speed_bit_byte_summary">Activar para mostrar los valores de bits en lugar de byte</string>
+    <string name="network_speed_hide_indicator_title">Ocultar el indicador</string>
+    <string name="network_speed_hide_indicator_summary">Activar para ocultar el indicador si no hay tráfico</string>
+    
+    <!-- Host File Manager -->
+    <string name="hfm_disable_ads_title">Desactivar los Anuncios</string>
+    <string name="hfm_disable_ads_summary">Cambiar archivos host para desactivar anuncios</string>
+    <string name="hfm_pref_screen_title">Bloqueador de Anuncios</string>
+    <string name="hfm_update_hosts">Actualizar archivos hosts</string>
+    <string name="hfm_update_hosts_summary">Descargar y aplicar hosts frescos</string>
+    <string name="hfm_dialog_wait">Trabajando, por favor espera...</string>
+    <string name="hfm_dialog_failed">Fallo en actualización de archivos hosts. Por favor, inténtalo de nuevo.</string>
+    <string name="hfm_dialog_success">!/4 hosts sources correctamente aplicados!</string>
+	<string name="hfm_dialog_conn_error">Error: No hay conexión de red</string>
+	
+	<!-- Lockscreen Shortcuts color switch -->
+	<string name="shortcuts_colorize_custom_icons_title">Colorea todos los iconos</string>
+	<string name="shortcuts_colorize_custom_icons_summary">Activa para colorear todos los iconos, desactiva para colorear solo los iconos permitidos por defecto</string>
+	
+	<!-- Cyanide actions and utilities -->
+    <string name="shortcut_label">Acciones &amp; Utilidades</string>
+    <string name="toggle_flushmemory">Memoria GC</string>
+    <string name="toggle_ring_vib">Sonido/Vibrar</string>
+    <string name="toggle_ring_silent">Sonido/Silencio</string>
+    <string name="toggle_ring_vib_silent">Sonido/Vibrar/Silencio</string>
+    <string name="toggle_profile">Perfiles</string>
+	<string name="toggle_profile_toast">Los perfiles están actualmente desactivados</string>
+	<string name="toggle_dream">Salvapantallas</string>
+	<string name="toggle_dream_failed">Salvapantallas están apagados o desactivados</string>
+
+	<!-- Shortcut picker -->
+	<string name="use_custom_app_title">Usar aplicación personalizada</string>
+	<string name="use_custom_app_summary">Usar aplicación personalizada en lugar del diálogo de aplicaciones recientes</string>
+	<string name="group_applications">Aplicaciones</string>
+	<string name="select_custom_app_title">Selecciona aplicación personalizada</string>
+
+	<!-- Custom navigation bar targets -->
+	<string name="choose_action_double_tap_title">Selecciona acción con doble toque</string>
+    <string name="choose_action_title">Selecciona acción</string>
+    <string name="choose_action_short_title">Selecciona acción</string>
+    <string name="choose_action_long_title">Selecciona acción de pulsación prolongada</string>
+    <string name="action_long_save">selecciona como acción prolongada</string>
+    <string name="action_short">Acción</string>
+    <string name="action_long">Acción prolongada</string>
+    <string name="action_double">Acción de doble toque</string>
+    <string name="action_icon">Icono Personalizado</string>
+    <string name="custom_app_icon_successfully">"icono fijado satisfactoriamente!"</string>
+    <string name="add_button">Añadir botón</string>
+    <string name="category_navbar">Personalización de la Barra de Navegación</string>
+    <string name="navbar_tab_arrange">Editor</string>
+    <string name="navbar_tab_settings">Ajustes</string>
+    <string name="change_layouts_title"> Disposición </string>
+	<string name="change_layouts_dialog_title">Selecciona para editar la disposición</string>
+	<string name="alternate_key_layouts">Numero de espacios activados</string>
+	<string name="alternate_key_layouts_summary">Establece el número de espacios activados</string>
+	<string name="alternate_key_layouts_enabled_summary">Los espacios en la barra de navegación están activados</string>
+	<string name="alternate_key_layouts_enabled_partial_summary">out of 5</string>
+	<string name="alternate_key_layouts_all_enabled_summary">Los 5 espacios de la barra de navegación están activados</string>
+	<string name="alternate_menu_summary">Allow legacy menu key to replace layout switch when requested</string>
+	<string name="layouts_dialog_title">Numero de disposiciones activadas</string>
+	<string name="enable_sidekeys">Permitir teclas del menu</string>
+	<string name="enable_sidekeys_summary">Añadir un espacio para permitir teclas de menu en la barra de navegación.</string>
+	<string name="navigation_bar_height_text">Altura de la barra de navegación</string>
+	<string name="navigation_bar_height_landscape_text">Altura de la barra de navegación con pantalla horizontal</string>
+	<string name="navigation_bar_width_text">Ancho de la barra de navegación</string>
+	<string name="enable_ime_layout">Botones extra IME</string>
+	<string name="enable_ime_layout_summary">Incluir un interruptor que cambie los espacios en flechas del teclado</string>
+	<string name="enable_ime_layout_disabled">Not enough room in the layout: enable additional layouts or legacy menu keys</string>
+	<string name="customize_ime_layout_dialog_title">Personalizar el espacio de la tecla IME</string>
+	<string name="ime_layout_ime">Cambiador IME</string>
+	<string name="ime_layout_home">Botón home</string>
+	<string name="ime_layout_blank">Espacio en blanco antes de las teclas</string>
+    <string name="editor_instructions">Reorganizar arrastrando en la derecha. Eliminar deslizando.</string>
+    <string name="save">Guardar</string>
+    <string name="navigation_bar_longpress_timeout_text">Retraso en pulsación prolongada</string>
+    <string name="enable_navigation_ring_title">Asistente de búsqueda</string>
+    <string name="enable_navigation_ring_summary">Activar pulsación larga en botón home para el asistente de búsqueda de google now</string>
+    <string name="navbar_use_gallary_warning">Info: por favor selecciona Galería para guardar la imagen</string>
+    
+    <!-- Pie control -->
+    <string name="pie_control_title">Control Pie</string>
+    <string name="pie_control_summary">Activar en pantalla navegación con Pie</string>
+    <string name="pie_control_size">Tamaño de Navegación</string>
+    <string name="pie_control_trigger_positions">Opciones de lanzamiento</string>
+    <string name="pie_control_trigger_left">Lanzar desde el borde izquierdo de la pantalla</string>
+    <string name="pie_control_trigger_bottom">Lanzar desde la parte baja de la pantalla</string>
+    <string name="pie_control_trigger_right">Lanzar desde la parte derecha de la pantalla</string>
+    <string name="pie_control_trigger_top">Lanzar desde arriba de la pantalla</string>
+    <string name="pie_control_trigger_top_summary">No mostrar información del reloj ni de estado</string>
+    <string name="pie_button_style">Estilo de los botones</string>
+    <string name="pie_button_color_title">Color de los Botones</string>
+    <string name="pie_button_alpha_title">Transparencia de los botones</string>
+    <string name="pie_button_outline_color_title">Color del Contorno de los Botones</string>
+    <string name="pie_button_pressed_color_title">Color al Presionar Botones</string>
+    <string name="pie_button_long_pressed_color_title">Color en Pulsación Larga</string>
+    <string name="pie_button_pressed_alpha_title">Transparencia al Presionar Botones</string>
+    <string name="pie_icon_style">Estilo del icono de los botones</string>
+    <string name="pie_icon_color_title">Color del icono de los botones</string>
+    <string name="pie_icon_color_mode_title">Modo de Color del icono de los botones</string>
+    <string name="pie_icon_color_mode_dialog_title">Colorear</string>
+    <string name="pie_icon_color_mode_summary">Cambiar el modo de color del icono de los botones</string>
+    <string name="pie_trigger_note_title">Nota</string>
+    <string name="pie_trigger_note_summary">Para evitar conflictos con la barra de estado y con la barra de navegación, las zonas de lanzamiento en estas áreas están automáticamente apagadas si una o ambas están disponibles</string>
+    <string name="pie_background_color_title">Color en segundo plano</string>
+    <string name="pie_snap_color_title">Punto de Rotura de Color</string>
+    <string name="pie_text_color_title">Text Color del Texto</string>
+    <string name="pie_background_alpha_title">Transparencia en segundo plano</string>
+    <string name="pie_mirror_right_title">Mirror Right Pie</string>
+    <string name="pie_mirror_right_summary">Mirror right pie on the horizontal axis</string>
+    <string name="pie_style">Dimensiones y Estilo</string>
+    <string name="pie_style_title">Estilo</string>
+    <string name="pie_dimens_title">Dimensiones</string>
+    <string name="pie_additional_options">Opciones Adicionales</string>
+    <string name="pie_show_snap_title">Show Snap Points</string>
+    <string name="pie_show_snap_summary">Shows snap points to change the trigger edge dynamically</string>
+    <string name="pie_show_text_title">Mostrar Reloj y Estado</string>
+    <string name="pie_show_text_summary">Mostrar información de la hora, el día y el estado el teléfono</string>
+    <string name="pie_show_background_title">Mostrar en segundo plano</string>
+    <string name="pie_show_background_summary">Enable pie background screen</string>
+    <string name="pie_button">Botones</string>
+    <string name="pie_button_second_layer">Botones en Segunda Capa</string>
+    <string name="pie_button_second_layer_summary">Cambiar botones de la segunda capa</string>
+    <string name="pie_button_style_summary">Cambiar el estilo de los botones</string>
+    <string name="pie_style_reset_message">¿Anular cambios de estilo?</string>
+    <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Eliminar cada %1$s en la lista desactivará la segunda capa totalmente.</string>
+    <string name="icon_color_mode_all_icons">Todos los Iconos</string>
+    <string name="icon_color_mode_system_icons">Iconos de Sistema</string>
+    <string name="icon_color_mode_system_custom_icons">Iconos de Sistema y Personalizados</string>
+
+    <!-- Navigation bar visibility -->
+    <string name="navigation_menu_default_jb_behavior">Mostrar a petición (por defecto)</string>
+    <string name="navigation_menu_never_show">Nunca Mostrar</string>
+    <string name="navigation_menu_always_show">Mostrar Siempre</string>
+    <string name="title_pref_menu_display">Visibilidad del Menú</string>
+    <string name="summary_pref_menu_display">¿Como y cuando quieres que aparezcan los botones del menú?</string>
+    
+    <!-- Volume pane timeout -->
+    <string name="category_panel_time_out">Retraso del panel</string>
+    <string name="volume_panel_time_out_title">Retraso del panel de volumen</string>
+    <string name="volume_panel_time_out_summary">Ocultar antes de  <xliff:g id="number">%d</xliff:g> segundos. Auto ocultar al tocar fuera</string>
+    <string name="volume_panel_time_out_3sec">3 segundos (por defecto)</string>
+    <string name="volume_panel_time_out_5sec">5 segundos</string>
+    <string name="volume_panel_time_out_8sec">8 segundos</string>
+    <string name="volume_panel_time_out_12sec">12 segundos</string>
+    <string name="volume_panel_time_out_15sec">15 segundos</string>
+
+        <!-- Doze pulse (ambient display) options -->
+    <string name="doze_overwrite_value_title">Sobreescribir valores</string>
+    <string name="doze_overwrite_value_summary">Permitir sobreescribir los valores iniciales con la configuración del usuario</string>
+
+    <string name="doze_list_mode_title">Modo descanso</string>
+    <string name="doze_list_mode_summary">Opción para configurar el modo descanso</string>
+
+    <string name="doze_pulse_title">Ajustes de tiempo</string>
+    <string name="doze_pulse_duration_in_title">Aparecer gradualmente</string>
+    <string name="doze_pulse_duration_in_summary"></string>
+
+    <string name="doze_pulse_duration_visible_title">Visible Duración</string>
+    <string name="doze_pulse_duration_visible_summary"></string>
+
+    <string name="doze_pulse_duration_out_title">Desaparecer gradualmente</string>
+    <string name="doze_pulse_duration_out_summary"></string>
+
+    <string name="doze_pulse_on_notifications_title">Notificaciones pulse on</string>
+    <string name="doze_pulse_on_notifications_summary">Activar solo en notificaciones pendientes</string>
+
+    <string name="doze_shake_title">Ajustes de agitación</string>
+    <string name="doze_shake_mode_title">Modo agitación</string>
+    <string name="doze_shake_mode_summary">Usar valor del sensor de movimiento para su activación</string>
+    <string name="doze_shake_mode_test_summary">¿Quieres testear el sensor de movimiento?</string>
+    <string name="doze_shake_mode_test_result">¿Aplicar el valor actual?</string>
+    <string name="doze_shake_test">Agita ahora tu dispositivo</string>
+    <string name="doze_shake_it">!Movimiento detectado!</string>
+
+    <string name="doze_shake_acc_threshold_title">Umbral de agitación</string>
+    <string name="doze_shake_acc_threshold_summary">Configurar la fuerza requerida de agitación para que se active</string>
+
+    <string name="doze_time_mode_title">Mostrar reloj &amp; fecha</string>
+    <string name="doze_time_mode_summary">Forzar mostrar la hora cuando no hay notificaciones</string>
+
+    <string name="twohundred_ms">200 ms</string>
+    <string name="fivehundred_ms">500 ms</string>
+    <string name="one_second">1 s</string>
+    <string name="one_second_default">1 s (por defecto)</string>
+    <string name="onehalf_second">1.5 s</string>
+    <string name="two_second">2 s</string>
+    <string name="twohalf_second">2.5 s</string>
+    <string name="three_second">3 s</string>
+    <string name="three_second_default">3 s (por defecto)</string>
+    <string name="threehalf_second">3.5 s</string>
+    <string name="four_second">4 s</string>
+    <string name="fourhalf_second">4.5 s</string>
+    <string name="five_second">5 s</string>
+
+    <string name="veryeasy_shake">Muy fácil</string>
+    <string name="easy_shake">Fácil</string>
+    <string name="medium_shake">Por defecto</string>
+    <string name="hard_shake">Duro</string>
+    <string name="veryhard_shake">Muy duro</string>
+    <string name="strong_shake">Fuerte</string>
+
+    <string name="fully_mode">Full mode</string>
+    <string name="pocket_shake_mode">Bolsillo y agitar</string>
+    <string name="pocket_pulse_mode">Bolsillo y vibrar</string>
+    <string name="pocket_only_mode">Bolsillo</string>
+    <string name="shake_pulse_mode">Agitar y vibrar</string>
+    <string name="pulse_only_mode">Vibrar (por defecto)</string>
+
+    <!-- Slim Shortcuts -->
+    <string name="slim_shortcut_picker">Acciones Cyanide</string>
+    
+    <!-- Heads Up -->
+    <string name="category_heads_up">Notificaciones Heads up</string>
+    <string name="summary_heads_up_enabled">Notificaciones Pop-up están activadas</string>
+    <string name="summary_heads_up_disabled">Notificaciones Pop-up están desactivadas</string>
+    <string name="add_heads_up_package">Añadir aplicación</string>
+    <string name="add_heads_up_dnd_summary">No mostrar notificaciones heads up en estas aplicaciones</string>
+    <string name="add_heads_up_blacklist_summary">No mostrar notificaciones heads up de estas aplicaciones</string>
+    <string name="heads_up_dnd_title">No molestar</string>
+    <string name="heads_up_blacklist_title">Lista negra</string>
+    <string name="heads_up_disabled_notice">Para permitir a las aplicaciones desplegar notificaciones interactivas en una ventana pop-up de tu pantalla, activa Heads up.</string>
+    <string name="heads_up_dismiss_on_remove_title">Comportamiento al deslizar</string>
+    <string name="heads_up_dismiss_on_remove_summary_enabled">Ocultar notificaciones en lugar de descartarlas</string>
+    <string name="heads_up_dismiss_on_remove_summary_disabled">Ocultar y descartar las notificaciones</string>
+    
+    <!-- Heads up timeout -->
+    <string name="heads_up_time_out_title">Tiempo de exposición</string>
+    <string name="heads_up_time_out_summary">LA notificación de mostrará durante <xliff:g id="number">%d</xliff:g> segundos</string>
+    <string name="heads_up_time_out_never_summary">Se mostrarán las notificaciones hasta que sea descartada</string>
+    <string name="heads_up_time_out_2sec">2 segundos</string>
+    <string name="heads_up_time_out_4sec">4 segundos</string>
+    <string name="heads_up_time_out_6sec">6 segundos</string>
+    <string name="heads_up_time_out_8sec">8 segundos</string>
+    <string name="heads_up_time_out_10sec">10 segundos</string>
+    <string name="heads_up_time_out_never">Nunca</string>
+    
+    <!-- Heads up touch outside -->
+    <string name="heads_up_touch_outside_title">Comportamiento al tocar fuera</string>
+    <string name="heads_up_touch_outside_summary_enabled">Ocultar notificaciones al tocar fuera y al pulsar el botón home</string>
+    <string name="heads_up_touch_outside_summary_disabled">No ocultar notificaciones al tocar fuera y al pulsar el botón home</string>
+    
+    <!-- QuickSettings: Smart Pulldown -->
+    <string name="smart_pulldown_title">Despliegue Inteligente</string>
+    <string name="smart_pulldown_summary">Abrir ajustes rápidos cuando hay %1$s de notificaciones</string>
+    <string name="smart_pulldown_off">Apagado</string>
+    <string name="smart_pulldown_dismissable">No descartable</string>
+    <string name="smart_pulldown_persistent">No persistente</string>
+    <string name="smart_pulldown_all">Ni descartable ni persistente</string>
+    
+    <string name="qs_slim_action_title">Acciones Cyanide</string>
+	<string name="qs_slim_action_summary">Añadir y establecer el orden de las acciones Cyanide en el espacio de acción Cyanide</string>
+	
+	<!-- Force expand notifications -->
+    <string name="notification_force_expand_title">Forzar notificaciones expandidas</string>
+    <string name="notification_force_expand_summary">Forzar notificaciones extendidas en todas las aplicaciones que lo soporten</string>
+    
+    <!-- The volume key answer -->
+    <string name="volume_answer_call_title">Tecla de Volumen Para Contestar Llamadas</string>
+    <string name="volume_answer_call_summary">Volumen arriba contesta las llamadas</string>
+    
+    <!-- Navigation bar -->
+    <string name="navigation_bar_category">Barra de navegación</string>
+    <string name="navbar_force_enable_title">Encender barra de navegación</string>
+    <string name="navbar_force_enable_summary">Puede requerir que reinicies</string>
+    <string name="navigation_bar_left_title">Modo para zurdos</string>
+    <string name="navigation_bar_left_summary">Establecer la barra de navegación en el lado izquierdo de la pantalla en modo horizontal</string>
+	
+	<!-- Ability to disable hardware keys via nav bar settings -->
+    <string name="hw_keys_title">Hardware keys</string>
+	<string name="hw_keys_summary">Activar hardware keys</string>
+	
+	<!-- Battery Bar -->
+    <string name="status_bar_battery_cat_title">Batería</string>
+    <string name="battery_bar_title">Barra de Batería</string>
+    <string name="battery_bar">Localización de la Barra de Batería</string>
+    <string name="battery_bar_color">Color de la barra de batería</string>
+    <string name="battery_bar_cat">Estilo de la barra de batería</string>
+    <string name="battery_bar_style_title">Alineación de la barra de batería</string>
+    <string name="battery_bar_thickness_title">Grosor de la barra de batería</string>
+    <string name="battery_bar_animate_title">Animación de Carga</string>
+    <string name="battery_bar_animate_summary">La animación de carga puede ralentizar las prestaciones, activala con prudencia.</string>
+    
+    <!-- Volume Keys Media Control -->
+    <string name="volume_keys_control_media_stream">Media control</string>
+    <string name="volume_keys_control_media_stream_summary">Volume keys control media volume rather than notifications</string>
+    
+    <!-- Camera sound switch -->
+	<string name="camera_sounds_title">Sonido de la cámara</string>
+	<string name="camera_sounds_summary">Activar sonido de la cámara</string>
+	<string name="camera_sound_warning_dialog_text">!Desactivar el sonido de la cámara es ilegal en algunos lugares! Por favor consulta las normas aplicadas en tu pais</string>    
+	
+	<!-- MediaScanner behavior on boot -->
+    <string name="media_scanner_on_boot_title">Escaneo de archivos en el arranque</string>
+    <string name="media_scanner_on_boot_enabled">Escaneo de archivos</string>
+    <string name="media_scanner_on_boot_ask">Preguntar para escanear (notificación)</string>
+	<string name="media_scanner_on_boot_disabled">No efectuar escaneo de archivos</string>
+	
+	<!-- Screenshot sound -->
+    <string name="screenshot_sound_title">Sonido Captura de Pantalla</string>
+    <string name="screenshot_sound_summary">Efectúa efecto de sonido cuando se realiza una captura de pantalla</string>
+    
+    <!-- Breathing Notifications -->
+	<string name="breathing_notifications_title">Notificaciones Breathing</string>
+	<string name="sms_breath">SMS Breathing</string>
+	<string name="sms_breath_summary">Esto le dará a tus notificaciones sms un efecto breathing en la barra de estado</string>
+	<string name="title_missed_call_breath">LLamada Perdida Breathing</string>
+	<string name="missed_call_breath_summary">Esto le dará a tus notificaciones de llamada perdida un efecto breathing</string>
+	<string name="title_voicemail_breath">Mensajes de Voz Breathing</string>
+	<string name="voicemail_breath_summary">Esto le dará a tus notificaciones de mensajes de voz un efecto breathing</string>
+	
+	<!-- Smart cover -->
+    <string name="smart_cover_title">Funda inteligente</string>
+    <string name="lid_settings_title">Tapa</string>
+    <string name="lid_controls_sleep_title">Control de descanso</string>
+    <string name="lid_controls_sleep_summary">Apagar pantalla cuando la tapa se cierra</string>
+    <string name="lid_controls_wake_title">Control para despertar</string>
+    <string name="lid_controls_wake_summary">Encender pantalla al abrir la tapa</string>
+    
+    <!-- Chamber of Secrets -->
+    <string name="chamber_title">Chamber of secrets</string>
+    <string name="chamber_toast">The chamber of secrets has opened</string>
+    
+    <!-- Instant reboot -->
+    <string name="advanced_reboot_oneclick">Pulsa para Reiniciar</string>
+    <string name="advanced_reboot_oneclick_summary">Reinicio inmediato</string>
+    
+    <!-- Nfc settings -->
+    <string name="nfc_polling_mode_title">NFC modo sondeo</string>
+    <string name="nfc_polling_mode_screen_off">Pantalla Apagada</string>
+    <string name="nfc_polling_mode_screen_locked">Pantalla Encendida, bloqueado</string>
+    <string name="nfc_polling_mode_screen_unlocked">Pantalla Encendida, desbloqueado (por defecto)</string>
+    
+    <!-- Long press on lock screen lock icon to sleep -->
+    <string name="longpress_lock_icon_to_sleep_title">Pulsación prolongada en icono de bloqueo para descansar</string>
+    <string name="longpress_lock_icon_to_sleep_summary">Esta opción no funcionará si tanto smart lock como accessibility touch exploration estan activadas</string>
+    
+    <!-- Navring targets (enable/disable) -->
+    <string name="navigation_ring_enable_title">Activar Anillo de Navegación</string>
+    
+    <!-- Alarms and no interrupt zen mode -->
+    <string name="zen_mode_none_category">Sin interrupciones</string>
+    <string name="zen_mode_alarms">Permitir alarmas</string>
+    
+    <!-- User Selectable Tether Networks-->
+    <string name="tether_usb_network_summary">Presiona para cambiar USB Network</string>
+    <string name="tether_usb_network_text">USB Tether Network</string>
+    <string name="tether_user_network_default">Usar sistema por defecto</string>
+    <string name="tether_wifi_network_text">WiFi Tether Network</string>
+    
+    <!-- Captive Portal -->
+    <string name="captive_portal_detection">Captive portal detección</string>
+    <string name="captive_portal_detection_summary">Si está desactivado, no se es necesario conectar con los servidores de google para detectar conexión de datos.</string>
+    
+    <!-- Viper4Android -->
+    <string name="viper_title">Viper4Android</string>
+    
+    <!-- OmniSwitch -->
+	<string name="omniswitch_settings_title">OmniSwitch</string>
+	<string name="omniswitch_category">OmniSwitch</string>
+	<string name="recents_use_omniswitch_title">Usar Para Recientes</string>
+	<string name="recents_use_omniswitch_summary">Usar OmniSwitch en lugar de la vista de recientes</string>
+	<string name="omniswitch_start_settings_title">Ajustes</string>
+	<string name="omniswitch_start_settings_summary">Abrir Ajustes OmniSwitch</string>
+	<string name="omniswitch_first_time_title">Información</string>
+	<string name="omniswitch_first_time_message">Asegúrate de tener activado OmniSwitch. Puedes hacerlo usando \"Ajustes\"</string>
+
+</resources>
