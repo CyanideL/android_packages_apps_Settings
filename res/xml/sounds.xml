@@ -55,11 +55,6 @@
                 android:title="@string/notification_volume_option_title"
                 settings:advanced="true"/>
 
-        <!-- Also vibrate for calls -->
-        <SwitchPreference
-                android:key="vibrate_when_ringing"
-                android:title="@string/vibrate_when_ringing_title"
-                android:persistent="false" />
     </PreferenceCategory>
 
     <PreferenceCategory
