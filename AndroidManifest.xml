@@ -2498,6 +2498,19 @@
         <activity
              android:name=".cyanide.dlc.CyanideCentral" />
         
+        <activity android:name="Settings$CyanideTweaksActivity"
+            android:label="@string/custom_title"
+            android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.cyanide.cyanidetweaks.CyanideTweaks" />
+        </activity>
+
+		<activity android:name="com.cyanide.cyanidetweaks.fragments.Download" />
+        
         <activity android:name=".cyanide.gestureanywhere.GestureAnywhereBuilderActivity" />
         <activity android:name=".cyanide.gestureanywhere.GestureAnywhereCreateGestureActivity" />
         <activity android:name=".cyanide.WeatherSettings" />

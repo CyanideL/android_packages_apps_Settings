@@ -49,6 +49,7 @@
 	<string name="interface_control_title">CyanideL Interface Control</string>
 	<string name="status_bar_logo_title">CyanideL Logo</string>
 	<string name="cyanide_settings_title">CyanideMods</string>
+	<string name="custom_title">Cyanide Tweaks</string>
 	<string name="cyanide_dlc_title">Download Center</string>
 	<string name="weather_control_title">General cLock Weather</string>
 	<string name="general_title">General Options</string>
