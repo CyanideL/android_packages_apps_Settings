@@ -117,7 +117,5 @@ public class Settings extends SettingsActivity {
     public static class NavigationSettingsSettingsActivity extends SettingsActivity { /* empty */ }
     public static class AppCircleBarSettingsActivity extends SettingsActivity { /* empty */ }
     public static class HeadsUpSettingsActivity extends SettingsActivity { /* empty */ }
-    public static class CyanideSettingsActivity extends SettingsActivity { /* empty */ }
-
 }
 

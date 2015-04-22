@@ -125,13 +125,6 @@
 				settings:advanced="true"
 				/>
         
-        <dashboard-tile
-                android:id="@+id/cyanidetweaks"
-                android:title="@string/custom_title"
-                android:fragment="com.cyanide.cyanidetweaks.CyanideTweaks"
-                android:icon="@drawable/ic_settings_cyanide"
-				/>
-        
         <!-- Cyanide Central -->
 		<dashboard-tile
 				android:id="@+id/cyanide_dlc_settings"

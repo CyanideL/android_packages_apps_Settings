@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+     Copyright (C) 2014-2015 The CyanogenMod Project
+	 Copyright (C) 2015 CyanideL
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+        android:title="@string/status_bar_title">
+
+    <!-- Battery Options -->
+	<PreferenceScreen
+		android:key="battery_style_pref"
+		android:title="@string/status_bar_battery_style"
+		android:summary="@string/battery_settings_summary"
+		android:fragment="com.android.settings.cyanide.BatteryStyle" />
+    
+    <!-- Clock Settings -->
+    <PreferenceScreen
+		android:fragment="com.android.settings.cyanide.StatusBarClockStyle"
+		android:key="clock_style_pref"
+		android:summary="@string/clock_settings_summary"
+		android:title="@string/status_bar_clock" />
+
+    <!-- Carrier Label -->
+    <PreferenceScreen
+        android:key="carrier_options"
+        android:fragment="com.android.settings.cyanide.CarrierLabel"
+        android:summary="@string/show_status_bar_carrier_summary"
+        android:title="@string/carrier_options" />
+    
+    <!-- Status bar CyanideL logo --> 
+    <PreferenceScreen
+        android:key="status_bar_cyanide_logo"
+        android:title="@string/status_bar_cyanide_logo_title"
+        android:summary="@string/status_bar_cyanide_logo_summary"
+        android:fragment="com.android.settings.cyanide.StatusLogo" />
+
+    <!-- Greeting -->
+	<PreferenceScreen
+		android:key="status_bar_greeting"
+		android:title="@string/status_bar_greeting_title"
+		android:summary="@string/status_bar_greeting_summary"	
+		android:fragment="com.android.settings.cyanide.Greeting" />
+    
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="status_bar_show_empty_sims"
+        android:defaultValue="true"
+        android:title="@string/status_bar_show_unused_sims_title"
+        android:summaryOn="@string/status_bar_show_unused_sims_title_summary_on"
+        android:summaryOff="@string/status_bar_show_unused_sims_title_summary_off" />
+
+    <!-- Signal Colors -->
+    <PreferenceScreen
+        android:key="status_bar_signal_settings"
+        android:title="@string/status_bar_signal_settings_title"
+        android:summary="@string/status_bar_signal_settings_summary"
+        android:fragment="com.android.settings.cyanide.StatusBarSignalSettings" />
+    
+    <!-- Network Traffic -->
+    <PreferenceScreen
+        android:key="status_bar_network_speed_settings"
+        android:title="@string/status_bar_network_speed_settings_title"
+        android:summary="@string/trafficmeter_settings_summary"
+        android:fragment="com.android.settings.cyanide.StatusBarNetworkSpeedSettings" />
+    
+    <!-- Notifications Colors -->
+    <PreferenceScreen
+        android:key="status_bar_notif_system_icons_settings"
+        android:title="@string/status_bar_notif_system_icons_settings_title"
+        android:summary="@string/status_bar_notif_system_icons_settings_summary"
+        android:fragment="com.android.settings.cyanide.StatusBarNotifSystemIconsSettings" />
+        
+    <!-- Random Options -->
+    <PreferenceScreen
+        android:key="status_bar_random"
+        android:title="@string/status_bar_random_title"
+        android:summary="@string/status_bar_random_summary"
+        android:fragment="com.android.settings.cyanide.StatusBarRandom" />
+    
+    <!-- Header Color Options -->
+    <PreferenceScreen
+        android:key="status_bar_expanded_header_settings"
+        android:title="@string/status_bar_expanded_header_settings_title"
+        android:summary="@string/header_settings_summary"
+        android:fragment="com.android.settings.cyanide.StatusBarExpandedHeaderSettings" />
+
+</PreferenceScreen>

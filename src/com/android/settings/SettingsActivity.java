@@ -79,7 +79,6 @@ import com.android.settings.blacklist.BlacklistSettings;
 import com.android.settings.cyanide.MainSettings;
 import com.android.settings.cyanide.dlc.CyanideCentral;
 import com.android.settings.cyanide.CyanideNotifs;
-import com.cyanide.cyanidetweaks.CyanideTweaks;
 import com.android.settings.ButtonSettings;
 import com.android.settings.cyanide.HeadsUpSettings;
 import com.android.settings.bluetooth.BluetoothSettings;
@@ -130,7 +129,10 @@ import com.android.settings.wifi.SavedAccessPointsWifiSettings;
 import com.android.settings.wifi.WifiSettings;
 import com.android.settings.wifi.p2p.WifiP2pSettings;
 import com.android.settings.cyanogenmod.qs.QSTiles;
+import com.android.settings.cyanide.PieControl;
+import com.android.settings.cyanide.gestureanywhere.GestureAnywhereSettings;
 import com.android.settings.cyanide.NavigationSettings;
+import com.android.settings.cyanide.AppCircleBar;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -260,8 +262,7 @@ public class SettingsActivity extends Activity
             R.id.accessibility_settings,
             R.id.print_settings,
             R.id.dashboard,
-            R.id.privacy_settings_cyanogenmod,
-            R.id.cyanidetweaks
+            R.id.privacy_settings_cyanogenmod
     };
 
     private static final String[] ENTRY_FRAGMENTS = {
@@ -337,10 +338,12 @@ public class SettingsActivity extends Activity
             QSTiles.class.getName(),
             ExpandedDesktopPreferenceFragment.class.getName(),
             AmbientSettings.class.getName(),
+            PieControl.class.getName(),
+            GestureAnywhereSettings.class.getName(),
             ButtonSettings.class.getName(),
             NavigationSettings.class.getName(),
             HeadsUpSettings.class.getName(),
-            CyanideTweaks.class.getName()
+            AppCircleBar.class.getName()
     };
 
 
