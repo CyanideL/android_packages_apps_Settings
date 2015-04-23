@@ -1154,6 +1154,12 @@
         <item>2 dp</item>
         <item>3 dp</item>
         <item>4 dp</item>
+        <item>5 dp</item>
+        <item>6 dp</item>
+        <item>7 dp</item>
+        <item>8 dp</item>
+        <item>9 dp</item>
+        <item>10 dp</item>
     </string-array>
 
     <string-array name="battery_bar_thickness_values" translatable="false">
@@ -1161,6 +1167,12 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
     </string-array>
     
     <!-- MediaScanner behavior on boot -->
