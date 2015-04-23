@@ -779,6 +779,7 @@
     <string name="cat_network_icons_title">Network Icons</string>
     <string name="cat_network_activity_icons_title">Activity Icons</string>
     <string name="cat_airplane_mode_icon_title">Airplane Mode Icon</string>
+    <string name="cat_vpn_icon_title">Vpn icon</string>
     <string name="color_normal_title">Normal</string>
     <string name="color_fully_title">Fully Connected</string>
     
