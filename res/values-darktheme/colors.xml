@@ -9,12 +9,12 @@
     <color name="setup_wizard_wifi_color_dark">#ffffffff</color>
     <color name="setup_wizard_wifi_color_light">#ffffffff</color>
     <color name="wifi_assistant_color_accent">#ffffffff</color>
-    <color name="theme_primary">#ff111111</color>
+    <color name="theme_primary">#ff000000</color>
     <color name="theme_primary_dark">#ff000000</color>
     <color name="theme_accent">#ffffffff</color>
     <color name="dashboard_background_color">#ff000000</color>
     <color name="dashboard_category_background_color">#ff000000</color>
-    <color name="switchbar_background_color">#ff111111</color>
+    <color name="switchbar_background_color">#ff000000</color>
     <color name="switch_accent_color">#ffffffff</color>
     <color name="wifi_divider">#ffffffff</color>
     <color name="exposed_bg_dark">#ff000000</color>
