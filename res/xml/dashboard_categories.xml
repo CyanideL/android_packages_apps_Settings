@@ -137,7 +137,7 @@
         <!-- TRDS -->
         <dashboard-tile
                 android:id="@+id/theme_settings"
-                android:icon="@drawable/ic_settings_theme"
+                android:icon="@drawable/ic_settings_theme_switch"
                 android:fragment="com.android.settings.cyanide.themes.ThemeSettings"
                 android:title="@string/theme_settings_title"
                 />
