@@ -16,7 +16,7 @@ limitations under the License.
 -->
 <resources>
     <!-- Quick settings -->
-	<color name="qs_background_color">#ffffffff</color>
+	<color name="qs_background_color">#ff000000</color>
 	<color name="qs_dialog_add_tile_icon_color">#ff1976D2</color>
 	
 	<!-- Lockscreen shortcuts -->
