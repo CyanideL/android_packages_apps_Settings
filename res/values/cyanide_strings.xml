@@ -40,7 +40,7 @@
     <string name="additional_options_title">Additional options</string>
     <string name="show_title">Show</string>
     <string name="show_weather_summary">Enable to show weather informations</string>
-    <string name="show_location_title">Show location</string>
+    <string name="show_location_title">Show Location</string>
     <string name="show_location_summary">Enable to show the location</string>
     <string name="lock_clock_missing_title">Clock widget isn\`t installed</string>
     <string name="lock_clock_missing_summary">To use the weather feature, the Clock widget \'cLock\' has to be installed</string>
@@ -1150,6 +1150,8 @@
     <string name="heads_up_dismiss_on_remove_title">Swipe behavior</string>
     <string name="heads_up_dismiss_on_remove_summary_enabled">Hide notification instead of dismiss</string>
     <string name="heads_up_dismiss_on_remove_summary_disabled">Hide and dismiss notification</string>
+    <string name="show_headsup_button_title">Heads Up Button</string>
+    <string name="show_headsup_button_summary">Show a heads up button in the status bar header</string>
     
     <!-- Heads up timeout -->
     <string name="heads_up_time_out_title">Time out</string>
