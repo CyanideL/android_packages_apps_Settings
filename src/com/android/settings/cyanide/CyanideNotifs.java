@@ -3,9 +3,12 @@ package com.android.settings.cyanide;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.content.res.Resources;
+import android.content.ContentResolver;
 import android.preference.Preference;
+import android.preference.SwitchPreference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
+import android.preference.PreferenceScreen;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
@@ -18,15 +21,23 @@ public class CyanideNotifs extends SettingsPreferenceFragment implements
     
     private static final String KEY_CATEGORY_LIGHTS = "lights";
     
+    private static final String DISABLE_IMMERSIVE_MESSAGE = "disable_immersive_message";
     private static final String KEY_NOTIFICATION_LIGHT = "notification_light";
     private static final String KEY_BATTERY_LIGHT = "battery_light";
 
     private Preference mHeadsUp;
+    private SwitchPreference mDisableIM;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.cyanide_notifs);
+        
+        final ContentResolver resolver = getActivity().getContentResolver();
+        
+        mDisableIM = (SwitchPreference) findPreference(DISABLE_IMMERSIVE_MESSAGE);
+        mDisableIM.setChecked((Settings.System.getInt(resolver,
+                Settings.System.DISABLE_IMMERSIVE_MESSAGE, 0) == 1));
 
         mHeadsUp = findPreference(Settings.System.HEADS_UP_NOTIFICATION);
         
@@ -57,6 +68,17 @@ public class CyanideNotifs extends SettingsPreferenceFragment implements
         if (parent.getPreferenceCount() == 0) {
             getPreferenceScreen().removePreference(parent);
         }
+    }
+    
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        if  (preference == mDisableIM) {
+            boolean checked = ((SwitchPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.DISABLE_IMMERSIVE_MESSAGE, checked ? 1:0);
+            return true;
+        }
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
     
     public boolean onPreferenceChange(Preference preference, Object objValue) {
