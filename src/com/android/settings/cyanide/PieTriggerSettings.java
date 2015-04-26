@@ -72,7 +72,7 @@ public class PieTriggerSettings extends SettingsPreferenceFragment
 
         mDisableImeTriggers = (SwitchPreference) findPreference(PREF_PIE_DISABLE_IME_TRIGGERS);
         mDisableImeTriggers.setOnPreferenceChangeListener(this);
-        
+
         mSensitivity = (SeekBarPreferenceCham) findPreference(PIE_TRIGGER_SENSITIVITY);
         mSensitivity.setValue(Settings.System.getInt(getContentResolver(),
                 Settings.System.PIE_TRIGGER_SENSITIVITY, 5));
@@ -96,10 +96,11 @@ public class PieTriggerSettings extends SettingsPreferenceFragment
                         ? (Boolean) newValue : mTrigger[i].isChecked();
                 if (checked) {
                     triggerSlots |= 1 << i;
+                }
             }
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.PIE_GRAVITY, triggerSlots);
         }
-        Settings.System.putInt(getContentResolver(),
-                Settings.System.PIE_GRAVITY, triggerSlots);
         updatePieTriggers();
         return true;
     }

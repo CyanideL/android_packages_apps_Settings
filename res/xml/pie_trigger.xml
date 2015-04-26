@@ -63,7 +63,7 @@
             android:key="pie_trigger_sensitivity"
             android:title="@string/pie_trigger_sensitivity_title"
             android:summary="@string/pie_trigger_sensitivity_summary"
-            android:max="4"
+            android:max="10"
             android:defaultValue="10" />
 
    </PreferenceCategory>
