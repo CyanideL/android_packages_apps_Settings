@@ -128,6 +128,7 @@ public class BatterySaverSettings extends SettingsPreferenceFragment
         } else {
             String hexColor = String.format("#%08x", (0xffffffff & intColor));
             mColorPicker.setSummary(hexColor);
+            mColorPicker.setAlphaSliderEnabled(true);
         }
         mColorPicker.setNewPreviewColor(intColor);
 

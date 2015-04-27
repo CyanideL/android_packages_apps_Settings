@@ -74,6 +74,7 @@ public class StatusLogo extends SettingsPreferenceFragment implements OnPreferen
         String hexColor = String.format("#%08x", (0xffffffff & intColor));
             mCyanideLogoColor.setSummary(hexColor);
             mCyanideLogoColor.setNewPreviewColor(intColor);
+            mCyanideLogoColor.setAlphaSliderEnabled(true);
 
     }
 

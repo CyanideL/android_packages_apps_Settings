@@ -146,6 +146,7 @@ public class StatusBarNetworkSpeedSettings extends SettingsPreferenceFragment im
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mTextColor.setSummary(hexColor);
             mTextColor.setOnPreferenceChangeListener(this);
+            mTextColor.setAlphaSliderEnabled(true);
 
             if (showIcon) {
                 intColor = Settings.System.getInt(mResolver,
@@ -154,6 +155,7 @@ public class StatusBarNetworkSpeedSettings extends SettingsPreferenceFragment im
                 hexColor = String.format("#%08x", (0xffffffff & intColor));
                 mIconColor.setSummary(hexColor);
                 mIconColor.setOnPreferenceChangeListener(this);
+                mIconColor.setAlphaSliderEnabled(true);
             } else {
                 catColor.removePreference(mIconColor);
             }

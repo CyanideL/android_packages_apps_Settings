@@ -115,6 +115,7 @@ public class StatusBarNotifSystemIconsSettings extends SettingsPreferenceFragmen
         hexColor = String.format("#%08x", (CYANIDE_BLUE & intColor));
         mIconColor.setSummary(hexColor);
         mIconColor.setOnPreferenceChangeListener(this);
+        mIconColor.setAlphaSliderEnabled(true);
 
         PreferenceCategory catColors = (PreferenceCategory) findPreference(KEY_CATEGORY_COLORS);
         mNotifTextColor = (ColorPickerPreference) findPreference(KEY_NOTIF_TEXT_COLOR);
@@ -126,6 +127,7 @@ public class StatusBarNotifSystemIconsSettings extends SettingsPreferenceFragmen
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mNotifTextColor.setSummary(hexColor);
             mNotifTextColor.setOnPreferenceChangeListener(this);
+            mNotifTextColor.setAlphaSliderEnabled(true);
         } else {
             // Remove uneeded preferences if ticker is disabled
             catColors.removePreference(mNotifTextColor);
@@ -141,6 +143,7 @@ public class StatusBarNotifSystemIconsSettings extends SettingsPreferenceFragmen
             hexColor = String.format("#%08x", (CYANIDE_BLUE & intColor));
             mCountIconColor.setSummary(hexColor);
             mCountIconColor.setOnPreferenceChangeListener(this);
+            mCountIconColor.setAlphaSliderEnabled(true);
 
             intColor = Settings.System.getInt(mResolver,
                     Settings.System.STATUS_BAR_NOTIF_COUNT_TEXT_COLOR,
@@ -149,6 +152,7 @@ public class StatusBarNotifSystemIconsSettings extends SettingsPreferenceFragmen
             hexColor = String.format("#%08x", (CYANIDE_BLUE & intColor));
             mCountTextColor.setSummary(hexColor);
             mCountTextColor.setOnPreferenceChangeListener(this);
+            mCountTextColor.setAlphaSliderEnabled(true);
         } else {
             // Remove uneeded preferences if notification count is disabled
             catColors.removePreference(mCountIconColor);
