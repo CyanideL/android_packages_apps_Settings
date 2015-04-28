@@ -35,6 +35,7 @@
 	<string name="category_colors_title">Personaliza los colores</string>
 	<string name="battery_style_reset_message">¿Restablecer el color de la barra de batería?</string>
     <string name="reset_message">¿Restablecer todo?</string>
+    <string name="additional_options_title">Opciones adicionales</string>
 
 	<!-- CyanideL Settings. -->
 	<string name="cyanide_about_title">Sobre CyanideL</string>
@@ -44,6 +45,7 @@
 	<string name="status_bar_battery_style">Opciones de Batería</string>
 	<string name="breathing_notifications_title">Notificationes Vivas</string>
 	<string name="qs_colors_title">Colores Custom</string>
+        <string name="custom_header_title">Personalización</string>
 	<string name="cyanide_central_title">Cyanide Central</string>
 	<string name="interface_control_title">Control del Interface de Cyanidel</string>
 	<string name="status_bar_logo_title">CyanideL Logo</string>
@@ -55,14 +57,18 @@
 	<string name="heads_up_title">Ajustes Heads Up</string>
 	<string name="interface_settings_title">Interface</string>
 	<string name="cyanide_ls_shortcuts_title">Atajos Pantalla de Bloqueo</string>
+        <string name="cyanide_misc_title">Otros Ajustes</string>
 	<string name="cyanide_navbar_title">Barra de Navegación</string>
 	<string name="navigation_ring_title">Anillo de Navegación</string>
+        <string name="navring_shortcuts_title">Atajos Anillo de Navegación</string>
 	<string name="cyanide_notifs_title">Notificaciones</string>
 	<string name="power_menu_control_title">Añadidos Menú Apagado</string>
+        <string name="status_bar_random_title">Más Ajustes</string>
     <string name="Recents_panel">Panel de Aplicaciones Recientes</string>
     <string name="recents_control_title">Opciones Panel de Recientes</string>
 	<string name="header_weather_title">Tiempo en Barra de Estado</string>
 	<string name="stweaks_title">STweaks</string>
+        <string name="system_header_title">Ajustes de Sistema</string>
 	<string name="weather_control_master_title">Control de Tiempo</string>
 	
 	<!-- Summary Strings -->
@@ -88,6 +94,9 @@
     <string name="qs_colors_summary">Texto y colores de icono</string>
     <string name="cyanide_ls_shortcuts_summary">Personaliza Atajos Circulares y Deslizables</string>
     <string name="omniswitch_settings_summary">Opción para usar OmniSwitch como tu panel de aplicaciones recientes</string>
+    <string name="navring_summary">Configura tus atajos para el Anillo de Navegación</string>
+    <string name="advanced_mode_summary">Activa la MÁQUINA!!!!</string>
+    <string name="status_bar_random_summary">Configura otros ajustes de la barra de estado</string>
     
     <!-- Changelog -->
     <string name="changelog_crdroid_title">Cambios</string>
@@ -172,6 +181,7 @@
     <string name="shortcut_action_help_main">Para añadir un %1$s, selecciona añadir.Una vez que %1$s este añadido, seleccionando la fila cambiará el objetivot%2$s\n\nPara eliminar %1$s, desliza la fila horizontalmente a izquierda o derecha.Re-order a %1$s en la lista arrastrando verticalmente en la izquierda.\n\nPara limpiar o eliminar, selecciona el icono de Borrado.</string>
     <string name="shortcut_action_help_delete_last_entry">Quitando cada %1$s en la lista lo desactivará totalmente.</string>
     <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Quitando todo %1$s en la lista desactivará totalmente la segunda capa pie.</string>
+    <string name="shortcut_action_theme_switch">Cambia el Tema</string>
 
 
     <string name="shortcuts_applications">Aplicaciones</string>
@@ -500,8 +510,11 @@
     <string name="cyanide_official_summary">Descarga la última versión estable de CyanideL</string>
     <string name="shift_kernel_title">Cambia el Kernel</string>
     <string name="shift_kernel_summary">Descarga Kernels, no para todos los dispositivos</string>
-    <string name="slim_gapps_title">Slim Gapps</string>
-    <string name="slim_gapps_summary">Paquete con la mayoría de GAPPS, son las que normalmente ponen los usuarios que no quieren descargarlas o instalarlas más tarde</string>
+    <string name="thread_category">Suporte</string>
+    <string name="xda_thread_title">XDA</string>
+    <string name="xda_thread_summary">Visita el hilo Oficial de tu dispositivo</string>
+    <string name="pa_gapps_title">PA Gapps</string>
+    <string name="pa_gapps_summary">Paquete con la mayoría de GAPPS, son las que normalmente ponen los usuarios que no quieren descargarlas o instalarlas más tarde</string>
     
     <!-- Cyanide About Section -->
     <string name="about_category">Sobre CyanideL</string>
@@ -519,6 +532,7 @@
     <string name="cyanide_s2_title">Samsung Galaxy S2 i777</string>
     <string name="cyanide_s3_title">Samsung Galaxy S3</string>
     <string name="cyanide_n2_title">Samsung Galaxy Note 2 LTE</string>
+    <string name="cyanide_n2vzw_title">Samsung Galaxy Note 2 Vzw i605</string>
     <string name="cyanide_m8_title">HTC One M8</string>
     <string name="cyanide_bacon_title">One Plus Bacon</string>
     <string name="cyanide_nexus5_title">Nexus 5</string>
@@ -527,6 +541,8 @@
     <string name="cyanide_d855_title">LG G3 Int\'l d855</string>
     <string name="cyanide_vs985_title">LG G3 Vzw vs985</string>
     <string name="cyanide_nexus6_title">Nexus 6</string>
+    <string name="cyanide_nexus7_title">Nexus 7</string>
+    <string name="cyanide_xperia_title">Sony XperiaZ Ultra</string>
     
     <!-- Animation Controls -->
     <string name="title_animation_controls">Animaciones del Sistema</string>
@@ -836,7 +852,7 @@
     <string name="sizer_message_noselect">Nada seleccionado.</string>
     <string name="reboot">!Todo hecho! Reinicia ahora tu dispositivo.</string>
     <string name="reboot_ok">Reinicia ahora</string>
-    <string name="reboot_cancel">No reiniciado</string>    
+    <string name="reboot_cancel">Reinicio cancelado</string>    
 
     <!-- QuickSettings 4 columns -->
     <string name="qs_four_columns_title">Cuatro Azulejos por Fila</string>
@@ -873,11 +889,17 @@
     <string name="hfm_disable_ads_summary">Cambiar archivos host para desactivar anuncios</string>
     <string name="hfm_pref_screen_title">Bloqueador de Anuncios</string>
     <string name="hfm_update_hosts">Actualizar archivos hosts</string>
-    <string name="hfm_update_hosts_summary">Descargar y aplicar hosts frescos</string>
+    <string name="hfm_update_hosts_summary">Descargar y aplicar hosts actualizados</string>
     <string name="hfm_dialog_wait">Trabajando, por favor espera...</string>
     <string name="hfm_dialog_failed">Fallo en actualización de archivos hosts. Por favor, inténtalo de nuevo.</string>
     <string name="hfm_dialog_success">!/4 hosts sources correctamente aplicados!</string>
 	<string name="hfm_dialog_conn_error">Error: No hay conexión de red</string>
+        <string name="hfm_whitelist_title">Lista de Permitidos</string>
+    <string name="hfm_whitelist_summary">Listado de direcciones que permitirá el bloqueador de anuncios</string>
+    <string name="hfm_whitelist_pref_text">Escribe una dirección o lugar que añadir</string>
+    <string name="hfm_whitelist_pref_button_add">Añade URL</string>
+    <string name="hfm_whitelist_pref_empty">La lista de Permitidos está vacia</string>
+    <string name="hfm_whitelist_pref_menu_apply">Aplicar</string>
 	
 	<!-- Lockscreen Shortcuts color switch -->
 	<string name="shortcuts_colorize_custom_icons_title">Colorea todos los iconos</string>
@@ -1011,6 +1033,8 @@
     <string name="volume_panel_time_out_15sec">15 segundos</string>
 
         <!-- Doze pulse (ambient display) options -->
+    <string name="summary_doze_enabled">Activado</string>
+	<string name="summary_doze_disabled">Desactivado</string>
     <string name="doze_overwrite_value_title">Sobreescribir valores</string>
     <string name="doze_overwrite_value_summary">Permitir sobreescribir los valores iniciales con la configuración del usuario</string>
 
@@ -1043,6 +1067,12 @@
 
     <string name="doze_time_mode_title">Mostrar reloj &amp; fecha</string>
     <string name="doze_time_mode_summary">Forzar mostrar la hora cuando no hay notificaciones</string>
+
+    <string name="doze_brightness_category_title">Brillo</string>
+	<string name="doze_brightness_title">Nivel de Brillo</string>
+	
+	<string name="doze_auto_brightness_title">Brillo automático</string>
+	<string name="doze_auto_brightness_summary">Ajusta el nivel de brillo de la pantalla teniendo en cuenta la luz ambiente a tu alrededor</string>
 
     <string name="twohundred_ms">200 ms</string>
     <string name="fivehundred_ms">500 ms</string>
@@ -1085,6 +1115,15 @@
     <string name="heads_up_dnd_title">No molestar</string>
     <string name="heads_up_blacklist_title">Lista negra</string>
     <string name="heads_up_disabled_notice">Para permitir a las aplicaciones desplegar notificaciones interactivas en una ventana pop-up de tu pantalla, activa Heads up.</string>
+    <string name="heads_up_snooze_title">Tiempo inactivas</string>
+    <string name="heads_up_snooze_summary">Arrastrando hacia arriba en la notificación heads up la inactivará durante <xliff:g id="number">%d</xliff:g> minutos</string>
+    <string name="heads_up_snooze_disabled_summary">Tiempo de inactividad está desactivado</string>
+    <string name="heads_up_snooze_1min">1 minuto</string>
+    <string name="heads_up_snooze_3min">3 minutos</string>
+    <string name="heads_up_snooze_5min">5 minutos</string>
+    <string name="heads_up_snooze_10min">10 minutos</string>
+    <string name="heads_up_snooze_15min">15 minutos</string>
+    <string name="heads_up_snooze_20min">20 minutos</string>
     <string name="heads_up_dismiss_on_remove_title">Comportamiento al deslizar</string>
     <string name="heads_up_dismiss_on_remove_summary_enabled">Ocultar notificaciones en lugar de descartarlas</string>
     <string name="heads_up_dismiss_on_remove_summary_disabled">Ocultar y descartar las notificaciones</string>
@@ -1183,8 +1222,8 @@
     <string name="lid_controls_wake_summary">Encender pantalla al abrir la tapa</string>
     
     <!-- Chamber of Secrets -->
-    <string name="chamber_title">Chamber of secrets</string>
-    <string name="chamber_toast">The chamber of secrets has opened</string>
+    <string name="chamber_title">Cámara de los secretos</string>
+    <string name="chamber_toast">La cámara de los secretos ha sido abierta</string>
     
     <!-- Instant reboot -->
     <string name="advanced_reboot_oneclick">Pulsa para Reiniciar</string>
@@ -1229,5 +1268,113 @@
 	<string name="omniswitch_start_settings_summary">Abrir Ajustes OmniSwitch</string>
 	<string name="omniswitch_first_time_title">Información</string>
 	<string name="omniswitch_first_time_message">Asegúrate de tener activado OmniSwitch. Puedes hacerlo usando \"Ajustes\"</string>
+
+        <!-- Quick settings Secure -->
+    <string name="quick_settings_category">Ajustes rápidos</string>
+    <string name="block_on_secure_keyguard_title">Desactivados en la pantalla de bloqueo</string>
+	<string name="block_on_secure_keyguard_summary">Ajustes rápidos desactivados en pantalla de bloqueo segura.</string>
+	
+	<!-- Status Bar Indicator Switches-->
+    <string name="alarm_indicator">Indicador de Alarma</string>
+	<string name="alarm_indicator_summary">Mostrar indicador de alarma si la alarma está activada</string>	
+    <string name="su_indicator">Indicador de superusuario</string>
+	<string name="su_indicator_summary">Mostrar indicador de superusuario cuando esté en uso</string>
+    <string name="status_bar_bluetooth_icon">Mostrar icono de Bluetooth</string>
+    <string name="status_bar_bluetooth_icon_summary">Mostrar el icono de Bluetooth cuando esté activado aunque no esté conectado</string>
+    <string name="privacy_guard_notification_title">Privacy Guard</string>
+	<string name="privacy_guard_notifiation_summary">Mostrar notificación si privacy guard está activa</string>
+	
+	<!-- App sidebar -->
+    <string name="app_sidebar_title">Appbar</string>
+    <string name="app_sidebar_enable_title">Activa la Appbar</string>
+    <string name="app_sidebar_summary">Personaliza tu barra lateral de aplicaciones</string>
+    <string name="app_sidebar_enable_summaryOn">La Appbar está activada</string>
+    <string name="app_sidebar_enable_summaryOff">La Appbar está desactivada</string>
+    <string name="app_sidebar_setup_items_title">Organiza el contenido de tu Appbar</string>
+    <string name="app_sidebar_setup_items_summary">Añade, elimina, y coloca elementos en tu Appbar</string>
+    <string name="app_sidebar_transparency_title">Transparencia de tu Appbar</string>
+    <string name="app_sidebar_transparency_summary">Ajusta el nivel de transparencia de tu Appbar</string>
+    <string name="app_sidebar_position_title">Posición de tu Appbar</string>
+    <string name="app_sidebar_position_summary">Posiciona tu Appbar en la izquierda o en la derecha de tu pantalla</string>
+    <string name="app_sidebar_position_left">Izquierda</string>
+    <string name="app_sidebar_position_right">Derecha</string>
+    <string name="app_sidebar_hide_labels_title">Esconder etiquetas de los iconos</string>
+    <string name="app_sidebar_hide_labels_summary">Esconder etiquetas de los iconos de tu Appbar</string>
+    <string name="trigger_category">Zona de lanzamiento</string>
+    <string name="trigger_width_title">Anchura del lanzador</string>
+    <string name="trigger_width_summary">Ajusta la anchura de la zona de lanzamiento</string>
+    <string name="trigger_top_title">Posición del lanzador</string>
+    <string name="trigger_top_summary">Ajusta la posición de la zona de lanzamiento</string>
+    <string name="trigger_bottom_title">Altura del lanzador</string>
+    <string name="trigger_bottom_summary">Ajusta la altura de la zona de lanzamiento</string>
+    
+    <!-- Text for forcing expanded notifications -->
+	<string name="disable_fc_notifications_title">Desactiva Notificaciones de FC</string>
+	<string name="disable_fc_notifications_summary">Esto esconderá todas las notificaciones de cierres forzosos (FC)</string>
+	
+	<!-- Themes -->	
+	<string name="theme_settings_title">Cyanide Blackout</string>
+	<string name="theme_auto_mode_title">Cambia el tema</string>
+	<string name="theme_auto_mode_off">Manual</string>
+	<string name="theme_auto_mode_lightsensor">Según condiciones de luz (experimental)</string>
+	<string name="theme_auto_mode_twilight">De día</string>
+	<string name="theme_auto_switch_mode_error">Modo de cambio automático está activado. El cambio manual no es posible.</string>
+	<string name="theme_reset_message">¿Dejar en su estado inicial?</string>
+	
+	<string name="storage_options_category">Notificaciones</string>
+    <string name="storage_menu_options">Avanzadas</string>
+    <string name="storage_title_options">Opciones de almacenamiento</string>
+    <string name="no_media_notification_title">Notificación de almacenamiento retirado</string>
+    <string name="no_media_notification_summary">Mostrar notificación cuando se retire el almacenamiento</string>
+    <string name="mount_notification_title">Montar notificación</string>
+    <string name="mount_notification_summary">Mostrar notificación en curso para el almacenamiento montado</string>
+    
+    <!-- Text for disabling immersive mode messages -->
+    <string name="disable_immersive_message_title">Desactivar el Modo Immersivo de los Mensajes</string>
+    <string name="disable_immersive_message_summary">Esto esconderá todos los Mensajes en Modo Immersivo</string>
+    
+    <!-- Identicons -->
+    <string name="identicons_title">Identicons</string>
+    <string name="identicons_enabled_title">Identicons</string>
+    <string name="identicons_enabled_summary">Al crear nuevos contactos usa un identicon por defecto como imagen</string>
+    <string name="identicons_style_title">Estilo de Identicon</string>
+    <string name="identicons_style_summary">Selecciona un estilo de identicon</string>
+    <string name="identicons_create_title">Crea identiconos</string>
+    <string name="identicons_create_summary">Crea identiconos para contactos existentes sin foto</string>
+    <string name="identicons_creation_service_running_title">Creando identiconos</string>
+    <string name="identicons_creation_service_running_summary"></string>
+    <string name="identicons_creation_service_contact_summary">Procesando %s</string>
+    <string name="identicons_creation_service_contact_summary_finishing">Terminando...</string>
+    <string name="identicons_remove_title">Eliminar identiconos</string>
+    <string name="identicons_remove_summary">Eliminar identicon de un contacto</string>
+    <string name="identicons_remove_service_running_title">Eliminando identiconos</string>
+    <string name="identicons_remove_service_running_summary"></string>
+    <string name="identicons_remove_service_contact_summary">Procesando foto %1$d/%2$d</string>
+    <string name="identicons_remove_service_contact_summary_finishing">Terminando...</string>
+    <string name="identicons_style_retro">Retro</string>
+    <string name="identicons_style_contemporary">Contemporáneo</string>
+    <string name="identicons_style_spirograph">Spirograph</string>
+    <string name="identicons_style_dotmatrix">Dot matrix</string>
+    
+    <!-- Custom Over scroll Settings -->
+    <string name="ui_overscroll_title">Efectos de desplazamiento</string>
+    <string name="overscroll_glow_title">Colores de desplazamiento</string>
+    <string name="edge_effect_title">Efecto brillante del borde</string>
+    <string name="bounce_effect_title">Efecto a saltos</string>
+    <string name="none_effect_title">Ninguno</string>
+    <string name="extra_heavy_title">Extra Fuerte</string>
+    <string name="heavy_title">Fuerte</string>
+    <string name="medium_title">Medio</string>
+    <string name="light_title">Ligero</string>
+    <string name="extra_light_title">Extra Ligero</string>
+    <string name="overscroll_title">Efecto de desplazamiento</string>
+    <string name="overscroll_summary">Selecciona como se desplazan los objetos cuando pasan</string>
+    <string name="overscroll_weight_title">Peso del Over scrolling</string>
+    <string name="overscroll_weight_summary">Selecciona el peso de los objetos desplazables</string>
+    
+    <!-- Lockscreen Power Menu -->
+    <string name="lockscreen_enable_power_menu_title">Mostrar menú de encendido en la pantalla de bloqueo</string>
+    <string name="lockscreen_enable_power_menu_summary">Esta opción sólo desactivará el menú de encendido en la pantalla de bloqueo</string>
+
 
 </resources>
