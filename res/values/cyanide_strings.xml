@@ -161,6 +161,8 @@
     <string name="shortcut_action_ring_silent">Ringer/Silent</string>
     <string name="shortcut_action_ring_vib">Ringer/Vibrate</string>
     <string name="shortcut_action_ring_vib_silent">Silent/Vibrate</string>
+    <string name="shortcut_action_navbar">Navigation bar</string>
+    <string name="shortcut_action_pie">Pie controls</string>
 
     <string name="shortcut_action_longpress">Longpress:</string>
     <string name="shortcut_action_select_action_longpress">Choose Longpress Action:</string>
