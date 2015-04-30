@@ -73,7 +73,7 @@ public class i777 extends SettingsPreferenceFragment
             startActivity(intent);
             return true;
         } else if (preference == mPAGapps) {
-            Uri uri = Uri.parse("http://forum.xda-developers.com/android/software/reborn-gapps-5-t3074660");
+            Uri uri = Uri.parse("http://fitsnugly.euroskank.com/?rom=banks&device=gapps");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
             return true;
