@@ -67,8 +67,10 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment
     public static final int CLOCK_DATE_STYLE_UPPERCASE = 2;
     private static final int CUSTOM_CLOCK_DATE_FORMAT_INDEX = 18;
 
-    private static final int MENU_RESET = Menu.FIRST;
+    private static final int DEFAULT_COLOR = 0xffffffff;
+    private static final int CYANIDE_BLUE = 0xff1976D2;
 
+    private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
     private ListPreference mClockStyle;
@@ -391,13 +393,39 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment
                 case DLG_RESET:
                     return new AlertDialog.Builder(getActivity())
                     .setTitle(R.string.reset)
-                    .setMessage(R.string.status_bar_clock_style_reset_message)
+                    .setMessage(R.string.reset_message)
                     .setNegativeButton(R.string.cancel, null)
-                    .setPositiveButton(R.string.dlg_ok,
+                    .setNeutralButton(R.string.reset_android,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getActivity().getContentResolver(),
-                                Settings.System.STATUSBAR_CLOCK_COLOR, -2);
+                                    Settings.System.STATUSBAR_CLOCK_AM_PM_STYLE, 0);
+                            Settings.System.putInt(getActivity().getContentResolver(),
+                                    Settings.System.STATUSBAR_CLOCK_STYLE, 0);
+                            Settings.System.putInt(getActivity().getContentResolver(),
+                                    Settings.System.STATUSBAR_CLOCK_FONT_STYLE, 4);
+                            Settings.System.putInt(getActivity().getContentResolver(),
+                                    Settings.System.STATUSBAR_CLOCK_DATE_DISPLAY, 0);
+                            Settings.System.putInt(getActivity().getContentResolver(),
+                                    Settings.System.STATUSBAR_CLOCK_COLOR,
+                                    DEFAULT_COLOR);
+                            getOwner().createCustomView();
+                        }
+                    })
+                    .setPositiveButton(R.string.reset_cyanide,
+                        new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Settings.System.putInt(getActivity().getContentResolver(),
+                                    Settings.System.STATUSBAR_CLOCK_AM_PM_STYLE, 1);
+                            Settings.System.putInt(getActivity().getContentResolver(),
+                                    Settings.System.STATUSBAR_CLOCK_STYLE, 1);
+                            Settings.System.putInt(getActivity().getContentResolver(),
+                                    Settings.System.STATUSBAR_CLOCK_FONT_STYLE, 3);
+                            Settings.System.putInt(getActivity().getContentResolver(),
+                                    Settings.System.STATUSBAR_CLOCK_DATE_DISPLAY, 1);
+                            Settings.System.putInt(getActivity().getContentResolver(),
+                                    Settings.System.STATUSBAR_CLOCK_COLOR,
+                                    CYANIDE_BLUE);
                             getOwner().createCustomView();
                         }
                     })
