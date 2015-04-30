@@ -63,6 +63,7 @@ public class StatusBarBatteryStatusSettings extends SettingsPreferenceFragment i
 
     private static final int DEFAULT_BATTERY_COLOR = 0xffffffff;
     private static final int DEFAULT_TEXT_COLOR = 0xff000000;
+    private static final int CYANIDE_BLUE = 0xff1976D2;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
@@ -359,23 +360,23 @@ public class StatusBarBatteryStatusSettings extends SettingsPreferenceFragment i
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                              Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_BATTERY_STATUS_STYLE, 2);
+                                    Settings.System.STATUS_BAR_BATTERY_STATUS_STYLE, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_BATTERY_STATUS_PERCENT_STYLE, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_BATTERY_STATUS_CHARGING_ANIMATION_SPEED, 3);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_BATTERY_STATUS_SHOW_CIRCLE_DOTTED, 1);
+                                    Settings.System.STATUS_BAR_BATTERY_STATUS_SHOW_CIRCLE_DOTTED, 0);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_BATTERY_STATUS_CIRCLE_DOT_LENGTH, 3);
+                                    Settings.System.STATUS_BAR_BATTERY_STATUS_CIRCLE_DOT_LENGTH, 0);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_BATTERY_STATUS_CIRCLE_DOT_INTERVAL, 2);
+                                    Settings.System.STATUS_BAR_BATTERY_STATUS_CIRCLE_DOT_INTERVAL, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_BATTERY_STATUS_COLOR,
-                                    0xff33b5e5);
+                                    CYANIDE_BLUE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_BATTERY_STATUS_TEXT_COLOR,
-                                    DEFAULT_BATTERY_COLOR);
+                                    0xff00ff00);
                             getOwner().refreshSettings();
                         }
                     })

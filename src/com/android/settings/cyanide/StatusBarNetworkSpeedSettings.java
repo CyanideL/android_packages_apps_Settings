@@ -60,6 +60,7 @@ public class StatusBarNetworkSpeedSettings extends SettingsPreferenceFragment im
             "network_speed_icon_color";
 
     private static final int DEFAULT_COLOR = 0xffffffff;
+    private static final int CYANIDE_BLUE = 0xff1976D2;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
@@ -326,10 +327,10 @@ public class StatusBarNetworkSpeedSettings extends SettingsPreferenceFragment im
                                 Settings.System.STATUS_BAR_NETWORK_SPEED_HIDE_TRAFFIC, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_NETWORK_SPEED_TEXT_COLOR,
-                                0xff1976D2);
+                                CYANIDE_BLUE);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_NETWORK_SPEED_ICON_COLOR,
-                                0xff1976D2);
+                                CYANIDE_BLUE);
                             getOwner().refreshSettings();
                         }
                     })

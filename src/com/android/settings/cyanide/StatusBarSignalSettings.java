@@ -52,6 +52,7 @@ public class StatusBarSignalSettings extends SettingsPreferenceFragment implemen
 
     private static final int DEFAULT_COLOR = 0xffffffff;
     private static final int DEFAULT_ACTIVITY_COLOR = 0xff000000;
+    private static final int CYANIDE_BLUE = 0xff1976D2;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
@@ -295,10 +296,10 @@ public class StatusBarSignalSettings extends SettingsPreferenceFragment implemen
                                 Settings.System.STATUS_BAR_SHOW_NETWORK_ACTIVITY, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_NETWORK_ICONS_NORMAL_COLOR,
-                                0xff1976D2);
+                                CYANIDE_BLUE);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_NETWORK_ICONS_FULLY_COLOR,
-                                0xff1976D2);
+                                CYANIDE_BLUE);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_NETWORK_ACTIVITY_ICONS_NORMAL_COLOR,
                                 DEFAULT_ACTIVITY_COLOR);
@@ -307,7 +308,7 @@ public class StatusBarSignalSettings extends SettingsPreferenceFragment implemen
                                 DEFAULT_ACTIVITY_COLOR);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_AIRPLANE_MODE_ICON_COLOR,
-                                0xff1976D2);
+                                CYANIDE_BLUE);
                             getOwner().refreshSettings();
                         }
                     })

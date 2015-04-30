@@ -44,6 +44,7 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
     private static final String PREF_ICON_COLOR = "expanded_header_icon_color";
 
     private static final int DEFAULT_COLOR = 0xffffffff;
+    private static final int CYANIDE_BLUE = 0xff1976D2;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
@@ -222,10 +223,10 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER_LOCATION, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_TEXT_COLOR,
-                                    0xff1976D2);
+                                    CYANIDE_BLUE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_ICON_COLOR,
-                                    0xff1976D2);
+                                    CYANIDE_BLUE);
                             getOwner().refreshSettings();
                         }
                     })
