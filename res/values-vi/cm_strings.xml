@@ -23,6 +23,38 @@
   <string name="show_dev_already_cm">Không cần thiết, bạn đã bật cài đặt nhà phát triển.</string>
   <string name="backlight_summary_enabled_with_timeout">Đã bật <xliff:g id="timeout">%s</xliff:g></string>
   <string name="backlight_summary_enabled">Đã bật</string>
+  <string name="power_menu_title">Menu nguồn</string>
+  <string name="power_menu_reboot_title">Khởi động lại menu</string>
+  <string name="power_menu_screenshot_title">Chụp ảnh màn hình</string>
+  <string name="power_menu_profiles_title">Chuyển đổi cấu hình</string>
+  <string name="power_menu_airplane_title">Chế độ máy bay</string>
+  <string name="power_menu_users_title">Chuyển người dùng</string>
+  <string name="power_menu_settings_title">Cài đặt phím tắt</string>
+  <string name="power_menu_lockdown_title">Khoá cứng thiết bị</string>
+  <string name="power_menu_bug_report_title">Báo cáo lỗi</string>
+  <string name="power_menu_sound_title">Bảng điều khiển âm thanh</string>
+  <string name="power_menu_bug_report_disabled">Báo cáo lỗi bị tắt trong cài đặt nhà phát triển</string>
+  <string name="power_menu_profiles_disabled">Đã tắt cấu hình hệ thống</string>
+  <string name="adaptive_backlight_title">Đèn nền thích nghi</string>
+  <string name="adaptive_backlight_summary">Tự động điều chỉnh độ sáng của đèn nền màn hình để tối đa hóa tuổi thọ pin trong khi duy trì khả năng sử dụng</string>
+  <string name="sunlight_enhancement_title">Tăng cường ánh sáng mặt trời</string>
+  <string name="sunlight_enhancement_summary">Nâng cao độ sáng màn hình và khả năng đọc dưới ánh sáng mặt trời</string>
+  <string name="color_enhancement_title">Tăng cường màu sắc</string>
+  <string name="color_enhancement_summary">Tự động tăng cường màu sắc màn hình</string>
   <string name="blacklist_prefs">Cài đặt</string>
+  <string name="blacklist_button_delete">Xóa</string>
+  <string name="blacklist_summary_disabled">Đã tắt</string>
+  <string name="blacklist_notify">Hiện thông báo</string>
+  <string name="blacklist_private_numbers_title">Số riêng tư</string>
+  <string name="blacklist_private_numbers_summary_disabled">Không chặn cuộc gọi từ các số riêng tư</string>
+  <string name="profile_trigger_a2dp_connect">Khi kết nối A2DP</string>
+  <string name="profile_trigger_a2dp_disconnect">Khi không kết nối A2DP</string>
+  <string name="profile_tabs_wifi">Wi\u2011Fi</string>
+  <string name="profile_tabs_bluetooth">Bluetooth</string>
+  <string name="profile_tabs_nfc">NFC</string>
+  <string name="app_ops_show_user_apps">Hiện ứng dụng người dùng</string>
+  <string name="app_ops_show_system_apps">Hiện ứng dụng có sẵn</string>
+  <string name="sdcard_eject" product="default">Tháo thẻ nhớ</string>
+  <string name="sd_card_format" product="default">Xoá thẻ nhớ</string>
   <string name="interruptions_ignore_while_media_summary">Không làm giảm âm lượng  trình phát media khi một thông báo đến</string>
 </resources>
