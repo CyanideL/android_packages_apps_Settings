@@ -29,7 +29,7 @@ import android.provider.Settings;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class AppSidebar extends SettingsPreferenceFragment implements
+public class AppSideBar extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener, Preference.OnPreferenceClickListener {
     private static final String TAG = "PowerMenu";
 

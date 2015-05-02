@@ -26,7 +26,7 @@
 		<!-- Appbar -->
 		<PreferenceScreen
             android:key="app_sidebar"
-            android:fragment="com.android.settings.cyanide.AppSidebar"
+            android:fragment="com.android.settings.cyanide.AppSideBar"
             android:title="@string/app_sidebar_title"
 			android:summary="@string/app_sidebar_summary" />
 		
