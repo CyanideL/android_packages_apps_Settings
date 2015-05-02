@@ -135,6 +135,7 @@ import com.android.settings.cyanide.PieControl;
 import com.android.settings.cyanide.gestureanywhere.GestureAnywhereSettings;
 import com.android.settings.cyanide.NavigationSettings;
 import com.android.settings.cyanide.AppCircleBar;
+import com.android.settings.cyanide.AppSideBar;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -346,7 +347,8 @@ public class SettingsActivity extends Activity
             NavigationSettings.class.getName(),
             HeadsUpSettings.class.getName(),
             AppCircleBar.class.getName(),
-            DisplayRotation.class.getName()
+            DisplayRotation.class.getName(),
+            AppSideBar.class.getName()
     };
 
 

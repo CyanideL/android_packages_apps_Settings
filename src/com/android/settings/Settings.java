@@ -118,5 +118,6 @@ public class Settings extends SettingsActivity {
     public static class AppCircleBarSettingsActivity extends SettingsActivity { /* empty */ }
     public static class HeadsUpSettingsActivity extends SettingsActivity { /* empty */ }
     public static class DisplayRotationActivity extends SettingsActivity { /* empty */ }
+    public static class AppSideBarSettingsActivity extends SettingsActivity { /* empty */ }
 }
 
