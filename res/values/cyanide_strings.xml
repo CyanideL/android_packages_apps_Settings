@@ -1641,5 +1641,16 @@
     <!-- Double tap gesture anywhere on the lock screen put device to sleep -->
     <string name="double_tap_sleep_anywhere_title">Double-tap to sleep anywhere</string>
     <string name="double_tap_sleep_anywhere_summary">Double tap anywhere on the lockscreen to put the device to sleep</string>
+    
+    <!-- Disable torch when screen goes off -->
+    <string name="disable_torch_screen_off_title">Disable torch on screen off</string>
+    <string name="disable_torch_screen_off_delay_title">Delay</string>
+    <string name="torch_screen_off_one_second">1 second</string>
+    <string name="torch_screen_off_ten_second">10 seconds (default)</string>
+    <string name="torch_screen_off_thirty_second">30 seconds</string>
+    <string name="torch_screen_off_one_minute">1 minute</string>
+    <string name="torch_screen_off_five_minutes">5 minutes</string>
+    <string name="torch_screen_off_ten_minutes">10 minutes</string>
+    <string name="torch_label">Torch Settings</string>
 
 </resources>
