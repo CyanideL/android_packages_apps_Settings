@@ -101,7 +101,6 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         mBackgroundColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mBackgroundColor.setSummary(hexColor);
-        mBackgroundColor.setDefaultColors(DEFAULT_BG_COLOR, DEFAULT_BG_COLOR);
         mBackgroundColor.setOnPreferenceChangeListener(this);
         mBackgroundColor.setAlphaSliderEnabled(true);
 
