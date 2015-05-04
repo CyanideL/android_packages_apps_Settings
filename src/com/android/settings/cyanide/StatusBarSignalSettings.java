@@ -167,6 +167,7 @@ public class StatusBarSignalSettings extends SettingsPreferenceFragment implemen
         mVpnColor.setSummary(hexColor);
         mVpnColor.setAlphaSliderEnabled(true);
         mVpnColor.setOnPreferenceChangeListener(this);
+        mVpnColor.setAlphaSliderEnabled(true);
 
         setHasOptionsMenu(true);
     }

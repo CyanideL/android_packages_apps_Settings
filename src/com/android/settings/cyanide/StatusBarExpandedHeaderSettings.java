@@ -103,6 +103,7 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         mBackgroundColor.setSummary(hexColor);
         mBackgroundColor.setDefaultColors(DEFAULT_BG_COLOR, DEFAULT_BG_COLOR);
         mBackgroundColor.setOnPreferenceChangeListener(this);
+        mBackgroundColor.setAlphaSliderEnabled(true);
 
         mTextColor = (ColorPickerPreference) findPreference(PREF_TEXT_COLOR);
         intColor = Settings.System.getInt(mResolver,
