@@ -46,6 +46,7 @@ public class NotificationManagerSettings extends SettingsPreferenceFragment
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+
         addPreferencesFromResource(R.xml.notification_manager_settings);
         mSecure = new LockPatternUtils(getActivity()).isSecure();
         initLockscreenNotifications();
