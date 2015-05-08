@@ -63,6 +63,7 @@
 	<string name="navigation_ring_title">Navigation Ring</string>
 	<string name="navring_shortcuts_title">Navring Shortcuts</string>
 	<string name="cyanide_notifs_title">Notifications</string>
+	<string name="power_menu_title">Power Menu</string>
 	<string name="power_menu_control_title">Power Menu Addons</string>
 	<string name="status_bar_random_title">Random Settings</string>
     <string name="Recents_panel">Recent Apps Panel</string>
@@ -186,7 +187,12 @@
     <string name="shortcut_action_help_delete_last_entry">Removing every %1$s in the list will disable the feature entirely.</string>
     <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Removing every %1$s in the list will disable the second pie layer entirely.</string>
     <string name="shortcut_action_theme_switch">Theme switcher</string>
-
+    <string name="shortcut_action_airplane">Airplane mode</string>
+    <string name="shortcut_action_power_off">Power off</string>
+    <string name="shortcut_action_reboot">Reboot</string>
+    <string name="shortcut_action_sound">Sound</string>
+    <string name="shortcut_action_users">Users</string>
+    <string name="shortcut_action_lockdown">Lock now</string>
 
     <string name="shortcuts_applications">Applications</string>
     <string name="shortcuts_select_custom_app_title">Select Custom Application</string>

@@ -191,23 +191,7 @@
     <string name="backlight_summary_disabled">Disabled</string>
     <string name="backlight_summary_enabled_with_timeout">Enabled for <xliff:g id="timeout">%s</xliff:g></string>
     <string name="backlight_summary_enabled">Enabled</string>
-
-    <!-- Power menu -->
-    <string name="power_menu_title">Power Menu</string>
-    <string name="power_menu_reboot_title">Reboot Menu</string>
-    <string name="power_menu_screenshot_title">Screenshot</string>
-    <string name="powermenu_screenshot_delay_title">Set screenshot delay</string>
-    <string name="power_menu_screenrecord_title">Screenrecord</string>
-    <string name="power_menu_profiles_title">Profile Switcher</string>
-    <string name="power_menu_airplane_title">Airplane Mode</string>
-    <string name="power_menu_users_title">User Switcher</string>
-    <string name="power_menu_settings_title">Settings shortcut</string>
-    <string name="power_menu_lockdown_title">Device Lockdown</string>
-    <string name="power_menu_bug_report_title">Bug Report</string>
-    <string name="power_menu_sound_title">Sound Panel</string>
-    <string name="power_menu_bug_report_disabled">Bug reporting is disabled in development settings</string>
-    <string name="power_menu_profiles_disabled">System profiles are disabled</string>
-
+    
     <!-- Backlight brightness settings screen -->
     <string name="adaptive_backlight_title">Adaptive Backlight</string>
     <string name="adaptive_backlight_summary">Dynamically adjust the brightness of the display\'s backlight to maximize battery life while maintaining usability</string>

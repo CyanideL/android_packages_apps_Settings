@@ -270,11 +270,6 @@ public class ProfilesSettings extends SettingsPreferenceFragment
                         ProfileManager.PROFILES_STATE_ENABLED :
                         ProfileManager.PROFILES_STATE_DISABLED);
         getActivity().sendBroadcast(intent);
-
-        // update the reboot dialog state
-        Intent u = new Intent();
-        u.setAction(Intent.UPDATE_POWER_MENU);
-        getActivity().sendBroadcastAsUser(u, UserHandle.ALL);
     }
 
     public void refreshList() {
