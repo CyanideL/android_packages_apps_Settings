@@ -37,6 +37,12 @@
     <string name="reset_message">Reset all entries to default?</string>
     <string name="reset_default_message">Reset default?</string>
     <string name="additional_options_title">Additional options</string>
+    <string name="show_title">Show</string>
+    <string name="show_weather_summary">Enable to show weather informations</string>
+    <string name="show_location_title">Show location</string>
+    <string name="show_location_summary">Enable to show the location</string>
+    <string name="lock_clock_missing_title">Clock widget isn\`t installed</string>
+    <string name="lock_clock_missing_summary">To use the weather feature, the Clock widget \'cLock\' has to be installed</string>
 
 	<!-- CyanideL Settings. -->
 	<string name="cyanide_about_title">About CyanideL</string>
@@ -706,10 +712,6 @@
     <string name="lock_screen_weather_settings_title">Lockscreen Weather</string>
     <string name="lock_screen_weather_settings_summary">Customize Lockscreen Weather Display</string>
     <string name="lock_screen_color_settings_summary">Customize Colors</string>
-    <string name="weather_show_weather_title">Show Weather</string>
-    <string name="weather_show_weather_summary">Enable to show weather informations</string>
-    <string name="weather_show_location_title">Show location</string>
-    <string name="weather_show_location_summary">Enable to show the location</string>
     <string name="weather_show_timestamp_title">Show timestamp</string>
     <string name="weather_show_timestamp_summary">Enable to show the timestamp</string>
     <string name="weather_condition_icon_title">Condition icon</string>
@@ -788,10 +790,8 @@
     
     <!-- Status bar Header -->
     <string name="status_bar_expanded_header_settings_title">Status Bar Header</string>
-    <string name="expanded_header_show_weather_title">Show Weather</string>
-    <string name="expanded_header_show_weather_summary">Enable to show the weather</string>
-    <string name="expanded_header_show_weather_location_title">Show Location</string>
-    <string name="expanded_header_show_weather_location_summary">Enable to show the location</string>
+    <string name="status_bar_expanded_nd_settings_title">Clear All Icon Color</string>
+    <string name="notification_drawer_clear_all_icon_color_title">Clear all icon</string>
     
     <!-- Status bar battery status settings -->
     <string name="status_bar_battery_status_settings_title">Battery Options</string>
