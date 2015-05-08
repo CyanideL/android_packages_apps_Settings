@@ -37,11 +37,13 @@ import com.android.settings.SettingsPreferenceFragment;
 public class PAPieControl extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String PA_PIE_SIZE = "pa_pie_size";
+    private static final String PA_PIE_GRAVITY = "pa_pie_gravity";
     private static final String PA_PIE_MODE = "pa_pie_mode";
     private static final String PA_PIE_ANGLE = "pa_pie_angle";
     private static final String PA_PIE_GAP = "pa_pie_gap";
 
     private ListPreference mPieSize;
+    private ListPreference mPieGravity;
     private ListPreference mPieMode;
     private ListPreference mPieAngle;
     private ListPreference mPieGap;
@@ -64,6 +66,12 @@ public class PAPieControl extends SettingsPreferenceFragment implements OnPrefer
                     Settings.System.PA_PIE_SIZE, 1.0f);
             mPieSize.setValue(String.valueOf(pieSize));
         mPieSize.setOnPreferenceChangeListener(this);
+
+        mPieGravity = (ListPreference) prefSet.findPreference(PA_PIE_GRAVITY);
+        int pieGravity = Settings.System.getInt(mResolver,
+                Settings.System.PA_PIE_GRAVITY, 2);
+        mPieGravity.setValue(String.valueOf(pieGravity));
+        mPieGravity.setOnPreferenceChangeListener(this);
 
         mPieMode = (ListPreference) prefSet.findPreference(PA_PIE_MODE);
         int pieMode = Settings.System.getInt(mResolver,
@@ -95,6 +103,11 @@ public class PAPieControl extends SettingsPreferenceFragment implements OnPrefer
             float pieSize = Float.valueOf((String) newValue);
             Settings.System.putFloat(getActivity().getContentResolver(),
                     Settings.System.PA_PIE_SIZE, pieSize);
+            return true;
+        } else if (preference == mPieGravity) {
+            int pieGravity = Integer.valueOf((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.PA_PIE_GRAVITY, pieGravity);
             return true;
         } else if (preference == mPieMode) {
             int pieMode = Integer.valueOf((String) newValue);

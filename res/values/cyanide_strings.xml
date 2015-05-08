@@ -1474,6 +1474,11 @@
     <string name="pa_pie_size_gigantic">Gigantic</string>
     <string name="pa_pie_size_monster">Monster</string>
     <string name="pa_pie_mode_default">Default</string>
+    <string name="pa_pie_gravity_title">Pie gravity</string>
+    <string name="pa_pie_gravity_summary">Select the location where the Pie will be placed</string>
+    <string name="pa_pie_gravity_bottom">Bottom</string>
+    <string name="pa_pie_gravity_right">Right</string>
+    <string name="pa_pie_gravity_left">Left</string>
     <string name="pa_pie_gap_title">Item gap</string>
     <string name="pa_pie_gap_summary">Adjust the gap that separates the Pie elements</string>
     <string name="pa_pie_angle_title">Pie angle</string>

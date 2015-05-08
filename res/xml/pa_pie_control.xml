@@ -48,6 +48,15 @@
             android:dependency="pa_pie_state" />
 
         <ListPreference
+            android:key="pa_pie_gravity"
+            android:dialogTitle="@string/pa_pie_gravity_title"
+            android:title="@string/pa_pie_gravity_title"
+            android:summary="@string/pa_pie_gravity_summary"
+            android:entries="@array/entries_pa_pie_gravity"
+            android:entryValues="@array/values_pa_pie_gravity"
+            android:dependency="pa_pie_state" />
+
+        <ListPreference
             android:key="pa_pie_mode"
             android:dialogTitle="@string/pa_pie_mode_title"
             android:title="@string/pa_pie_mode_title"
