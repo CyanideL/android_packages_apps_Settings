@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2010-2014 ParanoidAndroid Project
- * Copyright (C) 2015 Fusion & Cyanidel Project (PIE2.0 - Ported & modified)
+ * Copyright (C) 2015 Fusion & CyanideL Project (PIE2.0 - Ported & modified)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,6 +43,7 @@ public class PAPieTargets extends SettingsPreferenceFragment implements OnPrefer
     private static final String PA_PIE_POWER = "pa_pie_power";
     private static final String PA_PIE_TORCH = "pa_pie_torch";
     private static final String PA_PIE_SCREENSHOT = "pa_pie_screenshot";
+    private static final String PA_PIE_POWER_MENU = "pa_pie_power_menu";
 
     private SwitchPreference mPieMenu;
     private SwitchPreference mPieLastApp;
@@ -51,6 +52,7 @@ public class PAPieTargets extends SettingsPreferenceFragment implements OnPrefer
     private SwitchPreference mPiePower;
     private SwitchPreference mPieTorch;
     private SwitchPreference mPieScreenshot;
+    private SwitchPreference mPiePowerMenu;
 
     private ContentResolver mResolver;
 
@@ -92,6 +94,10 @@ public class PAPieTargets extends SettingsPreferenceFragment implements OnPrefer
         mPieScreenshot = (SwitchPreference) prefSet.findPreference(PA_PIE_SCREENSHOT);
         mPieScreenshot.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_SCREENSHOT, 0) != 0);
+                
+        mPiePowerMenu = (SwitchPreference) prefSet.findPreference(PA_PIE_POWER_MENU);
+        mPiePowerMenu.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.PA_PIE_POWER_MENU, 0) != 0);
 
     }
 
@@ -125,6 +131,10 @@ public class PAPieTargets extends SettingsPreferenceFragment implements OnPrefer
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.PA_PIE_SCREENSHOT,
                     mPieScreenshot.isChecked() ? 1 : 0);
+        } else if (preference == mPiePowerMenu) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.PA_PIE_POWER_MENU,
+                    mPiePowerMenu.isChecked() ? 1 : 0);
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
 

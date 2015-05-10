@@ -1512,6 +1512,8 @@
     <string name="pa_pie_torch_summary">Enable torch button</string>
     <string name="pa_pie_screenshot_title">Screenshot</string>
     <string name="pa_pie_screenshot_summary">Enable screenshot button</string>
+    <string name="pa_pie_power_menu_title">Power menu button</string>
+    <string name="pa_pie_power_menu_summary">Enable power menu button on Pie</string>
     <string name="pa_pie_color_title">Pie color settings</string>
     <string name="pa_pie_color_style_title">Pie color style</string>
     <string name="pa_pie_background_title">Background color</string>

@@ -35,5 +35,10 @@
         android:key="pa_pie_screenshot"
         android:title="@string/pa_pie_screenshot_title"
         android:summary="@string/pa_pie_screenshot_summary" />
+        
+    <SwitchPreference
+        android:key="pa_pie_power_menu"
+        android:title="@string/pa_pie_power_menu_title"
+        android:summary="@string/pa_pie_power_menu_summary" />
 
 </PreferenceScreen>
