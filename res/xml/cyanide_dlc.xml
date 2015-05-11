@@ -25,6 +25,12 @@
         android:title="@string/cyanide_m8_title"
         android:fragment="com.android.settings.cyanide.dlc.M8" />
     
+    <!-- HTC Ville -->
+    <PreferenceScreen
+        android:id="@+id/cyanide_dlc"
+        android:title="@string/cyanide_ville_title"
+        android:fragment="com.android.settings.cyanide.dlc.Ville" />
+    
     <!-- LG G3 d850 -->
     <PreferenceScreen
         android:id="@+id/cyanide_dlc"

@@ -559,6 +559,7 @@
     <string name="cyanide_nexus6_title">Nexus 6</string>
     <string name="cyanide_nexus7_title">Nexus 7</string>
     <string name="cyanide_xperia_title">Sony XperiaZ Ultra</string>
+    <string name="cyanide_ville_title">HTC One S</string>
     
     <!-- Animation Controls -->
     <string name="title_animation_controls">System Animations</string>
