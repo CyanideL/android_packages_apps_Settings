@@ -78,7 +78,7 @@ public class i605 extends SettingsPreferenceFragment
             startActivity(intent);
             return true;
         } else if (preference == mShiftKernel) {
-            Uri uri = Uri.parse("https://www.androidfilehost.com/?fid=95916177934553724");
+            Uri uri = Uri.parse("https://www.androidfilehost.com/?fid=23991606952596813");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
             return true;
