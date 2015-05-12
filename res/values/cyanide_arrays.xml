@@ -1059,7 +1059,7 @@
         <!--<item>@string/shortcut_action_notifications</item>-->
         <item>@string/shortcut_action_ime</item>
         <item>@string/shortcut_action_pie</item>
-        <!--<item>@string/shortcut_action_power_menu</item>-->
+        <item>@string/shortcut_action_power_menu</item>
         <!--<item>@string/shortcut_action_qs</item>-->
         <item>@string/shortcut_action_recent</item>
         <item>@string/shortcut_action_ring_silent</item>
@@ -1131,6 +1131,18 @@
         <item>@string/shortcut_action_power_menu</item>
         <item>@string/shortcut_action_screenshot</item>
         <item>@string/shortcut_action_recent</item>
+        <item>@string/shortcut_action_kill</item>
+        <item>@string/shortcut_action_lastapp</item>
+        <item>@string/shortcut_action_navbar</item>
+        <item>@string/shortcut_action_back</item>-
+        <item>@string/shortcut_action_home</item>-
+        <item>@string/shortcut_action_menu</item>
+        <item>@string/shortcut_action_ime</item>
+        <item>@string/shortcut_action_pie</item>
+        <item>@string/shortcut_action_search</item>
+        <item>@string/shortcut_action_none</item>
+        <item>@string/shortcut_action_theme_switch</item>
+        <item>@string/shortcut_action_torch</item>
     </string-array>
 
     <string-array name="shortcut_action_tile_values" translatable="false">
@@ -1138,6 +1150,18 @@
         <item>**power_menu**</item>
         <item>**screenshot**</item>
         <item>**recents**</item>
+        <item>**kill**</item>
+        <item>**lastapp**</item>
+        <item>**nav_bar**</item>
+        <item>**back**</item>
+        <item>**home**</item>
+        <item>**menu_big**</item>
+        <item>**ime**</item>
+        <item>**pie**</item>
+        <item>**search**</item>
+        <item>**null**</item>
+        <item>**theme_switch**</item>
+        <item>**torch**</item>
 	</string-array>
 	
 	<!-- Battery bar -->
