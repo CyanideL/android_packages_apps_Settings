@@ -9,7 +9,6 @@ import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.preference.CheckBoxPreference;
 import android.preference.SwitchPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;

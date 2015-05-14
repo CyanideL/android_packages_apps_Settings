@@ -29,9 +29,9 @@ import android.os.Bundle;
 import android.os.SystemProperties;
 import android.preference.EditTextPreference;
 import android.preference.ListPreference;
-import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
+import android.preference.SwitchPreference;
 import android.provider.Telephony;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
@@ -82,7 +82,7 @@ public class ApnEditor extends PreferenceActivity
     private EditTextPreference mApnType;
     private ListPreference mProtocol;
     private ListPreference mRoamingProtocol;
-    private CheckBoxPreference mCarrierEnabled;
+    private SwitchPreference mCarrierEnabled;
     private ListPreference mBearer;
     private ListPreference mMvnoType;
     private EditTextPreference mMvnoMatchData;
@@ -180,7 +180,7 @@ public class ApnEditor extends PreferenceActivity
         mRoamingProtocol = (ListPreference) findPreference(KEY_ROAMING_PROTOCOL);
         mRoamingProtocol.setOnPreferenceChangeListener(this);
 
-        mCarrierEnabled = (CheckBoxPreference) findPreference(KEY_CARRIER_ENABLED);
+        mCarrierEnabled = (SwitchPreference) findPreference(KEY_CARRIER_ENABLED);
 
         mBearer = (ListPreference) findPreference(KEY_BEARER);
         mBearer.setOnPreferenceChangeListener(this);

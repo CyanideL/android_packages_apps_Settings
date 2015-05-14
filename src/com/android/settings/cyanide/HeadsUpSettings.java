@@ -43,7 +43,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Switch;
-import android.preference.CheckBoxPreference;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
