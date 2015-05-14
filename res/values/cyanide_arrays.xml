@@ -1448,6 +1448,7 @@
         <item>@string/shortcut_action_sound</item>
         <item>@string/shortcut_action_users</item>
         <item>@string/shortcut_action_lockdown</item>
+        <item>@string/shortcut_action_onthego</item>
     </string-array>
 
     <string-array name="shortcut_action_power_menu_values" translatable="false">
@@ -1459,6 +1460,7 @@
         <item>**sound**</item>
         <item>**users**</item>
         <item>**lockdown**</item>
+        <item>**onthego**</item>
     </string-array>
 
 </resources>

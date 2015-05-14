@@ -199,6 +199,7 @@
     <string name="shortcut_action_sound">Sound</string>
     <string name="shortcut_action_users">Users</string>
     <string name="shortcut_action_lockdown">Lock now</string>
+    <string name="shortcut_action_onthego">On-The-Go</string>
 
     <string name="shortcuts_applications">Applications</string>
     <string name="shortcuts_select_custom_app_title">Select Custom Application</string>
@@ -1524,5 +1525,9 @@
     <string name="pa_pie_juice_title">Battery juice color</string>
     <string name="pa_pie_button_color">Button color</string>
     <string name="pa_pie_button_color_title">Buttons color</string>
+    
+    <!-- On The Go Power Menu -->
+    <string name="power_menu_onthego_title">On-The-Go Mode</string>
+    <string name="power_menu_onthego_summary">Enable the On-The-Go mode service.</string>
 
 </resources>
