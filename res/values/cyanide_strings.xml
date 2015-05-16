@@ -1529,4 +1529,11 @@
     <string name="power_menu_onthego_title">On-The-Go Mode</string>
     <string name="power_menu_onthego_summary">Enable the On-The-Go mode service</string>
 
+    <!-- Status bar power menu -->
+    <string name="status_bar_power_menu_title">Power menu in expanded status bar</string>
+    <string name="status_bar_power_menu_dialog_title">Set tap and long-press actions</string>
+    <string name="status_bar_power_menu_off">Disabled</string>
+    <string name="status_bar_power_menu_action_screen_off">Screen off - Power menu</string>
+    <string name="status_bar_power_menu_action_dialog">Power menu - Screen off</string> 
+
 </resources>
