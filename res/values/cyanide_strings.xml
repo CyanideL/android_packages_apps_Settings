@@ -1142,6 +1142,8 @@
     <string name="heads_up_dismiss_on_remove_title">Swipe behavior</string>
     <string name="heads_up_dismiss_on_remove_summary_enabled">Hide notification instead of dismiss</string>
     <string name="heads_up_dismiss_on_remove_summary_disabled">Hide and dismiss notification</string>
+    <string name="heads_up_bg_color_title">Background color</string>
+    <string name="heads_up_text_color_title">Text color</string>
     
     <!-- Heads up timeout -->
     <string name="heads_up_time_out_title">Time out</string>
