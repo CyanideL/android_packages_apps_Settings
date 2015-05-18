@@ -447,10 +447,10 @@
         <item>@string/shortcut_action_power_menu</item>
         <item>@string/shortcut_action_recent</item>
         <item>@string/shortcut_action_power</item>
+        <item>@string/shortcut_action_screenshot</item>
         <item>@string/shortcut_action_search</item>
         <item>@string/shortcut_action_none</item>
         <item>@string/shortcut_action_theme_switch</item>
-        <item>@string/shortcut_action_screenshot</item>
         <item>@string/shortcut_action_torch</item>
     </string-array>
 
@@ -1079,7 +1079,7 @@
         <!--<item>**notifications**</item>-->
         <item>**ime**</item>
         <item>**pie**</item>
-        <!--<item>**power_menu**</item>-->
+        <item>**power_menu**</item>
         <!--<item>**quicksettings**</item>-->
         <item>**recents**</item>
         <item>**ring_silent**</item>
