@@ -16,15 +16,12 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <net.margaritov.preference.colorpicker.ColorPickerPreference
-        android:key="heads_up_bg_color"
-        android:title="@string/heads_up_bg_color_title"
-        android:defaultValue="0x00ffffff" />
-
-    <net.margaritov.preference.colorpicker.ColorPickerPreference
-        android:key="heads_up_text_color"
-        android:title="@string/heads_up_text_color_title"
-        android:defaultValue="0x00000000" />
+    <!-- Heads Up Colors -->
+	<PreferenceScreen
+        android:key="heads_up_colors"
+        android:fragment="com.android.settings.cyanide.HeadsUpColors"
+        android:title="@string/heads_up_colors_title"
+        android:summary="@string/heads_up_colors_summary" />
 
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
         android:key="heads_up_dismiss_on_remove"
