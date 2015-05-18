@@ -34,10 +34,9 @@ import com.android.settings.SettingsPreferenceFragment;
 public class LockscreenShortcutFragment extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
-    private static final String PREF_LOCKSCREEN_SHORTCUTS_LAUNCH_TYPE = "lockscreen_shortcuts_launch_type";
-    
-    private static final int DEFAULT_ICON_COLOR = 0xffffffff;
-    
+    private static final String PREF_LOCKSCREEN_SHORTCUTS_LAUNCH_TYPE =
+            "lockscreen_shortcuts_launch_type";
+
     private ListPreference mLockscreenShortcutsLaunchType;
 
     @Override
@@ -76,6 +75,6 @@ public class LockscreenShortcutFragment extends SettingsPreferenceFragment imple
                     Settings.System.LOCKSCREEN_SHORTCUTS_LONGPRESS,
                     Integer.valueOf((String) newValue));
         }
-        return false;
+        return true;
     }
 }
