@@ -171,6 +171,9 @@
     <string name="shortcut_action_ring_vib_silent">Silent/Vibrate</string>
     <string name="shortcut_action_navbar">Navigation bar</string>
     <string name="shortcut_action_pie">Pie controls</string>
+    <string name="shortcut_action_expanded_desktop">Expanded desktop</string>
+    <string name="shortcut_action_notifications">Notifications</string>
+    <string name="shortcut_action_qs">Quick Settings</string>
 
     <string name="shortcut_action_longpress">Longpress:</string>
     <string name="shortcut_action_select_action_longpress">Choose Longpress Action:</string>
@@ -1513,6 +1516,8 @@
     <string name="pa_pie_killtask_summary">Enable kill task button</string>
     <string name="pa_pie_actnotif_title">Notifications</string>
     <string name="pa_pie_actnotif_summary">Enable notifications button</string>
+    <string name="pa_pie_settings_panel_title">Quick Settings Panel</string>
+    <string name="pa_pie_settings_panel_summary">Enable expand quick settings panel button</string>
     <string name="pa_pie_screen_off_title">Screen Off button</string>
     <string name="pa_pie_screen_off_summary">Enable screen off button</string>
     <string name="pa_pie_torch_title">Torch</string>
@@ -1521,6 +1526,8 @@
     <string name="pa_pie_screenshot_summary">Enable screenshot button</string>
     <string name="pa_pie_power_menu_title">Power Menu button</string>
     <string name="pa_pie_power_menu_summary">Enable power menu button</string>
+    <string name="pa_pie_expanded_desktop_title">Expanded Desktop button</string>
+    <string name="pa_pie_expanded_desktop_summary">Enable expanded desktop button</string>
     <string name="pa_pie_color_title">Pie Color Settings</string>
     <string name="pa_pie_color_style_title">Pie Color Style</string>
     <string name="pa_pie_background_title">Background Color</string>

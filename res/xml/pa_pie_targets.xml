@@ -7,6 +7,11 @@
         android:summary="@string/pa_pie_menu_summary" />
 
     <SwitchPreference
+        android:key="pa_pie_expanded_desktop"
+        android:title="@string/pa_pie_expanded_desktop_title"
+        android:summary="@string/pa_pie_expanded_desktop_summary" />
+    
+    <SwitchPreference
         android:key="pa_pie_killtask"
         android:title="@string/pa_pie_killtask_title"
         android:summary="@string/pa_pie_killtask_summary" />
@@ -21,6 +26,11 @@
         android:title="@string/pa_pie_actnotif_title"
         android:summary="@string/pa_pie_actnotif_summary" />
 
+    <SwitchPreference
+        android:key="pa_pie_settings_panel"
+        android:title="@string/pa_pie_settings_panel_title"
+        android:summary="@string/pa_pie_settings_panel_summary" />
+    
     <SwitchPreference
         android:key="pa_pie_power_menu"
         android:title="@string/pa_pie_power_menu_title"
@@ -40,10 +50,5 @@
         android:key="pa_pie_torch"
         android:title="@string/pa_pie_torch_title"
         android:summary="@string/pa_pie_torch_summary" />
-
-    <SwitchPreference
-        android:key="pa_pie_screenshot"
-        android:title="@string/pa_pie_screenshot_title"
-        android:summary="@string/pa_pie_screenshot_summary" />
 
 </PreferenceScreen>

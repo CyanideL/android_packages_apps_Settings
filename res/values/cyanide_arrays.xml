@@ -452,6 +452,9 @@
         <item>@string/shortcut_action_none</item>
         <item>@string/shortcut_action_theme_switch</item>
         <item>@string/shortcut_action_torch</item>
+        <item>@string/shortcut_action_expanded_desktop</item>
+        <item>@string/shortcut_action_notifications</item>
+        <item>@string/shortcut_action_qs</item>
     </string-array>
 
     <string-array name="shortcut_action_values" translatable="false">
@@ -472,6 +475,9 @@
         <item>**null**</item>
         <item>**theme_switch**</item>
         <item>**torch**</item>
+        <item>**expanded_desktop**</item>
+        <item>**notifications**</item>
+        <item>**settings_panel**</item>
     </string-array>
     
     <!--- Volume key cursor control -->
@@ -1451,6 +1457,8 @@
         <item>@string/shortcut_action_screenshot</item>
         <item>@string/shortcut_action_sound</item>
         <item>@string/shortcut_action_users</item>
+        <item>@string/shortcut_action_pie</item>
+        <item>@string/shortcut_action_navbar</item>
         <item>@string/shortcut_action_lockdown</item>
         <item>@string/shortcut_action_onthego</item>
     </string-array>
@@ -1463,6 +1471,8 @@
         <item>**screenshot**</item>
         <item>**sound**</item>
         <item>**users**</item>
+        <item>**pie**</item>
+        <item>**nav_bar**</item>
         <item>**lockdown**</item>
         <item>**onthego**</item>
     </string-array>
