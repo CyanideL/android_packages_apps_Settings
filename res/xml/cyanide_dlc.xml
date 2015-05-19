@@ -49,6 +49,12 @@
         android:title="@string/cyanide_vs985_title"
         android:fragment="com.android.settings.cyanide.dlc.vs985" />
     
+    <!-- Moto E -->
+    <PreferenceScreen
+        android:id="@+id/cyanide_dlc"
+        android:title="@string/cyanide_condor_title"
+        android:fragment="com.android.settings.cyanide.dlc.Condor" />
+    
     <!-- Nexus 5 -->
     <PreferenceScreen
         android:id="@+id/cyanide_dlc"
@@ -108,5 +114,11 @@
         android:id="@+id/cyanide_dlc"
         android:title="@string/cyanide_xperia_title"
         android:fragment="com.android.settings.cyanide.dlc.XperiaZ" />
+        
+    <!-- Xiaomi Redmi 1S -->
+    <PreferenceScreen
+        android:id="@+id/cyanide_dlc"
+        android:title="@string/cyanide_armani_title"
+        android:fragment="com.android.settings.cyanide.dlc.Armani" />
 
 </PreferenceScreen>

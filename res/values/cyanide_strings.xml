@@ -563,6 +563,8 @@
     <string name="cyanide_nexus7_title">Nexus 7</string>
     <string name="cyanide_xperia_title">Sony XperiaZ Ultra</string>
     <string name="cyanide_ville_title">HTC One S</string>
+    <string name="cyanide_armani_title">Xiaomi Redmi 1S</string>
+    <string name="cyanide_condor_title">Moto E</string>
     
     <!-- Animation Controls -->
     <string name="title_animation_controls">System Animations</string>
