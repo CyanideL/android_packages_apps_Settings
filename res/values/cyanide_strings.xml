@@ -1528,6 +1528,8 @@
     <string name="pa_pie_power_menu_summary">Enable power menu button</string>
     <string name="pa_pie_expanded_desktop_title">Expanded Desktop button</string>
     <string name="pa_pie_expanded_desktop_summary">Enable expanded desktop button</string>
+    <string name="pa_pie_theme_switch_title">Theme Switch button</string>
+    <string name="pa_pie_theme_switch_summary">Enable theme switch button</string>
     <string name="pa_pie_color_title">Pie Color Settings</string>
     <string name="pa_pie_color_style_title">Pie Color Style</string>
     <string name="pa_pie_background_title">Background Color</string>

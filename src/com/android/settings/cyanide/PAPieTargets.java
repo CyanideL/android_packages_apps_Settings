@@ -46,6 +46,7 @@ public class PAPieTargets extends SettingsPreferenceFragment implements OnPrefer
     private static final String PA_PIE_SCREENSHOT = "pa_pie_screenshot";
     private static final String PA_PIE_POWER_MENU = "pa_pie_power_menu";
     private static final String PA_PIE_EXPANDED_DESKTOP = "pa_pie_expanded_desktop";
+    private static final String PA_PIE_THEME_SWITCH = "pa_pie_theme_switch";
 
     private SwitchPreference mPieMenu;
     private SwitchPreference mPieLastApp;
@@ -57,6 +58,7 @@ public class PAPieTargets extends SettingsPreferenceFragment implements OnPrefer
     private SwitchPreference mPieScreenshot;
     private SwitchPreference mPiePowerMenu;
     private SwitchPreference mPieExpandedDesktop;
+    private SwitchPreference mPieThemeSwitch;
 
     private ContentResolver mResolver;
 
@@ -110,6 +112,10 @@ public class PAPieTargets extends SettingsPreferenceFragment implements OnPrefer
         mPieExpandedDesktop = (SwitchPreference) prefSet.findPreference(PA_PIE_EXPANDED_DESKTOP);
         mPieExpandedDesktop.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_EXPANDED_DESKTOP, 0) != 0);
+                
+        mPieThemeSwitch = (SwitchPreference) prefSet.findPreference(PA_PIE_THEME_SWITCH);
+        mPieThemeSwitch.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.PA_PIE_THEME_SWITCH, 0) != 0);
 
     }
 
@@ -155,6 +161,10 @@ public class PAPieTargets extends SettingsPreferenceFragment implements OnPrefer
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.PA_PIE_EXPANDED_DESKTOP,
                     mPieExpandedDesktop.isChecked() ? 1 : 0);
+        } else if (preference == mPieThemeSwitch) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.PA_PIE_THEME_SWITCH,
+                    mPieThemeSwitch.isChecked() ? 1 : 0);
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
 
