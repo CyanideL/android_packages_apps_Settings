@@ -1457,6 +1457,7 @@
         <item>@string/shortcut_action_screenshot</item>
         <item>@string/shortcut_action_sound</item>
         <item>@string/shortcut_action_users</item>
+        <item>@string/shortcut_action_expanded_desktop</item>
         <item>@string/shortcut_action_pie</item>
         <item>@string/shortcut_action_navbar</item>
         <item>@string/shortcut_action_lockdown</item>
@@ -1470,6 +1471,7 @@
         <item>**reboot**</item>
         <item>**screenshot**</item>
         <item>**sound**</item>
+        <item>**expanded_desktop**</item>
         <item>**users**</item>
         <item>**pie**</item>
         <item>**nav_bar**</item>
