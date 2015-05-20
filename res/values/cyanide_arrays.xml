@@ -1477,8 +1477,7 @@
         <item>**nav_bar**</item>
         <item>**lockdown**</item>
         <item>**onthego**</item>
-    </string-array>
-    
+    </string-array>    
 
     <!--  Status bar power menu -->
     <string-array name="status_bar_power_menu_entries" translatable="false">
@@ -1503,6 +1502,20 @@
         <item>0</item>
         <item>1</item>
         <item>2</item>
+    </string-array>
+    
+    <string-array name="icon_color_mode_entries">
+        <item>@string/icon_color_mode_all_icons</item>
+        <item>@string/icon_color_mode_system_icons</item>
+        <item>@string/icon_color_mode_system_custom_icons</item>
+        <item>@string/disabled</item>
+    </string-array>
+
+    <string-array name="icon_color_mode_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
     </string-array>
 
 </resources>
