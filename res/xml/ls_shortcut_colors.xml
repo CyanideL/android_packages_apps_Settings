@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2013 SlimRoms Project
+<!-- Copyright (C) 2015 CyanideL
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,20 +14,18 @@
      limitations under the License.
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    android:title="@string/colors_title" >
 
-    <!-- Shortcuts Color-->
-    <PreferenceScreen
-        android:key="lock_shortcuts_style"
-        android:title="@string/lock_shortcuts_style"
-        android:fragment="com.android.settings.cyanide.LSSColors" />
-    
-    <ListPreference
-        android:key="lockscreen_shortcuts_launch_type"
-        android:title="@string/lockscreen_shorcuts_launch_type_title"
-        android:summary="%s"
-        android:defaultValue="1"
-        android:entries="@array/lockscreen_shortcuts_launch_type_entries"
-        android:entryValues="@array/lockscreen_shortcuts_launch_type_values" />
+     <ListPreference
+         android:key="lockscreen_shortcuts_icon_color_mode"
+         android:title="@string/button_color_mode_title"
+         android:entries="@array/icon_color_mode_entries"
+         android:entryValues="@array/icon_color_mode_values"
+         android:dialogTitle="@string/button_color_mode_dialog_title" />
+     
+     <net.margaritov.preference.colorpicker.ColorPickerPreference
+         android:key="lockscreen_shortcuts_icon_color"
+         android:title="@string/icon_title"
+         android:defaultValue="0xffffffff" />
 
 </PreferenceScreen>

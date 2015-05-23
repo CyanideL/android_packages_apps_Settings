@@ -59,6 +59,7 @@ import com.android.internal.util.cyanide.ActionHelper;
 import com.android.internal.util.cyanide.ImageHelper;
 import com.android.internal.util.cyanide.DeviceUtils;
 import com.android.internal.util.cyanide.DeviceUtils.FilteredDeviceFeaturesArray;
+import com.android.internal.util.cyanide.LockscreenShortcutHelper;
 import com.android.internal.util.cyanide.PolicyHelper;
 
 import com.android.settings.SettingsPreferenceFragment;
@@ -520,7 +521,7 @@ public class ActionListViewSettings extends ListFragment implements
     private ArrayList<ActionConfig> getConfig() {
         switch (mActionMode) {
             case LOCKSCREEN_SHORTCUT:
-                return ActionHelper.getLockscreenShortcutConfig(mActivity);
+                return LockscreenShortcutHelper.getLockscreenShortcutConfig(mActivity);
             case QUICKTILE:
                 return ActionHelper.getQuickTileConfigWithDescription(
                     mActivity, mActionValuesKey, mActionEntriesKey);
@@ -550,7 +551,7 @@ public class ActionListViewSettings extends ListFragment implements
     private void setConfig(ArrayList<ActionConfig> actionConfigs, boolean reset) {
         switch (mActionMode) {
             case LOCKSCREEN_SHORTCUT:
-                ActionHelper.setLockscreenShortcutConfig(mActivity, actionConfigs, reset);
+                LockscreenShortcutHelper.setLockscreenShortcutConfig(mActivity, actionConfigs, reset);
                 break;
             case QUICKTILE:
                 ActionHelper.setQuickTileConfig(mActivity, actionConfigs, reset);

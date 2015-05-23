@@ -50,8 +50,6 @@ public class LockscreenShortcutFragment extends SettingsPreferenceFragment imple
         mLockscreenShortcutsLaunchType = (ListPreference) findPreference(
                 PREF_LOCKSCREEN_SHORTCUTS_LAUNCH_TYPE);
         mLockscreenShortcutsLaunchType.setOnPreferenceChangeListener(this);
-
-        setHasOptionsMenu(false);
     }
 
     @Override
@@ -74,7 +72,8 @@ public class LockscreenShortcutFragment extends SettingsPreferenceFragment imple
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_SHORTCUTS_LONGPRESS,
                     Integer.valueOf((String) newValue));
+            return true;
         }
-        return true;
+        return false;
     }
 }
