@@ -171,7 +171,8 @@
     <string name="shortcut_action_ring_vib">Ringer/Vibrate</string>
     <string name="shortcut_action_ring_vib_silent">Silent/Vibrate</string>
     <string name="shortcut_action_navbar">Navigation bar</string>
-    <string name="shortcut_action_pie">Pie controls</string>
+    <string name="shortcut_action_pie">SlimPIE Control</string>
+    <string name="shortcut_action_pa_pie">PA Pie Control</string>
     <string name="shortcut_action_expanded_desktop">Expanded desktop</string>
     <string name="shortcut_action_notifications">Notifications</string>
     <string name="shortcut_action_qs">Quick Settings</string>
@@ -1151,6 +1152,7 @@
     <string name="heads_up_dismiss_on_remove_summary_enabled">Hide notification instead of dismiss</string>
     <string name="heads_up_dismiss_on_remove_summary_disabled">Hide and dismiss notification</string>
     <string name="heads_up_bg_color_title">Background color</string>
+    <string name="heads_up_bg_pressed_color_title">Background pressed color</string>
     <string name="heads_up_text_color_title">Text color</string>
     <string name="heads_up_colors_title">Custom Colors</string>
     <string name="heads_up_colors_summary">Customize heads up text and background color</string>
@@ -1565,6 +1567,14 @@
     <string name="lock_shortcuts_style">Circle Shortcuts Style</string>
     <string name="lock_shortcuts_style_summary">Change circle shortcuts colors</string>
     <string name="button_color_mode_dialog_title">Colorize</string>
-    <string name="button_color_mode_title">Mode</string>    
+    <string name="button_color_mode_title">Mode</string>
+    
+    <!-- Advanced reboot options -->
+    <string name="advanced_reboot_title">Advanced reboot</string>
+    <string name="advanced_reboot_summary">Include options in the power menu for rebooting into recovery and bootloader</string>
+    <string name="advanced_reboot_dialog_title">Advanced reboot menu</string>
+    <string name="advanced_reboot_disabled">Disable</string>
+    <string name="advanced_reboot_hide_on_keyguard">Hide on lock screen</string>
+    <string name="advanced_reboot_show_always">Show always</string>
 
 </resources>

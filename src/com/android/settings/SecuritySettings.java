@@ -82,6 +82,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final Intent TRUST_AGENT_INTENT =
             new Intent(TrustAgentService.SERVICE_INTERFACE);
 
+    private static final String KEY_ADVANCED_REBOOT = "advanced_reboot";
     private static final String KEY_DEVICE_ADMIN_CATEGORY = "device_admin_category";
 
     // Misc Settings
@@ -131,6 +132,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private DialogInterface mWarnInstallApps;
 
     private ListPreference mSmsSecurityCheck;
+    private ListPreference mAdvancedReboot;
 
     private boolean mIsPrimary;
 
@@ -262,6 +264,16 @@ public class SecuritySettings extends SettingsPreferenceFragment
         mToggleAppInstallation = (SwitchPreference) findPreference(
                 KEY_TOGGLE_INSTALL_APPLICATIONS);
         mToggleAppInstallation.setChecked(isNonMarketAppsAllowed());
+        
+        mAdvancedReboot = (ListPreference) root.findPreference(KEY_ADVANCED_REBOOT);
+        if (mIsPrimary) {
+            mAdvancedReboot.setValue(String.valueOf(Settings.Secure.getInt(
+                    getContentResolver(), Settings.Secure.ADVANCED_REBOOT, 0)));
+            mAdvancedReboot.setSummary(mAdvancedReboot.getEntry());
+            mAdvancedReboot.setOnPreferenceChangeListener(this);
+        } else {
+            deviceAdminCategory.removePreference(mAdvancedReboot);
+        }
 
         // Cyanogen kill switch
         mLockDeviceToCyanogenAccount = (SwitchPreference)
@@ -532,6 +544,11 @@ public class SecuritySettings extends SettingsPreferenceFragment
             } else {
                 setNonMarketAppsAllowed(false);
             }
+        } else if (preference == mAdvancedReboot) {
+            Settings.Secure.putInt(getContentResolver(), Settings.Secure.ADVANCED_REBOOT,
+                    Integer.valueOf((String) value));
+            mAdvancedReboot.setValue(String.valueOf(value));
+            mAdvancedReboot.setSummary(mAdvancedReboot.getEntry());
         } else if (KEY_SMS_SECURITY_CHECK_PREF.equals(key)) {
             int smsSecurityCheck = Integer.valueOf((String) value);
             Settings.Secure.putInt(getContentResolver(), Settings.Global.SMS_OUTGOING_CHECK_MAX_COUNT,
