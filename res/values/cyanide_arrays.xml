@@ -444,6 +444,7 @@
         <item>@string/shortcut_action_menu</item>
         <item>@string/shortcut_action_ime</item>
         <item>@string/shortcut_action_pie</item>
+        <item>@string/shortcut_action_pa_pie</item>
         <item>@string/shortcut_action_power_menu</item>
         <item>@string/shortcut_action_recent</item>
         <item>@string/shortcut_action_power</item>
@@ -455,6 +456,7 @@
         <item>@string/shortcut_action_expanded_desktop</item>
         <item>@string/shortcut_action_notifications</item>
         <item>@string/shortcut_action_qs</item>
+        <item>@string/shortcut_action_smart</item>
     </string-array>
 
     <string-array name="shortcut_action_values" translatable="false">
@@ -467,6 +469,7 @@
         <item>**menu_big**</item>
         <item>**ime**</item>
         <item>**pie**</item>
+        <item>**pa_pie**</item>
         <item>**power_menu**</item>
         <item>**recents**</item>
         <item>**power**</item>
@@ -478,6 +481,7 @@
         <item>**expanded_desktop**</item>
         <item>**notifications**</item>
         <item>**settings_panel**</item>
+        <item>**smart_pulldown**</item>
     </string-array>
     
     <!--- Volume key cursor control -->
@@ -1062,11 +1066,13 @@
         <item>@string/shortcut_action_kill</item>
         <item>@string/shortcut_action_lastapp</item>
         <item>@string/shortcut_action_navbar</item>
-        <!--<item>@string/shortcut_action_notifications</item>-->
+        <item>@string/shortcut_action_notifications</item>
         <item>@string/shortcut_action_ime</item>
         <item>@string/shortcut_action_pie</item>
+        <item>@string/shortcut_action_pa_pie</item>
         <item>@string/shortcut_action_power_menu</item>
-        <!--<item>@string/shortcut_action_qs</item>-->
+        <item>@string/shortcut_action_qs</item>
+        <item>@string/shortcut_action_smart</item>
         <item>@string/shortcut_action_recent</item>
         <item>@string/shortcut_action_ring_silent</item>
         <item>@string/shortcut_action_ring_vib</item>
@@ -1082,11 +1088,13 @@
         <item>**kill**</item>
         <item>**lastapp**</item>
         <item>**nav_bar**</item>
-        <!--<item>**notifications**</item>-->
+        <item>**notifications**</item>
         <item>**ime**</item>
         <item>**pie**</item>
+        <item>**pa_pie**</item>
         <item>**power_menu**</item>
-        <!--<item>**quicksettings**</item>-->
+        <item>**settings_panel**</item>
+        <item>**smart_pulldown**</item>
         <item>**recents**</item>
         <item>**ring_silent**</item>
         <item>**ring_vib**</item>
@@ -1145,6 +1153,7 @@
         <item>@string/shortcut_action_menu</item>
         <item>@string/shortcut_action_ime</item>
         <item>@string/shortcut_action_pie</item>
+        <item>@string/shortcut_action_pa_pie</item>
         <item>@string/shortcut_action_search</item>
         <item>@string/shortcut_action_none</item>
         <item>@string/shortcut_action_theme_switch</item>
@@ -1164,6 +1173,7 @@
         <item>**menu_big**</item>
         <item>**ime**</item>
         <item>**pie**</item>
+        <item>**pa_pie**</item>
         <item>**search**</item>
         <item>**null**</item>
         <item>**theme_switch**</item>
@@ -1459,6 +1469,7 @@
         <item>@string/shortcut_action_users</item>
         <item>@string/shortcut_action_expanded_desktop</item>
         <item>@string/shortcut_action_pie</item>
+        <item>@string/shortcut_action_pa_pie</item>
         <item>@string/shortcut_action_navbar</item>
         <item>@string/shortcut_action_lockdown</item>
         <item>@string/shortcut_action_onthego</item>
@@ -1474,6 +1485,7 @@
         <item>**expanded_desktop**</item>
         <item>**users**</item>
         <item>**pie**</item>
+        <item>**pa_pie**</item>
         <item>**nav_bar**</item>
         <item>**lockdown**</item>
         <item>**onthego**</item>

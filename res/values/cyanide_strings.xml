@@ -176,6 +176,7 @@
     <string name="shortcut_action_expanded_desktop">Expanded desktop</string>
     <string name="shortcut_action_notifications">Notifications</string>
     <string name="shortcut_action_qs">Quick Settings</string>
+    <string name="shortcut_action_smart">Smart pulldown</string>
 
     <string name="shortcut_action_longpress">Longpress:</string>
     <string name="shortcut_action_select_action_longpress">Choose Longpress Action:</string>
