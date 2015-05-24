@@ -41,11 +41,6 @@
         android:entryValues="@array/media_scanner_on_boot_values" />	            
 
     <SwitchPreference
-        android:key="advanced_reboot"
-        android:title="@string/advanced_reboot_title"
-        android:summary="@string/advanced_reboot_summary" />
-
-    <SwitchPreference
         android:key="enable_quickboot"
         android:title="@string/enable_quickboot_title"
         android:summary="@string/enable_quickboot_summary" />

@@ -327,10 +327,6 @@
     <string name="increasing_ring_min_volume_title">Start Volume</string>
     <string name="increasing_ring_ramp_up_time_title">Ramp-Up Time</string>
 
-    <!-- Advanced reboot options -->
-    <string name="advanced_reboot_title">Advanced Reboot</string>
-    <string name="advanced_reboot_summary">When unlocked, include options in the power menu for rebooting into recovery, bootloader or performing a soft reboot</string>
-
     <!-- Setting checkbox title for Whether to enable Android debugging support on the phone. -->
     <string name="enable_adb_cm">Android Debugging</string>
     <!-- Setting checkbox summary for Whether to enable Android debugging support on the phone -->
