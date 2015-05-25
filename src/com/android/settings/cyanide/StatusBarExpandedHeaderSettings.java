@@ -35,10 +35,12 @@ import android.view.MenuItem;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
+import com.android.settings.cyanide.util.Helpers;
 
 public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String PREF_ENABLE_TASK_MANAGER = "enable_task_manager";
     private static final String STATUS_BAR_POWER_MENU = "status_bar_power_menu";
     private static final String PREF_SHOW_WEATHER = "expanded_header_show_weather";
     private static final String PREF_SHOW_LOCATION = "expanded_header_show_weather_location";
@@ -53,6 +55,7 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
+    private SwitchPreference mEnableTaskManager;
     private ListPreference mStatusBarPowerMenu;
     private SwitchPreference mShowWeather;
     private SwitchPreference mShowLocation;
@@ -76,7 +79,10 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
 
         addPreferencesFromResource(R.xml.cyanide_status_bar_expanded_header_settings);
         mResolver = getActivity().getContentResolver();
-
+        
+        boolean enableTaskManager = Settings.System.getInt(mResolver,
+                Settings.System.ENABLE_TASK_MANAGER, 0) == 1;
+        
         boolean showWeather = Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER, 0) == 1;
 
@@ -90,6 +96,10 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                 STATUS_BAR_POWER_MENU, 0);
         mStatusBarPowerMenu.setValue(String.valueOf(statusBarPowerMenu));
         mStatusBarPowerMenu.setSummary(mStatusBarPowerMenu.getEntry());
+        
+        mEnableTaskManager = (SwitchPreference) findPreference(PREF_ENABLE_TASK_MANAGER);
+        mEnableTaskManager.setChecked(enableTaskManager);
+        mEnableTaskManager.setOnPreferenceChangeListener(this);
         
         mShowWeather = (SwitchPreference) findPreference(PREF_SHOW_WEATHER);
         mShowWeather.setChecked(showWeather);
@@ -170,6 +180,13 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                     .findIndexOfValue(statusBarPowerMenu);
             mStatusBarPowerMenu
                     .setSummary(mStatusBarPowerMenu.getEntries()[statusBarPowerMenuIndex]);
+            return true;
+        } else if (preference == mEnableTaskManager) {
+            value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                Settings.System.ENABLE_TASK_MANAGER,
+                value ? 1 : 0);
+            Helpers.restartSystemUI();
             return true;
         } else if (preference == mShowWeather) {
             value = (Boolean) newValue;
