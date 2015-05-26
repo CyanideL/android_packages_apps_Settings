@@ -48,6 +48,8 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.internal.util.cyanide.CyanideUtils;
 
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
+
 public class NavigationSettings extends SettingsPreferenceFragment
     implements OnPreferenceChangeListener {
 
@@ -56,10 +58,12 @@ public class NavigationSettings extends SettingsPreferenceFragment
     private static final String CATEGORY_NAVBAR = "navigation_bar";
     private static final String CATEGORY_NAV_BAR_ENABLE = "navigation_bar_enable";
     private static final String KEY_NAVIGATION_BAR_LEFT = "navigation_bar_left";
+    private static final String NAVIGATION_BAR_TINT = "navigation_bar_tint";
 
     private boolean mCheckPreferences;
 
     private SwitchPreference mNavigationBarLeftPref;
+    private ColorPickerPreference mNavbarButtonTint;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -69,10 +73,19 @@ public class NavigationSettings extends SettingsPreferenceFragment
         PreferenceScreen prefSet = getPreferenceScreen();
 
         // Navigation bar left
-        mNavigationBarLeftPref = (SwitchPreference) findPreference(KEY_NAVIGATION_BAR_LEFT);  
+        mNavigationBarLeftPref = (SwitchPreference) findPreference(KEY_NAVIGATION_BAR_LEFT); 
 
-		final boolean hasRealNavigationBar = getResources()
-                .getBoolean(com.android.internal.R.bool.config_showNavigationBar);
+        // Navigation bar button color
+        mNavbarButtonTint = (ColorPickerPreference) findPreference(NAVIGATION_BAR_TINT);
+        mNavbarButtonTint.setOnPreferenceChangeListener(this);
+        int intColor = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.NAVIGATION_BAR_TINT, 0xffffffff);
+        String hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mNavbarButtonTint.setSummary(hexColor);
+        mNavbarButtonTint.setNewPreviewColor(intColor); 
+
+        final boolean hasRealNavigationBar = getResources()
+            .getBoolean(com.android.internal.R.bool.config_showNavigationBar);
         if (hasRealNavigationBar) { // only disable on devices with REAL navigation bars
             final Preference pref = findPreference(CATEGORY_NAV_BAR_ENABLE);
             if (pref != null) {
@@ -103,7 +116,16 @@ public class NavigationSettings extends SettingsPreferenceFragment
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-		return false;
+		if (preference == mNavbarButtonTint) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.NAVIGATION_BAR_TINT, intHex);
+            return true;
+        }
+        return false;
     }
 
     private PreferenceScreen reloadSettings() {
