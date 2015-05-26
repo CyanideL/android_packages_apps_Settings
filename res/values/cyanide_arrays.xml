@@ -1467,10 +1467,12 @@
         <item>@string/shortcut_action_screenshot</item>
         <item>@string/shortcut_action_sound</item>
         <item>@string/shortcut_action_users</item>
+        <item>@string/shortcut_action_settings</item>
         <item>@string/shortcut_action_expanded_desktop</item>
         <item>@string/shortcut_action_pie</item>
         <item>@string/shortcut_action_pa_pie</item>
         <item>@string/shortcut_action_navbar</item>
+        <item>@string/shortcut_action_profiles</item>
         <item>@string/shortcut_action_lockdown</item>
         <item>@string/shortcut_action_onthego</item>
     </string-array>
@@ -1484,9 +1486,11 @@
         <item>**sound**</item>
         <item>**expanded_desktop**</item>
         <item>**users**</item>
+        <item>**settings**</item>
         <item>**pie**</item>
         <item>**pa_pie**</item>
         <item>**nav_bar**</item>
+        <item>**profiles**</item>
         <item>**lockdown**</item>
         <item>**onthego**</item>
     </string-array>    

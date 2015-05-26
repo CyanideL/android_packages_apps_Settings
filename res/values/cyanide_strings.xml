@@ -204,6 +204,8 @@
     <string name="shortcut_action_reboot">Reboot</string>
     <string name="shortcut_action_sound">Sound</string>
     <string name="shortcut_action_users">Users</string>
+    <string name="shortcut_action_settings">Settings</string>
+    <string name="shortcut_action_profiles">Profiles</string>
     <string name="shortcut_action_lockdown">Lock now</string>
     <string name="shortcut_action_onthego">On-The-Go</string>
 
