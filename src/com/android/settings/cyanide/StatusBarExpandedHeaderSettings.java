@@ -23,6 +23,7 @@ import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.os.Bundle;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
@@ -38,6 +39,7 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String STATUS_BAR_POWER_MENU = "status_bar_power_menu";
     private static final String PREF_SHOW_WEATHER = "expanded_header_show_weather";
     private static final String PREF_SHOW_LOCATION = "expanded_header_show_weather_location";
     private static final String PREF_BG_COLOR = "expanded_header_background_color";
@@ -51,6 +53,7 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
+    private ListPreference mStatusBarPowerMenu;
     private SwitchPreference mShowWeather;
     private SwitchPreference mShowLocation;
     private ColorPickerPreference mBackgroundColor;
@@ -80,6 +83,14 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         int intColor;
         String hexColor;
 
+        // status bar power menu
+        mStatusBarPowerMenu = (ListPreference) findPreference(STATUS_BAR_POWER_MENU);
+        mStatusBarPowerMenu.setOnPreferenceChangeListener(this);
+        int statusBarPowerMenu = Settings.System.getInt(getContentResolver(),
+                STATUS_BAR_POWER_MENU, 0);
+        mStatusBarPowerMenu.setValue(String.valueOf(statusBarPowerMenu));
+        mStatusBarPowerMenu.setSummary(mStatusBarPowerMenu.getEntry());
+        
         mShowWeather = (SwitchPreference) findPreference(PREF_SHOW_WEATHER);
         mShowWeather.setChecked(showWeather);
         mShowWeather.setOnPreferenceChangeListener(this);
@@ -150,7 +161,17 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         String hex;
         int intHex;
 
-        if (preference == mShowWeather) {
+        if (preference == mStatusBarPowerMenu) {
+            String statusBarPowerMenu = (String) newValue;
+            int statusBarPowerMenuValue = Integer.parseInt(statusBarPowerMenu);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_POWER_MENU, statusBarPowerMenuValue);
+            int statusBarPowerMenuIndex = mStatusBarPowerMenu
+                    .findIndexOfValue(statusBarPowerMenu);
+            mStatusBarPowerMenu
+                    .setSummary(mStatusBarPowerMenu.getEntries()[statusBarPowerMenuIndex]);
+            return true;
+        } else if (preference == mShowWeather) {
             value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                 Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER,
@@ -224,6 +245,8 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_POWER_MENU, 0);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER_LOCATION, 1);
@@ -242,6 +265,8 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                     .setPositiveButton(R.string.reset_cyanide,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_POWER_MENU, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER, 1);
                             Settings.System.putInt(getOwner().mResolver,

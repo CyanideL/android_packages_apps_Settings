@@ -33,6 +33,7 @@
     <string name="icon_title">Icon</string>
     <string name="icons_title">Icons</string>
 	<string name="text_title">Text</string>
+	<string name="notification_drawer_clear_all_icon_color_title">Clear all icon</string>
 	<string name="category_colors_title">Customize Colors</string>
 	<string name="battery_style_reset_message">Reset battery bar color?</string>
     <string name="reset_message">Reset all entries to default?</string>
@@ -75,6 +76,7 @@
 	<string name="status_bar_random_title">Random Settings</string>
     <string name="Recents_panel">Recent Apps Panel</string>
     <string name="recents_control_title">Recents Panel Options</string>
+    <string name="status_bar_expanded_header_settings_title">Status Bar Header</string>
 	<string name="header_weather_title">Status Bar Weather</string>
 	<string name="stweaks_title">STweaks</string>
 	<string name="system_header_title">System Settings</string>
@@ -162,7 +164,7 @@
     <string name="shortcut_action_screenshot">Screenshot</string>
     <string name="shortcut_action_torch">Torch</string>
     <string name="shortcut_action_menu">Menu</string>
-    <string name="shortcut_action_ime">Open IME Switcher</string>
+    <string name="shortcut_action_ime">IME Switcher</string>
     <string name="shortcut_action_power_menu">Power menu</string>
     <string name="shortcut_action_recent">Recents</string>
     <string name="shortcut_action_power">Screen Off</string>
@@ -806,11 +808,6 @@
     <string name="color_normal_title">Normal</string>
     <string name="color_fully_title">Fully Connected</string>
     
-    <!-- Status bar Header -->
-    <string name="status_bar_expanded_header_settings_title">Status Bar Header</string>
-    <string name="status_bar_expanded_nd_settings_title">Clear All Icon Color</string>
-    <string name="notification_drawer_clear_all_icon_color_title">Clear all icon</string>
-    
     <!-- Status bar battery status settings -->
     <string name="status_bar_battery_status_settings_title">Battery Options</string>
     <string name="battery_status_cat_circle_options_title">Customize the circle</string>
@@ -1184,7 +1181,7 @@
     <string name="smart_pulldown_persistent">No persistent</string>
     <string name="smart_pulldown_all">No dismissable or persistent</string>
     
-    <string name="qs_slim_action_title">CyanideActions</string>
+    <string name="qs_slim_action_title">Cyanide Action Tile</string>
 	<string name="qs_slim_action_summary">Add and set the order of CyanideActions for CyanideAction tile</string>
 	
 	<!-- Force expand notifications -->
@@ -1553,7 +1550,7 @@
     <string name="power_menu_onthego_summary">Enable the On-The-Go mode service</string>
 
     <!-- Status bar power menu -->
-    <string name="status_bar_power_menu_title">Power menu in expanded status bar</string>
+    <string name="status_bar_power_menu_title">Power Menu Button</string>
     <string name="status_bar_power_menu_dialog_title">Set tap and long-press actions</string>
     <string name="status_bar_power_menu_off">Disabled</string>
     <string name="status_bar_power_menu_action_screen_off">Screen off - Power menu</string>

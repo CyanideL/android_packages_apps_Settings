@@ -44,13 +44,11 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
     private static final String QUICK_PULLDOWN = "quick_pulldown";
     private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
     private static final String PREF_BLOCK_ON_SECURE_KEYGUARD = "block_on_secure_keyguard";
-    private static final String STATUS_BAR_POWER_MENU = "status_bar_power_menu";
 
     private ListPreference mQuickPulldown;
     private ListPreference mSmartPulldown;
     private SwitchPreference mBlockOnSecureKeyguard;
     private Preference mQSTiles;
-    private ListPreference mStatusBarPowerMenu;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -89,15 +87,6 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
                     Settings.Secure.STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD, 1) == 1);
             mBlockOnSecureKeyguard.setOnPreferenceChangeListener(this);
 		}
-		
-		// status bar power menu
-        mStatusBarPowerMenu = (ListPreference) findPreference(STATUS_BAR_POWER_MENU);
-        mStatusBarPowerMenu.setOnPreferenceChangeListener(this);
-        int statusBarPowerMenu = Settings.System.getInt(getContentResolver(),
-                STATUS_BAR_POWER_MENU, 0);
-        mStatusBarPowerMenu.setValue(String.valueOf(statusBarPowerMenu));
-        mStatusBarPowerMenu.setSummary(mStatusBarPowerMenu.getEntry());
-
     }
 
     @Override
@@ -128,16 +117,6 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
             Settings.Secure.putInt(getContentResolver(),
                     Settings.Secure.STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD,
                     (Boolean) newValue ? 1 : 0);
-            return true;
-		} else if (preference == mStatusBarPowerMenu) {
-            String statusBarPowerMenu = (String) newValue;
-            int statusBarPowerMenuValue = Integer.parseInt(statusBarPowerMenu);
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.STATUS_BAR_POWER_MENU, statusBarPowerMenuValue);
-            int statusBarPowerMenuIndex = mStatusBarPowerMenu
-                    .findIndexOfValue(statusBarPowerMenu);
-            mStatusBarPowerMenu
-                    .setSummary(mStatusBarPowerMenu.getEntries()[statusBarPowerMenuIndex]);
             return true;
 		}
         return false;

@@ -28,6 +28,11 @@
             android:defaultValue="0xff263238" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="notification_drawer_clear_all_icon_color"
+            android:title="@string/notification_drawer_clear_all_icon_color_title"
+            android:defaultValue="0xffffffff" />
+        
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="qs_icon_color"
             android:title="@string/icon_title"
             android:defaultValue="0xffffffff" />
