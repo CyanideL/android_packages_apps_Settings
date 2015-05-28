@@ -20,6 +20,7 @@
     <PreferenceScreen
         android:key="lock_shortcuts_style"
         android:title="@string/lock_shortcuts_style"
+        android:summary="@string/ls_icon_color_summary"
         android:fragment="com.android.settings.cyanide.LSSColors" />
     
     <ListPreference

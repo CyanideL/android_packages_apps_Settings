@@ -35,6 +35,7 @@ import android.view.MenuItem;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.cyanide.util.Helpers;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
@@ -126,6 +127,7 @@ public class LSSColors extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_SHORTCUTS_ICON_COLOR,
                     intHex);
+            Helpers.restartSystemUI();
             return true;
         }
         return false;
@@ -168,6 +170,7 @@ public class LSSColors extends SettingsPreferenceFragment implements
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.LOCKSCREEN_SHORTCUTS_ICON_COLOR,
                                     DEFAULT_ICON_COLOR);
+                                    Helpers.restartSystemUI();
                             getOwner().refreshSettings();
                         }
                     })
@@ -179,6 +182,7 @@ public class LSSColors extends SettingsPreferenceFragment implements
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.LOCKSCREEN_SHORTCUTS_ICON_COLOR,
                                     0xff1976D2);
+                                    Helpers.restartSystemUI();
                             getOwner().refreshSettings();
                         }
                     })
