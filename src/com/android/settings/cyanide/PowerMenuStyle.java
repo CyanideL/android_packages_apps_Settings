@@ -21,6 +21,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
+import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -29,6 +30,7 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.Menu;
@@ -43,14 +45,17 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 public class PowerMenuStyle extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
-    private static final int MENU_RESET = Menu.FIRST;
-
-    private static final int DLG_RESET = 0;
-
+    private static final String POWER_MENU_ONTHEGO_ENABLED = "power_menu_onthego_enabled";
     private static final String POWER_MENU_TEXT_COLOR = "pref_power_menu_text_color";
     private static final String POWER_MENU_ICON_COLOR = "pref_power_menu_icon_color";
     private static final String POWER_MENU_COLOR_MODE = "pref_power_menu_color_mode";
+    
+    private static final int CYANIDE_BLUE = 0xff1976D2;
+    
+    private static final int MENU_RESET = Menu.FIRST;
+    private static final int DLG_RESET = 0;
 
+    private SwitchPreference mOnTheGoPowerMenu;
     private ColorPickerPreference mPowerMenuColor;
     private ColorPickerPreference mPowerMenuTextColor;
     private ListPreference mPowerMenuColorMode;
@@ -74,6 +79,12 @@ public class PowerMenuStyle extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.power_menu_style);
 
         prefSet = getPreferenceScreen();
+        ContentResolver resolver = getActivity().getContentResolver();
+
+        mOnTheGoPowerMenu = (SwitchPreference) findPreference(POWER_MENU_ONTHEGO_ENABLED);
+        mOnTheGoPowerMenu.setChecked(Settings.System.getInt(resolver,
+                Settings.System.POWER_MENU_ONTHEGO_ENABLED, 0) == 1);
+        mOnTheGoPowerMenu.setOnPreferenceChangeListener(this);
 
         mPowerMenuColor =
             (ColorPickerPreference) findPreference(POWER_MENU_ICON_COLOR);
@@ -144,10 +155,15 @@ public class PowerMenuStyle extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+		ContentResolver resolver = getActivity().getContentResolver();
         if (!mCheckPreferences) {
             return false;
         }
-        if (preference == mPowerMenuColor) {
+        if (preference == mOnTheGoPowerMenu) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(resolver, Settings.System.POWER_MENU_ONTHEGO_ENABLED, value ? 1 : 0);
+            return true;
+        } else if (preference == mPowerMenuColor) {
             String hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
             preference.setSummary(hex);
@@ -165,7 +181,7 @@ public class PowerMenuStyle extends SettingsPreferenceFragment implements
                 mPowerMenuColorMode.getEntries()[index]);
             updateColorPreference();
             return true;
-        } if (preference == mPowerMenuTextColor) {
+        } else if (preference == mPowerMenuTextColor) {
             String hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
             preference.setSummary(hex);

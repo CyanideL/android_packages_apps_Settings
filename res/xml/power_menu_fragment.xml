@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 
+     Copyright (C) 2013 SlimRoms
      Copyright (C) 2015 The Fusion Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,16 +19,25 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <ListPreference
+        android:key="advanced_reboot"
+        android:title="@string/advanced_reboot_title"
+        android:dialogTitle="@string/advanced_reboot_dialog_title"
+        android:entries="@array/advanced_reboot_entries"
+        android:entryValues="@array/advanced_reboot_values"
+        android:summary="@string/advanced_reboot_summary"
+        android:persistent="false" />
+
     <PreferenceScreen
         android:fragment="com.android.settings.cyanide.PowerMenuStyle"
-        android:key="power_menu_style"
-        android:title="@string/power_menu_style_title"
-        android:summary="@string/power_menu_style_summary" />
+        android:key="power_menu_options"
+        android:title="@string/options_title"
+        android:summary="@string/power_menu_options_summary" />
         
-    <SwitchPreference
-        android:key="power_menu_onthego_enabled"
-        android:title="@string/power_menu_onthego_title"
-        android:summary="@string/power_menu_onthego_summary"
-        android:defaultValue="false" />
+    <PreferenceCategory
+
+        android:title="@string/power_menu_actions_title">
+
+    </PreferenceCategory>
 
 </PreferenceScreen>

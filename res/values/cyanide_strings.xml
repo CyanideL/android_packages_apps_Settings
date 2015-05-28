@@ -1551,7 +1551,8 @@
     <string name="status_bar_power_menu_action_dialog">Power menu - Screen off</string> 
     
     <!-- Power menu -->
-    <string name="power_menu_style_summary">Change global menu colors</string>
+    <string name="power_menu_options_summary">Change global menu options and colors</string>
+    <string name="power_menu_actions_title">Global menu actions</string>
     <string name="shortcuts_text_color_title">Text color</string>
     <string name="shortcuts_color_title">Icon color</string>
     <string name="shortcuts_color_mode_title">Icon color mode</string>
