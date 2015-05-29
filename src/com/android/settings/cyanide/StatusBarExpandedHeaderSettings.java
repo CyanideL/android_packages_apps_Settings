@@ -93,7 +93,7 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         mStatusBarPowerMenu = (ListPreference) findPreference(STATUS_BAR_POWER_MENU);
         mStatusBarPowerMenu.setOnPreferenceChangeListener(this);
         int statusBarPowerMenu = Settings.System.getInt(getContentResolver(),
-                STATUS_BAR_POWER_MENU, 0);
+                STATUS_BAR_POWER_MENU, 2);
         mStatusBarPowerMenu.setValue(String.valueOf(statusBarPowerMenu));
         mStatusBarPowerMenu.setSummary(mStatusBarPowerMenu.getEntry());
         
