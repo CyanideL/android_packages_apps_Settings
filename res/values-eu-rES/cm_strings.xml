@@ -256,13 +256,6 @@
   <string name="adb_notify">Arazketa jakinarazpena</string>
   <string name="adb_notify_summary">Bistaratu jakinarazpena USB edo sare arazketa gaitzean</string>
   <string name="device_hostname">Gailuaren izena</string>
-<<<<<<< HEAD
-  <string name="development_shortcut_title">Garatzaile ezarpenak</string>
-  <string name="wake_when_plugged_or_unplugged_title">Kargagailuarekin esnatu</string>
-  <string name="wake_when_plugged_or_unplugged_summary">Pantaila piztu kargagailua konektatu/deskonektatzean</string>
-  <string name="kill_app_longpress_back">Itzuli botoia</string>
-  <string name="disable_navkeys_title">Nabigazio barra gaitu</string>
-=======
   <string name="development_shortcut_title">Garapen lasterbidea</string>
   <string name="development_shortcut_summary">Gaitu aplikazio kudeaketa lasterbideak berriki erabilitako aplikazioen zerrendan</string>
   <string name="double_tap_to_sleep_title">Birritan sakatu lokartzeko</string>
@@ -272,7 +265,6 @@
   <string name="kill_app_longpress_back">Hil aplikazioa atzera botoiarekin</string>
   <string name="kill_app_longpress_back_summary">Hil aurrealdeko aplikazioa atzera botoia luze sakatuz</string>
   <string name="disable_navkeys_title">Gaitu pantailako nabigazio barra</string>
->>>>>>> 7cfb559... Automatic translation import
   <string name="disable_navkeys_summary">Gaitu pantailako nabigazio-barra eta ezgaitu botoi fisikoak</string>
   <string name="navigation_bar_category">Nabigazio-barra</string>
   <string name="navigation_bar_left_title">Ezkertientzako modua</string>
