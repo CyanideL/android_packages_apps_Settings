@@ -68,7 +68,7 @@ public class S3 extends SettingsPreferenceFragment
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mCyanideOfficial) {
-            Uri uri = Uri.parse("https://www.androidfilehost.com/?w=files&flid=22980");
+            Uri uri = Uri.parse("https://www.androidfilehost.com/?w=files&flid=29372");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
             return true;
