@@ -59,8 +59,14 @@
     </PreferenceCategory>
     
     <PreferenceScreen
+        android:key="recent_panel"
+        android:summary="@string/omniswitch_settings_summary"
+        android:fragment="com.android.settings.cyanide.RecentPanel"
+        android:title="@string/recent_panel_category" />
+    
+    <PreferenceScreen
 			android:id="@+id/omniswitch"
-			android:title="@string/omniswitch_settings_title"
+			android:title="@string/recent_panel_summary"
 			android:summary="@string/omniswitch_settings_summary"
 			android:fragment="com.android.settings.cyanide.OmniSwitch" />
 
