@@ -35,7 +35,6 @@ import android.view.MenuItem;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
-import com.android.settings.cyanide.util.Helpers;
 
 public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -186,7 +185,6 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
             Settings.System.putInt(mResolver,
                 Settings.System.ENABLE_TASK_MANAGER,
                 value ? 1 : 0);
-            Helpers.restartSystemUI();
             return true;
         } else if (preference == mShowWeather) {
             value = (Boolean) newValue;
