@@ -70,12 +70,13 @@
         android:key="recent_panel"
         android:fragment="com.android.settings.cyanide.RecentPanel"
         android:title="@string/recent_panel_category"
+        android:summary="@string/recent_panel_summary"
         android:dependency="custom_recent_mode" />
 
     <!-- OmniSwitch -->
     <PreferenceScreen
 			android:id="@+id/omniswitch"
-			android:title="@string/recent_panel_summary"
+			android:title="@string/omniswitch_settings_title"
 			android:summary="@string/omniswitch_settings_summary"
 			android:fragment="com.android.settings.cyanide.OmniSwitch" />
 
