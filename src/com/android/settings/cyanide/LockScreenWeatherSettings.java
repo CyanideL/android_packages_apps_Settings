@@ -237,7 +237,7 @@ public class LockScreenWeatherSettings extends SettingsPreferenceFragment implem
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.LOCK_SCREEN_WEATHER_CONDITION_ICON, 2);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.LOCK_SCREEN_WEATHER_COLORIZE_ALL_ICONS, 1);
+                                    Settings.System.LOCK_SCREEN_WEATHER_COLORIZE_ALL_ICONS, 0);
                             getOwner().refreshSettings();
                         }
                     })

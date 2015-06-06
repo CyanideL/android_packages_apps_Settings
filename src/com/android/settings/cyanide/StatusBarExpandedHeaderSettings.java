@@ -262,6 +262,8 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_POWER_MENU, 0);
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.ENABLE_TASK_MANAGER, 0);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER_LOCATION, 1);
@@ -281,14 +283,16 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_POWER_MENU, 0);
+                                    Settings.System.STATUS_BAR_POWER_MENU, 2);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.ENABLE_TASK_MANAGER, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER_LOCATION, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_BG_COLOR,
-                                    0xff000000);
+                                    0x00000000);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_TEXT_COLOR,
                                     CYANIDE_BLUE);

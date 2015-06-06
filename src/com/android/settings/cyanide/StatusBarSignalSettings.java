@@ -318,7 +318,7 @@ public class StatusBarSignalSettings extends SettingsPreferenceFragment implemen
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
-                                Settings.System.STATUS_BAR_SHOW_NETWORK_ACTIVITY, 0);
+                                Settings.System.STATUS_BAR_SHOW_NETWORK_ACTIVITY, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_NETWORK_ICONS_NORMAL_COLOR,
                                 CYANIDE_BLUE);
