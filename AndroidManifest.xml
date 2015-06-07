@@ -2029,20 +2029,6 @@
                 android:resource="@id/display_and_lights_settings" />
         </activity>
         
-        <!-- PA Pie settings activity. -->
-        <activity android:name="Settings$PAPieControlSettingsActivity"
-                android:label="@string/pie_control_title"
-                android:excludeFromRecents="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.cyanide.PAPieControl" />
-            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
-                android:resource="@id/display_and_lights_settings" />
-        </activity>
-        
         <!-- Heads up notifications -->
         <activity android:name="Settings$HeadsUpSettingsActivity"
                 android:uiOptions="splitActionBarWhenNarrow"
@@ -2444,7 +2430,6 @@
         </receiver>
 
         <activity android:name=".cyanide.navbar.NavbarTabHostFragment" />
-        <activity android:name=".cyanide.PAPieControl" />
 
         <receiver android:name=".cyanogenmod.BootReceiver" android:enabled="true">
             <intent-filter android:priority="2147483647">

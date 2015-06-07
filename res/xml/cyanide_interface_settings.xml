@@ -22,21 +22,21 @@
     <PreferenceCategory
 			android:key="interface"
 			android:title="@string/interface_control_title">
-    
+
 		<!-- Appbar -->
 		<PreferenceScreen
             android:key="app_sidebar"
             android:fragment="com.android.settings.cyanide.AppSideBar"
             android:title="@string/app_sidebar_title"
 			android:summary="@string/app_sidebar_summary" />
-		
+
 		<!-- App Circle Bar -->
 		<PreferenceScreen
 			android:key="app_circle_bar"
 			android:fragment="com.android.settings.cyanide.AppCircleBar"
 			android:summary="@string/appcirclebar_settings_summary"
 			android:title="@string/app_circle_bar_title" />
-    
+
 		<!-- Expanded Desktop -->
 		<PreferenceScreen
 			android:key="expanded_desktop"
@@ -44,35 +44,28 @@
 			android:fragment="com.android.settings.applications.ExpandedDesktopPreferenceFragment"
 			android:summary="@string/expanded_desktop_summary"
 			settings:advanced="true"/>
-    
+
 		<!-- Gesture anywhere -->
 		<PreferenceScreen
 			android:key="gesture_anywhere"
 			android:fragment="com.android.settings.cyanide.gestureanywhere.GestureAnywhereSettings"
 			android:summary="@string/gestureanywhere_settings_summary"
 			android:title="@string/gesture_anywhere_title" />
-    
+
 		<!-- Density Changer -->
 		<PreferenceScreen
 			android:key="density_changer"
 			android:title="@string/lcd_density_title"
 			android:summary="@string/lcddensity_settings_summary"
 			android:fragment="com.android.settings.cyanide.Density" />
-        
-		<!--PA Pie Control -->
-		<PreferenceScreen
-			android:key="pa_pie_control"
-			android:title="@string/pa_pie_control_title"
-			android:summary="@string/pa_piecontrol_settings_summary"
-			android:fragment="com.android.settings.cyanide.PAPieControl" />
-		
+
 		<!-- Pie control -->
 		<PreferenceScreen
 			android:key="pie_settings"
 			android:title="@string/pie_control_title"
 			android:summary="@string/piecontrol_settings_summary"
 			android:fragment="com.android.settings.cyanide.PieControl" />
-			
+
 	</PreferenceCategory>
-	
+
 </PreferenceScreen>
