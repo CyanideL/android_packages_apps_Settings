@@ -202,7 +202,7 @@ public class QSTileHolder {
                 stringId = R.string.qs_tile_usb_tether;
                 break;
             case QSConstants.TILE_SLIMPIE:
-                resourceName = "ic_qs_pie_on";
+                resourceName = "ic_qs_pie_global_on";
                 stringId = R.string.qs_tile_slimpie;
                 break;
             case QSConstants.TILE_GESTURE_ANYWHERE:

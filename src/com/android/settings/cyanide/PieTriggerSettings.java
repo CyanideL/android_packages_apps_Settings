@@ -34,7 +34,7 @@ public class PieTriggerSettings extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
     // This equals EdgeGesturePosition.RIGHT.FLAG
-    private static final int DEFAULT_POSITION = 2 << 0;
+    private static final int DEFAULT_POSITION = 2 << 1;
 
     private static final String PREF_PIE_DISABLE_IME_TRIGGERS = "pie_disable_ime_triggers";
     private static final String PIE_TRIGGER_SENSITIVITY = "pie_trigger_sensitivity";
