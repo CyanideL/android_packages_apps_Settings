@@ -47,6 +47,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.internal.util.cyanide.CyanideUtils;
+import com.android.internal.util.cyanide.DeviceUtils;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
@@ -58,11 +59,13 @@ public class NavigationSettings extends SettingsPreferenceFragment
     private static final String CATEGORY_NAVBAR = "navigation_bar";
     private static final String CATEGORY_NAV_BAR_ENABLE = "navigation_bar_enable";
     private static final String KEY_NAVIGATION_BAR_LEFT = "navigation_bar_left";
+    private static final String PREF_NAVIGATION_BAR_CAN_MOVE = "navbar_can_move";
     private static final String NAVIGATION_BAR_TINT = "navigation_bar_tint";
 
     private boolean mCheckPreferences;
 
     private SwitchPreference mNavigationBarLeftPref;
+    private SwitchPreference mNavigationBarCanMove;
     private ColorPickerPreference mNavbarButtonTint;
 
     @Override
@@ -75,6 +78,12 @@ public class NavigationSettings extends SettingsPreferenceFragment
         // Navigation bar left
         mNavigationBarLeftPref = (SwitchPreference) findPreference(KEY_NAVIGATION_BAR_LEFT); 
 
+        mNavigationBarCanMove = (SwitchPreference) findPreference(PREF_NAVIGATION_BAR_CAN_MOVE);
+        mNavigationBarCanMove.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.NAVIGATION_BAR_CAN_MOVE,
+                DeviceUtils.isPhone(getActivity()) ? 1 : 0) == 0);
+        mNavigationBarCanMove.setOnPreferenceChangeListener(this);
+        
         // Navigation bar button color
         mNavbarButtonTint = (ColorPickerPreference) findPreference(NAVIGATION_BAR_TINT);
         mNavbarButtonTint.setOnPreferenceChangeListener(this);
@@ -116,7 +125,12 @@ public class NavigationSettings extends SettingsPreferenceFragment
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-		if (preference == mNavbarButtonTint) {
+		if (preference == mNavigationBarCanMove) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.NAVIGATION_BAR_CAN_MOVE,
+                    ((Boolean) newValue) ? 0 : 1);
+            return true;
+        } else if (preference == mNavbarButtonTint) {
             String hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
             preference.setSummary(hex);

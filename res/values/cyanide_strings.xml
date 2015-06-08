@@ -984,6 +984,8 @@
     <string name="enable_navigation_ring_title">Navigation search assistant</string>
     <string name="enable_navigation_ring_summary">Enable long-press on home for the google now search assistant</string>
     <string name="navbar_use_gallary_warning">Info: please select Gallery to save image</string>
+    <string name="navbar_can_move">Show landscape</string>
+    <string name="navbar_can_move_summary">Shows navigation bar in landscape on the bottom</string>
     
     <!-- Pie control -->
     <string name="pie_control_title">SlimPIE</string>
