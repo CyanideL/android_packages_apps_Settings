@@ -426,11 +426,12 @@ public class NavbarSettingsFragment extends Fragment implements SeekBar.OnSeekBa
             mNavring.setVisibility(View.GONE);
             v.findViewById(R.id.enable_navigation_ring_text).setVisibility(View.GONE);
         }
-        if (DeviceUtils.isPhone(activity)) {
+        int navbarCanMove = Settings.System.getInt(cr, Settings.System.NAVIGATION_BAR_CAN_MOVE, 1);
+        if (navbarCanMove == 1) {
             v.findViewById(R.id.navigation_bar_height_landscape_text).setVisibility(View.GONE);
             mBarHeightLandscapeValue.setVisibility(View.GONE);
             mNavigationBarHeightLandscape.setVisibility(View.GONE);
-        } else {
+        } else if (navbarCanMove == 0) {
             v.findViewById(R.id.navigation_bar_width_text).setVisibility(View.GONE);
             mBarWidthValue.setVisibility(View.GONE);
             mNavigationBarWidth.setVisibility(View.GONE);
