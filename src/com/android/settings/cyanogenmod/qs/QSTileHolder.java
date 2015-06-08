@@ -233,6 +233,10 @@ public class QSTileHolder {
                 resourceName = "ic_qs_sidebar_off";
                 stringId = R.string.qs_tile_appsidebar;
                 break;
+            case QSConstants.TILE_PA_PIE_CONTROL:
+                resourceName = "ic_qs_pie_global_on";
+                stringId = R.string.qs_pa_pie_control_tile;
+                break;
             default:
                 return null;
         }

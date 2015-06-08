@@ -59,6 +59,13 @@
 			android:summary="@string/lcddensity_settings_summary"
 			android:fragment="com.android.settings.cyanide.Density" />
 
+		<!--PA Pie Control -->
+		<PreferenceScreen
+			android:key="pa_pie_control"
+			android:title="@string/pa_pie_control_title"
+			android:summary="@string/pa_piecontrol_settings_summary"
+			android:fragment="com.android.settings.cyanide.PAPieControl" />
+
 		<!-- Pie control -->
 		<PreferenceScreen
 			android:key="pie_settings"
