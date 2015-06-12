@@ -1542,6 +1542,7 @@
 
     <!-- Recent panel -->
     <string name="recent_panel_category">Slim Recents Options</string>
+    <string name="use_slim_recents_title">Slim Recents</string>
     <string name="recent_panel_summary">Customize Slim Recents text, card and background color</string>
     <string name="show_running_tasks_title">Only show running apps</string>
     <string name="recents_max_apps_title">Max allowed apps</string>
@@ -1564,10 +1565,6 @@
     <!-- ATTENTION: RTL languages need to replace left with right -->
     <string name="recent_panel_lefty_mode_title">Show on the left edge</string>
     <string name="recent_panel_lefty_mode_summary">Show recent apps panel on the left edge</string>
-
-    <!-- Custom Recents Toggle -->
-    <string name="custom_recent_title">Enable Slim Recents</string>
-    <string name="custom_recent_summary">Choose between Slim/Stock RecentApps</string>
 
     <!-- Double tap gesture anywhere on the lock screen put device to sleep -->
     <string name="double_tap_sleep_anywhere_title">Double-tap to sleep anywhere</string>

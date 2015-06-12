@@ -54,6 +54,8 @@ public class RecentPanel extends SettingsPreferenceFragment implements DialogCre
     private static final String TAG = "RecentPanelSettings";
 
     // Preferences
+    private static final String USE_SLIM_RECENTS =
+            "use_slim_recents";
     private static final String ONLY_SHOW_RUNNING_TASKS =
             "only_show_running_tasks";
     private static final String RECENTS_MAX_APPS =
@@ -73,6 +75,7 @@ public class RecentPanel extends SettingsPreferenceFragment implements DialogCre
     private static final String RECENT_CARD_TEXT_COLOR =
             "recent_card_text_color";
 
+    private SwitchPreference mUseSlimRecents;
     private SwitchPreference mShowRunningTasks;
     private SlimSeekBarPreference mMaxApps;
     private SwitchPreference mRecentsShowTopmost;
@@ -94,7 +97,11 @@ public class RecentPanel extends SettingsPreferenceFragment implements DialogCre
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mShowRunningTasks) {
+        if (preference == mUseSlimRecents) {
+            Settings.System.putInt(getContentResolver(), Settings.System.USE_SLIM_RECENTS,
+                    ((Boolean) newValue) ? 1 : 0);
+            return true;
+        } else if (preference == mShowRunningTasks) {
             Settings.System.putInt(getContentResolver(), Settings.System.RECENT_SHOW_RUNNING_TASKS,
                     ((Boolean) newValue) ? 1 : 0);
             return true;
@@ -232,6 +239,9 @@ public class RecentPanel extends SettingsPreferenceFragment implements DialogCre
     }
 
     private void initializeAllPreferences() {
+		mUseSlimRecents = (SwitchPreference) findPreference(USE_SLIM_RECENTS);
+        mUseSlimRecents.setOnPreferenceChangeListener(this);
+		
         mShowRunningTasks = (SwitchPreference) findPreference(ONLY_SHOW_RUNNING_TASKS);
         mShowRunningTasks.setOnPreferenceChangeListener(this);
 

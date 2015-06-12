@@ -48,7 +48,6 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
     private static final String RECENTS_CLEAR_ALL_LOCATION = "recents_clear_all_location";
     private static final String PREF_CLEAR_ALL_BG_COLOR = "recent_apps_clear_all_bg_color";
     private static final String PREF_CLEAR_ALL_ICON_COLOR = "recent_apps_clear_all_icon_color";
-    private static final String CUSTOM_RECENT_MODE = "custom_recent_mode";
 
     private static final String KEY_OMNISWITCH = "omniswitch";
     public static final String OMNISWITCH_PACKAGE_NAME = "org.omnirom.omniswitch";
@@ -64,8 +63,6 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
     private ListPreference mRecentsClearAllLocation;
     private ColorPickerPreference mClearAllIconColor;
     private ColorPickerPreference mClearAllBgColor;
-
-    private SwitchPreference mRecentsCustom;
 
     private Preference mOmniSwitch;
     private ContentResolver mResolver;
@@ -116,12 +113,6 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mClearAllIconColor.setSummary(hexColor);
         mClearAllIconColor.setOnPreferenceChangeListener(this);
-
-        boolean enableRecentsCustom = Settings.System.getBoolean(getContentResolver(),
-                                      Settings.System.CUSTOM_RECENT, false);
-        mRecentsCustom = (SwitchPreference) findPreference(CUSTOM_RECENT_MODE);
-        mRecentsCustom.setChecked(enableRecentsCustom);
-        mRecentsCustom.setOnPreferenceChangeListener(this);
         
         mOmniSwitch = (Preference)
                 prefSet.findPreference(KEY_OMNISWITCH);
@@ -177,12 +168,6 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(mResolver,
                     Settings.System.RECENT_APPS_CLEAR_ALL_ICON_COLOR, intHex);
             preference.setSummary(hex);
-            return true;
-        } else if (preference == mRecentsCustom) {
-            Settings.System.putBoolean(getActivity().getContentResolver(),
-                    Settings.System.CUSTOM_RECENT,
-                    ((Boolean) objValue) ? true : false);
-            Helpers.restartSystemUI();
             return true;
         }
         return false;
