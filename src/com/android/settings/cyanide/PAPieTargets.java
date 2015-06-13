@@ -36,29 +36,33 @@ import com.android.settings.SettingsPreferenceFragment;
 
 public class PAPieTargets extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
-    private static final String PA_PIE_MENU = "pa_pie_menu";
-    private static final String PA_PIE_LASTAPP = "pa_pie_lastapp";
+    private static final String PA_PIE_EXPANDED_DESKTOP = "pa_pie_expanded_desktop";
     private static final String PA_PIE_KILLTASK = "pa_pie_killtask";
+    private static final String PA_PIE_LASTAPP = "pa_pie_lastapp";
+    private static final String PA_PIE_MENU = "pa_pie_menu";
+    private static final String PA_PIE_NAVBAR = "pa_pie_navbar";
     private static final String PA_PIE_NOTIFICATIONS = "pa_pie_notifications";
     private static final String PA_PIE_SETTINGS_PANEL = "pa_pie_settings_panel";
-    private static final String PA_PIE_POWER = "pa_pie_power";
-    private static final String PA_PIE_TORCH = "pa_pie_torch";
-    private static final String PA_PIE_SCREENSHOT = "pa_pie_screenshot";
     private static final String PA_PIE_POWER_MENU = "pa_pie_power_menu";
-    private static final String PA_PIE_EXPANDED_DESKTOP = "pa_pie_expanded_desktop";
+    private static final String PA_PIE_SCREEN_OFF = "pa_pie_screen_off";
+    private static final String PA_PIE_SCREENSHOT = "pa_pie_screenshot";
+    private static final String PA_PIE_SLIMPIE = "pa_pie_slimpie";
     private static final String PA_PIE_THEME_SWITCH = "pa_pie_theme_switch";
+    private static final String PA_PIE_TORCH = "pa_pie_torch";
 
-    private SwitchPreference mPieMenu;
-    private SwitchPreference mPieLastApp;
+    private SwitchPreference mPieExpandedDesktop;
     private SwitchPreference mPieKillTask;
+    private SwitchPreference mPieLastApp;
+    private SwitchPreference mPieMenu;
+    private SwitchPreference mPieNavbar;
     private SwitchPreference mPieNotifications;
     private SwitchPreference mPieQsPanel;
-    private SwitchPreference mPiePower;
-    private SwitchPreference mPieTorch;
-    private SwitchPreference mPieScreenshot;
     private SwitchPreference mPiePowerMenu;
-    private SwitchPreference mPieExpandedDesktop;
+    private SwitchPreference mPieScreenOff;
+    private SwitchPreference mPieScreenshot;
+    private SwitchPreference mPieSlimPie;
     private SwitchPreference mPieThemeSwitch;
+    private SwitchPreference mPieTorch;
 
     private ContentResolver mResolver;
 
@@ -73,18 +77,26 @@ public class PAPieTargets extends SettingsPreferenceFragment implements OnPrefer
         Context context = getActivity();
         mResolver = context.getContentResolver();
 
-        mPieMenu = (SwitchPreference) prefSet.findPreference(PA_PIE_MENU);
-        mPieMenu.setChecked(Settings.System.getInt(mResolver,
-                Settings.System.PA_PIE_MENU, 0) != 0);
-
+        mPieExpandedDesktop = (SwitchPreference) prefSet.findPreference(PA_PIE_EXPANDED_DESKTOP);
+        mPieExpandedDesktop.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.PA_PIE_EXPANDED_DESKTOP, 0) != 0);
+        
+        mPieKillTask = (SwitchPreference) prefSet.findPreference(PA_PIE_KILLTASK);
+        mPieKillTask.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.PA_PIE_KILL_TASK, 0) != 0);
+        
         mPieLastApp = (SwitchPreference) prefSet.findPreference(PA_PIE_LASTAPP);
         mPieLastApp.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_LAST_APP, 0) != 0);
 
-        mPieKillTask = (SwitchPreference) prefSet.findPreference(PA_PIE_KILLTASK);
-        mPieKillTask.setChecked(Settings.System.getInt(mResolver,
-                Settings.System.PA_PIE_KILL_TASK, 0) != 0);
-
+        mPieMenu = (SwitchPreference) prefSet.findPreference(PA_PIE_MENU);
+        mPieMenu.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.PA_PIE_MENU, 0) != 0);
+        
+        mPieNavbar = (SwitchPreference) prefSet.findPreference(PA_PIE_NAVBAR);
+        mPieNavbar.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.PA_PIE_NAVBAR, 0) != 0);
+        
         mPieNotifications = (SwitchPreference) prefSet.findPreference(PA_PIE_NOTIFICATIONS);
         mPieNotifications.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_NOTIFICATIONS, 0) != 0);
@@ -93,46 +105,54 @@ public class PAPieTargets extends SettingsPreferenceFragment implements OnPrefer
         mPieQsPanel.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_SETTINGS_PANEL, 0) != 0);
         
-        mPiePower = (SwitchPreference) prefSet.findPreference(PA_PIE_POWER);
-        mPiePower.setChecked(Settings.System.getInt(mResolver,
-                Settings.System.PA_PIE_POWER, 1) != 0);
-
-        mPieTorch = (SwitchPreference) prefSet.findPreference(PA_PIE_TORCH);
-        mPieTorch.setChecked(Settings.System.getInt(mResolver,
-                Settings.System.PA_PIE_TORCH, 1) != 0);
+        mPiePowerMenu = (SwitchPreference) prefSet.findPreference(PA_PIE_POWER_MENU);
+        mPiePowerMenu.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.PA_PIE_POWER_MENU, 0) != 0);
+        
+        mPieScreenOff = (SwitchPreference) prefSet.findPreference(PA_PIE_SCREEN_OFF);
+        mPieScreenOff.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.PA_PIE_SCREEN_OFF, 1) != 0);
 
         mPieScreenshot = (SwitchPreference) prefSet.findPreference(PA_PIE_SCREENSHOT);
         mPieScreenshot.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_SCREENSHOT, 0) != 0);
-                
-        mPiePowerMenu = (SwitchPreference) prefSet.findPreference(PA_PIE_POWER_MENU);
-        mPiePowerMenu.setChecked(Settings.System.getInt(mResolver,
-                Settings.System.PA_PIE_POWER_MENU, 0) != 0);
-                
-        mPieExpandedDesktop = (SwitchPreference) prefSet.findPreference(PA_PIE_EXPANDED_DESKTOP);
-        mPieExpandedDesktop.setChecked(Settings.System.getInt(mResolver,
-                Settings.System.PA_PIE_EXPANDED_DESKTOP, 0) != 0);
-                
+        
+        mPieSlimPie = (SwitchPreference) prefSet.findPreference(PA_PIE_SLIMPIE);
+        mPieSlimPie.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.PA_PIE_SLIMPIE, 0) != 0);
+        
         mPieThemeSwitch = (SwitchPreference) prefSet.findPreference(PA_PIE_THEME_SWITCH);
         mPieThemeSwitch.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_THEME_SWITCH, 0) != 0);
+        
+        mPieTorch = (SwitchPreference) prefSet.findPreference(PA_PIE_TORCH);
+        mPieTorch.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.PA_PIE_TORCH, 1) != 0);
 
     }
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == mPieMenu) {
+        if (preference == mPieExpandedDesktop) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.PA_PIE_MENU,
-                    mPieMenu.isChecked() ? 1 : 0);
-        } else if (preference == mPieLastApp) {
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.PA_PIE_LAST_APP,
-                    mPieLastApp.isChecked() ? 1 : 0);
+                    Settings.System.PA_PIE_EXPANDED_DESKTOP,
+                    mPieExpandedDesktop.isChecked() ? 1 : 0);
         } else if (preference == mPieKillTask) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.PA_PIE_KILL_TASK,
                     mPieKillTask.isChecked() ? 1 : 0);
+        } else if (preference == mPieLastApp) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.PA_PIE_LAST_APP,
+                    mPieLastApp.isChecked() ? 1 : 0);
+        } else if (preference == mPieMenu) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.PA_PIE_MENU,
+                    mPieMenu.isChecked() ? 1 : 0);
+        } else if (preference == mPieNavbar) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.PA_PIE_NAVBAR,
+                    mPieNavbar.isChecked() ? 1 : 0);
         } else if (preference == mPieNotifications) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.PA_PIE_NOTIFICATIONS,
@@ -141,30 +161,30 @@ public class PAPieTargets extends SettingsPreferenceFragment implements OnPrefer
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.PA_PIE_SETTINGS_PANEL,
                     mPieQsPanel.isChecked() ? 1 : 0);
-        } else if (preference == mPiePower) {
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.PA_PIE_POWER,
-                    mPiePower.isChecked() ? 1 : 0);
-        } else if (preference == mPieTorch) {
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.PA_PIE_TORCH,
-                    mPieTorch.isChecked() ? 1 : 0);
-        } else if (preference == mPieScreenshot) {
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.PA_PIE_SCREENSHOT,
-                    mPieScreenshot.isChecked() ? 1 : 0);
         } else if (preference == mPiePowerMenu) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.PA_PIE_POWER_MENU,
                     mPiePowerMenu.isChecked() ? 1 : 0);
-        } else if (preference == mPieExpandedDesktop) {
+        } else if (preference == mPieScreenOff) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.PA_PIE_EXPANDED_DESKTOP,
-                    mPieExpandedDesktop.isChecked() ? 1 : 0);
+                    Settings.System.PA_PIE_SCREEN_OFF,
+                    mPieScreenOff.isChecked() ? 1 : 0);
+        } else if (preference == mPieScreenshot) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.PA_PIE_SCREENSHOT,
+                    mPieScreenshot.isChecked() ? 1 : 0);
+        } else if (preference == mPieSlimPie) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.PA_PIE_SLIMPIE,
+                    mPieSlimPie.isChecked() ? 1 : 0);
         } else if (preference == mPieThemeSwitch) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.PA_PIE_THEME_SWITCH,
                     mPieThemeSwitch.isChecked() ? 1 : 0);
+        } else if (preference == mPieTorch) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.PA_PIE_TORCH,
+                    mPieTorch.isChecked() ? 1 : 0);
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
 

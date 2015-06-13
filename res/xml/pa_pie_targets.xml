@@ -22,6 +22,11 @@
         android:summary="@string/pa_pie_lastapp_summary" />
 
     <SwitchPreference
+        android:key="pa_pie_navbar"
+        android:title="@string/pa_pie_navbar_title"
+        android:summary="@string/pa_pie_navbar_summary" />
+    
+    <SwitchPreference
         android:key="pa_pie_notifications"
         android:title="@string/pa_pie_notifications_title"
         android:summary="@string/pa_pie_notifications_summary" />
@@ -37,7 +42,7 @@
         android:summary="@string/pa_pie_power_menu_summary" />
     
     <SwitchPreference
-        android:key="pa_pie_power"
+        android:key="pa_pie_screen_off"
         android:title="@string/pa_pie_screen_off_title"
         android:summary="@string/pa_pie_screen_off_summary" />
 
@@ -45,6 +50,11 @@
         android:key="pa_pie_screenshot"
         android:title="@string/pa_pie_screenshot_title"
         android:summary="@string/pa_pie_screenshot_summary" />
+    
+    <SwitchPreference
+        android:key="pa_pie_slimpie"
+        android:title="@string/pa_pie_slimpie_title"
+        android:summary="@string/pa_pie_slimpie_summary" />
     
     <SwitchPreference
         android:key="pa_pie_theme_switch"
