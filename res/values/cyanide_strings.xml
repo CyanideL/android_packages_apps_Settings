@@ -1740,4 +1740,8 @@
     <string name="slim_action_floats">Cyanide Actions and Pie</string>
     <string name="slim_action_floats_summary">Launch Cyanide and Pie Actions in Floating Window Mode</string>
 
+    <!-- Recents empty style -->
+    <string name="recents_empty_style">Show Cyanide logo</string>
+    <string name="recents_empty_style_summary">When recents is empty show Cyanide logo instead of text. This will restart you systemui</string>
+
 </resources>

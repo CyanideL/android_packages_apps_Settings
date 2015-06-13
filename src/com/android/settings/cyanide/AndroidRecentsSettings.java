@@ -35,6 +35,7 @@ import android.view.MenuItem;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.cyanide.util.Helpers;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 public class AndroidRecentsSettings extends SettingsPreferenceFragment implements
@@ -42,6 +43,8 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
 
     private static final String PREF_CAT_CLEAR_ALL =
             "android_recents_cat_clear_all_button";
+    private static final String RECENTS_EMPTY_CYANIDE_LOGO =
+            "recents_empty_cyanide_logo";
     private static final String PREF_SHOW_SEARCH_BAR =
             "android_recents_show_search_bar";
     private static final String PREF_SHOW_CLEAR_ALL =
@@ -65,6 +68,7 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
+    private SwitchPreference mRecentsStyle;
     private SwitchPreference mShowSearchBar;
     private SwitchPreference mShowClearAll;
     private ListPreference mClearAllPositionHorizontal;
@@ -94,6 +98,11 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
         int intvalue;
         int intColor;
         String hexColor;
+
+        mRecentsStyle = (SwitchPreference) findPreference(RECENTS_EMPTY_CYANIDE_LOGO);
+        mRecentsStyle.setChecked(Settings.System.getInt(mResolver,
+            Settings.System.RECENTS_EMPTY_CYANIDE_LOGO, 0) == 1);
+        mRecentsStyle.setOnPreferenceChangeListener(this);
 
         mShowSearchBar = (SwitchPreference) findPreference(PREF_SHOW_SEARCH_BAR);
         mShowSearchBar.setChecked(Settings.System.getInt(mResolver,
@@ -188,7 +197,14 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
         String hex;
         int intHex;
 
-        if (preference == mShowSearchBar) {
+        if (preference == mRecentsStyle) {
+            value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.RECENTS_EMPTY_CYANIDE_LOGO,
+                    value ? 1 : 0);
+            Helpers.restartSystemUI();
+            return true;
+        } else if (preference == mShowSearchBar) {
             value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                     Settings.System.ANDROID_RECENTS_SHOW_SEARCH_BAR,

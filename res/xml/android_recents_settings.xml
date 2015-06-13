@@ -61,7 +61,14 @@
 	<PreferenceCategory
 			android:key="recents_panel"
 			android:title="@string/recents_random_title">
-        
+
+        <!-- Recents empty Cyanide logo -->
+        <SwitchPreference
+            android:key="recents_empty_cyanide_logo"
+            android:title="@string/recents_empty_style"
+            android:summary="@string/recents_empty_style_summary"
+            android:defaultValue="false" />
+
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
 			android:key="recents_clear_all_dismiss_all"
 			android:title="@string/recents_clear_all_dismiss_all_title"
