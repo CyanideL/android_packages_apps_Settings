@@ -63,7 +63,7 @@ public class PowerMenuFragment extends SettingsPreferenceFragment implements
         mAdvancedReboot = (ListPreference) mPrefSet.findPreference(KEY_ADVANCED_REBOOT);
         if (mIsPrimary) {
             mAdvancedReboot.setValue(String.valueOf(Settings.Secure.getInt(
-                    getContentResolver(), Settings.Secure.ADVANCED_REBOOT, 1)));
+                    getContentResolver(), Settings.Secure.ADVANCED_REBOOT, 2)));
             mAdvancedReboot.setSummary(mAdvancedReboot.getEntry());
             mAdvancedReboot.setOnPreferenceChangeListener(this);
         } else {
