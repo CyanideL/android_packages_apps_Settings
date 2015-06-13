@@ -75,7 +75,7 @@
 	<string name="power_menu_control_title">Power Menu Addons</string>
 	<string name="status_bar_random_title">Random Settings</string>
     <string name="Recents_panel">Recent Apps Panel</string>
-    <string name="recents_control_title">Recents Panel Options</string>
+    <string name="recents_control_title">Clear All Button Options</string>
     <string name="status_bar_expanded_header_settings_title">Status Bar Header</string>
 	<string name="header_weather_title">Status Bar Weather</string>
 	<string name="stweaks_title">STweaks</string>
@@ -109,6 +109,9 @@
     <string name="advanced_mode_summary">Enable the GOOD SHIT!!!!</string>
     <string name="status_bar_random_summary">Configure random status bar settings</string>
     <string name="pa_piecontrol_settings_summary">Customize PA Pie 2.0 targets, sytle, size and color</string>
+    <string name="slim_recent_category">Slim Recents</string>
+    <string name="omniswitch_recent_category">OmniSwitch Settings</string>
+    <string name="recents_random_title">Misc Recents Options</string>
     
     <!-- Changelog -->
     <string name="changelog_crdroid_title">Changelog</string>
@@ -656,9 +659,9 @@
     <string name="ga_gestures_error_loading">Could not load %s. Make sure you have storage available.</string>
     
     <!-- Recents panel settings -->
-	<string name="show_clear_all_recents_button_title">Clear All Recents Button</string>
+	<string name="show_clear_all_recents_button_title">Clear All Button</string>
 	<string name="show_clear_all_recents_button_summary">Show clear all button on recents panel</string>
-	<string name="recents_clear_all_location_title">Clear All Recents Location</string>
+	<string name="recents_clear_all_location_title">Clear All Button Location</string>
 	<string name="recents_clear_all_location_top_right">Top Right</string>
 	<string name="recents_clear_all_location_top_left">Top Left</string>
 	<string name="recents_clear_all_location_top_center">Top Center</string>
@@ -667,7 +670,7 @@
 	<string name="recents_clear_all_location_bottom_center">Bottom Center</string>
 	<string name="recents_clear_all_dismiss_all_title">Clear All Tasks</string>
 	<string name="recents_clear_all_dismiss_all_summary">Choose whether to dismiss all tasks or ignore the foreground task</string>
-	<string name="recents_show_membar_title">Memory bar</string>
+	<string name="recents_show_membar_title">Memory Bar</string>
     <string name="recents_show_membar_summary">Show a bar with the device\'s available memory</string>
 	
 	<!-- long press back to kill configurable timeout -->

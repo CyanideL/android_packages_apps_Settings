@@ -28,13 +28,6 @@
             android:summary="@string/show_clear_all_recents_button_summary"
             android:defaultValue="true" />
         
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-			android:key="recents_clear_all_dismiss_all"
-			android:title="@string/recents_clear_all_dismiss_all_title"
-			android:summary="@string/recents_clear_all_dismiss_all_summary"
-			android:defaultValue="true"
-			android:dependency="show_clear_all_recents" />
-        
         <ListPreference
             android:key="recents_clear_all_location"
             android:title="@string/recents_clear_all_location_title"
@@ -42,7 +35,7 @@
             android:entryValues="@array/recents_clear_all_location_values"
             android:defaultValue="3"
             android:dependency="show_clear_all_recents" />
-
+        
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="recent_apps_clear_all_bg_color"
             android:title="@string/background_title"
@@ -54,6 +47,19 @@
             android:title="@string/icon_title"
             android:defaultValue="0xffffffff"
             android:dependency="show_clear_all_recents" />
+        
+    </PreferenceCategory>
+        
+    <PreferenceCategory
+			android:key="recents_panel"
+			android:title="@string/recents_random_title">
+        
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+			android:key="recents_clear_all_dismiss_all"
+			android:title="@string/recents_clear_all_dismiss_all_title"
+			android:summary="@string/recents_clear_all_dismiss_all_summary"
+			android:defaultValue="true"
+			android:dependency="show_clear_all_recents" />
         
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="systemui_recents_mem_display"
@@ -70,18 +76,30 @@
             
     </PreferenceCategory>
 
-    <!-- Slim Recents -->
-    <PreferenceScreen
-        android:key="recent_panel"
-        android:fragment="com.android.settings.cyanide.RecentPanel"
-        android:title="@string/recent_panel_category"
-        android:summary="@string/recent_panel_summary" />
-
-    <!-- OmniSwitch -->
-    <PreferenceScreen
+    <PreferenceCategory
+		android:key="omniswitch"
+		android:title="@string/omniswitch_recent_category">
+    
+        <!-- OmniSwitch -->
+        <PreferenceScreen
 			android:id="@+id/omniswitch"
 			android:title="@string/omniswitch_settings_title"
 			android:summary="@string/omniswitch_settings_summary"
 			android:fragment="com.android.settings.cyanide.OmniSwitch" />
+
+    </PreferenceCategory>
+    
+    <PreferenceCategory
+		android:key="slim_recents"
+		android:title="@string/slim_recent_category">
+    
+        <!-- Slim Recents -->
+        <PreferenceScreen
+            android:key="recent_panel"
+            android:fragment="com.android.settings.cyanide.RecentPanel"
+            android:title="@string/recent_panel_category"
+            android:summary="@string/recent_panel_summary" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>

@@ -239,7 +239,7 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.SHOW_CLEAR_ALL_RECENTS, 0);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.RECENTS_CLEAR_ALL_LOCATION, 3);
+                                    Settings.System.RECENTS_CLEAR_ALL_LOCATION, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.RECENT_APPS_CLEAR_ALL_BG_COLOR,
                                     DEFAULT_COLOR);
@@ -255,13 +255,13 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.SHOW_CLEAR_ALL_RECENTS, 1);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.RECENTS_CLEAR_ALL_LOCATION, 1);
+                                    Settings.System.RECENTS_CLEAR_ALL_LOCATION, 3);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.RECENT_APPS_CLEAR_ALL_BG_COLOR,
-                                    DEFAULT_COLOR);
+                                    CYANIDE_BLUE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.RECENT_APPS_CLEAR_ALL_ICON_COLOR,
-                                    CYANIDE_BLUE);
+                                    0xff00ff00);
                             getOwner().refreshSettings();
                         }
                     })
