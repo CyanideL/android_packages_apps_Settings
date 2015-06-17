@@ -1508,13 +1508,19 @@
     </string-array>
     
     <!-- Recent panel -->
-    <string-array name="recent_panel_expanded_mode_entries">
-        <item>@string/recent_panel_expanded_mode_auto</item>
-        <item>@string/recent_panel_expanded_mode_always</item>
-        <item>@string/recent_panel_expanded_mode_never</item>
+    <string-array name="slim_recents_expanded_mode_entries">
+        <item>@string/slim_recents_mode_auto</item>
+        <item>@string/slim_recents_expanded_mode_always</item>
+        <item>@string/slim_recents_expanded_mode_never</item>
     </string-array>
-
-    <string-array name="recent_panel_expanded_mode_values" translatable="false">
+    
+    <string-array name="slim_recents_popup_theme_mode_entries">
+        <item>@string/slim_recents_mode_auto</item>
+        <item>@string/slim_recents_popup_theme_mode_dark</item>
+        <item>@string/slim_recents_popup_theme_mode_light</item>
+    </string-array>
+    
+    <string-array name="slim_recents_mode_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
