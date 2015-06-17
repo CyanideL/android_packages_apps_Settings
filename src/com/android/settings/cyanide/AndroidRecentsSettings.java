@@ -58,6 +58,7 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
             "android_recents_clear_all_icon_color";
 
     private static final int DEEP_TEAL_500 = 0xff009688;
+    private static final int CYANIDE_BLUE = 0xff1976D2;
     private static final int WHITE = 0xffffffff;
     private static final int HOLO_BLUE_LIGHT = 0xff33b5e5;
 
@@ -71,6 +72,7 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
     private SwitchPreference mClearAllUseIconColor;
     private ColorPickerPreference mClearAllIconColor;
     private ColorPickerPreference mClearAllBgColor;
+    private Preference mOmniSwitch;
 
     private ContentResolver mResolver;
 
@@ -95,12 +97,12 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
 
         mShowSearchBar = (SwitchPreference) findPreference(PREF_SHOW_SEARCH_BAR);
         mShowSearchBar.setChecked(Settings.System.getInt(mResolver,
-               Settings.System.ANDROID_RECENTS_SHOW_SEARCH_BAR, 1) == 1);
+               Settings.System.ANDROID_RECENTS_SHOW_SEARCH_BAR, 0) == 1);
         mShowSearchBar.setOnPreferenceChangeListener(this);
 
         mShowClearAll = (SwitchPreference) findPreference(PREF_SHOW_CLEAR_ALL);
         boolean showClearAll = Settings.System.getInt(mResolver,
-               Settings.System.ANDROID_RECENTS_SHOW_CLEAR_ALL, 0) == 1;
+               Settings.System.ANDROID_RECENTS_SHOW_CLEAR_ALL, 1) == 1;
         mShowClearAll.setChecked(showClearAll);
         mShowClearAll.setOnPreferenceChangeListener(this);
 
@@ -164,7 +166,7 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.add(0, MENU_RESET, 0, R.string.reset)
-                .setIcon(R.drawable.ic_settings_backup_restore)
+                .setIcon(R.drawable.ic_settings_backup_restore) 
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
     }
 
@@ -302,15 +304,15 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
                              Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.ANDROID_RECENTS_CLEAR_ALL_POSITION_HORIZONTAL, 2);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.ANDROID_RECENTS_CLEAR_ALL_POSITION_VERTICAL, 1);
+                                    Settings.System.ANDROID_RECENTS_CLEAR_ALL_POSITION_VERTICAL, 2);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.ANDROID_RECENTS_CLEAR_ALL_USE_ICON_COLOR, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.ANDROID_RECENTS_CLEAR_ALL_BG_COLOR,
-                                    DEEP_TEAL_500);
+                                    CYANIDE_BLUE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.ANDROID_RECENTS_CLEAR_ALL_ICON_COLOR,
-                                    HOLO_BLUE_LIGHT);
+                                    0xff00ff00);
                             getOwner().refreshSettings();
                         }
                     })

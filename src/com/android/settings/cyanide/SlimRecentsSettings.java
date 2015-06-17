@@ -115,7 +115,7 @@ public class SlimRecentsSettings extends SettingsPreferenceFragment implements
 
         mShowTopmost = (SwitchPreference) findPreference(PREF_SHOW_TOPMOST);
         mShowTopmost.setChecked(Settings.System.getInt(mResolver,
-                Settings.System.SLIM_RECENTS_SHOW_TOPMOST, 0) == 1);
+                Settings.System.SLIM_RECENTS_SHOW_TOPMOST, 1) == 1);
         mShowTopmost.setOnPreferenceChangeListener(this);
 
         mMaxApps = (SlimSeekBarPreference) findPreference(PREF_MAX_APPS);
