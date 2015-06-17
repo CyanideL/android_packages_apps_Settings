@@ -719,25 +719,6 @@
 		<item>3</item>
 		<item>4</item>
 	</string-array>
-
-    <!-- Recents kill all button -->
-	<string-array name="recents_clear_all_location_entries">
-		<item>@string/recents_clear_all_location_top_right</item>
-		<item>@string/recents_clear_all_location_top_left</item>
-		<item>@string/recents_clear_all_location_top_center</item>
-		<item>@string/recents_clear_all_location_bottom_right</item>
-		<item>@string/recents_clear_all_location_bottom_left</item>
-		<item>@string/recents_clear_all_location_bottom_center</item>
-	</string-array>
-
-	<string-array name="recents_clear_all_location_values" translatable="false">
-		<item>0</item>
-		<item>1</item>
-		<item>2</item>
-		<item>3</item>
-		<item>4</item>
-		<item>5</item>
-	</string-array>
 	
 	<!-- long press back to kill configurable timeout -->
     <string-array name="kill_app_longpress_timeout_entries">
@@ -1653,5 +1634,23 @@
         <item>**theme_switch**</item>
         <item>**torch**</item>
 	</string-array>
+	
+	<string-array name="android_recents_clear_all_position_horizontal_entries" >
+        <item>@string/android_recents_clear_all_position_left</item>
+        <item>@string/android_recents_clear_all_position_center</item>
+        <item>@string/android_recents_clear_all_position_right</item>
+    </string-array>
+
+    <string-array name="android_recents_clear_all_position_vertical_entries" >
+        <item>@string/android_recents_clear_all_position_top</item>
+        <item>@string/android_recents_clear_all_position_center</item>
+        <item>@string/android_recents_clear_all_position_bottom</item>
+    </string-array>
+
+    <string-array name="android_recents_clear_all_position_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 
 </resources>

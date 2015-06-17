@@ -102,7 +102,7 @@
     <!-- Recent Apps Panel -->
 	<PreferenceScreen
 		android:key="recents_panel"
-		android:fragment="com.android.settings.cyanide.RecentsSettings"
+		android:fragment="com.android.settings.cyanide.AndroidRecentsSettings"
 		android:title="@string/Recents_panel" >
 
 	</PreferenceScreen>
