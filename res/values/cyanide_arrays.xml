@@ -1376,6 +1376,7 @@
         <item>@string/shortcut_action_power_off</item>
         <item>@string/shortcut_action_profiles</item>
         <item>@string/shortcut_action_reboot</item>
+        <item>@string/shortcut_action_restartui</item>
         <item>@string/shortcut_action_screenshot</item>
         <item>@string/shortcut_action_settings</item>
         <item>@string/shortcut_action_pie</item>
@@ -1394,6 +1395,7 @@
         <item>**poweroff**</item>
         <item>**profiles**</item>
         <item>**reboot**</item>
+        <item>**restartui**</item>
         <item>**screenshot**</item>
         <item>**settings**</item>
         <item>**pie**</item>
