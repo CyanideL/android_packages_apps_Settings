@@ -453,6 +453,7 @@
         <item>@string/shortcut_action_power_menu</item>
         <item>@string/shortcut_action_qs</item>
         <item>@string/shortcut_action_recent</item>
+        <item>@string/shortcut_action_restartui</item>
         <item>@string/shortcut_action_power</item>
         <item>@string/shortcut_action_screenshot</item>
         <item>@string/shortcut_action_search</item>
@@ -481,6 +482,7 @@
         <item>**power_menu**</item>
         <item>**settings_panel**</item>
         <item>**recents**</item>
+        <item>**restartui**</item>
         <item>**power**</item>
         <item>**screenshot**</item>
         <item>**search**</item>
@@ -1062,6 +1064,7 @@
         <item>@string/shortcut_action_power_menu</item>
         <item>@string/shortcut_action_qs</item>
         <item>@string/shortcut_action_recent</item>
+        <item>@string/shortcut_action_restartui</item>
         <item>@string/shortcut_action_ring_silent</item>
         <item>@string/shortcut_action_ring_vib</item>
         <item>@string/shortcut_action_power</item>
@@ -1087,6 +1090,7 @@
         <item>**power_menu**</item>
         <item>**settings_panel**</item>
         <item>**recents**</item>
+        <item>**restartui**</item>
         <item>**ring_silent**</item>
         <item>**ring_vib**</item>
         <item>**power**</item>
@@ -1148,6 +1152,7 @@
         <item>@string/shortcut_action_pa_pie</item>
         <item>@string/shortcut_action_power_menu</item>
         <item>@string/shortcut_action_recent</item>
+        <item>@string/shortcut_action_restartui</item>
         <item>@string/shortcut_action_power</item>
         <item>@string/shortcut_action_screenshot</item>
         <item>@string/shortcut_action_search</item>
@@ -1171,6 +1176,7 @@
         <item>**pa_pie**</item>
         <item>**power_menu**</item>
         <item>**recents**</item>
+        <item>**restartui**</item>
         <item>**power**</item>
         <item>**screenshot**</item>
         <item>**search**</item>
