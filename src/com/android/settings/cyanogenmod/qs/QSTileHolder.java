@@ -233,6 +233,10 @@ public class QSTileHolder {
                 resourceName = "ic_qs_pie_global_on";
                 stringId = R.string.qs_pa_pie_control_tile;
                 break;
+            case QSConstants.TILE_SYSTEMUI_RESTART:
+                resourceName = "ic_qs_systemui_restart";
+                stringId = R.string.qs_tile_systemui_restart;
+                break;
             default:
                 return null;
         }
