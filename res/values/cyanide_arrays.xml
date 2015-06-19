@@ -435,9 +435,12 @@
     </string-array>
 
     <string-array name="shortcut_action_entries">
+		<item>@string/shortcut_action_appcirclebar</item>
+		<item>@string/shortcut_action_appsidebar</item>
 		<item>@string/shortcut_action_back</item>
         <item>@string/shortcut_action_app</item>
         <item>@string/shortcut_action_expanded_desktop</item>
+        <item>@string/shortcut_action_gesture_anywhere</item>
         <item>@string/shortcut_action_home</item>
         <item>@string/shortcut_action_ime</item>
         <item>@string/shortcut_action_menu</item>
@@ -460,9 +463,12 @@
     </string-array>
 
     <string-array name="shortcut_action_values" translatable="false">
+		<item>**appcirclebar**</item>
+		<item>**appsidebar**</item>
 		<item>**back**</item>
         <item>**app**</item>
         <item>**expanded_desktop**</item>
+        <item>**gesture_anywhere**</item>
         <item>**home**</item>
         <item>**ime**</item>
         <item>**menu_big**</item>
@@ -1044,6 +1050,9 @@
     
     <!-- Slim Actions For Shortcuts -->
     <string-array name="shortcut_action_launcher_entries">
+        <item>@string/shortcut_action_appcirclebar</item>
+        <item>@string/shortcut_action_appsidebar</item>
+        <item>@string/shortcut_action_gesture_anywhere</item>
         <item>@string/shortcut_action_ime</item>
         <item>@string/shortcut_action_kill</item>
         <item>@string/shortcut_action_lastapp</item>
@@ -1066,6 +1075,9 @@
     </string-array>
 
     <string-array name="shortcut_action_launcher_values" translatable="false">
+        <item>**appcirclebar**</item>
+        <item>**appsidebar**</item>
+        <item>**gesture_anywhere**</item>
         <item>**ime**</item>
         <item>**kill**</item>
         <item>**lastapp**</item>
@@ -1122,7 +1134,10 @@
     </string-array>
 
     <string-array name="shortcut_action_tile_entries">
+        <item>@string/shortcut_action_appcirclebar</item>
+        <item>@string/shortcut_action_appsidebar</item>
         <item>@string/shortcut_action_back</item>
+        <item>@string/shortcut_action_gesture_anywhere</item>
         <item>@string/shortcut_action_home</item>
         <item>@string/shortcut_action_ime</item>
         <item>@string/shortcut_action_kill</item>
@@ -1142,7 +1157,10 @@
     </string-array>
 
     <string-array name="shortcut_action_tile_values" translatable="false">
+        <item>**appcirclebar**</item>
+        <item>**appsidebar**</item>
         <item>**back**</item>
+        <item>**gesture_anywhere**</item>
         <item>**home**</item>
         <item>**ime**</item>
         <item>**kill**</item>
@@ -1367,8 +1385,11 @@
     
     <string-array name="shortcut_action_power_menu_entries">
         <item>@string/shortcut_action_airplane</item>
+        <item>@string/shortcut_action_appcirclebar</item>
+        <item>@string/shortcut_action_appsidebar</item>
         <item>@string/shortcut_action_app</item>
         <item>@string/shortcut_action_expanded_desktop</item>
+        <item>@string/shortcut_action_gesture_anywhere</item>
         <item>@string/shortcut_action_lockdown</item>
         <item>@string/shortcut_action_navbar</item>
         <item>@string/shortcut_action_onthego</item>
@@ -1386,8 +1407,11 @@
 
     <string-array name="shortcut_action_power_menu_values" translatable="false">
         <item>**airplane**</item>
+        <item>**appcirclebar**</item>
+        <item>**appsidebar**</item>
         <item>**app**</item>
         <item>**expanded_desktop**</item>
+        <item>**gesture_anywhere**</item>
         <item>**lockdown**</item>
         <item>**nav_bar**</item>
         <item>**onthego**</item>

@@ -214,6 +214,9 @@
     <string name="shortcut_action_profiles">Profiles</string>
     <string name="shortcut_action_lockdown">Lock now</string>
     <string name="shortcut_action_onthego">On-The-Go</string>
+    <string name="shortcut_action_appcirclebar">AppCircleBar</string>
+    <string name="shortcut_action_appsidebar">AppSideBar</string>
+    <string name="shortcut_action_gesture_anywhere">Gesture Anywhere</string>
 
     <string name="shortcuts_applications">Applications</string>
     <string name="shortcuts_select_custom_app_title">Select Custom Application</string>
