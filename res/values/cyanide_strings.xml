@@ -1703,5 +1703,7 @@
     
     <!-- Restart SystemUI -->
     <string name="restart_systemui">Restart SystemUI</string>
+    
+    <string name="slim_action_floats">Launch Slim Actions in Floating Window</string>
 
 </resources>
