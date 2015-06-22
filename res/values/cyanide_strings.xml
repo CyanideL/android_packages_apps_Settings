@@ -1917,4 +1917,9 @@
     <string name="shake_to_clean_notifications_title">Shake to clean notifications</string>
     <string name="shake_to_clean_notifications_summary">Use this switch, or longpress clear all notifications button to enable shake to clean the notifications feature</string>
 
+    <!-- Keep screen on strings -->
+    <string name="keep_screen_on_never">Never</string>
+    <string name="keep_screen_on_debugging">While USB debugging</string>
+    <string name="keep_screen_on_charging">While Charging</string>
+
 </resources>
