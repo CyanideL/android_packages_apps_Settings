@@ -1507,7 +1507,7 @@
 
     <string name="lock_shortcuts_style">Circle Shortcuts Style</string>
     <string name="lock_shortcuts_style_summary">Setup circle shortcuts styling</string>
-    <string name="ls_icon_color_summary">Change shortcuts color, these option will trigger SystemUI restart!!</string>
+    <string name="ls_icon_color_summary">Change shortcuts color</string>
     <string name="button_color_mode_dialog_title">Colorize</string>
     <string name="button_color_mode_title">Mode</string>
 
