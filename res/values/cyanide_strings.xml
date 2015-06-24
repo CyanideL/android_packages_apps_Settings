@@ -1705,5 +1705,12 @@
     <string name="restart_systemui">Restart SystemUI</string>
     
     <string name="slim_action_floats">Launch Slim Actions in Floating Window</string>
+    
+    <!-- Overflow button -->
+    <string name="keys_overflow_title">Overflow button</string>
+    <string name="keys_overflow_toast">The action overflow button may not be visible or hidden until apps are restarted</string>
+    <string name="overflow_auto_detect">Auto detect</string>
+    <string name="overflow_show">Show</string>
+    <string name="overflow_hide">Hide</string>
 
 </resources>

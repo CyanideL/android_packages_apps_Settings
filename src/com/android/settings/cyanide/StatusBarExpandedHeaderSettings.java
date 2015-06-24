@@ -80,7 +80,7 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         mResolver = getActivity().getContentResolver();
         
         boolean enableTaskManager = Settings.System.getInt(mResolver,
-                Settings.System.ENABLE_TASK_MANAGER, 1) == 1;
+                Settings.System.ENABLE_TASK_MANAGER, 0) == 1;
         
         boolean showWeather = Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER, 0) == 1;

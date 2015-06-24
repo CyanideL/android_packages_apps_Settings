@@ -58,15 +58,19 @@ public class NavigationSettings extends SettingsPreferenceFragment
 
     private static final String CATEGORY_NAVBAR = "navigation_bar";
     private static final String CATEGORY_NAV_BAR_ENABLE = "navigation_bar_enable";
-    private static final String KEY_NAVIGATION_BAR_LEFT = "navigation_bar_left";
+    private static final String KEY_ENABLE_NAVIGATION_BAR = "navbar_force_enable";
     private static final String PREF_NAVIGATION_BAR_CAN_MOVE = "navbar_can_move";
+    private static final String KEY_NAVIGATION_BAR_LEFT = "navigation_bar_left";
     private static final String NAVIGATION_BAR_TINT = "navigation_bar_tint";
+    private static final String KEYS_OVERFLOW_BUTTON = "keys_overflow_button";
 
     private boolean mCheckPreferences;
 
-    private SwitchPreference mNavigationBarLeftPref;
+    private SwitchPreference mEnableNavigationBar;
     private SwitchPreference mNavigationBarCanMove;
+    private SwitchPreference mNavigationBarLeftPref;
     private ColorPickerPreference mNavbarButtonTint;
+    private ListPreference mOverflowButtonMode;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -75,15 +79,18 @@ public class NavigationSettings extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.cyanide_navbar_settings);
         PreferenceScreen prefSet = getPreferenceScreen();
 
-        // Navigation bar left
-        mNavigationBarLeftPref = (SwitchPreference) findPreference(KEY_NAVIGATION_BAR_LEFT); 
-
         mNavigationBarCanMove = (SwitchPreference) findPreference(PREF_NAVIGATION_BAR_CAN_MOVE);
         mNavigationBarCanMove.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.NAVIGATION_BAR_CAN_MOVE,
                 DeviceUtils.isPhone(getActivity()) ? 1 : 0) == 0);
         mNavigationBarCanMove.setOnPreferenceChangeListener(this);
-        
+
+        // Navigation bar left
+        mNavigationBarLeftPref = (SwitchPreference) findPreference(KEY_NAVIGATION_BAR_LEFT);
+
+        mOverflowButtonMode = (ListPreference) findPreference(KEYS_OVERFLOW_BUTTON);
+        mOverflowButtonMode.setOnPreferenceChangeListener(this);
+
         // Navigation bar button color
         mNavbarButtonTint = (ColorPickerPreference) findPreference(NAVIGATION_BAR_TINT);
         mNavbarButtonTint.setOnPreferenceChangeListener(this);
@@ -93,28 +100,36 @@ public class NavigationSettings extends SettingsPreferenceFragment
         mNavbarButtonTint.setSummary(hexColor);
         mNavbarButtonTint.setNewPreviewColor(intColor); 
 
-        final boolean hasRealNavigationBar = getResources()
-            .getBoolean(com.android.internal.R.bool.config_showNavigationBar);
-        if (hasRealNavigationBar) { // only disable on devices with REAL navigation bars
-            final Preference pref = findPreference(CATEGORY_NAV_BAR_ENABLE);
-            if (pref != null) {
-                getPreferenceScreen().removePreference(pref);
-            }
-        // Attach final settings screen.
-        reloadSettings();
-        }
+        // Navigation bar keys switch
+		mEnableNavigationBar = (SwitchPreference) findPreference(KEY_ENABLE_NAVIGATION_BAR);
 
-        try {
-            boolean hasNavBar = WindowManagerGlobal.getWindowManagerService().hasNavigationBar();
+        // Internal bool to check if the device have a navbar by default or not!
+        boolean hasNavBarByDefault = getResources().getBoolean(
+                com.android.internal.R.bool.config_showNavigationBar);
+        boolean enableNavigationBar = Settings.System.getInt(getContentResolver(),
+                Settings.System.NAVBAR_FORCE_ENABLE, hasNavBarByDefault ? 1 : 0) == 1;
+        mEnableNavigationBar.setChecked(enableNavigationBar);
+        mEnableNavigationBar.setOnPreferenceChangeListener(this);
 
-            // Hide navigation bar category on devices without navigation bar
-            if (!hasNavBar) {
-                prefSet.removePreference(findPreference(CATEGORY_NAVBAR));
-            }
-        } catch (RemoteException e) {
-            Log.e(TAG, "Error getting navigation bar status");
-        }
+        updateNavBarSettings();
     }
+
+    private void updateNavBarSettings() {
+        boolean enableNavigationBar = Settings.System.getInt(getContentResolver(),
+                Settings.System.NAVBAR_FORCE_ENABLE,
+                CyanideUtils.isNavBarDefault(getActivity()) ? 1 : 0) == 1;
+        mEnableNavigationBar.setChecked(enableNavigationBar);
+
+        String overflowButtonMode = Integer.toString(Settings.System.getInt(getContentResolver(),
+                Settings.System.UI_OVERFLOW_BUTTON, 2));
+        mOverflowButtonMode.setValue(overflowButtonMode);
+        mOverflowButtonMode.setSummary(mOverflowButtonMode.getEntry());
+
+        updateNavbarPreferences(enableNavigationBar);
+    }
+
+    private void updateNavbarPreferences(boolean show) {
+        }
 
     private void handleActionListChange(ListPreference pref, Object newValue, String setting) {
         String value = (String) newValue;
@@ -125,7 +140,18 @@ public class NavigationSettings extends SettingsPreferenceFragment
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-		if (preference == mNavigationBarCanMove) {
+        if (preference == mEnableNavigationBar) {
+            mEnableNavigationBar.setEnabled(true);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.NAVBAR_FORCE_ENABLE,
+                    ((Boolean) newValue) ? 1 : 0);
+            // Enable overflow button
+            Settings.System.putInt(getContentResolver(), Settings.System.UI_OVERFLOW_BUTTON, 2);
+            if (mOverflowButtonMode != null) {
+                mOverflowButtonMode.setSummary(mOverflowButtonMode.getEntries()[2]);
+            }
+            return true;
+        } else if (preference == mNavigationBarCanMove) {
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.NAVIGATION_BAR_CAN_MOVE,
                     ((Boolean) newValue) ? 0 : 1);
@@ -137,6 +163,13 @@ public class NavigationSettings extends SettingsPreferenceFragment
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.NAVIGATION_BAR_TINT, intHex);
+            return true;
+        } else if (preference == mOverflowButtonMode) {
+            int val = Integer.parseInt((String) newValue);
+            int index = mOverflowButtonMode.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getContentResolver(), Settings.System.UI_OVERFLOW_BUTTON, val);
+            mOverflowButtonMode.setSummary(mOverflowButtonMode.getEntries()[index]);
+            Toast.makeText(getActivity(), R.string.keys_overflow_toast, Toast.LENGTH_LONG).show();
             return true;
         }
         return false;

@@ -32,6 +32,12 @@
             android:title="@string/category_navbar"
             android:fragment="com.android.settings.cyanide.navbar.NavbarTabHostFragment"
             android:dependency="navbar_force_enable" />
+
+        <SwitchPreference
+            android:key="navbar_can_move"
+            android:title="@string/navbar_can_move"
+            android:summary="@string/navbar_can_move_summary"
+            android:dependency="navbar_force_enable" />
         
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="navigation_bar_left"
@@ -39,24 +45,25 @@
             android:summary="@string/navigation_bar_left_summary"
             android:dependency="navbar_force_enable"
             android:defaultValue="false" />
-            
-        <SwitchPreference
-             android:key="navbar_can_move"
-             android:title="@string/navbar_can_move"
-             android:summary="@string/navbar_can_move_summary"
-             android:dependency="navbar_force_enable" />
-        
+
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="double_tap_sleep_navbar"
             android:title="@string/double_tap_sleep_nav_bar_title"
             android:summary="@string/double_tap_sleep_nav_bar_summary"
             android:defaultValue="false"
-            android:dependency="navbar_force_enable"/>
-            
+            android:dependency="navbar_force_enable" />
+
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="navigation_bar_tint"
             android:title="@string/navbar_button_tint_title"
             android:defaultValue="#ffffff"
+            android:dependency="navbar_force_enable" />
+
+       <ListPreference
+            android:key="keys_overflow_button"
+            android:title="@string/keys_overflow_title"
+            android:entries="@array/overflow_button_entries"
+            android:entryValues="@array/overflow_button_values"
             android:dependency="navbar_force_enable" />
         
     </PreferenceCategory>
