@@ -65,12 +65,6 @@
 	
 	<!-- Superuser Switch -->
 	<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-            android:key="slim_action_floats"
-            android:title="@string/slim_action_floats"
-			android:defaultValue="false" />
-	
-	<!-- Superuser Switch -->
-	<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="show_su_icon"
             android:title="@string/su_indicator"
             android:summary="@string/su_indicator_summary"

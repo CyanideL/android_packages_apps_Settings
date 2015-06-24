@@ -1704,13 +1704,17 @@
     <!-- Restart SystemUI -->
     <string name="restart_systemui">Restart SystemUI</string>
     
-    <string name="slim_action_floats">Launch Slim Actions in Floating Window</string>
-    
     <!-- Overflow button -->
     <string name="keys_overflow_title">Overflow button</string>
     <string name="keys_overflow_toast">The action overflow button may not be visible or hidden until apps are restarted</string>
     <string name="overflow_auto_detect">Auto detect</string>
     <string name="overflow_show">Show</string>
     <string name="overflow_hide">Hide</string>
+
+    <!-- Floating Windows -->
+    <string name="floating_windows">Floating Windows</string>
+    <string name="floating_windows_switch">Whether to allow global use of float mode</string>
+    <string name="slim_action_floats">Cyanide Actions and Pie</string>
+    <string name="slim_action_floats_summary">Launch Cyanide and Pie Actions in Floating Window Mode</string>
 
 </resources>

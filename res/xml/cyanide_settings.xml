@@ -50,6 +50,12 @@
         android:fragment="com.android.settings.ButtonSettings"
         />
 
+    <!-- Floating Windows -->
+    <PreferenceScreen
+        android:id="@+id/floating_windows"
+        android:title="@string/floating_windows"
+        android:fragment="com.android.settings.cyanide.FloatingWindows" />
+
     <!-- Identicons -->
     <PreferenceScreen
         android:id="@+id/identicons"
