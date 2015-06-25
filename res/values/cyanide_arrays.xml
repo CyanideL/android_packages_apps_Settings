@@ -441,6 +441,7 @@
         <item>@string/shortcut_action_back</item>
         <item>@string/shortcut_action_app</item>
         <item>@string/shortcut_action_expanded_desktop</item>
+        <item>@string/shortcut_action_floating_windows</item>
         <item>@string/shortcut_action_gesture_anywhere</item>
         <item>@string/shortcut_action_heads_up</item>
         <item>@string/shortcut_action_home</item>
@@ -473,6 +474,7 @@
         <item>**back**</item>
         <item>**app**</item>
         <item>**expanded_desktop**</item>
+        <item>**floating_windows**</item>
         <item>**gesture_anywhere**</item>
         <item>**heads_up**</item>
         <item>**home**</item>
@@ -1065,6 +1067,8 @@
         <item>@string/shortcut_action_ambient_display</item>
         <item>@string/shortcut_action_appcirclebar</item>
         <item>@string/shortcut_action_appsidebar</item>
+        <item>@string/shortcut_action_expanded_desktop</item>
+        <item>@string/shortcut_action_floating_windows</item>
         <item>@string/shortcut_action_gesture_anywhere</item>
         <item>@string/shortcut_action_heads_up</item>
         <item>@string/shortcut_action_hwkeys</item>
@@ -1094,6 +1098,8 @@
         <item>**ambient_display**</item>
         <item>**appcirclebar**</item>
         <item>**appsidebar**</item>
+        <item>**expanded_desktop**</item>
+        <item>**floating_windows**</item>
         <item>**gesture_anywhere**</item>
         <item>**heads_up**</item>
         <item>**hwkeys**</item>
@@ -1158,6 +1164,8 @@
         <item>@string/shortcut_action_appcirclebar</item>
         <item>@string/shortcut_action_appsidebar</item>
         <item>@string/shortcut_action_back</item>
+        <item>@string/shortcut_action_expanded_desktop</item>
+        <item>@string/shortcut_action_floating_windows</item>
         <item>@string/shortcut_action_gesture_anywhere</item>
         <item>@string/shortcut_action_heads_up</item>
         <item>@string/shortcut_action_home</item>
@@ -1185,6 +1193,8 @@
         <item>**appcirclebar**</item>
         <item>**appsidebar**</item>
         <item>**back**</item>
+        <item>**expanded_desktop**</item>
+        <item>**floating_windows**</item>
         <item>**gesture_anywhere**</item>
         <item>**heads_up**</item>
         <item>**home**</item>
@@ -1418,6 +1428,7 @@
         <item>@string/shortcut_action_appsidebar</item>
         <item>@string/shortcut_action_app</item>
         <item>@string/shortcut_action_expanded_desktop</item>
+        <item>@string/shortcut_action_floating_windows</item>
         <item>@string/shortcut_action_gesture_anywhere</item>
         <item>@string/shortcut_action_heads_up</item>
         <item>@string/shortcut_action_hwkeys</item>
@@ -1443,6 +1454,7 @@
         <item>**appsidebar**</item>
         <item>**app**</item>
         <item>**expanded_desktop**</item>
+        <item>**floating_windows**</item>
         <item>**gesture_anywhere**</item>
         <item>**heads_up**</item>
         <item>**hwkeys**</item>

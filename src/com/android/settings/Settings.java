@@ -120,5 +120,6 @@ public class Settings extends SettingsActivity {
     public static class DisplayRotationActivity extends SettingsActivity { /* empty */ }
     public static class AppSideBarSettingsActivity extends SettingsActivity { /* empty */ }
     public static class PAPieControlSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class FloatingWindowsSettingsActivity extends SettingsActivity { /* empty */ }
 }
 

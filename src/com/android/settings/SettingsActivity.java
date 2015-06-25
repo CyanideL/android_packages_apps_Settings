@@ -137,6 +137,7 @@ import com.android.settings.cyanide.NavigationSettings;
 import com.android.settings.cyanide.AppCircleBar;
 import com.android.settings.cyanide.AppSideBar;
 import com.android.settings.cyanide.PAPieControl;
+import com.android.settings.cyanide.FloatingWindows;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -351,6 +352,7 @@ public class SettingsActivity extends Activity
             DisplayRotation.class.getName(),
             AppSideBar.class.getName(),
             PAPieControl.class.getName(),
+            FloatingWindows.class.getName()
     };
 
 

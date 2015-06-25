@@ -955,6 +955,7 @@
 	<string name="qs_tile_appsidebar">App SideBar</string>
 	<string name="qs_tile_powermenu">Power Menu</string>
 	<string name="qs_tile_systemui_restart">Restart SystemUI</string>
+	<string name="qs_tile_floating_windows">Floating Windows</string>
 	
 	<string name="qs_dynamic_tile_next_alarm">Next alarm</string>
     <string name="qs_dynamic_tile_ime_selector">IME selector</string>

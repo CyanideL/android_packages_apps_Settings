@@ -220,6 +220,7 @@
     <string name="shortcut_action_heads_up">Heads Up</string>
     <string name="shortcut_action_hwkeys">HWKeys</string>
     <string name="shortcut_action_ambient_display">Ambient Display</string>
+    <string name="shortcut_action_floating_windows">Floating Windows</string>
 
     <string name="shortcuts_applications">Applications</string>
     <string name="shortcuts_select_custom_app_title">Select Custom Application</string>

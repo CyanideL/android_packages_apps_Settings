@@ -236,6 +236,10 @@ public class QSTileHolder {
                 resourceName = "ic_qs_systemui_restart";
                 stringId = R.string.qs_tile_systemui_restart;
                 break;
+            case QSConstants.TILE_FLOATING_WINDOWS:
+                resourceName = "ic_qs_floating_on";
+                stringId = R.string.qs_tile_floating_windows;
+                break;
 
             // Dynamic tiles
             case QSConstants.DYNAMIC_TILE_NEXT_ALARM:
