@@ -2,15 +2,45 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <SwitchPreference
-        android:key="pa_pie_menu"
-        android:title="@string/pa_pie_menu_title"
-        android:summary="@string/pa_pie_menu_summary" />
+        android:key="pa_pie_ambient_display"
+        android:title="@string/pa_pie_ambient_display_title"
+        android:summary="@string/pa_pie_ambient_display_summary" />
+
+    <SwitchPreference
+        android:key="pa_pie_app_circle_bar"
+        android:title="@string/pa_pie_appcirclebar_title"
+        android:summary="@string/pa_pie_appcirclebar_summary" />
+
+    <SwitchPreference
+        android:key="pa_pie_app_sidebar"
+        android:title="@string/pa_pie_appsidebar_title"
+        android:summary="@string/pa_pie_appsidebar_summary" />
 
     <SwitchPreference
         android:key="pa_pie_expanded_desktop"
         android:title="@string/pa_pie_expanded_desktop_title"
         android:summary="@string/pa_pie_expanded_desktop_summary" />
-    
+
+    <SwitchPreference
+        android:key="pa_pie_floating_windows"
+        android:title="@string/pa_pie_floating_windows_title"
+        android:summary="@string/pa_pie_floating_windows_summary" />
+
+    <SwitchPreference
+        android:key="pa_pie_gesture_anywhere"
+        android:title="@string/pa_pie_gesture_anywhere_title"
+        android:summary="@string/pa_pie_gesture_anywhere_summary" />
+
+    <SwitchPreference
+        android:key="pa_pie_heads_up"
+        android:title="@string/pa_pie_heads_up_title"
+        android:summary="@string/pa_pie_heads_up_summary" />
+
+    <SwitchPreference
+        android:key="pa_pie_hwkeys"
+        android:title="@string/pa_pie_hwkeys_title"
+        android:summary="@string/pa_pie_hwkeys_summary" />
+
     <SwitchPreference
         android:key="pa_pie_killtask"
         android:title="@string/pa_pie_killtask_title"
@@ -20,6 +50,11 @@
         android:key="pa_pie_lastapp"
         android:title="@string/pa_pie_lastapp_title"
         android:summary="@string/pa_pie_lastapp_summary" />
+
+    <SwitchPreference
+        android:key="pa_pie_menu"
+        android:title="@string/pa_pie_menu_title"
+        android:summary="@string/pa_pie_menu_summary" />
 
     <SwitchPreference
         android:key="pa_pie_navbar"
@@ -40,7 +75,12 @@
         android:key="pa_pie_power_menu"
         android:title="@string/pa_pie_power_menu_title"
         android:summary="@string/pa_pie_power_menu_summary" />
-    
+
+    <SwitchPreference
+        android:key="pa_pie_restartui"
+        android:title="@string/pa_pie_restartui_title"
+        android:summary="@string/pa_pie_restartui_summary" />
+
     <SwitchPreference
         android:key="pa_pie_screen_off"
         android:title="@string/pa_pie_screen_off_title"

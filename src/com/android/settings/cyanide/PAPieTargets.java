@@ -36,7 +36,14 @@ import com.android.settings.SettingsPreferenceFragment;
 
 public class PAPieTargets extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
+    private static final String PA_PIE_AMBIENT_DISPLAY = "pa_pie_ambient_display";
+    private static final String PA_PIE_APP_CIRCLE_BAR = "pa_pie_app_circle_bar";
+    private static final String PA_PIE_APP_SIDEBAR = "pa_pie_app_sidebar";
     private static final String PA_PIE_EXPANDED_DESKTOP = "pa_pie_expanded_desktop";
+    private static final String PA_PIE_FLOATING_WINDOWS = "pa_pie_floating_windows";
+    private static final String PA_PIE_GESTURE_ANYWHERE = "pa_pie_gesture_anywhere";
+    private static final String PA_PIE_HEADS_UP = "pa_pie_heads_up";
+    private static final String PA_PIE_HWKEYS = "pa_pie_hwkeys";
     private static final String PA_PIE_KILLTASK = "pa_pie_killtask";
     private static final String PA_PIE_LASTAPP = "pa_pie_lastapp";
     private static final String PA_PIE_MENU = "pa_pie_menu";
@@ -44,13 +51,21 @@ public class PAPieTargets extends SettingsPreferenceFragment implements OnPrefer
     private static final String PA_PIE_NOTIFICATIONS = "pa_pie_notifications";
     private static final String PA_PIE_SETTINGS_PANEL = "pa_pie_settings_panel";
     private static final String PA_PIE_POWER_MENU = "pa_pie_power_menu";
+    private static final String PA_PIE_RESTARTUI = "pa_pie_restartui";
     private static final String PA_PIE_SCREEN_OFF = "pa_pie_screen_off";
     private static final String PA_PIE_SCREENSHOT = "pa_pie_screenshot";
     private static final String PA_PIE_SLIMPIE = "pa_pie_slimpie";
     private static final String PA_PIE_THEME_SWITCH = "pa_pie_theme_switch";
     private static final String PA_PIE_TORCH = "pa_pie_torch";
 
+    private SwitchPreference mPieAmbientDisplay;
+    private SwitchPreference mPieAppcirclesidebar;
+    private SwitchPreference mPieAppsidebar;
     private SwitchPreference mPieExpandedDesktop;
+    private SwitchPreference mPieFloatingWindows;
+    private SwitchPreference mPieGestureAnywhere;
+    private SwitchPreference mPieHeadsUp;
+    private SwitchPreference mPieHWKeys;
     private SwitchPreference mPieKillTask;
     private SwitchPreference mPieLastApp;
     private SwitchPreference mPieMenu;
@@ -58,6 +73,7 @@ public class PAPieTargets extends SettingsPreferenceFragment implements OnPrefer
     private SwitchPreference mPieNotifications;
     private SwitchPreference mPieQsPanel;
     private SwitchPreference mPiePowerMenu;
+    private SwitchPreference mPieRestartui;
     private SwitchPreference mPieScreenOff;
     private SwitchPreference mPieScreenshot;
     private SwitchPreference mPieSlimPie;
@@ -77,9 +93,37 @@ public class PAPieTargets extends SettingsPreferenceFragment implements OnPrefer
         Context context = getActivity();
         mResolver = context.getContentResolver();
 
+        mPieAmbientDisplay = (SwitchPreference) prefSet.findPreference(PA_PIE_AMBIENT_DISPLAY);
+        mPieAmbientDisplay.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.PA_PIE_AMBIENT_DISPLAY, 0) != 0);
+
+        mPieAppcirclesidebar = (SwitchPreference) prefSet.findPreference(PA_PIE_APP_CIRCLE_BAR);
+        mPieAppcirclesidebar.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.PA_PIE_APP_CIRCLE_BAR, 0) != 0);
+
+        mPieAppsidebar = (SwitchPreference) prefSet.findPreference(PA_PIE_APP_SIDEBAR);
+        mPieAppsidebar.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.PA_PIE_APP_SIDEBAR, 0) != 0);
+
         mPieExpandedDesktop = (SwitchPreference) prefSet.findPreference(PA_PIE_EXPANDED_DESKTOP);
         mPieExpandedDesktop.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_EXPANDED_DESKTOP, 0) != 0);
+
+        mPieFloatingWindows = (SwitchPreference) prefSet.findPreference(PA_PIE_FLOATING_WINDOWS);
+        mPieFloatingWindows.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.PA_PIE_FLOATING_WINDOWS, 0) != 0);
+
+        mPieGestureAnywhere = (SwitchPreference) prefSet.findPreference(PA_PIE_GESTURE_ANYWHERE);
+        mPieGestureAnywhere.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.PA_PIE_GESTURE_ANYWHERE, 0) != 0);
+
+        mPieHeadsUp = (SwitchPreference) prefSet.findPreference(PA_PIE_HEADS_UP);
+        mPieHeadsUp.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.PA_PIE_HEADS_UP, 0) != 0);
+
+        mPieHWKeys = (SwitchPreference) prefSet.findPreference(PA_PIE_HWKEYS);
+        mPieHWKeys.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.PA_PIE_HWKEYS, 0) != 0);
         
         mPieKillTask = (SwitchPreference) prefSet.findPreference(PA_PIE_KILLTASK);
         mPieKillTask.setChecked(Settings.System.getInt(mResolver,
@@ -108,7 +152,11 @@ public class PAPieTargets extends SettingsPreferenceFragment implements OnPrefer
         mPiePowerMenu = (SwitchPreference) prefSet.findPreference(PA_PIE_POWER_MENU);
         mPiePowerMenu.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_POWER_MENU, 0) != 0);
-        
+
+        mPieRestartui = (SwitchPreference) prefSet.findPreference(PA_PIE_RESTARTUI);
+        mPieRestartui.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.PA_PIE_RESTARTUI, 1) != 0);
+
         mPieScreenOff = (SwitchPreference) prefSet.findPreference(PA_PIE_SCREEN_OFF);
         mPieScreenOff.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_SCREEN_OFF, 1) != 0);
@@ -133,10 +181,38 @@ public class PAPieTargets extends SettingsPreferenceFragment implements OnPrefer
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == mPieExpandedDesktop) {
+        if (preference == mPieAmbientDisplay) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.PA_PIE_AMBIENT_DISPLAY,
+                    mPieAmbientDisplay.isChecked() ? 1 : 0);
+        } else if (preference == mPieAppcirclesidebar) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.PA_PIE_APP_CIRCLE_BAR,
+                    mPieAppcirclesidebar.isChecked() ? 1 : 0);
+        } else if (preference == mPieAppsidebar) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.PA_PIE_APP_SIDEBAR,
+                    mPieAppsidebar.isChecked() ? 1 : 0);
+        } else if (preference == mPieExpandedDesktop) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.PA_PIE_EXPANDED_DESKTOP,
                     mPieExpandedDesktop.isChecked() ? 1 : 0);
+        } else if (preference == mPieFloatingWindows) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.PA_PIE_FLOATING_WINDOWS,
+                    mPieFloatingWindows.isChecked() ? 1 : 0);
+        } else if (preference == mPieGestureAnywhere) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.PA_PIE_GESTURE_ANYWHERE,
+                    mPieGestureAnywhere.isChecked() ? 1 : 0);
+        } else if (preference == mPieHeadsUp) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.PA_PIE_HEADS_UP,
+                    mPieHeadsUp.isChecked() ? 1 : 0);
+        } else if (preference == mPieHWKeys) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.PA_PIE_HWKEYS,
+                    mPieHWKeys.isChecked() ? 1 : 0);
         } else if (preference == mPieKillTask) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.PA_PIE_KILL_TASK,
@@ -165,6 +241,10 @@ public class PAPieTargets extends SettingsPreferenceFragment implements OnPrefer
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.PA_PIE_POWER_MENU,
                     mPiePowerMenu.isChecked() ? 1 : 0);
+        } else if (preference == mPieRestartui) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.PA_PIE_RESTARTUI,
+                    mPieRestartui.isChecked() ? 1 : 0);
         } else if (preference == mPieScreenOff) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.PA_PIE_SCREEN_OFF,
