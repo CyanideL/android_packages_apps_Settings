@@ -908,16 +908,20 @@
     </string-array>
 
     <string-array name="battery_status_charge_animation_speed_entries" >
+        <item>@string/battery_status_charge_animation_speed_very_slow</item>
         <item>@string/battery_status_charge_animation_speed_none</item>
         <item>@string/battery_status_charge_animation_speed_slow</item>
         <item>@string/battery_status_charge_animation_speed_normal</item>
         <item>@string/battery_status_charge_animation_speed_fast</item>
+        <item>@string/battery_status_charge_animation_speed_very_fast</item>
     </string-array>
 
     <string-array name="battery_status_charge_animation_speed_values" translatable="false">
         <item>0</item>
         <item>1</item>
+        <item>2</item>
         <item>3</item>
+        <item>4</item>
         <item>5</item>
     </string-array> 
     
