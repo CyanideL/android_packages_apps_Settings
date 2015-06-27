@@ -2,6 +2,11 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <SwitchPreference
+        android:key="pa_pie_menu"
+        android:title="@string/pa_pie_menu_title"
+        android:summary="@string/pa_pie_menu_summary" />
+
+    <SwitchPreference
         android:key="pa_pie_ambient_display"
         android:title="@string/pa_pie_ambient_display_title"
         android:summary="@string/pa_pie_ambient_display_summary" />
@@ -50,11 +55,6 @@
         android:key="pa_pie_lastapp"
         android:title="@string/pa_pie_lastapp_title"
         android:summary="@string/pa_pie_lastapp_summary" />
-
-    <SwitchPreference
-        android:key="pa_pie_menu"
-        android:title="@string/pa_pie_menu_title"
-        android:summary="@string/pa_pie_menu_summary" />
 
     <SwitchPreference
         android:key="pa_pie_navbar"

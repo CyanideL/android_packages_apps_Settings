@@ -240,6 +240,10 @@ public class QSTileHolder {
                 resourceName = "ic_qs_floating_on";
                 stringId = R.string.qs_tile_floating_windows;
                 break;
+            case QSConstants.TILE_SLIM_FLOATS:
+                resourceName = "ic_qs_floating_on";
+                stringId = R.string.qs_tile_slim_floats;
+                break;
 
             // Dynamic tiles
             case QSConstants.DYNAMIC_TILE_NEXT_ALARM:
