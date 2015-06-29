@@ -1093,7 +1093,7 @@
         <item>5</item>
         <item>6</item>
     </string-array>
-    
+
     <!-- Slim Actions For Shortcuts -->
     <string-array name="shortcut_action_launcher_entries">
         <item>@string/shortcut_action_ambient_display</item>
@@ -1156,26 +1156,7 @@
         <item>**theme_switch**</item>
         <item>**torch**</item>
     </string-array>
-    
-    <!-- Heads up timeout -->
-    <string-array name="heads_up_time_out_entries">
-        <item>@string/heads_up_time_out_never</item>
-        <item>@string/heads_up_time_out_2sec</item>
-        <item>@string/heads_up_time_out_4sec</item>
-        <item>@string/heads_up_time_out_6sec</item>
-        <item>@string/heads_up_time_out_8sec</item>
-        <item>@string/heads_up_time_out_10sec</item>
-    </string-array>
 
-    <string-array name="heads_up_time_out_values" translatable="false">
-        <item>0</item>
-        <item>2000</item>
-        <item>4000</item>
-        <item>6000</item>
-        <item>8000</item>
-        <item>10000</item>
-    </string-array>
-    
     <!-- Smart pulldown -->
     <string-array name="smart_pulldown_entries" translatable="false">
         <item>@string/smart_pulldown_off</item>
@@ -1431,28 +1412,7 @@
         <item>7</item>
         <item>9</item>
     </string-array>
-    
-    <!-- Heads up -->
-    <string-array name="heads_up_snooze_entries">
-        <item>@string/disabled</item>
-        <item>@string/heads_up_snooze_1min</item>
-        <item>@string/heads_up_snooze_3min</item>
-        <item>@string/heads_up_snooze_5min</item>
-        <item>@string/heads_up_snooze_10min</item>
-        <item>@string/heads_up_snooze_15min</item>
-        <item>@string/heads_up_snooze_20min</item>
-    </string-array>
 
-    <string-array name="heads_up_snooze_values" translatable="false">
-        <item>0</item>
-        <item>60000</item>
-        <item>180000</item>
-        <item>300000</item>
-        <item>600000</item>
-        <item>900000</item>
-        <item>1200000</item>
-    </string-array>
-    
     <string-array name="shortcut_action_power_menu_entries">
         <item>@string/shortcut_action_airplane</item>
         <item>@string/shortcut_action_ambient_display</item>
@@ -1529,7 +1489,7 @@
         <item>1</item>
         <item>2</item>
     </string-array>
-    
+
     <string-array name="icon_color_mode_entries">
         <item>@string/icon_color_mode_all_icons</item>
         <item>@string/icon_color_mode_system_icons</item>
@@ -1543,7 +1503,7 @@
         <item>2</item>
         <item>3</item>
     </string-array>
-    
+
     <!-- Advanced reboot menu dev options -->
     <string-array name="advanced_reboot_entries">
         <item>@string/advanced_reboot_disabled</item>
@@ -1556,7 +1516,7 @@
         <item>1</item>
         <item>2</item>
     </string-array>
-    
+
     <!-- Volume panel timeout -->
     <string-array name="volume_panel_time_out_entries">
         <item>@string/volume_panel_time_out_3sec</item>
@@ -1573,7 +1533,7 @@
         <item>12000</item>
         <item>15000</item>
     </string-array>
-    
+
     <string-array name="notification_bg_mode_entries" >
         <item>@string/notification_mode_never_title</item>
         <item>@string/notification_mode_no_color_title</item>
@@ -1591,26 +1551,26 @@
         <item>1</item>
         <item>2</item>
     </string-array>
-    
+
     <!-- Recent panel -->
     <string-array name="slim_recents_expanded_mode_entries">
         <item>@string/slim_recents_mode_auto</item>
         <item>@string/slim_recents_expanded_mode_always</item>
         <item>@string/slim_recents_expanded_mode_never</item>
     </string-array>
-    
+
     <string-array name="slim_recents_popup_theme_mode_entries">
         <item>@string/slim_recents_mode_auto</item>
         <item>@string/slim_recents_popup_theme_mode_dark</item>
         <item>@string/slim_recents_popup_theme_mode_light</item>
     </string-array>
-    
+
     <string-array name="slim_recents_mode_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
     </string-array>
-    
+
     <!-- Disable torch on screen off delay -->
     <string-array name="torch_screen_off_delay_entries">
         <item>@string/torch_screen_off_one_second</item>
@@ -1738,7 +1698,7 @@
         <item>**theme_switch**</item>
         <item>**torch**</item>
 	</string-array>
-	
+
 	<string-array name="android_recents_clear_all_position_horizontal_entries" >
         <item>@string/android_recents_clear_all_position_left</item>
         <item>@string/android_recents_clear_all_position_center</item>
@@ -1756,7 +1716,7 @@
         <item>1</item>
         <item>2</item>
     </string-array>
-    
+
     <!-- Overflow button -->
     <string-array name="overflow_button_entries" translatable="false">
         <item>@string/overflow_auto_detect</item>
