@@ -48,19 +48,20 @@ public class FloatingWindows extends SettingsPreferenceFragment
 
         addPreferencesFromResource(R.xml.floating_windows);
 
-	mHeadsUpFloatingWindow = (SwitchPreference) findPreference(PREF_HEADS_UP_FLOATING);
-	mHeadsUpFloatingWindow.setChecked(Settings.System.getIntForUser(getContentResolver(),
-	Settings.System.HEADS_UP_FLOATING, 1, UserHandle.USER_CURRENT) == 1);
-	mHeadsUpFloatingWindow.setOnPreferenceChangeListener(this);
+    mHeadsUpFloatingWindow = (SwitchPreference) findPreference(PREF_HEADS_UP_FLOATING);
+    mHeadsUpFloatingWindow.setChecked(Settings.System.getIntForUser(getContentResolver(),
+            Settings.System.HEADS_UP_FLOATING, 1, UserHandle.USER_CURRENT) == 1);
+    mHeadsUpFloatingWindow.setOnPreferenceChangeListener(this);
+
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mHeadsUpFloatingWindow) {
-	    Settings.System.putIntForUser(getContentResolver(),
-		    Settings.System.HEADS_UP_FLOATING,
-	    (Boolean) newValue ? 1 : 0, UserHandle.USER_CURRENT);
-	    return true;
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.HEADS_UP_FLOATING,
+            (Boolean) newValue ? 1 : 0, UserHandle.USER_CURRENT);
+            return true;
         }
         return false;
     }
