@@ -26,6 +26,13 @@
         android:summary="@string/floating_windows_switch"
         android:defaultValue="false" />
 
+	<!-- Gesture Anywhere Switch -->
+	<SwitchPreference
+        android:key="gesture_anywhere_floating"
+        android:title="@string/gesture_anywhere_floating"
+        android:summary="@string/gesture_anywhere_floating_summary"
+        android:defaultValue="false" />
+
 	<!-- HeadsUp floating mode switch -->
     <SwitchPreference
         android:key="heads_up_floating"

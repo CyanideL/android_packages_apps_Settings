@@ -39,8 +39,11 @@ public class FloatingWindows extends SettingsPreferenceFragment
 
     private static final String PREF_HEADS_UP_FLOATING =
 	    "heads_up_floating";
+	private static final String GESTURE_ANYWHERE_FLOATING =
+	    "gesture_anywhere_floating";
 
     SwitchPreference mHeadsUpFloatingWindow;
+    SwitchPreference mGestureAnywhereFloatingWindow;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,6 +56,11 @@ public class FloatingWindows extends SettingsPreferenceFragment
             Settings.System.HEADS_UP_FLOATING, 1, UserHandle.USER_CURRENT) == 1);
     mHeadsUpFloatingWindow.setOnPreferenceChangeListener(this);
 
+    mGestureAnywhereFloatingWindow = (SwitchPreference) findPreference(PREF_HEADS_UP_FLOATING);
+    mGestureAnywhereFloatingWindow.setChecked(Settings.System.getIntForUser(getContentResolver(),
+            Settings.System.GESTURE_ANYWHERE_FLOATING, 1, UserHandle.USER_CURRENT) == 1);
+    mGestureAnywhereFloatingWindow.setOnPreferenceChangeListener(this);
+
     }
 
     @Override
@@ -60,6 +68,11 @@ public class FloatingWindows extends SettingsPreferenceFragment
         if (preference == mHeadsUpFloatingWindow) {
             Settings.System.putIntForUser(getContentResolver(),
                     Settings.System.HEADS_UP_FLOATING,
+            (Boolean) newValue ? 1 : 0, UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mGestureAnywhereFloatingWindow) {
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.GESTURE_ANYWHERE_FLOATING,
             (Boolean) newValue ? 1 : 0, UserHandle.USER_CURRENT);
             return true;
         }
