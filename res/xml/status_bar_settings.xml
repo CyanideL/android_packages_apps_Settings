@@ -78,10 +78,10 @@
     
     <!-- Notifications Colors -->
     <PreferenceScreen
-        android:key="status_bar_notif_system_icons_settings"
-        android:title="@string/status_bar_notif_system_icons_settings_title"
-        android:summary="@string/status_bar_notif_system_icons_settings_summary"
-        android:fragment="com.android.settings.cyanide.StatusBarNotifSystemIconsSettings" />
+        android:key="status_bar_notif_status_area_settings"
+        android:title="@string/status_bar_notif_status_area_settings_title"
+        android:summary="@string/status_bar_notif_status_area_settings_summary"
+        android:fragment="com.android.settings.cyanide.StatusBarNotifStatusAreaSettings" />
         
     <!-- Random Options -->
     <PreferenceScreen
