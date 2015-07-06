@@ -53,12 +53,12 @@ public class FloatingWindows extends SettingsPreferenceFragment
 
     mHeadsUpFloatingWindow = (SwitchPreference) findPreference(PREF_HEADS_UP_FLOATING);
     mHeadsUpFloatingWindow.setChecked(Settings.System.getIntForUser(getContentResolver(),
-            Settings.System.HEADS_UP_FLOATING, 1, UserHandle.USER_CURRENT) == 1);
+            Settings.System.HEADS_UP_FLOATING, 0, UserHandle.USER_CURRENT) == 1);
     mHeadsUpFloatingWindow.setOnPreferenceChangeListener(this);
 
-    mGestureAnywhereFloatingWindow = (SwitchPreference) findPreference(PREF_HEADS_UP_FLOATING);
+    mGestureAnywhereFloatingWindow = (SwitchPreference) findPreference(GESTURE_ANYWHERE_FLOATING);
     mGestureAnywhereFloatingWindow.setChecked(Settings.System.getIntForUser(getContentResolver(),
-            Settings.System.GESTURE_ANYWHERE_FLOATING, 1, UserHandle.USER_CURRENT) == 1);
+            Settings.System.GESTURE_ANYWHERE_FLOATING, 0, UserHandle.USER_CURRENT) == 1);
     mGestureAnywhereFloatingWindow.setOnPreferenceChangeListener(this);
 
     }
