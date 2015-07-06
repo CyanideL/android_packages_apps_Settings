@@ -48,4 +48,11 @@
         android:summary="@string/slim_action_floats_summary"
         android:defaultValue="false" />
 
+    <!-- Task Manager Floating Switch -->
+	<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="task_manager_floating"
+        android:title="@string/task_manager_floating"
+        android:summary="@string/task_manager_floating_summary"
+        android:defaultValue="false" />
+
 </PreferenceScreen>
