@@ -1734,14 +1734,14 @@
 
     <!-- Floating Windows -->
     <string name="floating_windows">Floating Windows</string>
-    <string name="floating_windows_switch">Whether to allow global use of float mode</string>
+    <string name="floating_windows_switch">Whether to allow global use of float mode, if this is off none of the below options will work DUH!!!</string>
     <string name="slim_action_floats">Cyanide Actions and Pie</string>
     <string name="slim_action_floats_summary">Launch Cyanide and Pie Actions in Floating Window Mode</string>
     <string name="gesture_anywhere_floating">Gesture Anywhere</string>
     <string name="gesture_anywhere_floating_summary">Launch Gesture Anywhere shortcuts in float mode</string>
 
     <!-- Recents empty style -->
-    <string name="recents_empty_style">Show Cyanide logo</string>
+    <string name="recents_empty_style">Cyanide Logo</string>
     <string name="recents_empty_style_summary">When recents is empty show Cyanide logo instead of text. This will restart you systemui</string>
 
     <!-- Notification Color Modes -->

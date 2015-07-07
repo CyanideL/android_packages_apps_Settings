@@ -57,10 +57,17 @@
             android:defaultValue="0xffffffff" />
 
 	</PreferenceCategory>
-	
+
 	<PreferenceCategory
 			android:key="recents_panel"
 			android:title="@string/recents_random_title">
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+			android:key="recents_clear_all_dismiss_all"
+			android:title="@string/recents_clear_all_dismiss_all_title"
+			android:summary="@string/recents_clear_all_dismiss_all_summary"
+			android:defaultValue="true"
+			android:dependency="android_recents_show_clear_all" />
 
         <!-- Recents empty Cyanide logo -->
         <SwitchPreference
@@ -70,29 +77,22 @@
             android:defaultValue="false" />
 
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-			android:key="recents_clear_all_dismiss_all"
-			android:title="@string/recents_clear_all_dismiss_all_title"
-			android:summary="@string/recents_clear_all_dismiss_all_summary"
-			android:defaultValue="true"
-			android:dependency="android_recents_show_clear_all" />
-        
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="systemui_recents_mem_display"
             android:title="@string/recents_show_membar_title"
             android:summary="@string/recents_show_membar_summary"
             android:defaultValue="true" />
-            
+
         <SwitchPreference
             android:key="android_recents_show_search_bar"
             android:title="@string/android_recents_show_search_bar_title"
             android:summary="@string/android_recents_show_search_bar_summary" />
-            
+
     </PreferenceCategory>
 	
 	<PreferenceCategory
 		android:key="omniswitch"
 		android:title="@string/omniswitch_recent_category">
-    
+
         <!-- OmniSwitch -->
         <PreferenceScreen
 			android:id="@+id/omniswitch"
@@ -101,11 +101,11 @@
 			android:fragment="com.android.settings.cyanide.OmniSwitch" />
 
     </PreferenceCategory>
-    
+
     <PreferenceCategory
 		android:key="slim_recents"
 		android:title="@string/slim_recent_category">
-    
+
         <PreferenceScreen
             android:key="slim_recents_settings"
             android:title="@string/slim_recents_settings_title"
