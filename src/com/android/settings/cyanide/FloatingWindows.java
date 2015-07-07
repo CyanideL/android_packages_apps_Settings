@@ -47,7 +47,6 @@ public class FloatingWindows extends SettingsPreferenceFragment
     private static final String GESTURE_ANYWHERE_FLOATING = "gesture_anywhere_floating";
     private static final String HEADS_UP_FLOATING = "heads_up_floating";
     private static final String SLIM_ACTION_FLOATS = "slim_action_floats";
-    private static final String TASK_MANAGER_FLOATING = "task_manager_floating";
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
@@ -56,7 +55,6 @@ public class FloatingWindows extends SettingsPreferenceFragment
     SwitchPreference mGestureAnywhereFloatingWindow;
     SwitchPreference mHeadsUpFloatingWindow;
     SwitchPreference mSlimActionFloatingWindow;
-    SwitchPreference mTaskManagerFloatingWindow;
 
     private ContentResolver mResolver;
 
@@ -94,11 +92,6 @@ public class FloatingWindows extends SettingsPreferenceFragment
         mSlimActionFloatingWindow.setChecked(Settings.System.getInt(mResolver,
             Settings.System.SLIM_ACTION_FLOATS, 0) == 1);
         mSlimActionFloatingWindow.setOnPreferenceChangeListener(this);
-
-        mTaskManagerFloatingWindow = (SwitchPreference) findPreference(TASK_MANAGER_FLOATING);
-        mTaskManagerFloatingWindow.setChecked(Settings.System.getInt(mResolver,
-            Settings.System.TASK_MANAGER_FLOATING, 0) == 1);
-        mTaskManagerFloatingWindow.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);
     }
@@ -141,11 +134,6 @@ public class FloatingWindows extends SettingsPreferenceFragment
         } else if (preference == mSlimActionFloatingWindow) {
             Settings.System.putInt(mResolver,
                     Settings.System.SLIM_ACTION_FLOATS,
-            (Boolean) newValue ? 1 : 0);
-            return true;
-        } else if (preference == mTaskManagerFloatingWindow) {
-            Settings.System.putInt(mResolver,
-                    Settings.System.TASK_MANAGER_FLOATING,
             (Boolean) newValue ? 1 : 0);
             return true;
         }
@@ -192,8 +180,6 @@ public class FloatingWindows extends SettingsPreferenceFragment
                                     Settings.System.HEADS_UP_FLOATING, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.SLIM_ACTION_FLOATS, 0);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.TASK_MANAGER_FLOATING, 0);
                             getOwner().refreshSettings();
                         }
                     })
@@ -208,8 +194,6 @@ public class FloatingWindows extends SettingsPreferenceFragment
                                     Settings.System.HEADS_UP_FLOATING, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.SLIM_ACTION_FLOATS, 1);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.TASK_MANAGER_FLOATING, 1);
                             getOwner().refreshSettings();
                         }
                     })

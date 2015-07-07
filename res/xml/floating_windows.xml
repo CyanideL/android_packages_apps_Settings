@@ -55,12 +55,5 @@
             android:summary="@string/heads_up_floating_window_summary"
             android:defaultValue="false" />
 
-        <!-- Task Manager Floating Switch -->
-        <SwitchPreference
-            android:key="task_manager_floating"
-            android:title="@string/task_manager_floating"
-            android:summary="@string/task_manager_floating_summary"
-            android:defaultValue="false" />
-
     </PreferenceCategory>
 </PreferenceScreen>
