@@ -1436,6 +1436,7 @@
         <item>@string/shortcut_action_settings</item>
         <item>@string/shortcut_action_pie</item>
         <item>@string/shortcut_action_sound</item>
+        <item>@string/shortcut_action_torch</item>
         <item>@string/shortcut_action_users</item>
     </string-array>
 
@@ -1462,6 +1463,7 @@
         <item>**settings**</item>
         <item>**pie**</item>
         <item>**sound**</item>
+        <item>**torch**</item>
         <item>**users**</item>
     </string-array>    
 
