@@ -18,40 +18,49 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/floating_windows"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
-	
-	<!-- Floating Windows Master Switch -->
-	<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="floating_window_mode"
-        android:title="@string/floating_windows"
-        android:summary="@string/floating_windows_switch"
-        android:defaultValue="false" />
 
-	<!-- Gesture Anywhere Switch -->
-	<SwitchPreference
-        android:key="gesture_anywhere_floating"
-        android:title="@string/gesture_anywhere_floating"
-        android:summary="@string/gesture_anywhere_floating_summary"
-        android:defaultValue="false" />
+    <PreferenceCategory
+        android:title="@string/floating_master_switch">
 
-	<!-- HeadsUp floating mode switch -->
-    <SwitchPreference
-        android:key="heads_up_floating"
-        android:title="@string/heads_up_floating_window_title"
-        android:summary="@string/heads_up_floating_window_summary"
-        android:defaultValue="false" />
-	
-	<!-- Slim  and Pie Actions Floating Switch -->
-	<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="slim_action_floats"
-        android:title="@string/slim_action_floats"
-        android:summary="@string/slim_action_floats_summary"
-        android:defaultValue="false" />
+        <!-- Floating Windows Master Switch -->
+	    <SwitchPreference
+            android:key="floating_window_mode"
+            android:title="@string/floating_windows"
+            android:summary="@string/floating_windows_switch"
+            android:defaultValue="false" />
 
-    <!-- Task Manager Floating Switch -->
-	<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-        android:key="task_manager_floating"
-        android:title="@string/task_manager_floating"
-        android:summary="@string/task_manager_floating_summary"
-        android:defaultValue="false" />
+    </PreferenceCategory>
 
+	<PreferenceCategory
+        android:title="@string/floating_additional_options">
+
+        <!-- Slim  and Pie Actions Floating Switch -->
+        <SwitchPreference
+            android:key="slim_action_floats"
+            android:title="@string/slim_action_floats"
+            android:summary="@string/slim_action_floats_summary"
+            android:defaultValue="false" />
+
+        <!-- Gesture Anywhere Switch -->
+        <SwitchPreference
+            android:key="gesture_anywhere_floating"
+            android:title="@string/gesture_anywhere_floating"
+            android:summary="@string/gesture_anywhere_floating_summary"
+            android:defaultValue="false" />
+
+        <!-- HeadsUp floating mode switch -->
+        <SwitchPreference
+            android:key="heads_up_floating"
+            android:title="@string/heads_up_floating_window_title"
+            android:summary="@string/heads_up_floating_window_summary"
+            android:defaultValue="false" />
+
+        <!-- Task Manager Floating Switch -->
+        <SwitchPreference
+            android:key="task_manager_floating"
+            android:title="@string/task_manager_floating"
+            android:summary="@string/task_manager_floating_summary"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
 </PreferenceScreen>

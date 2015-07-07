@@ -112,6 +112,8 @@
     <string name="slim_recent_category">Slim Recents</string>
     <string name="omniswitch_recent_category">OmniSwitch Settings</string>
     <string name="recents_random_title">Misc Recents Options</string>
+    <string name="floating_master_switch">Master Switch</string>
+    <string name="floating_additional_options">Additional Float Options</string>
     
     <!-- Changelog -->
     <string name="changelog_crdroid_title">Changelog</string>
