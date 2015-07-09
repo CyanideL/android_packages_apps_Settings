@@ -588,6 +588,9 @@
     <string name="cyanide_ville_title">HTC One S</string>
     <string name="cyanide_armani_title">Xiaomi Redmi 1S</string>
     <string name="cyanide_condor_title">Moto E</string>
+    <string name="cyanide_nexus4_title">Nexus 4</string>
+    <string name="cyanide_xiaomi_title">Mi 3</string>
+    <string name="cyanide_i9305_title">S3 Intl i9305</string>
     
     <!-- Animation Controls -->
     <string name="title_animation_controls">System Animations</string>

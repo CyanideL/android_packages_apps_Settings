@@ -24,97 +24,115 @@
         android:id="@+id/cyanide_dlc"
         android:title="@string/cyanide_m8_title"
         android:fragment="com.android.settings.cyanide.dlc.M8" />
-    
+
     <!-- HTC Ville -->
     <PreferenceScreen
         android:id="@+id/cyanide_dlc"
         android:title="@string/cyanide_ville_title"
         android:fragment="com.android.settings.cyanide.dlc.Ville" />
-    
+
     <!-- LG G3 d850 -->
     <PreferenceScreen
         android:id="@+id/cyanide_dlc"
         android:title="@string/cyanide_d850_title"
         android:fragment="com.android.settings.cyanide.dlc.d850" />
-        
+
     <!-- LG G3 d855 -->
     <PreferenceScreen
         android:id="@+id/cyanide_dlc"
         android:title="@string/cyanide_d855_title"
         android:fragment="com.android.settings.cyanide.dlc.d855" />
-    
+
     <!-- LG G3 vs985 -->
     <PreferenceScreen
         android:id="@+id/cyanide_dlc"
         android:title="@string/cyanide_vs985_title"
         android:fragment="com.android.settings.cyanide.dlc.vs985" />
-    
+
     <!-- Moto E -->
     <PreferenceScreen
         android:id="@+id/cyanide_dlc"
         android:title="@string/cyanide_condor_title"
         android:fragment="com.android.settings.cyanide.dlc.Condor" />
-    
+
+    <!-- Nexus 4 -->
+    <PreferenceScreen
+        android:id="@+id/cyanide_dlc"
+        android:title="@string/cyanide_nexus4_title"
+        android:fragment="com.android.settings.cyanide.dlc.Nexus4" />
+
     <!-- Nexus 5 -->
     <PreferenceScreen
         android:id="@+id/cyanide_dlc"
         android:title="@string/cyanide_nexus5_title"
         android:fragment="com.android.settings.cyanide.dlc.Nexus5" />
-    
+
     <!-- Nexus 6 -->
     <PreferenceScreen
         android:id="@+id/cyanide_dlc"
         android:title="@string/cyanide_nexus6_title"
         android:fragment="com.android.settings.cyanide.dlc.Nexus6" />
-    
+
     <!-- Nexus 7 -->
     <PreferenceScreen
         android:id="@+id/cyanide_dlc"
         android:title="@string/cyanide_nexus7_title"
         android:fragment="com.android.settings.cyanide.dlc.Nexus7" />
-    
+
     <!-- One Plus Bacon -->
     <PreferenceScreen
         android:id="@+id/cyanide_dlc"
         android:title="@string/cyanide_bacon_title"
         android:fragment="com.android.settings.cyanide.dlc.Bacon" />
-    
+
     <!-- Galaxy Note 2 Vzw -->
 	<PreferenceScreen
 		android:id="@+id/cyanide_dlc"
 		android:title="@string/cyanide_n2vzw_title"
 		android:fragment="com.android.settings.cyanide.dlc.i605"/>
-    
+
     <!-- Galaxy Note 2 LTE -->
 	<PreferenceScreen
 		android:id="@+id/cyanide_dlc"
 		android:title="@string/cyanide_n2_title"
 		android:fragment="com.android.settings.cyanide.dlc.N2"/>
-    
+
     <!-- Galaxy S2 i777 -->
     <PreferenceScreen
         android:id="@+id/cyanide_dlc"
         android:title="@string/cyanide_s2_title"
         android:fragment="com.android.settings.cyanide.dlc.i777" />
-    
+
     <!-- Galaxy S3 -->
     <PreferenceScreen
         android:id="@+id/cyanide_dlc"
         android:title="@string/cyanide_s3_title"
         android:fragment="com.android.settings.cyanide.dlc.S3" />
-        
+
+    <!-- Galaxy S3 Intl i9305 -->
+    <PreferenceScreen
+        android:id="@+id/cyanide_dlc"
+        android:title="@string/cyanide_s3_title"
+        android:fragment="com.android.settings.cyanide.dlc.i9305" />
+
     <!-- Galaxy S5 -->
     <PreferenceScreen
         android:id="@+id/cyanide_dlc"
         android:title="@string/cyanide_s5_title"
         android:fragment="com.android.settings.cyanide.dlc.S5" />
-        
+
     <!-- Sony XperiaZ Ultra -->
     <PreferenceScreen
         android:id="@+id/cyanide_dlc"
         android:title="@string/cyanide_xperia_title"
         android:fragment="com.android.settings.cyanide.dlc.XperiaZ" />
-        
+
+    <!-- Xiaomi Mi 3 -->
+    <PreferenceScreen
+        android:id="@+id/cyanide_dlc"
+        android:title="@string/cyanide_xiaomi_title"
+        android:fragment="com.android.settings.cyanide.dlc.Xiaomi" />
+
     <!-- Xiaomi Redmi 1S -->
     <PreferenceScreen
         android:id="@+id/cyanide_dlc"
