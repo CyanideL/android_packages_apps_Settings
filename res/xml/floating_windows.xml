@@ -39,6 +39,7 @@
             android:key="slim_action_floats"
             android:title="@string/slim_action_floats"
             android:summary="@string/slim_action_floats_summary"
+            android:dependency="floating_window_mode"
             android:defaultValue="false" />
 
         <!-- Gesture Anywhere Switch -->
@@ -46,6 +47,7 @@
             android:key="gesture_anywhere_floating"
             android:title="@string/gesture_anywhere_floating"
             android:summary="@string/gesture_anywhere_floating_summary"
+            android:dependency="floating_window_mode"
             android:defaultValue="false" />
 
         <!-- HeadsUp floating mode switch -->
@@ -53,6 +55,7 @@
             android:key="heads_up_floating"
             android:title="@string/heads_up_floating_window_title"
             android:summary="@string/heads_up_floating_window_summary"
+            android:dependency="floating_window_mode"
             android:defaultValue="false" />
 
     </PreferenceCategory>
