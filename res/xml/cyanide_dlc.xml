@@ -112,7 +112,7 @@
     <!-- Galaxy S3 Intl i9305 -->
     <PreferenceScreen
         android:id="@+id/cyanide_dlc"
-        android:title="@string/cyanide_s3_title"
+        android:title="@string/cyanide_i9305_title"
         android:fragment="com.android.settings.cyanide.dlc.i9305" />
 
     <!-- Galaxy S5 -->

@@ -97,11 +97,6 @@
         android:summary="@string/pa_pie_slimpie_summary" />
     
     <SwitchPreference
-        android:key="pa_pie_theme_switch"
-        android:title="@string/pa_pie_theme_switch_title"
-        android:summary="@string/pa_pie_theme_switch_summary" />
-    
-    <SwitchPreference
         android:key="pa_pie_torch"
         android:title="@string/pa_pie_torch_title"
         android:summary="@string/pa_pie_torch_summary" />
