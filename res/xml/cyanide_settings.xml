@@ -137,4 +137,10 @@
         android:title="@string/weather_control_master_title"
         android:fragment="com.android.settings.cyanide.WeatherControl" />
 
+    <!-- Various shit -->
+    <PreferenceScreen
+        android:key="various_shit"
+        android:title="@string/various_shit_title"
+        android:fragment="com.android.settings.cyanide.VariousShit" />
+
 </PreferenceScreen>

@@ -2605,6 +2605,13 @@
         <activity android:name=".cyanide.CyanideNotifs" />
         <activity android:name=".cyanide.Misc" />
 
+        <activity android:name=".cyanide.HiddenAnimActivity">
+            <intent-filter>
+                <action android:name=".cyanide.HiddenAnimActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <provider
             android:name=".search.SettingsSearchIndexablesProvider"
             android:authorities="com.android.settings"

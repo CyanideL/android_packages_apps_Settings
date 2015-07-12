@@ -1748,5 +1748,13 @@
     <string name="notification_icon_color_mode_greyscale_title">If the icon is an greyscale icon</string>
     <string name="notification_bg_color_mode_no_color_title">If the notification doesn\`t include an own color</string>
     <string name="notification_color_mode_always_title">Always</string>
+    
+    <!-- Joke -->
+    <string name="various_shit_title"></string>
+    <string name="hidden_shit_toast">Hidden shit UNLEASHED!!!</string>
+    <string name="hidden_shit_title">Hidden shit</string>
+    <string name="hidden_shit_summary">You are now in unleashed mode!</string>
+    <string name="hidden_anim2_title">Bug reports?</string>
+    <string name="hidden_anim_title">Can\'t get enough Cyanide?!</string>
 
 </resources>
