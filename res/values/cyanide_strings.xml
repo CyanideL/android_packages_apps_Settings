@@ -1756,5 +1756,9 @@
     <string name="hidden_shit_summary">You are now in unleashed mode!</string>
     <string name="hidden_anim2_title">Bug reports?</string>
     <string name="hidden_anim_title">Can\'t get enough Cyanide?!</string>
+    
+    <!-- Hide lock screen carrier -->
+    <string name="lock_screen_hide_carrier_title">Lock Screen Carrier Label</string>
+    <string name="lock_screen_hide_carrier_summary">Hide or show carrier label on lockscreen, SystemUI will be restarted on switch toggle.</string>
 
 </resources>

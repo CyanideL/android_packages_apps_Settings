@@ -39,6 +39,9 @@ import android.provider.Settings.SettingNotFoundException;
 import android.util.Log;
 import android.widget.EditText;
 
+import com.android.settings.cyanide.util.Helpers;
+import com.android.settings.Utils;
+
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
@@ -48,12 +51,14 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
     private static final String TAG = "CarrierLabel";
 
     private static final String STATUS_BAR_CARRIER = "status_bar_carrier";
+    private static final String CARRIERLABEL_ON_LOCKSCREEN="lock_screen_hide_carrier";
     private static final String CUSTOM_CARRIER_LABEL = "custom_carrier_label";
     private static final String STATUS_BAR_CARRIER_COLOR = "status_bar_carrier_color";
 
     static final int DEFAULT_STATUS_CARRIER_COLOR = 0xffffffff;
 
     private SwitchPreference mStatusBarCarrier;
+    private SwitchPreference mCarrierLabelOnLockScreen;
     private PreferenceScreen mCustomCarrierLabel;
 
     private String mCustomCarrierLabelText;
@@ -75,6 +80,19 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
         mStatusBarCarrier.setChecked((Settings.System.getInt(resolver, Settings.System.STATUS_BAR_CARRIER, 0) == 1));
         mStatusBarCarrier.setOnPreferenceChangeListener(this);
         mCustomCarrierLabel = (PreferenceScreen) prefSet.findPreference(CUSTOM_CARRIER_LABEL);
+
+        //CarrierLabel on LockScreen
+        mCarrierLabelOnLockScreen = (SwitchPreference) findPreference(CARRIERLABEL_ON_LOCKSCREEN);
+        if (!Utils.isWifiOnly(getActivity())) {
+            mCarrierLabelOnLockScreen.setOnPreferenceChangeListener(this);
+
+            boolean hideCarrierLabelOnLS = Settings.System.getInt(
+                    getActivity().getContentResolver(),
+                    Settings.System.LOCK_SCREEN_HIDE_CARRIER, 0) == 1;
+            mCarrierLabelOnLockScreen.setChecked(hideCarrierLabelOnLS);
+        } else {
+            prefSet.removePreference(mCarrierLabelOnLockScreen);
+        }
 
         mCarrierColorPicker = (ColorPickerPreference) findPreference(STATUS_BAR_CARRIER_COLOR);
         mCarrierColorPicker.setOnPreferenceChangeListener(this);
@@ -118,6 +136,13 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
         } else if (preference == mStatusBarCarrier) {
             boolean value = (Boolean) newValue;
             Settings.System.putInt(resolver, Settings.System.STATUS_BAR_CARRIER, value ? 1 : 0);
+            return true;
+         } else if (preference == mCarrierLabelOnLockScreen) {
+			 boolean value = (Boolean) newValue;
+             Settings.System.putInt(resolver,
+                    Settings.System.LOCK_SCREEN_HIDE_CARRIER,
+                    value ? 1 : 0);
+            Helpers.restartSystemUI();
             return true;
          }
          return false;
