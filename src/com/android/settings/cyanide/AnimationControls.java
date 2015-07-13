@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.cyanide.fragments;
+package com.android.settings.cyanide;
 
 import android.app.Activity;
 import android.content.Intent;

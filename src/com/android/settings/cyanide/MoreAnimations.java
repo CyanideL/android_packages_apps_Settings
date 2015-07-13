@@ -35,7 +35,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
-public class Animations extends SettingsPreferenceFragment implements
+public class MoreAnimations extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final String KEY_TOAST_ANIMATION = "toast_animation";
@@ -52,7 +52,7 @@ public class Animations extends SettingsPreferenceFragment implements
         final Activity activity = getActivity();
         final ContentResolver resolver = activity.getContentResolver();
 
-        addPreferencesFromResource(R.xml.cyanide_animations);
+        addPreferencesFromResource(R.xml.cyanide_more_animations);
 
 	PreferenceScreen prefSet = getPreferenceScreen();
 

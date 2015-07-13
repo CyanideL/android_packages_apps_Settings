@@ -32,16 +32,16 @@
         android:fragment="com.android.settings.cyanide.CyanideSound" />
 
     <!-- Animation settings -->
-	<PreferenceScreen
-		android:id="@+id/animations"
-		android:title="@string/cyanide_animations_title"
-		android:fragment="com.android.settings.cyanide.Animations"/> 
+    <PreferenceScreen
+        android:id="@+id/animations"
+        android:title="@string/cyanide_animations_title"
+        android:fragment="com.android.settings.cyanide.fragments.CyanideAnimations" />
 
     <!-- Battery -->
     <PreferenceScreen
         android:id="@+id/battery_settings"
         android:title="@string/power_usage_summary_title"
-        android:fragment="com.android.settings.fuelgauge.PowerUsageSummary"/>
+        android:fragment="com.android.settings.fuelgauge.PowerUsageSummary" />
 
     <!-- Buttons -->
     <PreferenceScreen
@@ -100,12 +100,10 @@
     </PreferenceScreen>
 
     <!-- Recent Apps Panel -->
-	<PreferenceScreen
-		android:key="recents_panel"
-		android:fragment="com.android.settings.cyanide.AndroidRecentsSettings"
-		android:title="@string/Recents_panel" >
-
-	</PreferenceScreen>
+    <PreferenceScreen
+        android:key="recents_panel"
+        android:fragment="com.android.settings.cyanide.AndroidRecentsSettings"
+        android:title="@string/Recents_panel" />
 
     <!-- Status bar -->
     <PreferenceScreen
@@ -115,9 +113,9 @@
 
     <!-- System App Remover -->
     <PreferenceScreen
-		android:key="slimsizer"
-		android:fragment="com.android.settings.cyanide.SlimSizer"
-		android:title="@string/sizer_title" />
+        android:key="slimsizer"
+        android:fragment="com.android.settings.cyanide.SlimSizer"
+        android:title="@string/sizer_title" />
 
     <!-- Wakelock blocker -->
     <PreferenceScreen
