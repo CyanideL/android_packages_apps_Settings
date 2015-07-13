@@ -31,7 +31,6 @@ import com.android.settings.Utils;
 
 public class InterfaceSettings extends SettingsPreferenceFragment {
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

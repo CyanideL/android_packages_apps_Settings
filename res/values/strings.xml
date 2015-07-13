@@ -5740,22 +5740,22 @@
     <string name="other_sound_settings">Other sounds</string>
 
     <!-- Sound & notification > Other sounds: Title for the option enabling touch sounds for dial pad tones. [CHAR LIMIT=30] -->
-    <string name="dial_pad_tones_title">Dial pad tones</string>
+    <string name="dial_pad_tones_title">Dial Pad Tones</string>
 
     <!-- Sound & notification > Other sounds: Title for the option enabling touch sounds for screen locking sounds. [CHAR LIMIT=30] -->
-    <string name="screen_locking_sounds_title">Screen locking sounds</string>
+    <string name="screen_locking_sounds_title">Screen Locking Sounds</string>
 
     <!-- Sound & notification > Other sounds: Title for the option enabling docking sounds. [CHAR LIMIT=30] -->
     <string name="docking_sounds_title">Docking sounds</string>
 
     <!-- Sound & notification > Other sounds: Title for the option enabling touch sounds. [CHAR LIMIT=30] -->
-    <string name="touch_sounds_title">Touch sounds</string>
+    <string name="touch_sounds_title">Touch Sounds</string>
 
     <!-- Sound & notification > Other sounds: Title for the option enabling haptic feedback on touch. [CHAR LIMIT=30] -->
     <string name="vibrate_on_touch_title">Vibrate on touch</string>
 
     <!-- Sound & notification > Other sounds: Title for the option enabling dock audio media. [CHAR LIMIT=50] -->
-    <string name="dock_audio_media_title">Dock speaker plays</string>
+    <string name="dock_audio_media_title">Dock Speaker Plays</string>
 
     <!-- Sound & notification > Other sounds: Value for the dock audio media with value 0: disabled. [CHAR LIMIT=30] -->
     <string name="dock_audio_media_disabled">All audio</string>

@@ -57,7 +57,7 @@ public class PAPieColor extends SettingsPreferenceFragment implements OnPreferen
     private static final String PA_PIE_CHEVRON = "pa_pie_chevron";
     private static final String PA_PIE_BUTTON_COLOR = "pa_pie_button_color";
     private static final String PA_PIE_JUICE = "pa_pie_juice";
-    
+
     private static final int DEFAULT_COLOR = 0xffffffff;
     private static final int CYANIDE_BLUE = 0xff1976D2;
 
@@ -73,7 +73,7 @@ public class PAPieColor extends SettingsPreferenceFragment implements OnPreferen
     ColorPickerPreference mChevron;
     ColorPickerPreference mBtnColor;
     ColorPickerPreference mJuice;
-    
+
     private ContentResolver mResolver;
 
     @Override
@@ -104,90 +104,90 @@ public class PAPieColor extends SettingsPreferenceFragment implements OnPreferen
                 (ColorPickerPreference) findPreference(PA_PIE_BACKGROUND);
         intColor = Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_BACKGROUND,
-                0x04000000); 
+                0x04000000);
         mPieBg.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0x04000000 & intColor));
         mPieBg.setSummary(hexColor);
         mPieBg.setOnPreferenceChangeListener(this);
         mPieBg.setAlphaSliderEnabled(true);
-        
+
         mSelect =
                 (ColorPickerPreference) findPreference(PA_PIE_SELECT);
         intColor = Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_SELECT,
-                DEFAULT_COLOR); 
+                DEFAULT_COLOR);
         mSelect.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mSelect.setSummary(hexColor);
         mSelect.setOnPreferenceChangeListener(this);
         mSelect.setAlphaSliderEnabled(true);
-        
+
         mOutlines =
                 (ColorPickerPreference) findPreference(PA_PIE_OUTLINES);
         intColor = Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_OUTLINES,
-                DEFAULT_COLOR); 
+                DEFAULT_COLOR);
         mOutlines.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mOutlines.setSummary(hexColor);
         mOutlines.setOnPreferenceChangeListener(this);
         mOutlines.setAlphaSliderEnabled(true);
-        
+
         mStatusClock =
                 (ColorPickerPreference) findPreference(PA_PIE_STATUS_CLOCK);
         intColor = Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_STATUS_CLOCK,
-                DEFAULT_COLOR); 
+                DEFAULT_COLOR);
         mStatusClock.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mStatusClock.setSummary(hexColor);
         mStatusClock.setOnPreferenceChangeListener(this);
         mStatusClock.setAlphaSliderEnabled(true);
-        
+
         mStatus =
                 (ColorPickerPreference) findPreference(PA_PIE_STATUS);
         intColor = Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_STATUS,
-                DEFAULT_COLOR); 
+                DEFAULT_COLOR);
         mStatus.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mStatus.setSummary(hexColor);
         mStatus.setOnPreferenceChangeListener(this);
         mStatus.setAlphaSliderEnabled(true);
-        
+
         mChevron =
                 (ColorPickerPreference) findPreference(PA_PIE_CHEVRON);
         intColor = Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_CHEVRON,
-                DEFAULT_COLOR); 
+                DEFAULT_COLOR);
         mChevron.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mChevron.setSummary(hexColor);
         mChevron.setOnPreferenceChangeListener(this);
         mChevron.setAlphaSliderEnabled(true);
-        
+
         mBtnColor =
                 (ColorPickerPreference) findPreference(PA_PIE_BUTTON_COLOR);
         intColor = Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_BUTTON_COLOR,
-                DEFAULT_COLOR); 
+                DEFAULT_COLOR);
         mBtnColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mBtnColor.setSummary(hexColor);
         mBtnColor.setOnPreferenceChangeListener(this);
         mBtnColor.setAlphaSliderEnabled(true);
-        
+
         mJuice =
                 (ColorPickerPreference) findPreference(PA_PIE_JUICE);
         intColor = Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_JUICE,
-                DEFAULT_COLOR); 
+                DEFAULT_COLOR);
         mJuice.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mJuice.setSummary(hexColor);
         mJuice.setOnPreferenceChangeListener(this);
         mJuice.setAlphaSliderEnabled(true);
-        
+
         setHasOptionsMenu(true);
     }
     

@@ -20,12 +20,12 @@
 	<PreferenceCategory
 		android:key="lockscreen_shortcuts"
 		android:title="@string/cyanide_ls_shortcuts_title">
-	
+
 		<SwitchPreference
 			android:key="shortcuts_colorize_custom_icons"
 			android:title="@string/shortcuts_colorize_custom_icons_title"
 			android:summary="@string/shortcuts_colorize_custom_icons_summary" />
-	
+
 		<PreferenceScreen
              android:key="lockscreen_shortcuts"
              android:fragment="com.android.settings.cyanide.dslv.ActionListViewSettings"
@@ -37,14 +37,14 @@
          <extra android:name="useAppPickerOnly" android:value="true" />
          <extra android:name="fragment" android:value="com.android.settings.cyanide.fragments.LockscreenShortcutFragment" />
 		</PreferenceScreen>
-        
+
 		<!-- Lock Screen Sliders -->
 		<PreferenceScreen
 			android:key="lockscreen_shortcuts_settings"
 			android:fragment="com.android.settings.cyanogenmod.LockscreenShortcuts"
 			android:summary="@string/lockscreen_sliders_summary"
 			android:title="@string/lockscreen_targets_message" />
-			
+
 	</PreferenceCategory>
 
 </PreferenceScreen>

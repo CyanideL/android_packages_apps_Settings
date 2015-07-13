@@ -44,7 +44,7 @@ public class QSColors extends SettingsPreferenceFragment implements
             "qs_icon_color";
     private static final String PREF_QS_TEXT_COLOR =
             "qs_text_color";
-    
+
     private static final int DEFAULT_BACKGROUND_COLOR = 0xff263238;
     private static final int WHITE = 0xffffffff;
     private static final int CYANIDE_BLUE = 0xff1976D2;
@@ -86,7 +86,7 @@ public class QSColors extends SettingsPreferenceFragment implements
         mQSBackgroundColor.setSummary(hexColor);
         mQSBackgroundColor.setAlphaSliderEnabled(true);
         mQSBackgroundColor.setOnPreferenceChangeListener(this);
-        
+
         mQSIconColor =
                 (ColorPickerPreference) findPreference(PREF_QS_ICON_COLOR);
         intColor = Settings.System.getInt(mResolver,

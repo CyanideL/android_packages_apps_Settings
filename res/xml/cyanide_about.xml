@@ -50,7 +50,7 @@
         android:key="rogersb11_donate"
         android:title="@string/rogersb11_donate_title"
         android:summary="@string/rogersb11_donate_summary" />
-    
+
     </PreferenceCategory>
 
 </PreferenceScreen>

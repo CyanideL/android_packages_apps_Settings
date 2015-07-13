@@ -24,20 +24,20 @@
         android:key="cyanide_logo"
         android:enabled="false"
         android:layout="@layout/cyanide_logo" />
-    
+
     <!-- About Cyanide -->
     <PreferenceScreen
         android:id="@+id/cyanide_about"
         android:title="@string/cyanide_about_title"
         android:summary="@string/cyanide_about_summary"
         android:fragment="com.android.settings.cyanide.dlc.AboutCyanide" />
-        
+
     <!-- Changelog -->
     <PreferenceScreen android:key="changelog"
         android:title="@string/changelog_crdroid_title"
         android:summary="@string/changelog_summary"
         android:fragment="com.android.settings.cyanide.Changelog" />
-    
+
     <!-- Download Center -->
     <PreferenceScreen
         android:id="@+id/cyanide_dlc"

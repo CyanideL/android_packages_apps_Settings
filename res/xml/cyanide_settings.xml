@@ -30,25 +30,24 @@
         android:id="@+id/cyanide_sound_settings"
         android:title="@string/cyanide_sound_title"
         android:fragment="com.android.settings.cyanide.CyanideSound" />
-    
+
     <!-- Animation settings -->
 	<PreferenceScreen
 		android:id="@+id/animations"
 		android:title="@string/cyanide_animations_title"
 		android:fragment="com.android.settings.cyanide.Animations"/> 
-    
+
     <!-- Battery -->
     <PreferenceScreen
         android:id="@+id/battery_settings"
         android:title="@string/power_usage_summary_title"
         android:fragment="com.android.settings.fuelgauge.PowerUsageSummary"/>
-    
+
     <!-- Buttons -->
     <PreferenceScreen
         android:id="@+id/button_settings"
         android:title="@string/button_pref_title"
-        android:fragment="com.android.settings.ButtonSettings"
-        />
+        android:fragment="com.android.settings.ButtonSettings" />
 
     <!-- Floating Windows -->
     <PreferenceScreen
@@ -61,36 +60,31 @@
         android:id="@+id/identicons"
         android:title="@string/identicons_title"
         android:fragment="com.android.settings.cyanide.identicons.IdenticonsSettings" />
-    
+
     <!-- Interface -->
     <PreferenceScreen
         android:id="@+id/interface_settings"
         android:title="@string/interface_settings_title"
         android:fragment="com.android.settings.cyanide.InterfaceSettings" /> 
-        
+
     <!-- Lock screen -->
     <PreferenceScreen
         android:id="@+id/lockscreen_settings"
         android:title="@string/lockscreen_settings"
-        android:fragment="com.android.settings.lockscreen.LockScreenSettings"
-        settings:advanced="true"
-        />
-        
+        android:fragment="com.android.settings.lockscreen.LockScreenSettings" />
+
     <!-- Notifications -->
     <PreferenceScreen
         android:id="@+id/notification_manager"
         android:title="@string/cyanide_notifs_title"
-        android:fragment="com.android.settings.cyanide.CyanideNotifs"
-        />
-    
+        android:fragment="com.android.settings.cyanide.CyanideNotifs" />
+
     <!-- Quick Settings -->
     <PreferenceScreen
         android:id="@+id/notification_drawer_settings"
         android:title="@string/notification_drawer_title"
-        android:fragment="com.android.settings.cyanogenmod.NotificationDrawerSettings"
-        settings:advanced="true"
-        />
-    
+        android:fragment="com.android.settings.cyanogenmod.NotificationDrawerSettings" />
+
     <!-- Power Menu -->
     <PreferenceScreen
         android:key="global_menu_settings"
@@ -104,7 +98,7 @@
             <extra android:name="actionEntries" android:value="shortcut_action_power_menu_entries" />
             <extra android:name="fragment" android:value="com.android.settings.cyanide.fragments.PowerMenuFragment" />
     </PreferenceScreen>
-    
+
     <!-- Recent Apps Panel -->
 	<PreferenceScreen
 		android:key="recents_panel"
@@ -112,35 +106,29 @@
 		android:title="@string/Recents_panel" >
 
 	</PreferenceScreen>
-    
+
     <!-- Status bar -->
     <PreferenceScreen
         android:id="@+id/status_bar_settings"
         android:title="@string/status_bar_title"
         android:fragment="com.android.settings.cyanogenmod.StatusBarSettings" />
-    
+
     <!-- System App Remover -->
     <PreferenceScreen
 		android:key="slimsizer"
 		android:fragment="com.android.settings.cyanide.SlimSizer"
 		android:title="@string/sizer_title" />
-    
+
     <!-- Wakelock blocker -->
     <PreferenceScreen
         android:key="wakelock_blocker"
         android:title="@string/wakelock_blocker_title"
         android:fragment="com.android.settings.cyanide.WakeLockBlocker" />
-        
+
     <!-- Weather/cLock -->
     <PreferenceScreen
         android:key="weather_control"
         android:title="@string/weather_control_master_title"
         android:fragment="com.android.settings.cyanide.WeatherControl" />
-
-    <!-- Various shit -->
-    <PreferenceScreen
-        android:key="various_shit"
-        android:title="@string/various_shit_title"
-        android:fragment="com.android.settings.cyanide.VariousShit" />
 
 </PreferenceScreen>

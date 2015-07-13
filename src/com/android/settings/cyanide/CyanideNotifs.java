@@ -20,7 +20,7 @@ public class CyanideNotifs extends SettingsPreferenceFragment implements
     private static final String TAG = "Notifs";
     
     private static final String KEY_CATEGORY_LIGHTS = "lights";
-    
+
     private static final String DISABLE_IMMERSIVE_MESSAGE = "disable_immersive_message";
     private static final String KEY_HEADS_UP_SETTINGS = "heads_up_enabled";
     private static final String KEY_NOTIFICATION_LIGHT = "notification_light";
@@ -33,15 +33,15 @@ public class CyanideNotifs extends SettingsPreferenceFragment implements
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.cyanide_notifs);
-        
+
         final ContentResolver resolver = getActivity().getContentResolver();
-        
+
         mDisableIM = (SwitchPreference) findPreference(DISABLE_IMMERSIVE_MESSAGE);
         mDisableIM.setChecked((Settings.System.getInt(resolver,
                 Settings.System.DISABLE_IMMERSIVE_MESSAGE, 0) == 1));
 
         mHeadsUp = findPreference(KEY_HEADS_UP_SETTINGS);
-        
+
         initPulse((PreferenceCategory) findPreference(KEY_CATEGORY_LIGHTS));
     }
 
@@ -70,7 +70,7 @@ public class CyanideNotifs extends SettingsPreferenceFragment implements
             getPreferenceScreen().removePreference(parent);
         }
     }
-    
+
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if  (preference == mDisableIM) {
@@ -81,7 +81,7 @@ public class CyanideNotifs extends SettingsPreferenceFragment implements
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
-    
+
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         return false;
     }

@@ -57,7 +57,7 @@
         android:summary="@string/shift_kernel_summary" />
 
     </PreferenceCategory>
-    
+
     <PreferenceCategory
         android:key="thread_category"
         android:title="@string/thread_category">

@@ -122,11 +122,11 @@ public class PAPieTargets extends SettingsPreferenceFragment implements OnPrefer
         mPieHWKeys = (SwitchPreference) prefSet.findPreference(PA_PIE_HWKEYS);
         mPieHWKeys.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_HWKEYS, 0) != 0);
-        
+
         mPieKillTask = (SwitchPreference) prefSet.findPreference(PA_PIE_KILLTASK);
         mPieKillTask.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_KILL_TASK, 0) != 0);
-        
+
         mPieLastApp = (SwitchPreference) prefSet.findPreference(PA_PIE_LASTAPP);
         mPieLastApp.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_LAST_APP, 0) != 0);
@@ -134,11 +134,11 @@ public class PAPieTargets extends SettingsPreferenceFragment implements OnPrefer
         mPieMenu = (SwitchPreference) prefSet.findPreference(PA_PIE_MENU);
         mPieMenu.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_MENU, 0) != 0);
-        
+
         mPieNavbar = (SwitchPreference) prefSet.findPreference(PA_PIE_NAVBAR);
         mPieNavbar.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_NAVBAR, 0) != 0);
-        
+
         mPieNotifications = (SwitchPreference) prefSet.findPreference(PA_PIE_NOTIFICATIONS);
         mPieNotifications.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_NOTIFICATIONS, 0) != 0);

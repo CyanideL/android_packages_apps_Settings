@@ -52,7 +52,7 @@ public class StatusLogo extends SettingsPreferenceFragment implements OnPreferen
     private static final String TAG = "StatusLogo";
 
     private static final String KEY_CYANIDE_LOGO_COLOR = "status_bar_cyanide_logo_color";
-    
+
     private static final int DEFAULT_COLOR = 0xffffffff;
     private static final int CYANIDE_BLUE = 0xff1976D2;
 
@@ -60,7 +60,7 @@ public class StatusLogo extends SettingsPreferenceFragment implements OnPreferen
     private static final int DLG_RESET = 0;
 
     private ColorPickerPreference mCyanideLogoColor;
-    
+
     private boolean mCheckPreferences;
 
     @Override
@@ -98,7 +98,7 @@ public class StatusLogo extends SettingsPreferenceFragment implements OnPreferen
             mCyanideLogoColor.setSummary(hexColor);
             mCyanideLogoColor.setNewPreviewColor(intColor);
             mCyanideLogoColor.setAlphaSliderEnabled(true);
-            
+
         setHasOptionsMenu(true);
         mCheckPreferences = true;
         return prefSet;

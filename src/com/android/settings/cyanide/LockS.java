@@ -40,7 +40,7 @@ public class LockS extends SettingsPreferenceFragment implements
 	private SwitchPreference mColorizeCustomIcons;
 
 	private ContentResolver mResolver;
-    
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

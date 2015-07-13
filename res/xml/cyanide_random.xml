@@ -25,49 +25,55 @@
             android:title="@string/alarm_indicator"
             android:summary="@string/alarm_indicator_summary"
 			android:defaultValue="true" />
-			
+
 	<!-- Bluetooth Switch -->
 	<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="show_bluetooth_icon"
             android:title="@string/status_bar_bluetooth_icon"
             android:summary="@string/status_bar_bluetooth_icon_summary"
 			android:defaultValue="true" />
-	
+
     <!-- Brightness Switch -->
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="status_bar_brightness_control"
             android:title="@string/status_bar_toggle_brightness"
             android:summary="@string/status_bar_toggle_brightness_summary"
             android:defaultValue="false" />
-    
+
     <!-- Disable FC Switch -->
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
 			android:key="disable_fc_notifications"
 			android:title="@string/disable_fc_notifications_title"
 			android:summary="@string/disable_fc_notifications_summary" />
-    
+
     <!-- DT2S -->
     <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="double_tap_sleep_gesture"
             android:title="@string/double_tap_to_sleep_title"
             android:summary="@string/double_tap_to_sleep_summary"
             android:defaultValue="true" />
-	
+
 	<!-- Privacy Guard Switch -->
 	<com.android.settings.cyanogenmod.SecureSettingSwitchPreference
 			android:key="privacy_guard_notification"
 			android:title="@string/privacy_guard_notification_title"
 			android:summary="@string/privacy_guard_notifiation_summary"
 			android:defaultValue="true"/>
-	
+
 	<Preference android:key="restart_systemui"
         android:title="@string/restart_systemui" />
-	
+
 	<!-- Superuser Switch -->
 	<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="show_su_icon"
             android:title="@string/su_indicator"
             android:summary="@string/su_indicator_summary"
 			android:defaultValue="true" />
-	
+
+    <!-- Various shit -->
+    <PreferenceScreen
+        android:key="various_shit"
+        android:title="@string/various_shit_title"
+        android:fragment="com.android.settings.cyanide.VariousShit" />
+
 </PreferenceScreen>

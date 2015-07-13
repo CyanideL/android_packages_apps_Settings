@@ -32,6 +32,20 @@
 		android:summary="@string/camera_sounds_summary"
 		android:defaultValue="true" />
 
+    <SwitchPreference
+        android:key="volume_keys_control_media_stream"
+        android:title="@string/volume_keys_control_media_stream"
+        android:summary="@string/volume_keys_control_media_stream_summary"
+        android:defaultValue="false"
+        android:persistent="false" />
+
+    <!-- Screenshot tone -->
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="screenshot_sound"
+        android:title="@string/screenshot_sound_title"
+        android:summary="@string/screenshot_sound_summary"
+        android:defaultValue="true" />
+
     <PreferenceCategory
         android:title="@string/notifications_category_title" />
 
@@ -41,13 +55,6 @@
         android:summary="@string/less_notification_sounds_summary"
         android:entries="@array/less_notification_sounds_entries"
         android:entryValues="@array/less_notification_sounds_values"
-        android:persistent="false" />
-
-    <SwitchPreference
-        android:key="volume_keys_control_media_stream"
-        android:title="@string/volume_keys_control_media_stream"
-        android:summary="@string/volume_keys_control_media_stream_summary"
-        android:defaultValue="false"
         android:persistent="false" />
 
 </PreferenceScreen>
