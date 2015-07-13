@@ -16,6 +16,13 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <!-- Shortcuts Color-->
+    <PreferenceScreen
+        android:key="lock_shortcuts_style"
+        android:title="@string/lock_shortcuts_style"
+        android:summary="@string/ls_icon_color_summary"
+        android:fragment="com.android.settings.cyanide.LSSColors" />
+    
     <ListPreference
         android:key="lockscreen_shortcuts_launch_type"
         android:title="@string/lockscreen_shorcuts_launch_type_title"
@@ -23,23 +30,5 @@
         android:defaultValue="1"
         android:entries="@array/lockscreen_shortcuts_launch_type_entries"
         android:entryValues="@array/lockscreen_shortcuts_launch_type_values" />
-
-    <PreferenceCategory
-        android:title="@string/style_title">
-
-        <ListPreference
-            android:key="pref_lockscreen_shortcuts_color_mode"
-            android:title="@string/button_color_mode_title"
-            android:entries="@array/icon_color_mode_entries"
-            android:entryValues="@array/icon_color_mode_values"
-            android:dialogTitle="@string/button_color_mode_dialog_title"
-            android:summary="@string/shortcuts_color_mode_summary"  />
-
-        <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="pref_lockscreen_shortcuts_icon_color"
-            android:defaultValue="0xffffffff"
-            android:title="@string/icon_title" />
-
-    </PreferenceCategory>
 
 </PreferenceScreen>
