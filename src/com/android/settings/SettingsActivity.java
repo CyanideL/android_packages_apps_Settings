@@ -250,11 +250,9 @@ public class SettingsActivity extends Activity
             R.id.device_section,
             R.id.sound_settings,
             R.id.display_and_lights_settings,
-            R.id.lockscreen_settings,
             R.id.notification_manager,
             R.id.storage_settings,
             R.id.application_settings,
-            R.id.battery_settings,
             R.id.personal_section,
             R.id.location_settings,
             R.id.security_settings,
@@ -267,7 +265,8 @@ public class SettingsActivity extends Activity
             R.id.accessibility_settings,
             R.id.print_settings,
             R.id.dashboard,
-            R.id.privacy_settings_cyanogenmod
+            R.id.privacy_settings_cyanogenmod,
+            R.id.main_settings
     };
 
     private static final String[] ENTRY_FRAGMENTS = {
@@ -1258,12 +1257,6 @@ public class SettingsActivity extends Activity
                         }
                     } catch (RemoteException e) {
                         // ignored
-                    }
-                } else if (id == R.id.battery_settings) {
-                    // Remove battery settings when battery is not available. (e.g. TV)
-
-                    if (!mBatteryPresent) {
-                        removeTile = true;
                     }
                 } else if (id == R.id.user_settings) {
                     boolean hasMultipleUsers =

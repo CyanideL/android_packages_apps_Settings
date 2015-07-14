@@ -72,6 +72,7 @@
     <string name="navring_shortcuts_title">Navring Shortcuts</string>
     <string name="cyanide_notifs_title">Notifications</string>
     <string name="power_menu_title">Power Menu</string>
+    <string name="power_menu_targets">Power Menu Targets</string>
     <string name="power_menu_control_title">Power Menu Addons</string>
     <string name="status_bar_random_title">Random Settings</string>
     <string name="Recents_panel">Recent Apps Panel</string>

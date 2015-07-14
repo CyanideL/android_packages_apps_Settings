@@ -1,6 +1,5 @@
 /*
  * Copyright (C) 2013 Slimroms
- * Copyright (C) 2015 The Fusion Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,15 +16,12 @@
 
 package com.android.settings.cyanide.fragments;
 
-import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.os.UserHandle;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.preference.ListPreference;
 import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -36,39 +32,11 @@ import android.widget.ListView;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-import com.android.internal.widget.LockPatternUtils;
-
-public class PowerMenuFragment extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener {
-
-
-    private static final String KEY_ADVANCED_REBOOT = "advanced_reboot";
-
-    private ListPreference mAdvancedReboot;
-
-    private PreferenceScreen mPrefSet;
-
-    private boolean mIsPrimary;
+public class PowerMenuFragment extends SettingsPreferenceFragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.power_menu_fragment);
-
-        mPrefSet = getPreferenceScreen();
-
-        // Add options for device encryption
-        mIsPrimary = UserHandle.myUserId() == UserHandle.USER_OWNER;
-
-        mAdvancedReboot = (ListPreference) mPrefSet.findPreference(KEY_ADVANCED_REBOOT);
-        if (mIsPrimary) {
-            mAdvancedReboot.setValue(String.valueOf(Settings.Secure.getInt(
-                    getContentResolver(), Settings.Secure.ADVANCED_REBOOT, 2)));
-            mAdvancedReboot.setSummary(mAdvancedReboot.getEntry());
-            mAdvancedReboot.setOnPreferenceChangeListener(this);
-        } else {
-            mPrefSet.removePreference(mAdvancedReboot);
-        }
     }
 
     @Override
@@ -83,18 +51,6 @@ public class PowerMenuFragment extends SettingsPreferenceFragment implements
             list.setPadding(0, paddingTop, 0, paddingBottom);
         }
         return view;
-    }
-
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mAdvancedReboot) {
-            Settings.Secure.putInt(getContentResolver(), Settings.Secure.ADVANCED_REBOOT,
-                    Integer.valueOf((String) newValue));
-            mAdvancedReboot.setValue(String.valueOf(newValue));
-            mAdvancedReboot.setSummary(mAdvancedReboot.getEntry());
-            return true;
-        }
-        return false;
     }
 
 }

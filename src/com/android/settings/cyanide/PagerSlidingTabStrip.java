@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014, The Fusion Project.
+ * * Copyright (C) 2013 Andreas Stuetz <andreas.stuetz@gmail.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -73,9 +73,9 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 	private Paint rectPaint;
 	private Paint dividerPaint;
 
-	private int indicatorColor = 0xff888888;
-	private int underlineColor = 0x1A000000;
-	private int dividerColor = 0xff888888;
+	private int indicatorColor = 0xff000000;
+	private int underlineColor = 0xff1976D2;
+	private int dividerColor = 0xff1976D2;
 
 	private boolean shouldExpand = false;
 	private boolean textAllCaps = true;
@@ -88,7 +88,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 	private int dividerWidth = 1;
 
 	private int tabTextSize = 12;
-	private int tabTextColor = 0xff0000ff;
+	private int tabTextColor = 0xff1976D2;
 	private Typeface tabTypeface = null;
 	private int tabTypefaceStyle = Typeface.BOLD;
 

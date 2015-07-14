@@ -87,7 +87,6 @@ public class IdenticonsSettings extends SettingsPreferenceFragment implements
         super.onStart();
         final ActionBar bar = getActivity().getActionBar();
         mPreviousTitle = bar.getTitle();
-        bar.setTitle(R.string.identicons_title);
     }
 
     @Override
