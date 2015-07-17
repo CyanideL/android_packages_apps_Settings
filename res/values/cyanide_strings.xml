@@ -1769,5 +1769,12 @@
     <string name="lock_screen_hide_carrier_summary">Whether to hide carrier label on lockscreen, SystemUI will be restarted on switch toggle.</string>
 
     <string name="sms_security_check_unlimited">Unlimited</string>
+    
+    <!-- Status bar temperature -->
+    <string name="status_bar_temperature_title">Temperature Style</string>
+    <string name="status_bar_temperature_summary">Options to enable temperature in the status bar</string>
+    <string name="status_bar_temperature_hidden">Hidden</string>
+    <string name="status_bar_temperature_show_scale">Scale showing</string>
+    <string name="status_bar_temperature_hide_scale">Scale hidden</string>
 
 </resources>
