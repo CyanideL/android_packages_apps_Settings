@@ -359,7 +359,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
                                     0xff00ff00);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.NOTIFICATION_TEXT_COLOR,
-                                    CYANIDE_BLUE);
+                                    WHITE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.NOTIFICATION_ICON_COLOR,
                                     CYANIDE_BLUE);

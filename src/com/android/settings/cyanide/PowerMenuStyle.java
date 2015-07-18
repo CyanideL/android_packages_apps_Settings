@@ -83,7 +83,7 @@ public class PowerMenuStyle extends SettingsPreferenceFragment implements
 
         mOnTheGoPowerMenu = (SwitchPreference) findPreference(POWER_MENU_ONTHEGO_ENABLED);
         mOnTheGoPowerMenu.setChecked(Settings.System.getInt(resolver,
-                Settings.System.POWER_MENU_ONTHEGO_ENABLED, 0) == 1);
+                Settings.System.POWER_MENU_ONTHEGO_ENABLED, 1) == 1);
         mOnTheGoPowerMenu.setOnPreferenceChangeListener(this);
 
         mPowerMenuColor =
@@ -237,6 +237,8 @@ public class PowerMenuStyle extends SettingsPreferenceFragment implements
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getActivity().getContentResolver(),
+                                    Settings.System.POWER_MENU_ONTHEGO_ENABLED, 0);
+                            Settings.System.putInt(getActivity().getContentResolver(),
                                     Settings.System.POWER_MENU_ICON_COLOR, -2);
                             Settings.System.putInt(getActivity().getContentResolver(),
                                    Settings.System.POWER_MENU_ICON_COLOR_MODE, 3);
@@ -248,6 +250,8 @@ public class PowerMenuStyle extends SettingsPreferenceFragment implements
                     .setPositiveButton(R.string.reset_cyanide,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
+                            Settings.System.putInt(getActivity().getContentResolver(),
+                                    Settings.System.POWER_MENU_ONTHEGO_ENABLED, 1);
                             Settings.System.putInt(getActivity().getContentResolver(),
                                     Settings.System.POWER_MENU_ICON_COLOR,
                                     0xff00ff00);
