@@ -1793,29 +1793,12 @@
     <string name="hardware_keys_action_lastapp">Last app</string>
     <string name="hardware_keys_action_ime">IME switcher</string>
     <string name="hardware_keys_action_powermenu">Power menu</string>
-    <!-- Hardware button switches -->
-    <string name="key_enabled">Enable key</string>
 
     <string name="default_landscape_orientation_title">Default Orientation</string>
     <string name="default_landscape_orientation_summary">Use landscape as default orientation</string>
-    
-    <!-- button tabs -->
-    <string name="hw_buttons_title">HW Key Customization</string>
-    <string name="hwkey_settings_summary">Customize hwkeys &amp; select custom shortcuts &amp; actions</string>
-    <string name="home_button">Home</string>
-    <string name="back_button">Back</string>
-    <string name="app_switch_button">App switch</string>
-    <string name="assist_button">Assist</string>
-    <string name="menu_button">Menu</string>
-    <string name="enable_button_title">Enable button</string>
-    <string name="single_press_title">Single press action</string>
-    <string name="long_press_title">Long press action</string>
-    <string name="double_press_title">Double tap action</string>
-    <string name="enable_home_button">Enable home button</string>
-    <string name="enable_back_button">Enable back button</string>
-    <string name="enable_menu_button">Enable menu button</string>
-    <string name="enable_app_switch_button">Enable app switch button</string>
-    <string name="enable_assist_button">Enable assist button</string>
-    <string name="set_button_actions">Set action</string>
+
+    <!-- Lockscreen wallpaper -->
+    <string name="lockscreen_wallpaper_title">Wallpaper</string>
+    <string name="lockscreen_wallpaper_summary">Set lockscreen wallpaper</string>
 
 </resources>
