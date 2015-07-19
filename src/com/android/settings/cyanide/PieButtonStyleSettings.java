@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 Slimroms
+ * Copyright (C) 2015 CyanideL
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,6 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.ListPreference;
@@ -76,55 +75,105 @@ public class PieButtonStyleSettings extends SettingsPreferenceFragment implement
     SlimSeekBarPreference mPieButtonAlpha;
     SlimSeekBarPreference mPieButtonPressedAlpha;
 
+    private ContentResolver mResolver;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Load the preferences from an XML resource
-        addPreferencesFromResource(R.xml.pie_button_style);
+        refreshSettings();
+    }
 
+    public void refreshSettings() {
         PreferenceScreen prefs = getPreferenceScreen();
-
-        PackageManager pm = getPackageManager();
-
-        if (pm != null) {
-            try {
-                mSystemUiResources = pm.getResourcesForApplication("com.android.systemui");
-            } catch (Exception e) {
-                mSystemUiResources = null;
-                Log.e("PIEButtonStyle:", "can't access systemui resources",e);
-            }
+        if (prefs != null) {
+            prefs.removeAll();
         }
+        mResolver = getActivity().getContentResolver();
+        addPreferencesFromResource(R.xml.pie_button_style);
 
         mPieButtonColor =
                 (ColorPickerPreference) findPreference(PREF_PIE_BUTTON_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.PIE_BUTTON_COLOR,
+                0x04000000);
+        mPieButtonColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0x04000000 & intColor));
+        mPieButtonColor.setSummary(hexColor);
         mPieButtonColor.setOnPreferenceChangeListener(this);
+        mPieButtonColor.setAlphaSliderEnabled(true);
 
         mPieButtonPressedColor =
                 (ColorPickerPreference) findPreference(PREF_PIE_BUTTON_PRESSED_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.PIE_BUTTON_PRESSED_COLOR,
+                0x04000000);
+        mPieButtonPressedColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0x04000000 & intColor));
+        mPieButtonPressedColor.setSummary(hexColor);
         mPieButtonPressedColor.setOnPreferenceChangeListener(this);
+        mPieButtonPressedColor.setAlphaSliderEnabled(true);
 
         mPieButtonLongPressedColor =
-                (ColorPickerPreference) findPreference(PREF_PIE_BUTTON_LONG_PRESSED_COLOR);
+                (ColorPickerPreference) findPreference(PREF_PIE_BUTTON_PRESSED_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.PIE_BUTTON_LONG_PRESSED_COLOR,
+                0x04000000);
+        mPieButtonLongPressedColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0x04000000 & intColor));
+        mPieButtonLongPressedColor.setSummary(hexColor);
         mPieButtonLongPressedColor.setOnPreferenceChangeListener(this);
+        mPieButtonLongPressedColor.setAlphaSliderEnabled(true);
 
         mPieButtonOutlineColor =
                 (ColorPickerPreference) findPreference(PREF_PIE_BUTTON_OUTLINE_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.PIE_BUTTON_OUTLINE_COLOR,
+                0x04000000);
+        mPieButtonOutlineColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0x04000000 & intColor));
+        mPieButtonOutlineColor.setSummary(hexColor);
         mPieButtonOutlineColor.setOnPreferenceChangeListener(this);
+        mPieButtonOutlineColor.setAlphaSliderEnabled(true);
 
         mPieIconColor =
                 (ColorPickerPreference) findPreference(PREF_PIE_ICON_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.PIE_ICON_COLOR,
+                0x04000000);
+        mPieIconColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0x04000000 & intColor));
+        mPieIconColor.setSummary(hexColor);
         mPieIconColor.setOnPreferenceChangeListener(this);
+        mPieIconColor.setAlphaSliderEnabled(true);
 
         mPieButtonAlpha =
-                (SlimSeekBarPreference) findPreference(PREF_PIE_BUTTON_ALPHA);
+                (ColorPickerPreference) findPreference(PREF_PIE_BUTTON_ALPHA);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.PIE_BUTTON_ALPHA,
+                0x04000000);
+        mPieButtonAlpha.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0x04000000 & intColor));
+        mPieButtonAlpha.setSummary(hexColor);
         mPieButtonAlpha.setOnPreferenceChangeListener(this);
+        mPieButtonAlpha.setAlphaSliderEnabled(true);
 
         mPieButtonPressedAlpha =
-                (SlimSeekBarPreference) findPreference(PREF_PIE_BUTTON_PRESSED_ALPHA);
+                (ColorPickerPreference) findPreference(PREF_PIE_BUTTON_PRESSED_ALPHA);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.PIE_BUTTON_PRESSED_ALPHA,
+                0x04000000);
+        mPieButtonPressedAlpha.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0x04000000 & intColor));
+        mPieButtonPressedAlpha.setSummary(hexColor);
         mPieButtonPressedAlpha.setOnPreferenceChangeListener(this);
+        mPieButtonPressedAlpha.setAlphaSliderEnabled(true);
 
-        mPieIconColorMode =
-                (ListPreference) prefs.findPreference(PREF_PIE_ICON_COLOR_MODE);
+        mPieIconColorMode = (ListPreference) findPreference(
+                PREF_PIE_ICON_COLOR_MODE);
+        mPieIconColorMode.setValue(String.valueOf(
+                Settings.System.getInt(mResolver,
+                Settings.System.PIE_ICON_COLOR_MODE, 0)));
+        mPieIconColorMode.setSummary(mPowerMenuColorMode.getEntry());
         mPieIconColorMode.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);
@@ -146,25 +195,6 @@ public class PieButtonStyleSettings extends SettingsPreferenceFragment implement
              default:
                 return super.onContextItemSelected(item);
         }
-    }
-
-    private void resetToDefault() {
-        Settings.System.putInt(getActivity().getContentResolver(),
-                Settings.System.PIE_BUTTON_COLOR, -2);
-        Settings.System.putInt(getActivity().getContentResolver(),
-                Settings.System.PIE_BUTTON_PRESSED_COLOR, -2);
-        Settings.System.putInt(getActivity().getContentResolver(),
-                Settings.System.PIE_BUTTON_LONG_PRESSED_COLOR, -2);
-        Settings.System.putInt(getActivity().getContentResolver(),
-                Settings.System.PIE_BUTTON_OUTLINE_COLOR, -2);
-        Settings.System.putInt(getActivity().getContentResolver(),
-                Settings.System.PIE_ICON_COLOR, -2);
-        Settings.System.putFloat(getActivity().getContentResolver(),
-                Settings.System.PIE_BUTTON_ALPHA, 0.3f);
-        Settings.System.putFloat(getActivity().getContentResolver(),
-                Settings.System.PIE_BUTTON_PRESSED_ALPHA, 0.0f);
-        Settings.System.putInt(getActivity().getContentResolver(),
-                Settings.System.PIE_ICON_COLOR_MODE, 0);
     }
 
     @Override
