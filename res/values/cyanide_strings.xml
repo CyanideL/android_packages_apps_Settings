@@ -1748,12 +1748,12 @@
 
     <!-- Recents empty style -->
     <string name="recents_empty_style">Cyanide Logo</string>
-    <string name="recents_empty_style_summary">When recents is empty show Cyanide logo instead of text. This will restart you systemui</string>
+    <string name="recents_empty_style_summary">When recents is empty show Cyanide logo instead of text. THIS WILL RESTART SYSTEMUI!!!</string>
 
     <!-- Notification Color Modes -->
     <string name="notification_color_mode_never_title">Never</string>
     <string name="notification_icon_color_mode_greyscale_title">If the icon is an greyscale icon</string>
-    <string name="notification_bg_color_mode_no_color_title">If the notification doesn\`t include an own color</string>
+    <string name="notification_bg_color_mode_no_color_title">If the notification doesn\`t include it\'s own color</string>
     <string name="notification_color_mode_always_title">Always</string>
     
     <!-- Joke -->
