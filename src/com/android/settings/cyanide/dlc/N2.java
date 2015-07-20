@@ -78,7 +78,7 @@ public class N2 extends SettingsPreferenceFragment
             startActivity(intent);
             return true;
         } else if (preference == mShiftKernel) {
-            Uri uri = Uri.parse("https://www.androidfilehost.com/?fid=23991606952610092");
+            Uri uri = Uri.parse("https://www.androidfilehost.com/?fid=24052804347777472");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
             return true;
