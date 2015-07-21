@@ -65,7 +65,6 @@ public class NavigationSettings extends SettingsPreferenceFragment
     private static final String PREF_NAVIGATION_BAR_CAN_MOVE = "navbar_can_move";
     private static final String KEY_NAVIGATION_BAR_LEFT = "navigation_bar_left";
     private static final String NAVIGATION_BAR_TINT = "navigation_bar_tint";
-    private static final String KEYS_OVERFLOW_BUTTON = "keys_overflow_button";
     private static final String DIM_NAV_BUTTONS_TOUCH_ANYWHERE = "dim_nav_buttons_touch_anywhere";
     private static final String DIM_NAV_BUTTONS = "dim_nav_buttons";
     private static final String DIM_NAV_BUTTONS_TIMEOUT = "dim_nav_buttons_timeout";
@@ -79,7 +78,6 @@ public class NavigationSettings extends SettingsPreferenceFragment
     private SwitchPreference mNavigationBarCanMove;
     private SwitchPreference mNavigationBarLeftPref;
     private ColorPickerPreference mNavbarButtonTint;
-    private ListPreference mOverflowButtonMode;
 
     SwitchPreference mDimNavButtons;
     SwitchPreference mDimNavButtonsTouchAnywhere;
@@ -123,9 +121,6 @@ public class NavigationSettings extends SettingsPreferenceFragment
 
         // Navigation bar left
         mNavigationBarLeftPref = (SwitchPreference) findPreference(KEY_NAVIGATION_BAR_LEFT);
-
-        mOverflowButtonMode = (ListPreference) findPreference(KEYS_OVERFLOW_BUTTON);
-        mOverflowButtonMode.setOnPreferenceChangeListener(this);
 
         // Navigation bar button color
         mNavbarButtonTint = (ColorPickerPreference) findPreference(NAVIGATION_BAR_TINT);
@@ -185,11 +180,6 @@ public class NavigationSettings extends SettingsPreferenceFragment
                 Settings.System.NAVBAR_FORCE_ENABLE,
                 CyanideUtils.isNavBarDefault(getActivity()) ? 1 : 0) == 1;
         mEnableNavigationBar.setChecked(enableNavigationBar);
-
-        String overflowButtonMode = Integer.toString(Settings.System.getInt(getContentResolver(),
-                Settings.System.UI_OVERFLOW_BUTTON, 2));
-        mOverflowButtonMode.setValue(overflowButtonMode);
-        mOverflowButtonMode.setSummary(mOverflowButtonMode.getEntry());
 
         if (mNavigationBarCanMove != null) {
             mNavigationBarCanMove.setChecked(Settings.System.getInt(getContentResolver(),
@@ -260,11 +250,6 @@ public class NavigationSettings extends SettingsPreferenceFragment
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.NAVBAR_FORCE_ENABLE,
                     ((Boolean) newValue) ? 1 : 0);
-            // Enable overflow button
-            Settings.System.putInt(getContentResolver(), Settings.System.UI_OVERFLOW_BUTTON, 2);
-            if (mOverflowButtonMode != null) {
-                mOverflowButtonMode.setSummary(mOverflowButtonMode.getEntries()[2]);
-            }
             return true;
         } else if (preference == mNavigationBarCanMove) {
             Settings.System.putInt(getActivity().getContentResolver(),
@@ -278,13 +263,6 @@ public class NavigationSettings extends SettingsPreferenceFragment
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.NAVIGATION_BAR_TINT, intHex);
-            return true;
-        } else if (preference == mOverflowButtonMode) {
-            int val = Integer.parseInt((String) newValue);
-            int index = mOverflowButtonMode.findIndexOfValue((String) newValue);
-            Settings.System.putInt(getContentResolver(), Settings.System.UI_OVERFLOW_BUTTON, val);
-            mOverflowButtonMode.setSummary(mOverflowButtonMode.getEntries()[index]);
-            Toast.makeText(getActivity(), R.string.keys_overflow_toast, Toast.LENGTH_LONG).show();
             return true;
         } else if (preference == mDimNavButtons) {
             Settings.System.putInt(getActivity().getContentResolver(),
