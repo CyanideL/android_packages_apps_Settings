@@ -1793,4 +1793,14 @@
     <string name="dim_nav_buttons_touch_anywhere_summary_on">Touching anywhere on the screen will cause buttons to un-dim</string>
     <string name="dim_nav_buttons_touch_anywhere_summary_off">Only touches on the navbar will cause buttons to un-dim</string>
 
+    <!-- Additional hardware actions -->
+    <string name="hardware_keys_action_kill">Kill target</string>
+    <string name="hardware_keys_action_back">Navigate back</string>
+    <string name="hardware_keys_action_home">Navigate home</string>
+    <string name="hardware_keys_action_lastapp">Last app</string>
+    <string name="hardware_keys_action_ime">IME switcher</string>
+    <string name="hardware_keys_action_powermenu">Power menu</string>
+    <!-- Hardware button switches -->
+    <string name="key_enabled">Enable key</string>
+
 </resources>

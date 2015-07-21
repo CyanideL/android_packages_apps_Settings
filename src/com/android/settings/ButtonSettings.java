@@ -26,6 +26,7 @@ import android.hardware.CmHardwareManager;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.Handler;
+import android.os.UserHandle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
@@ -49,6 +50,8 @@ import com.android.settings.cyanogenmod.ButtonBacklightBrightness;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 
+import static com.android.internal.util.cyanide.HardwareButtonConstants.*;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -61,19 +64,27 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String TAG = "SystemSettings";
 
     private static final String KEY_BUTTON_BACKLIGHT = "button_backlight";
+    private static final String KEY_HOME_SWITCH = "key_home_enabled";
+    private static final String KEY_HOME_ANSWER_CALL = "home_answer_call";
+    private static final String KEY_HOME_SHORT_PRESS = "hardware_keys_home_press";
     private static final String KEY_HOME_LONG_PRESS = "hardware_keys_home_long_press";
     private static final String KEY_HOME_DOUBLE_TAP = "hardware_keys_home_double_tap";
+    private static final String KEY_BACK_SWITCH = "key_back_enabled";
+    private static final String KEY_BACK_PRESS = "hardware_keys_back_press";
+    private static final String KEY_BACK_LONG_PRESS = "hardware_keys_back_long_press";
+    private static final String KEY_MENU_SWITCH = "key_menu_enabled";
     private static final String KEY_MENU_PRESS = "hardware_keys_menu_press";
     private static final String KEY_MENU_LONG_PRESS = "hardware_keys_menu_long_press";
+    private static final String KEY_ASSIST_SWITCH = "key_assist_enabled";
     private static final String KEY_ASSIST_PRESS = "hardware_keys_assist_press";
     private static final String KEY_ASSIST_LONG_PRESS = "hardware_keys_assist_long_press";
     private static final String KEY_APP_SWITCH_PRESS = "hardware_keys_app_switch_press";
     private static final String KEY_APP_SWITCH_LONG_PRESS = "hardware_keys_app_switch_long_press";
+    private static final String KEY_APP_SWITCH_SWITCH = "key_appswitch_enabled";
     private static final String KEY_VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
     private static final String KEY_SWAP_VOLUME_BUTTONS = "swap_volume_buttons";
     private static final String KEY_ENABLE_HW_KEYS = "enable_hw_keys";
     private static final String KEY_POWER_END_CALL = "power_end_call";
-    private static final String KEY_HOME_ANSWER_CALL = "home_answer_call";
     private static final String KEY_VOLUME_MUSIC_CONTROLS = "volbtn_music_controls";
     private static final String KEY_VOLUME_ANSWER_CALL = "volume_answer_call";
 
@@ -88,19 +99,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String CATEGORY_BACKLIGHT = "key_backlight";
     private static final String CATEGORY_HW_KEYS = "hw_keys";
 
-    // Available custom actions to perform on a key press.
-    // Must match values for KEY_HOME_LONG_PRESS_ACTION in:
-    // frameworks/base/core/java/android/provider/Settings.java
-    private static final int ACTION_NOTHING = 0;
-    private static final int ACTION_MENU = 1;
-    private static final int ACTION_APP_SWITCH = 2;
-    private static final int ACTION_SEARCH = 3;
-    private static final int ACTION_VOICE_SEARCH = 4;
-    private static final int ACTION_IN_APP_SEARCH = 5;
-    private static final int ACTION_LAUNCH_CAMERA = 6;
-    private static final int ACTION_SLEEP = 7;
-    private static final int ACTION_LAST_APP = 8;
-
     // Masks for checking presence of hardware keys.
     // Must match values in frameworks/base/core/res/res/values/config.xml
     public static final int KEY_MASK_HOME = 0x01;
@@ -111,8 +109,11 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     public static final int KEY_MASK_CAMERA = 0x20;
     public static final int KEY_MASK_VOLUME = 0x40;
 
+    private ListPreference mHomePressAction;
     private ListPreference mHomeLongPressAction;
     private ListPreference mHomeDoubleTapAction;
+    private ListPreference mBackPressAction;
+    private ListPreference mBackLongPressAction;
     private ListPreference mMenuPressAction;
     private ListPreference mMenuLongPressAction;
     private ListPreference mAssistPressAction;
@@ -279,21 +280,30 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 result.put(KEY_HOME_ANSWER_CALL, CATEGORY_HOME);
             }
 
+            int defaultPressAction = KEY_ACTION_HOME;
+            if (defaultPressAction < KEY_ACTION_NOTHING ||
+                    defaultPressAction > KEY_ACTION_BACK) {
+                defaultPressAction = KEY_ACTION_NOTHING;
+            }
+
             int defaultLongPressAction = res.getInteger(
                     com.android.internal.R.integer.config_longPressOnHomeBehavior);
-            if (defaultLongPressAction < ACTION_NOTHING ||
-                    defaultLongPressAction > ACTION_LAST_APP) {
-                defaultLongPressAction = ACTION_NOTHING;
+            if (defaultLongPressAction < KEY_ACTION_NOTHING ||
+                    defaultLongPressAction > KEY_ACTION_BACK) {
+                defaultLongPressAction = KEY_ACTION_NOTHING;
             }
 
             int defaultDoubleTapAction = res.getInteger(
                     com.android.internal.R.integer.config_doubleTapOnHomeBehavior);
-            if (defaultDoubleTapAction < ACTION_NOTHING ||
-                    defaultDoubleTapAction > ACTION_LAST_APP) {
-                defaultDoubleTapAction = ACTION_NOTHING;
+            if (defaultDoubleTapAction < KEY_ACTION_NOTHING ||
+                    defaultDoubleTapAction > KEY_ACTION_BACK) {
+                defaultDoubleTapAction = KEY_ACTION_NOTHING;
             }
 
             if (settings != null) {
+				int pressAction = Settings.System.getInt(resolver,
+                        Settings.System.KEY_HOME_ACTION, defaultPressAction);
+                settings.mHomePressAction = settings.initActionList(KEY_HOME_SHORT_PRESS, pressAction);
                 int longPressAction = Settings.System.getInt(resolver,
                         Settings.System.KEY_HOME_LONG_PRESS_ACTION,
                         defaultLongPressAction);
@@ -314,7 +324,30 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         if (hasBackKey) {
             if (!showBackWake) {
                 result.put(Settings.System.BACK_WAKE_SCREEN, CATEGORY_BACK);
-                result.put(CATEGORY_BACK, null);
+                }
+
+            int defaultPressAction = KEY_ACTION_BACK;
+            if (defaultPressAction < KEY_ACTION_NOTHING ||
+                    defaultPressAction > KEY_ACTION_BACK) {
+                defaultPressAction = KEY_ACTION_NOTHING;
+            }
+
+            int defaultLongPressAction = KEY_ACTION_KILL;
+            if (defaultLongPressAction < KEY_ACTION_NOTHING ||
+                    defaultLongPressAction > KEY_ACTION_BACK) {
+                defaultLongPressAction = KEY_ACTION_NOTHING;
+            }
+
+            if (settings != null) {
+                int pressAction = Settings.System.getInt(resolver,
+                        Settings.System.KEY_BACK_ACTION, defaultPressAction);
+                settings.mBackPressAction = settings.initActionList(KEY_BACK_PRESS, pressAction);
+
+                int longPressAction = Settings.System.getInt(resolver,
+                        Settings.System.KEY_BACK_LONG_PRESS_ACTION,
+                        defaultLongPressAction);
+                settings.mBackLongPressAction = settings.initActionList(
+                        KEY_BACK_LONG_PRESS, longPressAction);
             }
         } else {
             result.put(CATEGORY_BACK, null);
@@ -327,13 +360,13 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
             if (settings != null) {
                 int pressAction = Settings.System.getInt(resolver,
-                        Settings.System.KEY_MENU_ACTION, ACTION_MENU);
+                        Settings.System.KEY_MENU_ACTION, KEY_ACTION_MENU);
                 settings.mMenuPressAction = settings.initActionList(
                         KEY_MENU_PRESS, pressAction);
 
                 int longPressAction = Settings.System.getInt(resolver,
                         Settings.System.KEY_MENU_LONG_PRESS_ACTION,
-                        hasAssistKey ? ACTION_NOTHING : ACTION_SEARCH);
+                        hasAssistKey ? KEY_ACTION_NOTHING : KEY_ACTION_SEARCH);
                 settings.mMenuLongPressAction = settings.initActionList(
                         KEY_MENU_LONG_PRESS, longPressAction);
             }
@@ -348,12 +381,12 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
             if (settings != null) {
                 int pressAction = Settings.System.getInt(resolver,
-                        Settings.System.KEY_ASSIST_ACTION, ACTION_SEARCH);
+                        Settings.System.KEY_ASSIST_ACTION, KEY_ACTION_SEARCH);
                 settings.mAssistPressAction = settings.initActionList(
                         KEY_ASSIST_PRESS, pressAction);
 
                 int longPressAction = Settings.System.getInt(resolver,
-                        Settings.System.KEY_ASSIST_LONG_PRESS_ACTION, ACTION_VOICE_SEARCH);
+                        Settings.System.KEY_ASSIST_LONG_PRESS_ACTION, KEY_ACTION_VOICE_SEARCH);
                 settings.mAssistLongPressAction = settings.initActionList(
                         KEY_ASSIST_LONG_PRESS, longPressAction);
             }
@@ -368,13 +401,13 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
             if (settings != null) {
                 int pressAction = Settings.System.getInt(resolver,
-                        Settings.System.KEY_APP_SWITCH_ACTION, ACTION_APP_SWITCH);
+                        Settings.System.KEY_APP_SWITCH_ACTION, KEY_ACTION_APP_SWITCH);
                 settings.mAppSwitchPressAction = settings.initActionList(
                         KEY_APP_SWITCH_PRESS, pressAction);
 
                 int longPressAction = Settings.System.getInt(resolver,
                         Settings.System.KEY_APP_SWITCH_LONG_PRESS_ACTION,
-                        hasMenuKey ? ACTION_NOTHING : ACTION_MENU);
+                        hasMenuKey ? KEY_ACTION_NOTHING : KEY_ACTION_MENU);
                 settings.mAppSwitchLongPressAction = settings.initActionList(
                         KEY_APP_SWITCH_LONG_PRESS, longPressAction);
             }
@@ -470,37 +503,60 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             writeDisableHwKeysOption(getActivity(), hWkeysValue);
             updateDisableHwKeysOption();
 			return true;
-		} else if (preference == mHomeLongPressAction) {
+		} else if (preference == mHomePressAction) {
+            handleActionListChange(mHomePressAction, newValue,
+                    Settings.System.KEY_HOME_ACTION);
+            sendUpdateBroadcast();
+            return true;
+        } else if (preference == mHomeLongPressAction) {
             handleActionListChange(mHomeLongPressAction, newValue,
                     Settings.System.KEY_HOME_LONG_PRESS_ACTION);
+            sendUpdateBroadcast();
             return true;
         } else if (preference == mHomeDoubleTapAction) {
             handleActionListChange(mHomeDoubleTapAction, newValue,
                     Settings.System.KEY_HOME_DOUBLE_TAP_ACTION);
+            sendUpdateBroadcast();
+            return true;
+        } else if (preference == mBackPressAction) {
+            handleActionListChange(mBackPressAction, newValue,
+                    Settings.System.KEY_BACK_ACTION);
+            sendUpdateBroadcast();
+            return true;
+        } else if (preference == mBackLongPressAction) {
+            handleActionListChange(mBackLongPressAction, newValue,
+                    Settings.System.KEY_BACK_LONG_PRESS_ACTION);
+            sendUpdateBroadcast();
             return true;
         } else if (preference == mMenuPressAction) {
             handleActionListChange(mMenuPressAction, newValue,
                     Settings.System.KEY_MENU_ACTION);
+            sendUpdateBroadcast();
             return true;
         } else if (preference == mMenuLongPressAction) {
             handleActionListChange(mMenuLongPressAction, newValue,
                     Settings.System.KEY_MENU_LONG_PRESS_ACTION);
+            sendUpdateBroadcast();
             return true;
         } else if (preference == mAssistPressAction) {
             handleActionListChange(mAssistPressAction, newValue,
                     Settings.System.KEY_ASSIST_ACTION);
+            sendUpdateBroadcast();
             return true;
         } else if (preference == mAssistLongPressAction) {
             handleActionListChange(mAssistLongPressAction, newValue,
                     Settings.System.KEY_ASSIST_LONG_PRESS_ACTION);
+            sendUpdateBroadcast();
             return true;
         } else if (preference == mAppSwitchPressAction) {
             handleActionListChange(mAppSwitchPressAction, newValue,
                     Settings.System.KEY_APP_SWITCH_ACTION);
+            sendUpdateBroadcast();
             return true;
         } else if (preference == mAppSwitchLongPressAction) {
             handleActionListChange(mAppSwitchLongPressAction, newValue,
                     Settings.System.KEY_APP_SWITCH_LONG_PRESS_ACTION);
+            sendUpdateBroadcast();
             return true;
         } else if (preference == mVolumeKeyCursorControl) {
             handleActionListChange(mVolumeKeyCursorControl, newValue,
@@ -513,6 +569,12 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 			return true;
         }
         return false;
+    }
+
+    private void sendUpdateBroadcast() {
+        Intent u = new Intent();
+        u.setAction(Intent.ACTION_UPDATE_KEYS);
+        getActivity().sendBroadcastAsUser(u, UserHandle.ALL);
     }
 
     @Override
