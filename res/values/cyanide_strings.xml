@@ -1803,4 +1803,7 @@
     <!-- Hardware button switches -->
     <string name="key_enabled">Enable key</string>
 
+    <string name="default_landscape_orientation_title">Default Orientation</string>
+    <string name="default_landscape_orientation_summary">Use landscape as default orientation</string>
+
 </resources>
