@@ -961,6 +961,7 @@
 	<string name="qs_tile_systemui_restart">Restart SystemUI</string>
 	<string name="qs_tile_floating_windows">Floating Windows</string>
 	<string name="qs_tile_slim_floats">Slim Floats</string>
+	<string name="qs_tile_themes">Themes</string>
 	
 	<string name="qs_dynamic_tile_next_alarm">Next alarm</string>
     <string name="qs_dynamic_tile_ime_selector">IME selector</string>
