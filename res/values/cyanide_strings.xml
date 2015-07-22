@@ -1793,6 +1793,11 @@
     <string name="hardware_keys_action_lastapp">Last app</string>
     <string name="hardware_keys_action_ime">IME switcher</string>
     <string name="hardware_keys_action_powermenu">Power menu</string>
+    <string name="hardware_keys_action_notifications">Notifications</string>
+    <string name="hardware_keys_action_torch">Torch</string>
+    <string name="hardware_keys_action_toggle_ring_vib">Ring/Vib</string>
+    <string name="hardware_keys_action_toggle_ring_silent">Ring/Silent</string>
+    <string name="hardware_keys_action_toggle_ring_vib_silent">Ring/Vib/Silent</string>
 
     <string name="default_landscape_orientation_title">Default Orientation</string>
     <string name="default_landscape_orientation_summary">Use landscape as default orientation</string>

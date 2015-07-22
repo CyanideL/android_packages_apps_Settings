@@ -1005,14 +1005,12 @@
         <item>@string/action_short</item>
         <item>@string/action_long</item>
         <item>@string/action_double</item>
-        <item>@string/action_icon</item>
     </string-array>
 
     <string-array name="navbar_dialog_values" translatable="false">
         <item>**short**</item>
         <item>**long**</item>
         <item>**double**</item>
-        <item>**icon**</item>
     </string-array>
 
     <!-- Doze pulse (ambient display) options -->
@@ -1727,6 +1725,11 @@
         <item>@string/hardware_keys_action_ime</item>
         <item>@string/hardware_keys_action_powermenu</item>
         <item>@string/hardware_keys_action_sleep</item>
+        <item>@string/hardware_keys_action_notifications</item>
+        <item>@string/hardware_keys_action_torch</item>
+        <item>@string/hardware_keys_action_toggle_ring_vib</item>
+        <item>@string/hardware_keys_action_toggle_ring_silent</item>
+        <item>@string/hardware_keys_action_toggle_ring_vib_silent</item>
     </string-array>
 
     <!-- item numbers are out of order to preserve original settings after reordering the dialog -->
@@ -1745,6 +1748,11 @@
         <item>10</item>
         <item>11</item>
         <item>7</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
     </string-array>
 
 </resources>
