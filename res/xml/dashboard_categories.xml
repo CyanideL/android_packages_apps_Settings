@@ -133,7 +133,15 @@
 				android:icon="@drawable/ic_settings_cyanide_central"
 				settings:advanced="true"
 				/>
-
+        
+        <!-- TRDS -->
+        <dashboard-tile
+                android:id="@+id/theme_settings"
+                android:icon="@drawable/ic_settings_theme_switch"
+                android:fragment="com.android.settings.cyanide.themes.ThemeSettings"
+                android:title="@string/theme_settings_title"
+                />
+        
         <!-- Display & lights -->
         <dashboard-tile
                 android:id="@+id/display_and_lights_settings"

@@ -215,6 +215,7 @@
     <string name="shortcut_action_help_main">To add a %1$s, select the Add icon. Once a %1$s is added, selecting the row will change the target%2$s\n\nTo remove a %1$s, swipe the row horizontally left or right. Re-order a %1$s in the list by vertically dragging the anchor on the left.\n\nTo clear or reset to defaults, select the Reset icon.</string>
     <string name="shortcut_action_help_delete_last_entry">Removing every %1$s in the list will disable the feature entirely.</string>
     <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Removing every %1$s in the list will disable the second pie layer entirely.</string>
+    <string name="shortcut_action_theme_switch">Theme switcher</string>
     <string name="shortcut_action_airplane">Airplane mode</string>
     <string name="shortcut_action_power_off">Power off</string>
     <string name="shortcut_action_reboot">Reboot</string>
@@ -1682,6 +1683,8 @@
     <string name="pa_pie_power_menu_summary">Enable power menu button</string>
     <string name="pa_pie_expanded_desktop_title">Expanded Desktop</string>
     <string name="pa_pie_expanded_desktop_summary">Enable expanded desktop button</string>
+    <string name="pa_pie_theme_switch_title">Theme Switch</string>
+    <string name="pa_pie_theme_switch_summary">Enable theme switch button</string>
     <string name="pa_pie_navbar_title">Navbar</string>
     <string name="pa_pie_navbar_summary">Enable navbar button</string>
     <string name="pa_pie_slimpie_title">SlimPie</string>
@@ -1723,6 +1726,7 @@
     <string name="papie_action_back">Back</string>
     <string name="papie_action_home">Home</string>
     <string name="papie_action_none">None</string>
+    <string name="papie_action_theme_switch">Theme Switch</string>
     <string name="papie_action_torch">Torch</string>
     <string name="papie_action_expanded_desktop">Expanded Desktop</string>
     <string name="papie_action_notifications">Notifications</string>

@@ -62,6 +62,7 @@ public class PAPieTargets extends SettingsPreferenceFragment implements OnPrefer
     private static final String PA_PIE_SCREEN_OFF = "pa_pie_screen_off";
     private static final String PA_PIE_SCREENSHOT = "pa_pie_screenshot";
     private static final String PA_PIE_SLIMPIE = "pa_pie_slimpie";
+    private static final String PA_PIE_THEME_SWITCH = "pa_pie_theme_switch";
     private static final String PA_PIE_TORCH = "pa_pie_torch";
 
     private static final int MENU_RESET = Menu.FIRST;
@@ -86,6 +87,7 @@ public class PAPieTargets extends SettingsPreferenceFragment implements OnPrefer
     private SwitchPreference mPieScreenOff;
     private SwitchPreference mPieScreenshot;
     private SwitchPreference mPieSlimPie;
+    private SwitchPreference mPieThemeSwitch;
     private SwitchPreference mPieTorch;
 
     private ContentResolver mResolver;
@@ -161,8 +163,13 @@ public class PAPieTargets extends SettingsPreferenceFragment implements OnPrefer
         mPieQsPanel = (SwitchPreference) findPreference(PA_PIE_SETTINGS_PANEL);
         mPieQsPanel.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_SETTINGS_PANEL, 0) != 0);
+<<<<<<< HEAD
 
         mPiePowerMenu = (SwitchPreference) findPreference(PA_PIE_POWER_MENU);
+=======
+        
+        mPiePowerMenu = (SwitchPreference) prefSet.findPreference(PA_PIE_POWER_MENU);
+>>>>>>> parent of e522815... Remove TRDS and fix a string derp in dlc
         mPiePowerMenu.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_POWER_MENU, 0) != 0);
 
@@ -177,12 +184,25 @@ public class PAPieTargets extends SettingsPreferenceFragment implements OnPrefer
         mPieScreenshot = (SwitchPreference) findPreference(PA_PIE_SCREENSHOT);
         mPieScreenshot.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_SCREENSHOT, 0) != 0);
+<<<<<<< HEAD
 
         mPieSlimPie = (SwitchPreference) findPreference(PA_PIE_SLIMPIE);
         mPieSlimPie.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_SLIMPIE, 0) != 0);
 
         mPieTorch = (SwitchPreference) findPreference(PA_PIE_TORCH);
+=======
+        
+        mPieSlimPie = (SwitchPreference) prefSet.findPreference(PA_PIE_SLIMPIE);
+        mPieSlimPie.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.PA_PIE_SLIMPIE, 0) != 0);
+        
+        mPieThemeSwitch = (SwitchPreference) prefSet.findPreference(PA_PIE_THEME_SWITCH);
+        mPieThemeSwitch.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.PA_PIE_THEME_SWITCH, 0) != 0);
+        
+        mPieTorch = (SwitchPreference) prefSet.findPreference(PA_PIE_TORCH);
+>>>>>>> parent of e522815... Remove TRDS and fix a string derp in dlc
         mPieTorch.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_TORCH, 1) != 0);
 
@@ -286,6 +306,10 @@ public class PAPieTargets extends SettingsPreferenceFragment implements OnPrefer
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.PA_PIE_SLIMPIE,
                     mPieSlimPie.isChecked() ? 1 : 0);
+        } else if (preference == mPieThemeSwitch) {
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.PA_PIE_THEME_SWITCH,
+                    mPieThemeSwitch.isChecked() ? 1 : 0);
         } else if (preference == mPieTorch) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.PA_PIE_TORCH,
