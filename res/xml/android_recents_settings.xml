@@ -81,6 +81,12 @@
             android:title="@string/recents_show_membar_title"
             android:summary="@string/recents_show_membar_summary" />
 
+        <PreferenceScreen
+            android:key="screen_pinning_settings"
+            android:title="@string/screen_pinning_title"
+            android:fragment="com.android.settings.ScreenPinningSettings"
+            android:defaultValue="false" />
+
         <SwitchPreference
             android:key="android_recents_show_search_bar"
             android:title="@string/android_recents_show_search_bar_title"

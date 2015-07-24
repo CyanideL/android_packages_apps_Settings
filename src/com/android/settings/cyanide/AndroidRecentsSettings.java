@@ -41,28 +41,18 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 public class AndroidRecentsSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener { 
 
-    private static final String PREF_CAT_CLEAR_ALL =
-            "android_recents_cat_clear_all_button";
-    private static final String RECENTS_EMPTY_CYANIDE_LOGO =
-            "recents_empty_cyanide_logo";
-    private static final String RECENTS_CLEAR_ALL_DISMISS_ALL =
-            "recents_clear_all_dismiss_all";
-    private static final String PREF_SHOW_SEARCH_BAR =
-            "android_recents_show_search_bar";
-    private static final String PREF_SHOW_CLEAR_ALL =
-            "android_recents_show_clear_all";
-    private static final String PREF_CLEAR_ALL_POSITION_HORIZONTAL =
-            "android_recents_clear_all_position_horizontal";
-    private static final String PREF_CLEAR_ALL_POSITION_VERTICAL =
-            "android_recents_clear_all_position_vertical";
-    private static final String PREF_CLEAR_ALL_USE_ICON_COLOR =
-            "android_recents_clear_all_use_icon_color";
-    private static final String PREF_CLEAR_ALL_BG_COLOR =
-            "android_recents_clear_all_bg_color";
-    private static final String PREF_CLEAR_ALL_ICON_COLOR =
-            "android_recents_clear_all_icon_color";
-    private static final String PREF_SYSTEMUI_RECENTS_MEM_DISPLAY =
-            "systemui_recents_mem_display";
+    private static final String PREF_CAT_CLEAR_ALL = "android_recents_cat_clear_all_button";
+    private static final String RECENTS_EMPTY_CYANIDE_LOGO = "recents_empty_cyanide_logo";
+    private static final String RECENTS_CLEAR_ALL_DISMISS_ALL = "recents_clear_all_dismiss_all";
+    private static final String PREF_SHOW_SEARCH_BAR = "android_recents_show_search_bar";
+    private static final String PREF_SHOW_CLEAR_ALL = "android_recents_show_clear_all";
+    private static final String PREF_CLEAR_ALL_POSITION_HORIZONTAL = "android_recents_clear_all_position_horizontal";
+    private static final String PREF_CLEAR_ALL_POSITION_VERTICAL = "android_recents_clear_all_position_vertical";
+    private static final String PREF_CLEAR_ALL_USE_ICON_COLOR = "android_recents_clear_all_use_icon_color";
+    private static final String PREF_CLEAR_ALL_BG_COLOR = "android_recents_clear_all_bg_color";
+    private static final String PREF_CLEAR_ALL_ICON_COLOR = "android_recents_clear_all_icon_color";
+    private static final String PREF_SYSTEMUI_RECENTS_MEM_DISPLAY = "systemui_recents_mem_display";
+    private static final String KEY_SCREEN_PINNING = "screen_pinning_settings";
 
     private static final int DEEP_TEAL_500 = 0xff009688;
     private static final int CYANIDE_BLUE = 0xff1976D2;
@@ -82,6 +72,7 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
     private ColorPickerPreference mClearAllIconColor;
     private ColorPickerPreference mClearAllBgColor;
     private SwitchPreference mShowMemBar;
+    private PreferenceScreen mScreenPinning;
     private Preference mOmniSwitch;
 
     private ContentResolver mResolver;
@@ -186,6 +177,14 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
                Settings.System.SYSTEMUI_RECENTS_MEM_DISPLAY, 0) == 1);
         mShowMemBar.setOnPreferenceChangeListener(this);
 
+        final boolean screenPinning = Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCK_TO_APP_ENABLED, 0) == 1;
+       if (mScreenPinning != null) {
+           mScreenPinning.setSummary(screenPinning ?
+               getResources().getString(R.string.switch_on_text) :
+               getResources().getString(R.string.switch_off_text));
+       }
+
         setHasOptionsMenu(true);
     }
 
@@ -284,6 +283,12 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
                     Settings.System.SYSTEMUI_RECENTS_MEM_DISPLAY,
                     value ? 1 : 0);
             return true;
+        } else if (preference == mScreenPinning) {
+            value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.LOCK_TO_APP_ENABLED,
+                    value ? 1 : 0);
+            return true;
         }
         return false;
     }
@@ -343,6 +348,8 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
                                     WHITE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.SYSTEMUI_RECENTS_MEM_DISPLAY, 0);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.LOCK_TO_APP_ENABLED, 0);
                             getOwner().refreshSettings();
                         }
                     })
@@ -372,6 +379,8 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
                                     0xff00ff00);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.SYSTEMUI_RECENTS_MEM_DISPLAY, 1);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.LOCK_TO_APP_ENABLED, 0);
                             getOwner().refreshSettings();
                         }
                     })
