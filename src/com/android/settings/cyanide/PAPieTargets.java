@@ -163,13 +163,8 @@ public class PAPieTargets extends SettingsPreferenceFragment implements OnPrefer
         mPieQsPanel = (SwitchPreference) findPreference(PA_PIE_SETTINGS_PANEL);
         mPieQsPanel.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_SETTINGS_PANEL, 0) != 0);
-<<<<<<< HEAD
 
         mPiePowerMenu = (SwitchPreference) findPreference(PA_PIE_POWER_MENU);
-=======
-        
-        mPiePowerMenu = (SwitchPreference) prefSet.findPreference(PA_PIE_POWER_MENU);
->>>>>>> parent of e522815... Remove TRDS and fix a string derp in dlc
         mPiePowerMenu.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_POWER_MENU, 0) != 0);
 
@@ -184,25 +179,17 @@ public class PAPieTargets extends SettingsPreferenceFragment implements OnPrefer
         mPieScreenshot = (SwitchPreference) findPreference(PA_PIE_SCREENSHOT);
         mPieScreenshot.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_SCREENSHOT, 0) != 0);
-<<<<<<< HEAD
 
         mPieSlimPie = (SwitchPreference) findPreference(PA_PIE_SLIMPIE);
         mPieSlimPie.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_SLIMPIE, 0) != 0);
 
-        mPieTorch = (SwitchPreference) findPreference(PA_PIE_TORCH);
-=======
         
-        mPieSlimPie = (SwitchPreference) prefSet.findPreference(PA_PIE_SLIMPIE);
-        mPieSlimPie.setChecked(Settings.System.getInt(mResolver,
-                Settings.System.PA_PIE_SLIMPIE, 0) != 0);
-        
-        mPieThemeSwitch = (SwitchPreference) prefSet.findPreference(PA_PIE_THEME_SWITCH);
+        mPieThemeSwitch = (SwitchPreference) findPreference(PA_PIE_THEME_SWITCH);
         mPieThemeSwitch.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_THEME_SWITCH, 0) != 0);
         
-        mPieTorch = (SwitchPreference) prefSet.findPreference(PA_PIE_TORCH);
->>>>>>> parent of e522815... Remove TRDS and fix a string derp in dlc
+        mPieTorch = (SwitchPreference) findPreference(PA_PIE_TORCH);
         mPieTorch.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.PA_PIE_TORCH, 1) != 0);
 
