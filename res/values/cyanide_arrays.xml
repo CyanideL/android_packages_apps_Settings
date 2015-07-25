@@ -1751,6 +1751,7 @@
         <item>@string/hardware_keys_action_toggle_ring_vib</item>
         <item>@string/hardware_keys_action_toggle_ring_silent</item>
         <item>@string/hardware_keys_action_toggle_ring_vib_silent</item>
+        <item>@string/hardware_keys_action_unpin</item>
     </string-array>
 
     <!-- item numbers are out of order to preserve original settings after reordering the dialog -->
@@ -1774,6 +1775,7 @@
         <item>16</item>
         <item>17</item>
         <item>18</item>
+        <item>19</item>
     </string-array>
 
 </resources>
