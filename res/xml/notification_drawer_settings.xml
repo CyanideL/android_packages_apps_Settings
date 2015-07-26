@@ -75,11 +75,6 @@
             android:summary="@string/notification_force_expand_summary"
             android:defaultValue="false" />
 		
-		<com.android.settings.cyanogenmod.SecureSettingSwitchPreference
-            android:key="qs_use_four_columns"
-            android:title="@string/qs_four_columns_title"
-			android:defaultValue="false" />
-		
 		<ListPreference
 			android:key="quick_pulldown"
 			android:title="@string/quick_pulldown_title"
