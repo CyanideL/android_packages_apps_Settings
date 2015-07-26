@@ -1778,4 +1778,11 @@
         <item>19</item>
     </string-array>
 
+    <!-- QS Tiles Columns -->
+    <string-array name="qs_num_columns_entries" translatable="false">
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
 </resources>
