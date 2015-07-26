@@ -70,6 +70,13 @@
             android:summary="@string/su_indicator_summary"
 			android:defaultValue="true" />
 
+    <!-- Volume Icon Switch -->
+	<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="show_volume_icon"
+            android:title="@string/show_volume_icon_title"
+            android:summary="@string/show_volume_icon_summary"
+			android:defaultValue="true" />
+
     <!-- Various shit -->
     <PreferenceScreen
         android:key="various_shit"

@@ -1812,4 +1812,8 @@
     <string name="qs_num_columns_title">Number of Columns</string>
     <string name="qs_num_columns_showing">Columns Showing</string>
 
+    <!-- Headphones icon switch -->
+    <string name="show_volume_icon_title">Volume Mode Icon</string>
+    <string name="show_volume_icon_summary">Show volume mode icon, enabled by default</string>
+
 </resources>
