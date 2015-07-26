@@ -938,7 +938,7 @@
     <string name="qs_tile_lte">LTE</string>
     <string name="qs_tile_visualizer" translatable="false">AudioFX</string>
     <string name="qs_tile_screen_timeout">Screen timeout</string>
-    <string name="qs_tile_cyanide">Cyanide Settings</string>
+    <string name="qs_tile_cyanide">CyanideMods</string>
     <string name="qs_tile_screenshot">Screenshot</string>
 	<string name="qs_tile_sync_tile">Sync</string>
 	<string name="qs_tile_battery_saver">Battery saver</string>
