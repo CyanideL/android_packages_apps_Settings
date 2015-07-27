@@ -225,7 +225,6 @@
   <string name="device_model">Cihaz modeli</string>
   <string name="device_name">Cihaz ismi</string>
   <string name="build_date">İnşa tarihi</string>
-  <string name="contributor_cloud_title">Katkıda bulunanlar</string>
   <string name="phone_service_state">Ses: <xliff:g id="voice_state">%1$s</xliff:g>, veri: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Uyanmak için çift dokun</string>
   <string name="double_tap_to_wake_summary">Ekranı açmak için ekrana iki defa dokunun</string>
@@ -892,4 +891,45 @@
   <string name="fingerprint_dialog_name_label">Parmak izi adı</string>
   <string name="fingerprint_dialog_title_max_fingers_reached">Parmak izi sınırına ulaşıldı</string>
   <string name="fingerprint_dialog_msg_max_fingers_reached">Sadece <xliff:g id="finger" example="5 fingerprints">%d</xliff:g> tane parmak izi kaydedebilirsiniz. Eskilerden birini silin.</string>
+  <string name="fingerprint_title_manage_fingerprints">Parmak izlerini yönet <xliff:g id="finger">%d</xliff:g>/<xliff:g id="max">%d</xliff:g></string>
+  <string name="manage_fingerprints_description">Parmak izleri telefon kilidinizi hızlıca açıp fotoğraf çekmenizi sağlar.</string>
+  <string name="fingerprint_enrollment_introduction_title">Sensörünüzü bulun</string>
+  <string name="fingerprint_enrollment_introduction_instructions">Parmak izi sensörü Telefonunuzun önünde ya da arkasında yer alır.</string>
+  <string name="fingerprint_enrollment_scan_title">3 saniye tutun</string>
+  <string name="fingerprint_enrollment_scan_instructions">Kuruluma başlamak için işaret parmağınızı sensörün üzerine yerleştirin. Titreşimi hissettiğinizde parmağınızı kaldırın.</string>
+  <string name="fingerprint_enrollment_error_title_wrong_sensor">Lütfen tekrar deneyin</string>
+  <string name="fingerprint_enrollment_error_message">Doğru bir tarama için parmağınızı sensöre iyice yerleştirin. Aynı parmağı kullandığınızdan emin olun. Titreşimi hissettiğinizde parmağınızı kaldırın.</string>
+  <string name="fingerprint_enrollment_scan_instructions">Kuruluma başlamak için işaret parmağınızı sensörün üzerine yerleştirin. Titreşimi hissettiğinizde parmağınızı kaldırın.</string>
+  <string name="fingerprint_enrollment_break_title">Mevcut kayıt ile devam edin</string>
+  <string name="fingerprint_enrollment_break_instructions">Parmak izinizin kenarlarının kaydı için devam edin. Titreşim hissettiğinizde parmağınızı kaldırın.</string>
+  <string name="fingerprint_enrollment_finished_title">Parmak izi eklendi!</string>
+  <string name="fingerprint_enrollment_finished_message">Artık parmak iziniz ekranınızı açmak ya da kameranız ile özçekim için kullanılabilir.</string>
+  <string name="fingerprint_enrollment_found_it_label">Bulundu</string>
+  <string name="fingerprint_enrollment_add_another_label">Başkasını ekleyin</string>
+  <string name="fingerprint_enrollment_done_label">Tamam</string>
+  <string name="fingerprint_dialog_title_wrong_sensor">Hayır, o sizin sensörünüz değil</string>
+  <string name="fingerprint_dialog_msg_wrong_sensor">Telefonunuzun önünde ya da arkasındaki parmak izi sensörünü kullanın</string>
+  <string name="fingerprint_dialog_title_failed_enrollment">Parmak izi okunamıyor</string>
+  <string name="fingerprint_dialog_msg_failed_enrollment">Farklı bir parmağınızı kullanmayı deneyin. Bu parmak izi okunamadı.</string>
+  <string name="fingerprint_enrollment_restart_label">Yeniden başla</string>
+  <string name="fingerprint_successful_scan_title_first">Mükemmel! Şimdi tekrarlayın</string>
+  <string name="fingerprint_successful_scan_final">Bir kez daha lütfen</string>
+  <string name="fingerprint_successful_scan_title_1">Kaptınız işi! Devam</string>
+  <string name="fingerprint_successful_scan_title_2">Harika! Ve yeniden</string>
+  <string name="fingerprint_successful_scan_title_3">Aferin! Devam</string>
+  <string name="fingerprint_successful_scan_title_4">Bir kaç defa daha</string>
+  <string name="fingerprint_successful_scan_title_5">Harika gidiyorsunuz! Ve yeniden</string>
+  <string name="fingerprint_successful_scan_title_6">Neredeyse bitti</string>
+  <string name="fingerprint_enrollment_error_title_1">Olmadı. Bir daha deneyin</string>
+  <string name="fingerprint_enrollment_error_title_2">Üzgünüz, anlayamadık</string>
+  <string name="fingerprint_enrollment_error_title_3">Bir şeyler ters gidiyor</string>
+  <string name="fingerprint_enrollment_error_title_4">Bir daha deneyin</string>
+  <string name="fingerprint_enrollment_error_title_5">Offf, hata oluştu</string>
+  <string name="menu_stats_reset">İstatistikleri sıfırla</string>
+  <string name="reset_stats_msg">Pil kullanım istatistikleri sıfırlanacak</string>
+  <string name="dock_battery_not_present">Ünite pili mevcut değil</string>
+  <string name="battery_info_status_charging_dock_ac">Ünite AC ile şarj oluyor</string>
+  <string name="battery_info_status_charging_dock_usb">Ünite USB\'si ile şarj oluyor</string>
+  <string name="setup_lock_pattern_size_title">Desen zorluğu</string>
+  <string name="setup_lock_pattern_size_details">Deseninizde kaç nokta kullanmak istersiniz? Ne kadar çok nokta kullanırsanız deseniniz o kadar zor olur.</string>
 </resources>

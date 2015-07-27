@@ -225,7 +225,6 @@
   <string name="device_model">Laitteen malli</string>
   <string name="device_name">Laitteen nimi</string>
   <string name="build_date">Luontipäivä</string>
-  <string name="contributor_cloud_title">Kehittäjät ja avustajat</string>
   <string name="phone_service_state">Puhelut: <xliff:g id="voice_state">%1$s</xliff:g>, data: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Herätys kaksoisnapautuksella</string>
   <string name="double_tap_to_wake_summary">Herätä laitteen näyttö kaksoisnapautuksella</string>
@@ -893,4 +892,45 @@
   <string name="fingerprint_dialog_name_label">Sormenjäljen nimi</string>
   <string name="fingerprint_dialog_title_max_fingers_reached">Sormenjälkien enimmäismäärä saavutettu</string>
   <string name="fingerprint_dialog_msg_max_fingers_reached">Voit rekisteröidä vain <xliff:g id="finger" example="5 fingerprints">%d</xliff:g> sormenjälkeä. Poista joku nykyisistä sormenjäljistä.</string>
+  <string name="fingerprint_title_manage_fingerprints">Hallitse sormenjälkiä <xliff:g id="finger">%d</xliff:g>/<xliff:g id="max">%d</xliff:g></string>
+  <string name="manage_fingerprints_description">Sormenjäljillä voit avata puhelimesi nopeasti ja ottaa kuvia.</string>
+  <string name="fingerprint_enrollment_introduction_title">Etsi tunnistin</string>
+  <string name="fingerprint_enrollment_introduction_instructions">Sormenjälkitunnistin sijaitsee puhelimesi etu- tai takapuolella.</string>
+  <string name="fingerprint_enrollment_scan_title">Pidä sormea 3 sekuntia tunnistimessa</string>
+  <string name="fingerprint_enrollment_scan_instructions">Aseta etusormesi sormenjälkitunnistimeen aloittaaksesi asennuksen. Nosta sormi, kun puhelin värähtää.</string>
+  <string name="fingerprint_enrollment_error_title_wrong_sensor">Yritä uudelleen</string>
+  <string name="fingerprint_enrollment_error_message">Aseeta sormesi kunnolla sormanjälkitunnistimeen varmistaaksesi tarkan skannauksen. Varmista myös, että käytät samaa sormea kuin aikaisemmin. Nosta sormi, kun puhelin värähtää.</string>
+  <string name="fingerprint_enrollment_scan_instructions">Aseta etusormesi sormenjälkitunnistimeen aloittaaksesi asennuksen. Nosta sormi, kun puhelin värähtää.</string>
+  <string name="fingerprint_enrollment_break_title">Jatka nykyisellä otteella</string>
+  <string name="fingerprint_enrollment_break_instructions">Jatka ottaaksesi reunat sormenjäljestäsi. Nosta sormi, kun puhelin värähtää.</string>
+  <string name="fingerprint_enrollment_finished_title">Sormenjälki lisätty!</string>
+  <string name="fingerprint_enrollment_finished_message">Sormenjälkiä voidaan nyt käyttää puhelimen avaamiseen tai selfie-kuvien ottamiseen kameralla.</string>
+  <string name="fingerprint_enrollment_found_it_label">Löytyi</string>
+  <string name="fingerprint_enrollment_add_another_label">Lisää toinen</string>
+  <string name="fingerprint_enrollment_done_label">Valmis</string>
+  <string name="fingerprint_dialog_title_wrong_sensor">Hups, tämä ei ole tunnistimesi</string>
+  <string name="fingerprint_dialog_msg_wrong_sensor">Käytä sormenjälkitunnistinta puhelimesi edessä tai takana</string>
+  <string name="fingerprint_dialog_title_failed_enrollment">Sormenjäljen luku ei onnistu</string>
+  <string name="fingerprint_dialog_msg_failed_enrollment">Kokeile eri sormea. Tätä sormenjälkeä ei voitu lukea.</string>
+  <string name="fingerprint_enrollment_restart_label">Aloita uudelleen</string>
+  <string name="fingerprint_successful_scan_title_first">Täydellistä! Tee uudelleen</string>
+  <string name="fingerprint_successful_scan_final">Vielä kerran</string>
+  <string name="fingerprint_successful_scan_title_1">Nyt menee hyvin! Jatka vain</string>
+  <string name="fingerprint_successful_scan_title_2">Hyvä! Ja uudestaan</string>
+  <string name="fingerprint_successful_scan_title_3">Hyvin tehty! Jatka vielä</string>
+  <string name="fingerprint_successful_scan_title_4">Vielä muutaman kerran</string>
+  <string name="fingerprint_successful_scan_title_5">Hyvin menee! Ja uudelleen</string>
+  <string name="fingerprint_successful_scan_title_6">Melkein valmis</string>
+  <string name="fingerprint_enrollment_error_title_1">Hups. Yritä uudelleen</string>
+  <string name="fingerprint_enrollment_error_title_2">Anteeksi, ei onnistunut</string>
+  <string name="fingerprint_enrollment_error_title_3">Hmm, jotain meni pieleen</string>
+  <string name="fingerprint_enrollment_error_title_4">Huh, yritä uudelleen</string>
+  <string name="fingerprint_enrollment_error_title_5">Hups, tapahtui virhe</string>
+  <string name="menu_stats_reset">Nollaa tilastot</string>
+  <string name="reset_stats_msg">Akun historiatilastot nollataan</string>
+  <string name="dock_battery_not_present">Telakan akku puuttuu</string>
+  <string name="battery_info_status_charging_dock_ac">Ladataan telakan laturilla</string>
+  <string name="battery_info_status_charging_dock_usb">Ladataan telakan USB:n kautta</string>
+  <string name="setup_lock_pattern_size_title">Kuvion monimutkaisuus</string>
+  <string name="setup_lock_pattern_size_details">Kuinka montaa solmua haluat käyttää kuviossasi? Mitä enemmän solmuja, sitä monimutkaisempi kuvio voi olla.</string>
 </resources>

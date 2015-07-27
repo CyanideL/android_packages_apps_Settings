@@ -226,7 +226,6 @@
   <string name="device_model">Model</string>
   <string name="device_name">Název zařízení</string>
   <string name="build_date">Datum sestavení</string>
-  <string name="contributor_cloud_title">Přispěvatelé</string>
   <string name="phone_service_state">Hlas: <xliff:g id="voice_state">%1$s</xliff:g>, data: <xliff:g id="data_state">%2$s</xliff:g></string>
   <string name="double_tap_to_wake_title">Probuzení dvojím dotykem</string>
   <string name="double_tap_to_wake_summary">Dvojitým poklepáním zapnout obrazovku</string>
@@ -893,4 +892,43 @@
   <string name="fingerprint_dialog_name_label">Název otisku prstu</string>
   <string name="fingerprint_dialog_title_max_fingers_reached">Maximální počet otisků prstu dosažen</string>
   <string name="fingerprint_dialog_msg_max_fingers_reached">Lze zapsat pouze <xliff:g id="finger" example="5 fingerprints">%d</xliff:g> otiskůs. Smažte existující otisk prstů.</string>
+  <string name="fingerprint_title_manage_fingerprints">Správa otisků prstů <xliff:g id="finger">%d</xliff:g>/<xliff:g id="max">%d</xliff:g></string>
+  <string name="fingerprint_enrollment_introduction_title">Umístění snímače</string>
+  <string name="fingerprint_enrollment_introduction_instructions">Snímač bývá umístěn na přední nebo zadní straně telefonu.</string>
+  <string name="fingerprint_enrollment_scan_title">Podržte na 3 sekundy</string>
+  <string name="fingerprint_enrollment_scan_instructions">Umístěte ukazováček na snímač otisků prstů. Jakmile ucítíte vibraci, prst zvedněte.</string>
+  <string name="fingerprint_enrollment_error_title_wrong_sensor">Zkuste to prosím znovu</string>
+  <string name="fingerprint_enrollment_scan_instructions">Umístěte ukazováček na snímač otisků prstů. Jakmile ucítíte vibraci, prst zvedněte.</string>
+  <string name="fingerprint_enrollment_break_title">Pokračovat stejnou sílou stisku</string>
+  <string name="fingerprint_enrollment_break_instructions">Pokračujte snímáním okrajů prstu. Jakmile ucítíte vibrace, prst zvedněte.</string>
+  <string name="fingerprint_enrollment_finished_title">Otisk prstu přidán!</string>
+  <string name="fingerprint_enrollment_finished_message">Nyní můžete odemknout obrazovku pomocí otisku prstu nebo pořídit selfie fotografie pomocí fotoaparátu.</string>
+  <string name="fingerprint_enrollment_found_it_label">Nalezeno</string>
+  <string name="fingerprint_enrollment_add_another_label">Přidat další</string>
+  <string name="fingerprint_enrollment_done_label">Hotovo</string>
+  <string name="fingerprint_dialog_title_wrong_sensor">Chyba, toto není senzor</string>
+  <string name="fingerprint_dialog_msg_wrong_sensor">Použijte senzor otisku prstů na přední nebo zadní straně telefonu</string>
+  <string name="fingerprint_dialog_title_failed_enrollment">Nelze načíst otisk prstu</string>
+  <string name="fingerprint_dialog_msg_failed_enrollment">Zkuste jiný prst. Tento otisk prstu nelze načíst.</string>
+  <string name="fingerprint_enrollment_restart_label">Od začátku</string>
+  <string name="fingerprint_successful_scan_title_first">Perfektní! Teď opakujte</string>
+  <string name="fingerprint_successful_scan_final">Ještě jednou prosím</string>
+  <string name="fingerprint_successful_scan_title_1">Už to bude! Pokračujte</string>
+  <string name="fingerprint_successful_scan_title_2">Výborně! A znovu</string>
+  <string name="fingerprint_successful_scan_title_3">Skvělá práce! Jen tak dál</string>
+  <string name="fingerprint_successful_scan_title_4">Ještě několikrát</string>
+  <string name="fingerprint_successful_scan_title_5">Děláte to skvěle! A znovu</string>
+  <string name="fingerprint_successful_scan_title_6">Už to bude</string>
+  <string name="fingerprint_enrollment_error_title_1">Chybička se vloudila. Zkuste to znovu</string>
+  <string name="fingerprint_enrollment_error_title_2">Pardon, nějak to nejde</string>
+  <string name="fingerprint_enrollment_error_title_3">Něco se pokazilo</string>
+  <string name="fingerprint_enrollment_error_title_4">No jo, zkuste to znovu</string>
+  <string name="fingerprint_enrollment_error_title_5">Jejda, došlo k chybě</string>
+  <string name="menu_stats_reset">Resetovat statistiky</string>
+  <string name="reset_stats_msg">Bude vynulována historie statistiky baterie</string>
+  <string name="dock_battery_not_present">Baterie doku není k dispozici</string>
+  <string name="battery_info_status_charging_dock_ac">Nabíjení pomocí napájení doku</string>
+  <string name="battery_info_status_charging_dock_usb">Nabíjení pomocí USB doku</string>
+  <string name="setup_lock_pattern_size_title">Složitost vzoru</string>
+  <string name="setup_lock_pattern_size_details">Kolik uzlů na vzoru chcete používat? Čím více uzlů, tím složitější může být vzor.</string>
 </resources>
