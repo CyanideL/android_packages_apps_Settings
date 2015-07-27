@@ -113,7 +113,7 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
 
         mShowClearAll = (SwitchPreference) findPreference(PREF_SHOW_CLEAR_ALL);
         boolean showClearAll = Settings.System.getInt(mResolver,
-               Settings.System.ANDROID_RECENTS_SHOW_CLEAR_ALL, 1) == 1;
+               Settings.System.ANDROID_RECENTS_SHOW_CLEAR_ALL, 0) == 1;
         mShowClearAll.setChecked(showClearAll);
         mShowClearAll.setOnPreferenceChangeListener(this);
 
