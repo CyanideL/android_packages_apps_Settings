@@ -303,14 +303,14 @@ public class SecuritySettings extends SettingsPreferenceFragment
         // Lockscreen wallpaper
         PreferenceCategory generalCategory = (PreferenceCategory)
             root.findPreference(KEY_GENERAL_CATEGORY);
-        if (lockscreenCategory != null) {
+        if (generalCategory != null) {
             PreferenceScreen lockscreenWallpaper = (PreferenceScreen)
-                lockscreenCategory.findPreference(KEY_LOCKSCREEN_WALLPAPER);
+                generalCategory.findPreference(KEY_LOCKSCREEN_WALLPAPER);
             if (lockscreenWallpaper != null) {
                 try {
                     getActivity().getPackageManager().getPackageInfo("com.slim.wallpaperpicker", 0);
                 } catch (PackageManager.NameNotFoundException e) {
-                    lockscreenCategory.removePreference(lockscreenWallpaper);
+                    generalCategory.removePreference(lockscreenWallpaper);
                 }
             }
         }
