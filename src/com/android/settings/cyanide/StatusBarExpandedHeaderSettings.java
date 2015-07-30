@@ -39,6 +39,7 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String SHOW_CYANIDE_BUTTON = "show_cyanide_button";
     private static final String PREF_ENABLE_TASK_MANAGER = "enable_task_manager";
     private static final String STATUS_BAR_POWER_MENU = "status_bar_power_menu";
     private static final String PREF_SHOW_WEATHER = "expanded_header_show_weather";
@@ -54,6 +55,7 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
+    private SwitchPreference mEnableCyanideButton;
     private SwitchPreference mEnableTaskManager;
     private ListPreference mStatusBarPowerMenu;
     private SwitchPreference mShowWeather;
@@ -78,15 +80,20 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
 
         addPreferencesFromResource(R.xml.cyanide_status_bar_expanded_header_settings);
         mResolver = getActivity().getContentResolver();
-        
+
         boolean enableTaskManager = Settings.System.getInt(mResolver,
                 Settings.System.ENABLE_TASK_MANAGER, 0) == 1;
-        
+
         boolean showWeather = Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER, 0) == 1;
 
         int intColor;
         String hexColor;
+
+        mEnableCyanideButton = (SwitchPreference) findPreference(SHOW_CYANIDE_BUTTON);
+        mEnableCyanideButton.setChecked(Settings.System.getInt(mResolver,
+                    Settings.System.SHOW_CYANIDE_BUTTON, 1) == 1);
+        mEnableCyanideButton.setOnPreferenceChangeListener(this);
 
         // status bar power menu
         mStatusBarPowerMenu = (ListPreference) findPreference(STATUS_BAR_POWER_MENU);
@@ -95,11 +102,11 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                 STATUS_BAR_POWER_MENU, 2);
         mStatusBarPowerMenu.setValue(String.valueOf(statusBarPowerMenu));
         mStatusBarPowerMenu.setSummary(mStatusBarPowerMenu.getEntry());
-        
+
         mEnableTaskManager = (SwitchPreference) findPreference(PREF_ENABLE_TASK_MANAGER);
         mEnableTaskManager.setChecked(enableTaskManager);
         mEnableTaskManager.setOnPreferenceChangeListener(this);
-        
+
         mShowWeather = (SwitchPreference) findPreference(PREF_SHOW_WEATHER);
         mShowWeather.setChecked(showWeather);
         mShowWeather.setOnPreferenceChangeListener(this);
@@ -112,7 +119,7 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         } else {
             removePreference(PREF_SHOW_LOCATION);
         }
-        
+
         mBackgroundColor =
                 (ColorPickerPreference) findPreference(PREF_BG_COLOR);
         intColor = Settings.System.getInt(mResolver,
@@ -170,7 +177,13 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         String hex;
         int intHex;
 
-        if (preference == mStatusBarPowerMenu) {
+        if (preference == mEnableCyanideButton) {
+            value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                Settings.System.SHOW_CYANIDE_BUTTON,
+                value ? 1 : 0);
+            return true;
+        } else if (preference == mStatusBarPowerMenu) {
             String statusBarPowerMenu = (String) newValue;
             int statusBarPowerMenuValue = Integer.parseInt(statusBarPowerMenu);
             Settings.System.putInt(getActivity().getContentResolver(),
@@ -260,6 +273,8 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.SHOW_CYANIDE_BUTTON, 0);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_POWER_MENU, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.ENABLE_TASK_MANAGER, 0);
@@ -282,6 +297,8 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                     .setPositiveButton(R.string.reset_cyanide,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.SHOW_CYANIDE_BUTTON, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_POWER_MENU, 2);
                             Settings.System.putInt(getOwner().mResolver,

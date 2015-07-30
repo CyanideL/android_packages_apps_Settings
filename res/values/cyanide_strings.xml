@@ -1822,4 +1822,8 @@
     <string name="lock_directly_show">Directly show homescreen</string>
     <string name="lock_directly_show_summary">Enabling this will skip the swipe up portion fo the lockscreen</string>
 
+    <!-- Cyanide Button -->
+    <string name="show_cyanide_button_title">Cyanide Button</string>
+    <string name="show_cyanide_button_summary">Show a cyanide button in the status bar header</string>
+
 </resources>
