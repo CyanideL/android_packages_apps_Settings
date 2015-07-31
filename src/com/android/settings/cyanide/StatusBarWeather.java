@@ -211,6 +211,9 @@ public class StatusBarWeather extends SettingsPreferenceFragment
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_WEATHER_COLOR,
                                     0xffffffff);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_WEATHER_SIZE,
+                                    14);
                             getOwner().refreshSettings();
                         }
                     })
@@ -224,6 +227,9 @@ public class StatusBarWeather extends SettingsPreferenceFragment
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_WEATHER_COLOR,
                                     CYANIDE_BLUE);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_WEATHER_SIZE,
+                                    16);
                             getOwner().refreshSettings();
                         }
                     })

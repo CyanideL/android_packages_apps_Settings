@@ -41,18 +41,26 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 public class AndroidRecentsSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener { 
 
-    private static final String PREF_CAT_CLEAR_ALL = "android_recents_cat_clear_all_button";
-    private static final String RECENTS_EMPTY_CYANIDE_LOGO = "recents_empty_cyanide_logo";
-    private static final String RECENTS_CLEAR_ALL_DISMISS_ALL = "recents_clear_all_dismiss_all";
-    private static final String PREF_SHOW_SEARCH_BAR = "android_recents_show_search_bar";
-    private static final String PREF_SHOW_CLEAR_ALL = "android_recents_show_clear_all";
-    private static final String PREF_CLEAR_ALL_POSITION_HORIZONTAL = "android_recents_clear_all_position_horizontal";
-    private static final String PREF_CLEAR_ALL_POSITION_VERTICAL = "android_recents_clear_all_position_vertical";
-    private static final String PREF_CLEAR_ALL_USE_ICON_COLOR = "android_recents_clear_all_use_icon_color";
-    private static final String PREF_CLEAR_ALL_BG_COLOR = "android_recents_clear_all_bg_color";
-    private static final String PREF_CLEAR_ALL_ICON_COLOR = "android_recents_clear_all_icon_color";
-    private static final String PREF_SYSTEMUI_RECENTS_MEM_DISPLAY = "systemui_recents_mem_display";
-    private static final String KEY_SCREEN_PINNING = "screen_pinning_settings";
+    private static final String PREF_CAT_CLEAR_ALL =
+            "android_recents_cat_clear_all_button";
+    private static final String PREF_SHOW_SEARCH_BAR =
+            "android_recents_show_search_bar";
+    private static final String PREF_SHOW_CLEAR_ALL =
+            "android_recents_show_clear_all";
+    private static final String PREF_CLEAR_ALL_POSITION_HORIZONTAL =
+            "android_recents_clear_all_position_horizontal";
+    private static final String PREF_CLEAR_ALL_POSITION_VERTICAL =
+            "android_recents_clear_all_position_vertical";
+    private static final String PREF_CLEAR_ALL_USE_ICON_COLOR =
+            "android_recents_clear_all_use_icon_color";
+    private static final String PREF_CLEAR_ALL_BG_COLOR =
+            "android_recents_clear_all_bg_color";
+    private static final String PREF_CLEAR_ALL_ICON_COLOR =
+            "android_recents_clear_all_icon_color";
+    private static final String RECENTS_EMPTY_CYANIDE_LOGO =
+            "recents_empty_cyanide_logo";
+    private static final String KEY_SCREEN_PINNING = 
+            "screen_pinning_settings";
 
     private static final int DEEP_TEAL_500 = 0xff009688;
     private static final int CYANIDE_BLUE = 0xff1976D2;
@@ -62,8 +70,6 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
-    private SwitchPreference mRecentsStyle;
-    private SwitchPreference mRecentsClearAll;
     private SwitchPreference mShowSearchBar;
     private SwitchPreference mShowClearAll;
     private ListPreference mClearAllPositionHorizontal;
@@ -71,7 +77,7 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
     private SwitchPreference mClearAllUseIconColor;
     private ColorPickerPreference mClearAllIconColor;
     private ColorPickerPreference mClearAllBgColor;
-    private SwitchPreference mShowMemBar;
+    private SwitchPreference mRecentsStyle;
     private PreferenceScreen mScreenPinning;
     private Preference mOmniSwitch;
 
@@ -96,19 +102,9 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
         int intColor;
         String hexColor;
 
-        mRecentsClearAll = (SwitchPreference) findPreference(RECENTS_CLEAR_ALL_DISMISS_ALL);
-        mRecentsClearAll.setChecked(Settings.System.getInt(mResolver,
-            Settings.System.RECENTS_CLEAR_ALL_DISMISS_ALL, 0) == 1);
-        mRecentsClearAll.setOnPreferenceChangeListener(this);
-
-        mRecentsStyle = (SwitchPreference) findPreference(RECENTS_EMPTY_CYANIDE_LOGO);
-        mRecentsStyle.setChecked(Settings.System.getInt(mResolver,
-            Settings.System.RECENTS_EMPTY_CYANIDE_LOGO, 0) == 1);
-        mRecentsStyle.setOnPreferenceChangeListener(this);
-
         mShowSearchBar = (SwitchPreference) findPreference(PREF_SHOW_SEARCH_BAR);
         mShowSearchBar.setChecked(Settings.System.getInt(mResolver,
-               Settings.System.ANDROID_RECENTS_SHOW_SEARCH_BAR, 0) == 1);
+               Settings.System.ANDROID_RECENTS_SHOW_SEARCH_BAR, 1) == 1);
         mShowSearchBar.setOnPreferenceChangeListener(this);
 
         mShowClearAll = (SwitchPreference) findPreference(PREF_SHOW_CLEAR_ALL);
@@ -166,24 +162,25 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
                 catClearAll.removePreference(findPreference(PREF_CLEAR_ALL_ICON_COLOR));
             }
         } else {
+            catClearAll.removePreference(findPreference(PREF_CLEAR_ALL_USE_ICON_COLOR));
             catClearAll.removePreference(findPreference(PREF_CLEAR_ALL_POSITION_HORIZONTAL));
             catClearAll.removePreference(findPreference(PREF_CLEAR_ALL_POSITION_VERTICAL));
             catClearAll.removePreference(findPreference(PREF_CLEAR_ALL_BG_COLOR));
             catClearAll.removePreference(findPreference(PREF_CLEAR_ALL_ICON_COLOR));
         }
 
-        mShowMemBar = (SwitchPreference) findPreference(PREF_SHOW_CLEAR_ALL);
-        mShowMemBar.setChecked(Settings.System.getInt(mResolver,
-               Settings.System.SYSTEMUI_RECENTS_MEM_DISPLAY, 0) == 1);
-        mShowMemBar.setOnPreferenceChangeListener(this);
+        mRecentsStyle = (SwitchPreference) findPreference(RECENTS_EMPTY_CYANIDE_LOGO);
+        mRecentsStyle.setChecked(Settings.System.getInt(mResolver,
+            Settings.System.RECENTS_EMPTY_CYANIDE_LOGO, 0) == 1);
+        mRecentsStyle.setOnPreferenceChangeListener(this);
 
         final boolean screenPinning = Settings.System.getInt(getContentResolver(),
                 Settings.System.LOCK_TO_APP_ENABLED, 0) == 1;
-       if (mScreenPinning != null) {
-           mScreenPinning.setSummary(screenPinning ?
-               getResources().getString(R.string.switch_on_text) :
-               getResources().getString(R.string.switch_off_text));
-       }
+        if (mScreenPinning != null) {
+            mScreenPinning.setSummary(screenPinning ?
+                getResources().getString(R.string.switch_on_text) :
+                getResources().getString(R.string.switch_off_text));
+        }
 
         setHasOptionsMenu(true);
     }
@@ -191,7 +188,7 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.add(0, MENU_RESET, 0, R.string.reset)
-                .setIcon(R.drawable.ic_settings_backup_restore) 
+                .setIcon(R.drawable.ic_settings_backup_restore) // use the KitKat backup icon
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
     }
 
@@ -213,20 +210,7 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
         String hex;
         int intHex;
 
-        if (preference == mRecentsClearAll) {
-            value = (Boolean) newValue;
-            Settings.System.putInt(mResolver,
-                    Settings.System.RECENTS_CLEAR_ALL_DISMISS_ALL,
-                    value ? 1 : 0);
-            return true;
-        } else if (preference == mRecentsStyle) {
-            value = (Boolean) newValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.RECENTS_EMPTY_CYANIDE_LOGO,
-                    value ? 1 : 0);
-            Helpers.restartSystemUI();
-            return true;
-        } else if (preference == mShowSearchBar) {
+        if (preference == mShowSearchBar) {
             value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                     Settings.System.ANDROID_RECENTS_SHOW_SEARCH_BAR,
@@ -277,11 +261,12 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
                     Settings.System.ANDROID_RECENTS_CLEAR_ALL_ICON_COLOR, intHex);
             preference.setSummary(hex);
             return true;
-        } else if (preference == mShowSearchBar) {
+        } else if (preference == mRecentsStyle) {
             value = (Boolean) newValue;
-            Settings.System.putInt(mResolver,
-                    Settings.System.SYSTEMUI_RECENTS_MEM_DISPLAY,
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.RECENTS_EMPTY_CYANIDE_LOGO,
                     value ? 1 : 0);
+            Helpers.restartSystemUI();
             return true;
         } else if (preference == mScreenPinning) {
             value = (Boolean) newValue;
@@ -326,11 +311,6 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.RECENTS_CLEAR_ALL_DISMISS_ALL, 1);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.RECENTS_EMPTY_CYANIDE_LOGO, 0);
-                                    Helpers.restartSystemUI();
-                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.ANDROID_RECENTS_SHOW_SEARCH_BAR, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.ANDROID_RECENTS_SHOW_CLEAR_ALL, 0);
@@ -347,7 +327,8 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
                                     Settings.System.ANDROID_RECENTS_CLEAR_ALL_ICON_COLOR,
                                     WHITE);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.SYSTEMUI_RECENTS_MEM_DISPLAY, 0);
+                                    Settings.System.RECENTS_EMPTY_CYANIDE_LOGO, 0);
+                                    Helpers.restartSystemUI();
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.LOCK_TO_APP_ENABLED, 0);
                             getOwner().refreshSettings();
@@ -357,18 +338,13 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.RECENTS_CLEAR_ALL_DISMISS_ALL, 1);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.RECENTS_EMPTY_CYANIDE_LOGO, 1);
-                                    Helpers.restartSystemUI();
-                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.ANDROID_RECENTS_SHOW_SEARCH_BAR, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.ANDROID_RECENTS_SHOW_CLEAR_ALL, 1);
                              Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.ANDROID_RECENTS_CLEAR_ALL_POSITION_HORIZONTAL, 2);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.ANDROID_RECENTS_CLEAR_ALL_POSITION_VERTICAL, 2);
+                                    Settings.System.ANDROID_RECENTS_CLEAR_ALL_POSITION_VERTICAL, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.ANDROID_RECENTS_CLEAR_ALL_USE_ICON_COLOR, 1);
                             Settings.System.putInt(getOwner().mResolver,
@@ -378,7 +354,8 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
                                     Settings.System.ANDROID_RECENTS_CLEAR_ALL_ICON_COLOR,
                                     0xff00ff00);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.SYSTEMUI_RECENTS_MEM_DISPLAY, 1);
+                                    Settings.System.RECENTS_EMPTY_CYANIDE_LOGO, 1);
+                                    Helpers.restartSystemUI();
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.LOCK_TO_APP_ENABLED, 0);
                             getOwner().refreshSettings();
