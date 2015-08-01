@@ -82,6 +82,7 @@
     <string name="stweaks_title">STweaks</string>
     <string name="system_header_title">System Settings</string>
     <string name="weather_control_master_title">Weather Control</string>
+    <string name="kernel_tweak">Kernel Auditor</string>
 
     <!-- Summary Strings -->
     <string name="appcirclebar_settings_summary">Activate &amp; configure circle bar trigger spot &amp; included applications</string>

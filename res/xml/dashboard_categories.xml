@@ -302,6 +302,17 @@
                 android:targetClass="eu.chainfire.supersu.MainActivity" />
         </dashboard-tile>
         
+        <!-- Kernel adiutor -->
+        <dashboard-tile
+            android:id="@+id/kernel_adiutor"
+            android:title="@string/kernel_tweak"
+            android:icon="@drawable/ic_kernel_adiutor">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="com.grarak.kerneladiutor"
+                android:targetClass="com.grarak.kerneladiutor.MainActivity" />
+    </dashboard-tile>
+
         <!-- Development -->
         <dashboard-tile
                 android:id="@+id/development_settings"
