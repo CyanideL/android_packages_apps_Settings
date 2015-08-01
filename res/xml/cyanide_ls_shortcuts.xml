@@ -21,22 +21,11 @@
 		android:key="lockscreen_shortcuts"
 		android:title="@string/cyanide_ls_shortcuts_title">
 
-		<SwitchPreference
-			android:key="shortcuts_colorize_custom_icons"
-			android:title="@string/shortcuts_colorize_custom_icons_title"
-			android:summary="@string/shortcuts_colorize_custom_icons_summary" />
-
 		<PreferenceScreen
-             android:key="lockscreen_shortcuts"
-             android:fragment="com.android.settings.cyanide.dslv.ActionListViewSettings"
+             android:key="lock_screen_buttons_settings"
+             android:title="@string/lockscreen_shortcuts_title"
              android:summary="@string/lockscreen_shortcuts_summary"
-             android:title="@string/lockscreen_shortcuts_title">
-         <extra android:name="actionMode" android:value="4" />
-         <extra android:name="maxAllowedActions" android:value="10" />
-         <extra android:name="disableLongpress" android:value="true" />
-         <extra android:name="useAppPickerOnly" android:value="true" />
-         <extra android:name="fragment" android:value="com.android.settings.cyanide.fragments.LockscreenShortcutFragment" />
-		</PreferenceScreen>
+             android:fragment="com.android.settings.cyanide.fragments.LockscreenShortcutFragment" />
 
 		<!-- Lock Screen Sliders -->
 		<PreferenceScreen

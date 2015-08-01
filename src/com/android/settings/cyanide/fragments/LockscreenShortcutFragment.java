@@ -1,5 +1,5 @@
-/*
- * Copyright (C) 2013 Slimroms
+/* 
+ * Copyright (C) 2015 DarkKat
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,62 +16,131 @@
 
 package com.android.settings.cyanide.fragments;
 
+import android.content.ContentResolver;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceScreen;
-import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.ListPreference;
+import android.preference.Preference;
 import android.preference.PreferenceCategory;
+import android.preference.PreferenceScreen;
 import android.provider.Settings;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListView;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 public class LockscreenShortcutFragment extends SettingsPreferenceFragment implements
-        OnPreferenceChangeListener {
+        Preference.OnPreferenceChangeListener {
 
-    private static final String PREF_LOCKSCREEN_SHORTCUTS_LAUNCH_TYPE =
-            "lockscreen_shortcuts_launch_type";
+    private static final String PREF_CAT_NOTIFICATIONS =
+            "buttons_cat_notifications";
+    private static final String PREF_BUTTONS_BAR_LAUNCH_TYPE =
+            "buttons_bar_launch_type";
+    private static final String PREF_BUTTONS_BAR_ICON_SIZE =
+            "buttons_bar_icon_size";
+    private static final String PREF_HIDE_BUTTONS_BAR =
+            "buttons_bar_hide_bar";
+    private static final String PREF_NUMBER_OF_NOTIFICATIONS =
+            "buttons_bar_number_of_notifications";
 
-    private ListPreference mLockscreenShortcutsLaunchType;
+    private ListPreference mButtonsBarLaunchType;
+    private ListPreference mButtonsBarIconSize;
+    private ListPreference mHideButtonsBar;
+    private ListPreference mNumberOfNotifications;
+
+    private ContentResolver mResolver;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        refreshSettings();
+    }
+
+    public void refreshSettings() {
+        PreferenceScreen prefs = getPreferenceScreen();
+        if (prefs != null) {
+            prefs.removeAll();
+        }
 
         addPreferencesFromResource(R.xml.lockscreen_shortcut_fragment);
 
-        PreferenceScreen prefSet = getPreferenceScreen();
+        mResolver = getActivity().getContentResolver();
 
-        mLockscreenShortcutsLaunchType = (ListPreference) findPreference(
-                PREF_LOCKSCREEN_SHORTCUTS_LAUNCH_TYPE);
-        mLockscreenShortcutsLaunchType.setOnPreferenceChangeListener(this);
-    }
+        int intValue;
 
-    @Override
-    public View onCreateView(LayoutInflater inflater,
-            ViewGroup container, Bundle savedInstanceState) {
-        final View view = super.onCreateView(inflater, container, savedInstanceState);
-        final ListView list = (ListView) view.findViewById(android.R.id.list);
-        // our container already takes care of the padding
-        if (list != null) {
-            int paddingTop = list.getPaddingTop();
-            int paddingBottom = list.getPaddingBottom();
-            list.setPadding(0, paddingTop, 0, paddingBottom);
+        PreferenceCategory catNotifications =
+                (PreferenceCategory) findPreference(PREF_CAT_NOTIFICATIONS);
+
+        mButtonsBarLaunchType =
+                (ListPreference) findPreference(PREF_BUTTONS_BAR_LAUNCH_TYPE);
+        intValue = Settings.System.getInt(mResolver,
+                Settings.System.LOCK_SCREEN_BUTTONS_BAR_LAUNCH_TYPE, 2);
+        mButtonsBarLaunchType.setValue(String.valueOf(intValue));
+        mButtonsBarLaunchType.setSummary(mButtonsBarLaunchType.getEntry());
+        mButtonsBarLaunchType.setOnPreferenceChangeListener(this);
+
+        mButtonsBarIconSize =
+                (ListPreference) findPreference(PREF_BUTTONS_BAR_ICON_SIZE);
+        intValue = Settings.System.getInt(mResolver,
+                Settings.System.LOCK_SCREEN_BUTTONS_BAR_ICON_SIZE, 36);
+        mButtonsBarIconSize.setValue(String.valueOf(intValue));
+        mButtonsBarIconSize.setSummary(mButtonsBarIconSize.getEntry());
+        mButtonsBarIconSize.setOnPreferenceChangeListener(this);
+
+        mHideButtonsBar =
+                (ListPreference) findPreference(PREF_HIDE_BUTTONS_BAR);
+        int hideButtonsBar = Settings.System.getInt(mResolver,
+                Settings.System.LOCK_SCREEN_BUTTONS_BAR_HIDE_BAR, 1);
+        mHideButtonsBar.setValue(String.valueOf(hideButtonsBar));
+        mHideButtonsBar.setOnPreferenceChangeListener(this);
+
+        if (hideButtonsBar == 0) {
+            mHideButtonsBar.setSummary(R.string.buttons_bar_hide_bar_auto_summary);
+            catNotifications.removePreference(findPreference(PREF_NUMBER_OF_NOTIFICATIONS));
+        } else if (hideButtonsBar == 1) {
+            mNumberOfNotifications =
+                    (ListPreference) findPreference(PREF_NUMBER_OF_NOTIFICATIONS);
+            intValue = Settings.System.getInt(mResolver,
+                   Settings.System.LOCK_SCREEN_BUTTONS_BAR_NUMBER_OF_NOTIFICATIONS, 4);
+            mNumberOfNotifications.setValue(String.valueOf(intValue));
+            mNumberOfNotifications.setSummary(mNumberOfNotifications.getEntry());
+            mNumberOfNotifications.setOnPreferenceChangeListener(this);
+
+            mHideButtonsBar.setSummary(getString(R.string.buttons_bar_hide_bar_custom_summary,
+                    mNumberOfNotifications.getEntry()));
+        } else {
+            mHideButtonsBar.setSummary(R.string.buttons_bar_hide_bar_never_summary);
+            catNotifications.removePreference(findPreference(PREF_NUMBER_OF_NOTIFICATIONS));
         }
-        return view;
     }
 
-    @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mLockscreenShortcutsLaunchType) {
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_SHORTCUTS_LONGPRESS,
-                    Integer.valueOf((String) newValue));
+        int intValue;
+        int index;
+
+        if (preference == mButtonsBarLaunchType) {
+            intValue = Integer.valueOf((String) newValue);
+            index = mButtonsBarLaunchType.findIndexOfValue((String) newValue);
+            Settings.System.putInt(mResolver,
+                    Settings.System.LOCK_SCREEN_BUTTONS_BAR_LAUNCH_TYPE, intValue);
+            preference.setSummary(mButtonsBarLaunchType.getEntries()[index]);
+            return true;
+        } else if (preference == mButtonsBarIconSize) {
+            intValue = Integer.valueOf((String) newValue);
+            index = mButtonsBarIconSize.findIndexOfValue((String) newValue);
+            Settings.System.putInt(mResolver,
+                    Settings.System.LOCK_SCREEN_BUTTONS_BAR_ICON_SIZE, intValue);
+            preference.setSummary(mButtonsBarIconSize.getEntries()[index]);
+            return true;
+        } else if (preference == mHideButtonsBar) {
+            intValue = Integer.valueOf((String) newValue);
+            Settings.System.putInt(mResolver,
+                    Settings.System.LOCK_SCREEN_BUTTONS_BAR_HIDE_BAR, intValue);
+            refreshSettings();
+            return true;
+        } else if (preference == mNumberOfNotifications) {
+            intValue = Integer.valueOf((String) newValue);
+            Settings.System.putInt(mResolver,
+                    Settings.System.LOCK_SCREEN_BUTTONS_BAR_NUMBER_OF_NOTIFICATIONS, intValue);
+            refreshSettings();
             return true;
         }
         return false;

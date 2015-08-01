@@ -33,9 +33,12 @@ import android.content.res.TypedArray;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.VectorDrawable;
+import android.graphics.PorterDuff.Mode;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -59,7 +62,7 @@ import com.android.internal.util.cyanide.ActionHelper;
 import com.android.internal.util.cyanide.ImageHelper;
 import com.android.internal.util.cyanide.DeviceUtils;
 import com.android.internal.util.cyanide.DeviceUtils.FilteredDeviceFeaturesArray;
-import com.android.internal.util.cyanide.LockscreenShortcutHelper;
+import com.android.internal.util.cyanide.LockScreenColorHelper;
 import com.android.internal.util.cyanide.PolicyHelper;
 
 import com.android.settings.SettingsPreferenceFragment;
@@ -91,7 +94,7 @@ public class ActionListViewSettings extends ListFragment implements
     private static final int PIE                   = 1;
     private static final int PIE_SECOND            = 2;
     private static final int NAV_RING              = 3;
-    private static final int LOCKSCREEN_SHORTCUT   = 4;
+    private static final int LOCKSCREEN_BUTTONS_BAR = 4;
     private static final int POWER_MENU_SHORTCUT   = 5;
     private static final int SHAKE_EVENTS_DISABLED = 6;
     private static final int QUICKTILE             = 7;
@@ -522,8 +525,8 @@ public class ActionListViewSettings extends ListFragment implements
 
     private ArrayList<ActionConfig> getConfig() {
         switch (mActionMode) {
-            case LOCKSCREEN_SHORTCUT:
-                return LockscreenShortcutHelper.getLockscreenShortcutConfig(mActivity);
+            case LOCKSCREEN_BUTTONS_BAR:
+                return ActionHelper.getLockscreenButtonBarConfig(mActivity);
             case QUICKTILE:
                 return ActionHelper.getQuickTileConfigWithDescription(
                     mActivity, mActionValuesKey, mActionEntriesKey);
@@ -552,8 +555,8 @@ public class ActionListViewSettings extends ListFragment implements
 
     private void setConfig(ArrayList<ActionConfig> actionConfigs, boolean reset) {
         switch (mActionMode) {
-            case LOCKSCREEN_SHORTCUT:
-                LockscreenShortcutHelper.setLockscreenShortcutConfig(mActivity, actionConfigs, reset);
+            case LOCKSCREEN_BUTTONS_BAR:
+                ActionHelper.setLockscreenButtonBarConfig(mActivity, actionConfigs, reset);
                 break;
             case QUICKTILE:
                 ActionHelper.setQuickTileConfig(mActivity, actionConfigs, reset);
@@ -614,6 +617,8 @@ public class ActionListViewSettings extends ListFragment implements
             }
 
             ViewHolder holder = (ViewHolder) v.getTag();
+            Drawable d = null;
+            String iconUri = getItem(position).getIcon();
 
             if (!mDisableLongpress) {
                 holder.longpressActionDescriptionView.setText(
@@ -630,6 +635,27 @@ public class ActionListViewSettings extends ListFragment implements
                         mActivity, ActionHelper.getActionIconImage(mActivity,
                         getItem(position).getClickAction(),
                         getItem(position).getIcon()), 36));
+            }
+
+            if (mActionMode == LOCKSCREEN_BUTTONS_BAR) {
+                final int iconSize =Settings.System.getInt(mActivity.getContentResolver(),
+                        Settings.System.LOCK_SCREEN_BUTTONS_BAR_ICON_SIZE, 36);
+                d = ImageHelper.resize(
+                        mActivity, ActionHelper.getActionIconImage(mActivity,
+                        getItem(position).getClickAction(), iconUri), iconSize);
+                final int iconColor = LockScreenColorHelper.getIconColor(mActivity, d);
+
+            if (LockScreenColorHelper.getIconColorMode(mActivity) == 2
+                        && !LockScreenColorHelper.isGrayscaleIcon(mActivity, d)) {
+                    holder.iconView.setImageBitmap(ImageHelper.getColoredBitmap(d, iconColor));
+                } else {
+                    holder.iconView.setImageBitmap(ImageHelper.drawableToBitmap(d));
+                    if (iconColor != 0) {
+                        holder.iconView.setColorFilter(iconColor, Mode.MULTIPLY);
+                    }
+                }
+            } else {
+                holder.iconView.setImageDrawable(d);
             }
 
             if (!mDisableIconPicker && holder.iconView.getDrawable() != null) {
@@ -722,7 +748,7 @@ public class ActionListViewSettings extends ListFragment implements
                     String actionMode;
                     String icon = "";
                     switch (getOwner().mActionMode) {
-                        case LOCKSCREEN_SHORTCUT:
+                        case LOCKSCREEN_BUTTONS_BAR:
                         case POWER_MENU_SHORTCUT:
                             actionMode = res.getString(R.string.shortcut_action_help_shortcut);
                             break;
@@ -948,7 +974,13 @@ public class ActionListViewSettings extends ListFragment implements
                 TextView tt = (TextView) iView.findViewById(android.R.id.text1);
                 tt.setText(labels[position]);
                 Drawable ic = ((Drawable) getItem(position)).mutate();
-                ic.setTint(color);
+                if (getOwner().mActionMode == LOCKSCREEN_BUTTONS_BAR) {
+                    final int iconSize = Settings.System.getInt(getOwner().mActivity.getContentResolver(),
+                            Settings.System.LOCK_SCREEN_BUTTONS_BAR_ICON_SIZE, 36);
+                    ic = ImageHelper.resize(getOwner().mActivity, (Drawable) getItem(position), iconSize);
+                    int iconColor = LockScreenColorHelper.getIconColor(getOwner().mActivity, ic);
+
+                }
                 tt.setCompoundDrawablePadding(15);
                 tt.setCompoundDrawablesWithIntrinsicBounds(ic, null, null, null);
                 return iView;
