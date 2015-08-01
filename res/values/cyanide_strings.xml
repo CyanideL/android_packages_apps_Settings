@@ -923,9 +923,6 @@
     <string name="reboot">All done! Reboot your device now.</string>
     <string name="reboot_ok">Reboot now</string>
     <string name="reboot_cancel">Don\'t reboot</string>    
-
-    <!-- QuickSettings 4 columns -->
-    <string name="qs_four_columns_title">Four Tiles Per Row</string>
     
     <string name="status_bar_network_speed_settings_title">Network Speed Indicator</string>
     <string name="status_bar_network_speed_settings_summary">Customize the network speed indicator</string>
