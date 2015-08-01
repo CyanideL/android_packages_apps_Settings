@@ -139,4 +139,22 @@
         android:title="@string/cyanide_armani_title"
         android:fragment="com.android.settings.cyanide.dlc.Armani" />
 
+    <!-- Xperia M -->
+    <PreferenceScreen
+        android:id="@+id/cyanide_dlc"
+        android:title="@string/cyanide_nicki_title"
+        android:fragment="com.android.settings.cyanide.dlc.nicki" />
+
+    <!-- Yureka -->
+    <PreferenceScreen
+        android:id="@+id/cyanide_dlc"
+        android:title="@string/cyanide_tomato_title"
+        android:fragment="com.android.settings.cyanide.dlc.tomato" />
+
+    <!-- Yuphoria -->
+    <PreferenceScreen
+        android:id="@+id/cyanide_dlc"
+        android:title="@string/cyanide_lettuce_title"
+        android:fragment="com.android.settings.cyanide.dlc.lettuce" />
+
 </PreferenceScreen>

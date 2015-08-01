@@ -600,7 +600,10 @@
     <string name="cyanide_condor_title">Moto E</string>
     <string name="cyanide_nexus4_title">Nexus 4</string>
     <string name="cyanide_xiaomi_title">Mi 3</string>
-    <string name="cyanide_i9305_title">S3 Intl i9305</string>
+    <string name="cyanide_i9305_title">Samsung Galaxy S3 Intl i9305</string>
+    <string name="cyanide_nicki_title">Xperia M</string>
+    <string name="cyanide_tomato_title">Yureka</string>
+    <string name="cyanide_lettuce_title">Yuphoria</string>
     
     <!-- Animation Controls -->
     <string name="title_animation_controls">System Animations</string>
