@@ -17,6 +17,8 @@
 package com.android.settings.cyanide;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -37,6 +39,9 @@ import android.text.Spannable;
 import android.text.TextUtils;
 import android.provider.Settings.SettingNotFoundException;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.EditText;
 
 import com.android.settings.cyanide.util.Helpers;
@@ -55,7 +60,11 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
     private static final String CUSTOM_CARRIER_LABEL = "custom_carrier_label";
     private static final String STATUS_BAR_CARRIER_COLOR = "status_bar_carrier_color";
 
-    static final int DEFAULT_STATUS_CARRIER_COLOR = 0xffffffff;
+    private static final int MENU_RESET = Menu.FIRST;
+    private static final int DLG_RESET = 0;
+    
+    private static final int WHITE = 0xffffffff;
+    private static final int CYANIDE_BLUE = 0xff1976D2;
 
     private SwitchPreference mStatusBarCarrier;
     private SwitchPreference mCarrierLabelOnLockScreen;
@@ -64,22 +73,31 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
     private String mCustomCarrierLabelText;
     private ColorPickerPreference mCarrierColorPicker;
 
+    private ContentResolver mResolver;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        refreshSettings();
+    }
 
+    public void refreshSettings() {
+        PreferenceScreen prefs = getPreferenceScreen();
+        if (prefs != null) {
+            prefs.removeAll();
+        }
+
+        mResolver = getActivity().getContentResolver();
         addPreferencesFromResource(R.xml.cyanide_carrierlabel);
-
-        PreferenceScreen prefSet = getPreferenceScreen();
-        ContentResolver resolver = getActivity().getContentResolver();
 
         int intColor;
         String hexColor;
 
-        mStatusBarCarrier = (SwitchPreference) prefSet.findPreference(STATUS_BAR_CARRIER);
-        mStatusBarCarrier.setChecked((Settings.System.getInt(resolver, Settings.System.STATUS_BAR_CARRIER, 0) == 1));
+        mStatusBarCarrier = (SwitchPreference) findPreference(STATUS_BAR_CARRIER);
+        mStatusBarCarrier.setChecked(Settings.System.getInt(mResolver,
+                    Settings.System.STATUS_BAR_CARRIER, 0) == 1);
         mStatusBarCarrier.setOnPreferenceChangeListener(this);
-        mCustomCarrierLabel = (PreferenceScreen) prefSet.findPreference(CUSTOM_CARRIER_LABEL);
+        mCustomCarrierLabel = (PreferenceScreen) findPreference(CUSTOM_CARRIER_LABEL);
 
         //CarrierLabel on LockScreen
         mCarrierLabelOnLockScreen = (SwitchPreference) findPreference(CARRIERLABEL_ON_LOCKSCREEN);
@@ -87,29 +105,33 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
             mCarrierLabelOnLockScreen.setOnPreferenceChangeListener(this);
 
             boolean hideCarrierLabelOnLS = Settings.System.getInt(
-                    getActivity().getContentResolver(),
+                    mResolver,
                     Settings.System.LOCK_SCREEN_HIDE_CARRIER, 0) == 1;
             mCarrierLabelOnLockScreen.setChecked(hideCarrierLabelOnLS);
         } else {
-            prefSet.removePreference(mCarrierLabelOnLockScreen);
+            prefs.removePreference(mCarrierLabelOnLockScreen);
         }
 
         mCarrierColorPicker = (ColorPickerPreference) findPreference(STATUS_BAR_CARRIER_COLOR);
         mCarrierColorPicker.setOnPreferenceChangeListener(this);
-        intColor = Settings.System.getInt(getContentResolver(),
-                    Settings.System.STATUS_BAR_CARRIER_COLOR, DEFAULT_STATUS_CARRIER_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                    Settings.System.STATUS_BAR_CARRIER_COLOR, WHITE);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mCarrierColorPicker.setSummary(hexColor);
         mCarrierColorPicker.setNewPreviewColor(intColor);
         mCarrierColorPicker.setAlphaSliderEnabled(true);
 
         updateCustomLabelTextSummary();
+        setHasOptionsMenu(true);
 
     }
 
     private void updateCustomLabelTextSummary() {
+		if (mCustomCarrierLabel == null) {
+            return;
+        }
         mCustomCarrierLabelText = Settings.System.getString(
-            getActivity().getContentResolver(), Settings.System.CUSTOM_CARRIER_LABEL);
+            mResolver, Settings.System.CUSTOM_CARRIER_LABEL);
 
         if (TextUtils.isEmpty(mCustomCarrierLabelText)) {
             mCustomCarrierLabel.setSummary(R.string.custom_carrier_label_notset);
@@ -118,23 +140,40 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
         }
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.add(0, MENU_RESET, 0, R.string.reset)
+                .setIcon(R.drawable.ic_settings_backup_restore)
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case MENU_RESET:
+                showDialogInner(DLG_RESET);
+                return true;
+             default:
+                return super.onContextItemSelected(item);
+        }
+    }
+
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-		ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mCarrierColorPicker) {
             String hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
             preference.setSummary(hex);
             int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+            Settings.System.putInt(mResolver,
                     Settings.System.STATUS_BAR_CARRIER_COLOR, intHex);
             return true;
         } else if (preference == mStatusBarCarrier) {
             boolean value = (Boolean) newValue;
-            Settings.System.putInt(resolver, Settings.System.STATUS_BAR_CARRIER, value ? 1 : 0);
+            Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_CARRIER, value ? 1 : 0);
             return true;
          } else if (preference == mCarrierLabelOnLockScreen) {
 			 boolean value = (Boolean) newValue;
-             Settings.System.putInt(resolver,
+             Settings.System.putInt(mResolver,
                     Settings.System.LOCK_SCREEN_HIDE_CARRIER,
                     value ? 1 : 0);
             Helpers.restartSystemUI();
@@ -151,7 +190,6 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
             final Preference preference) {
-        final ContentResolver resolver = getActivity().getContentResolver();
         if (preference.getKey().equals(CUSTOM_CARRIER_LABEL)) {
             AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
             alert.setTitle(R.string.custom_carrier_label_title);
@@ -166,7 +204,7 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int whichButton) {
                             String value = ((Spannable) input.getText()).toString().trim();
-                            Settings.System.putString(resolver, Settings.System.CUSTOM_CARRIER_LABEL, value);
+                            Settings.System.putString(mResolver, Settings.System.CUSTOM_CARRIER_LABEL, value);
                             updateCustomLabelTextSummary();
                             Intent i = new Intent();
                             i.setAction(Intent.ACTION_CUSTOM_CARRIER_LABEL_CHANGED);
@@ -177,5 +215,73 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
             alert.show();
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
+    }
+
+    private void showDialogInner(int id) {
+        DialogFragment newFragment = MyAlertDialogFragment.newInstance(id);
+        newFragment.setTargetFragment(this, 0);
+        newFragment.show(getFragmentManager(), "dialog " + id);
+    }
+
+    public static class MyAlertDialogFragment extends DialogFragment {
+
+        public static MyAlertDialogFragment newInstance(int id) {
+            MyAlertDialogFragment frag = new MyAlertDialogFragment();
+            Bundle args = new Bundle();
+            args.putInt("id", id);
+            frag.setArguments(args);
+            return frag;
+        }
+
+        CarrierLabel getOwner() {
+            return (CarrierLabel) getTargetFragment();
+        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            int id = getArguments().getInt("id");
+            switch (id) {
+                case DLG_RESET:
+                    return new AlertDialog.Builder(getActivity())
+                    .setTitle(R.string.reset)
+                    .setMessage(R.string.reset_message)
+                    .setNegativeButton(R.string.cancel, null)
+                    .setNeutralButton(R.string.reset_android,
+                        new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_CARRIER, 0);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.LOCK_SCREEN_HIDE_CARRIER, 0);
+                                    Helpers.restartSystemUI();
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_CARRIER_COLOR,
+                                    WHITE);
+                            getOwner().refreshSettings();
+                        }
+                    })
+                    .setPositiveButton(R.string.reset_cyanide,
+                        new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_CARRIER, 1);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.LOCK_SCREEN_HIDE_CARRIER, 1);
+                                    Helpers.restartSystemUI();
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_CARRIER_COLOR,
+                                    CYANIDE_BLUE);
+                            getOwner().refreshSettings();
+                        }
+                    })
+                    .create();
+            }
+            throw new IllegalArgumentException("unknown id " + id);
+        }
+
+        @Override
+        public void onCancel(DialogInterface dialog) {
+
+        }
     }
 }
