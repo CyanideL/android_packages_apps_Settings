@@ -1870,4 +1870,8 @@
     <string name="buttons_bar_hide_bar_never_summary">The shortcuts won/`t be hidden</string>
     <string name="buttons_bar_number_of_notifications_dlg_title">Choose the number of notifications to hide the shortcuts</string>
 
+    <!-- QS Tiles Columns -->
+    <string name="qs_num_columns_title">Number of Tiles Per Row</string>
+    <string name="qs_num_columns_showing">%1$s tiles per row showing</string>
+
 </resources>
