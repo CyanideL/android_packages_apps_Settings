@@ -1874,4 +1874,8 @@
     <string name="qs_num_columns_title">Number of Tiles Per Row</string>
     <string name="qs_num_columns_showing">%1$s tiles per row showing</string>
 
+    <!-- Doze notification color invert -->
+    <string name="doze_notification_color_invert_title">Color Inversion</string>
+    <string name="doze_notification_color_invert_summary">Ambient display notification colors are inverted</string>
+
 </resources>
