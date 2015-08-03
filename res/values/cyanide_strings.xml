@@ -1878,4 +1878,8 @@
     <string name="doze_notification_color_invert_title">Color Inversion</string>
     <string name="doze_notification_color_invert_summary">Ambient display notification colors are inverted</string>
 
+    <!-- 4G LTE switch -->
+    <string name="show_fourg_title">Show 4G instead of LTE</string>
+    <string name="show_fourg_summary">Replaces LTE statusbar indicator with 4G. THIS OPTION WILL RESTART SYSTEMUI!!!</string>
+
 </resources>

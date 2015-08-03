@@ -37,11 +37,13 @@ import android.view.MenuItem;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
+import com.android.settings.cyanide.util.Helpers;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 public class StatusBarSignalSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener { 
 
+    private static final String SHOW_FOURG = "show_fourg";
     private static final String KEY_CATEGORY_ACTIVITY = "signal_wifi_category_network_activity_icons";
     private static final String KEY_SHOW_ACTIVITY = "signal_wifi_show_network_activity";
     private static final String KEY_NETWORK_NORMAL_COLOR = "signal_wifi_network_icons_normal_color";
@@ -58,6 +60,7 @@ public class StatusBarSignalSettings extends SettingsPreferenceFragment implemen
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
+    private SwitchPreference mShowFourG;
     private SwitchPreference mShowNetworkActivity;
     private ColorPickerPreference mNetworkNormalColor;
     private ColorPickerPreference mNetworkFullyColor;
@@ -89,6 +92,11 @@ public class StatusBarSignalSettings extends SettingsPreferenceFragment implemen
 
         int intColor;
         String hexColor;
+
+        mShowFourG = (SwitchPreference) findPreference(SHOW_FOURG);
+        mShowFourG.setChecked(Settings.System.getInt(mResolver,
+               Settings.System.SHOW_FOURG, 0) == 1);
+        mShowFourG.setOnPreferenceChangeListener(this);
 
         mShowNetworkActivity = (SwitchPreference) findPreference(
                     KEY_SHOW_ACTIVITY);
@@ -193,7 +201,14 @@ public class StatusBarSignalSettings extends SettingsPreferenceFragment implemen
         String hex;
         int intHex;
 
-        if (preference == mShowNetworkActivity) {
+        if (preference == mShowFourG) {
+			boolean value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.SHOW_FOURG,
+                    value ? 1 : 0);
+            Helpers.restartSystemUI();
+            return true;
+        } else if (preference == mShowNetworkActivity) {
             boolean value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                     Settings.System.STATUS_BAR_SHOW_NETWORK_ACTIVITY,
