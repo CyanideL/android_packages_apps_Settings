@@ -104,7 +104,7 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
 
         mShowSearchBar = (SwitchPreference) findPreference(PREF_SHOW_SEARCH_BAR);
         mShowSearchBar.setChecked(Settings.System.getInt(mResolver,
-               Settings.System.ANDROID_RECENTS_SHOW_SEARCH_BAR, 1) == 1);
+               Settings.System.ANDROID_RECENTS_SHOW_SEARCH_BAR, 0) == 1);
         mShowSearchBar.setOnPreferenceChangeListener(this);
 
         mShowClearAll = (SwitchPreference) findPreference(PREF_SHOW_CLEAR_ALL);
@@ -344,7 +344,7 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
                              Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.ANDROID_RECENTS_CLEAR_ALL_POSITION_HORIZONTAL, 2);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.ANDROID_RECENTS_CLEAR_ALL_POSITION_VERTICAL, 1);
+                                    Settings.System.ANDROID_RECENTS_CLEAR_ALL_POSITION_VERTICAL, 2);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.ANDROID_RECENTS_CLEAR_ALL_USE_ICON_COLOR, 1);
                             Settings.System.putInt(getOwner().mResolver,
