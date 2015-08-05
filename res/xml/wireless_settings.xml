@@ -98,4 +98,10 @@
             android:targetClass="com.android.cellbroadcastreceiver.CellBroadcastSettings" />
     </PreferenceScreen>
 
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="use_rsrp"
+        android:title="@string/show_rsrp_title"
+        android:summary="@string/show_rsrp_summary"
+        android:defaultValue="false" />
+
 </PreferenceScreen>
