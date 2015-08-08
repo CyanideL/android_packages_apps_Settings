@@ -176,7 +176,7 @@
   <string name="block_notifications_summary">Gestionaţi notificările ignorate şi filtrele</string>
   <string name="no_filters_title">Niciun filtru setat</string>
   <string name="cmupdate_settings_title">Actualizări CyanogenMod</string>
-  <string name="mod_version">versiune CyanogenMod</string>
+  <string name="mod_version">versiune CyanideL</string>
   <string name="mod_version_default">Necunoscut</string>
   <string name="build_date">Dată compilare</string>
   <string name="double_tap_to_wake_title">Dublă-apăsare pentru trezire</string>
@@ -486,6 +486,11 @@
   <string name="qs_tile_compass">Busolă</string>
   <string name="qs_tile_lte">4G</string>
   <string name="qs_tile_usb_tether">Tethering USB</string>
+  <string name="qs_tile_ambient_display">Afișare ambientală</string>
+  <string name="qs_tile_sync">Sincronizare</string>
+  <string name="qs_dynamic_tile_next_alarm">Următoarea alarmă</string>
+  <string name="qs_dynamic_tile_su">Acces root</string>
+  <string name="sim_no_number_set">Niciun număr atribuit</string>
   <string name="gesture_settings_title">Gesturi</string>
   <string name="themes_settings_title">Teme</string>
   <string name="wifi_mode">Mod</string>
