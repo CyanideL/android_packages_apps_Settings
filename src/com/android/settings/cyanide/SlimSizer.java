@@ -326,7 +326,7 @@ public class SlimSizer extends SettingsPreferenceFragment {
                         // of the selected item
                         short state = sdAvailable();
                         File path = new File(Environment
-                                .getExternalStorageDirectory() + "/Slim");
+                                .getExternalStorageDirectory() + "/cyanide");
                         File savefile = new File(path + "/slimsizer.stf");
                         if (which == 0) {
                             // load profile action
@@ -475,17 +475,17 @@ public class SlimSizer extends SettingsPreferenceFragment {
             for (String appName : params) {
                 String odexAppName = appName.replaceAll(".apk$", ".odex");
                 String basePath = systemPath;
-                File app = new File(systemPath + appName);
+                File app = new File(systemPath);
 
                 if( ! app.exists() )
                     basePath = systemPrivPath;
 
                 try {
-                    dos.writeBytes("\n" + "rm -f '" + basePath + appName + "'\n");
+                    dos.writeBytes("\n" + "rm -rf '" + basePath + "*" + appName + "'\n");
                     // needed in case user is using odexed ROM
                     File odex = new File(basePath + odexAppName);
                     if( odex.exists() )
-                        dos.writeBytes("\n" + "rm -f '" + basePath + odexAppName + "'\n");
+                        dos.writeBytes("\n" + "rm -rf '" + basePath + odexAppName + "'\n");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
