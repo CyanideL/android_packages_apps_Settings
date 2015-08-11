@@ -917,6 +917,12 @@
   <string name="fingerprint_enrollment_error_title_2">מצטער, לא קלטתי את זה</string>
   <string name="fingerprint_enrollment_error_title_3">הממ... משהו השתבש</string>
   <string name="fingerprint_enrollment_error_title_5">אופס, אירעה שגיאה</string>
+  <string name="lockscreen_settings_and_fingerprint">מסך נעילה וטביעות אצבע</string>
+  <string name="menu_stats_reset">איפוס סטטיסטיקות</string>
+  <string name="reset_stats_msg">היסטוריית הסוללה שלך הולכת להתאפס</string>
+  <string name="dock_battery_not_present">סוללה חיצונית לא נוכחת</string>
+  <string name="battery_info_status_charging_dock_ac">מטעין דרך חיבור AC</string>
+  <string name="battery_info_status_charging_dock_usb">מטעין דרך חיבור USB</string>
   <string name="setup_lock_pattern_size_title">סיבוכיות הדפוס</string>
   <string name="setup_lock_pattern_size_details">בכמה צמתים ברצונכם להשתמש בדפוס שלכם? ככל שיהיו יותר צמתים, כך הדפוס יוכל להיות יותר מורכב.</string>
   <string name="lto_download_data_wifi_only">הורדת נתוני סיוע ל-GPS</string>
