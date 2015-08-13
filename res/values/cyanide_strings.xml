@@ -1886,4 +1886,8 @@
     <string name="show_rsrp_title">Use rsrp LTE</string>
     <string name="show_rsrp_summary">Replace standard LTE signal strength with an alternative one, this only works with LTE!!! Requires a reboot to take effect</string>
 
+    <!-- Three-fingers-swipe to screenshot -->
+    <string name="three_finger_gesture">Three Finger Gesture</string>
+    <string name="three_finger_gesture_summary">Swipe down with three fingers to screenshot</string>
+
 </resources>
