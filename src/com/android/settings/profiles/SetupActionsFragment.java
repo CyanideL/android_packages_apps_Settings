@@ -75,6 +75,7 @@ import com.android.settings.profiles.actions.item.AirplaneModeItem;
 import com.android.settings.profiles.actions.item.AppGroupItem;
 import com.android.settings.profiles.actions.item.BrightnessItem;
 import com.android.settings.profiles.actions.item.ConnectionOverrideItem;
+import com.android.settings.profiles.actions.item.DozeModeItem;
 import com.android.settings.profiles.actions.item.DisabledItem;
 import com.android.settings.profiles.actions.item.Header;
 import com.android.settings.profiles.actions.item.Item;
@@ -136,6 +137,11 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
             Profile.ExpandedDesktopMode.DEFAULT,
             Profile.ExpandedDesktopMode.ENABLE,
             Profile.ExpandedDesktopMode.DISABLE
+    };
+    private static final int[] DOZE_MAPPING = new int[] {
+        Profile.DozeMode.DEFAULT,
+        Profile.DozeMode.ENABLE,
+        Profile.DozeMode.DISABLE
     };
     private List<Item> mItems = new ArrayList<Item>();
 
@@ -243,6 +249,9 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         mItems.add(new BrightnessItem(mProfile.getBrightness()));
 
         final Activity activity = getActivity();
+        if (Utils.isDozeAvailable(activity)) {
+            mItems.add(new DozeModeItem(mProfile));
+        }
 
         // app groups
         if (SettingsActivity.showAdvancedPreferences(getActivity())) {
@@ -970,6 +979,35 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
         builder.show();
     }
 
+    private void requestDozeModeDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        final String[] dozeEntries =
+                getResources().getStringArray(R.array.profile_doze_entries);
+
+        int defaultIndex = 0; // no action
+        for (int i = 0; i < DOZE_MAPPING.length; i++) {
+            if (DOZE_MAPPING[i] == mProfile.getDozeMode()) {
+                defaultIndex = i;
+                break;
+            }
+        }
+
+        builder.setTitle(R.string.doze_title);
+        builder.setSingleChoiceItems(dozeEntries, defaultIndex,
+                new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int item) {
+                mProfile.setDozeMode(DOZE_MAPPING[item]);
+                updateProfile();
+                mAdapter.notifyDataSetChanged();
+                dialog.dismiss();
+            }
+        });
+
+        builder.setNegativeButton(android.R.string.cancel, null);
+        builder.show();
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -1013,6 +1051,8 @@ public class SetupActionsFragment extends SettingsPreferenceFragment
             showDialog(DIALOG_BRIGHTNESS);
         } else if (itemAtPosition instanceof LockModeItem) {
             showDialog(DIALOG_LOCK_MODE);
+        } else if (itemAtPosition instanceof DozeModeItem) {
+            requestDozeModeDialog();
         } else if (itemAtPosition instanceof RingModeItem) {
             showDialog(DIALOG_RING_MODE);
         } else if (itemAtPosition instanceof ConnectionOverrideItem) {
