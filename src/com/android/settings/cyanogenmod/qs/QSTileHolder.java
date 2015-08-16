@@ -252,6 +252,10 @@ public class QSTileHolder {
                 resourceName = "ic_qs_kernel_adiutor";
                 stringId = R.string.qs_tile_kernel_adiutor;
                 break;
+            case QSConstants.TILE_STWEAKS:
+                resourceName = "ic_qs_stweaks";
+                stringId = R.string.qs_tile_stweaks;
+                break;
 
             // Dynamic tiles
             case QSConstants.DYNAMIC_TILE_NEXT_ALARM:
