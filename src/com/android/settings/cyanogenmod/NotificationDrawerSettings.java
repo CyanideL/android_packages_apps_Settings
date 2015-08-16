@@ -71,7 +71,7 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
 
         mQuickPulldown.setOnPreferenceChangeListener(this);
         int quickPulldownValue = Settings.System.getIntForUser(resolver,
-                Settings.System.QS_QUICK_PULLDOWN, 0, UserHandle.USER_CURRENT);
+                Settings.System.QS_QUICK_PULLDOWN, 1, UserHandle.USER_CURRENT);
         mQuickPulldown.setValue(String.valueOf(quickPulldownValue));
         updatePulldownSummary(quickPulldownValue);
 
@@ -79,7 +79,7 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
         mSmartPulldown = (ListPreference) findPreference(PREF_SMART_PULLDOWN);
         mSmartPulldown.setOnPreferenceChangeListener(this);
         int smartPulldown = Settings.System.getInt(getContentResolver(),
-                Settings.System.QS_SMART_PULLDOWN, 0);
+                Settings.System.QS_SMART_PULLDOWN, 1);
         mSmartPulldown.setValue(String.valueOf(smartPulldown));
         updateSmartPulldownSummary(smartPulldown);
         

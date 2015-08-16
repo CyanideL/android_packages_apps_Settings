@@ -109,7 +109,7 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
 
         mShowClearAll = (SwitchPreference) findPreference(PREF_SHOW_CLEAR_ALL);
         boolean showClearAll = Settings.System.getInt(mResolver,
-               Settings.System.ANDROID_RECENTS_SHOW_CLEAR_ALL, 0) == 1;
+               Settings.System.ANDROID_RECENTS_SHOW_CLEAR_ALL, 1) == 1;
         mShowClearAll.setChecked(showClearAll);
         mShowClearAll.setOnPreferenceChangeListener(this);
 
@@ -127,7 +127,7 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
             mClearAllPositionVertical =
                     (ListPreference) findPreference(PREF_CLEAR_ALL_POSITION_VERTICAL);
             intvalue = Settings.System.getInt(mResolver,
-                    Settings.System.ANDROID_RECENTS_CLEAR_ALL_POSITION_VERTICAL, 0);
+                    Settings.System.ANDROID_RECENTS_CLEAR_ALL_POSITION_VERTICAL, 2);
             mClearAllPositionVertical.setValue(String.valueOf(intvalue));
             mClearAllPositionVertical.setSummary(mClearAllPositionVertical.getEntry());
             mClearAllPositionVertical.setOnPreferenceChangeListener(this);
