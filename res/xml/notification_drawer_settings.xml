@@ -21,12 +21,12 @@
     <PreferenceCategory
         android:title="@string/qs_category_title">
 
-		<PreferenceScreen
+        <PreferenceScreen
             android:key="qs_order"
             android:title="@string/qs_order_title"
             android:fragment="com.android.settings.cyanogenmod.qs.QSTiles" />
 
-		<PreferenceScreen
+        <PreferenceScreen
             android:key="navbar_targets_settings"
             android:fragment="com.android.settings.cyanide.dslv.ActionListViewSettings"
             android:title="@string/qs_slim_action_title"
@@ -38,7 +38,7 @@
                 <extra android:name="actionValues" android:value="shortcut_action_tile_values" />
                 <extra android:name="actionEntries" android:value="shortcut_action_tile_entries" />
                 <extra android:name="fragment" android:value="com.android.settings.cyanide.fragments.QuickTileFragment" />
-	</PreferenceScreen>
+    </PreferenceScreen>
 
 		<com.android.settings.cyanogenmod.SecureSettingSwitchPreference
             android:key="qs_location_advanced"
@@ -46,29 +46,35 @@
             android:summary="@string/qs_advanced_location_summary"
             android:defaultValue="false" />
 
-		<com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="quick_settings_collapse_panel"
+            android:title="@string/quick_settings_collapse_title"
+            android:summary="@string/quick_settings_collapse_summary"
+            android:defaultValue="false"/>
+
+        <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
             android:key="qs_show_brightness_slider"
             android:title="@string/qs_brightness_slider_title"
             android:defaultValue="true"/>
 
-		<PreferenceScreen
+        <PreferenceScreen
 			android:key="qs_colors"
 			android:title="@string/qs_colors_title"
 			android:summary="@string/qs_colors_summary"
 			android:fragment="com.android.settings.cyanide.QSColors" />
 
-		<SwitchPreference
+        <SwitchPreference
             android:key="block_on_secure_keyguard"
             android:title="@string/block_on_secure_keyguard_title"
             android:summary="@string/block_on_secure_keyguard_summary"
 			android:persistent="false" />
 
-		<!-- <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+        <!-- <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
             android:key="sysui_qs_main_tiles"
             android:title="@string/qs_main_tiles_title"
             android:defaultValue="false" /> -->
 
-		<com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="force_expanded_notifications"
             android:title="@string/notification_force_expand_title"
             android:summary="@string/notification_force_expand_summary"
@@ -81,21 +87,21 @@
             android:entryValues="@array/qs_num_columns_values"
             android:persistent="false" />
 
-		<ListPreference
+        <ListPreference
 			android:key="quick_pulldown"
 			android:title="@string/quick_pulldown_title"
 			android:entries="@array/quick_pulldown_entries"
 			android:entryValues="@array/quick_pulldown_values"
 			android:persistent="false" />
 
-		<ListPreference
+        <ListPreference
 			android:key="smart_pulldown"
 			android:title="@string/smart_pulldown_title"
 			android:entries="@array/smart_pulldown_entries"
 			android:entryValues="@array/smart_pulldown_values"
 			android:persistent="false" />
 
-    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
 			android:key="quick_settings_vibrate"
 			android:title="@string/quick_settings_vibrate_title"
 			android:summary="@string/quick_settings_vibrate_summary"
