@@ -234,6 +234,11 @@
     <string name="shortcut_action_hwkeys">HWKeys</string>
     <string name="shortcut_action_ambient_display">Ambient Display</string>
     <string name="shortcut_action_floating_windows">Floating Windows</string>
+    <string name="shortcut_action_camera">Camera</string>
+    <string name="shortcut_action_media_next">Music - Next Track</string>
+    <string name="shortcut_action_media_play_pause">Music - Play/Pause</string>
+    <string name="shortcut_action_media_previous">Music - Previous Track</string>
+    <string name="shortcut_action_wake_device">Wake Up Device</string>
 
     <string name="shortcuts_applications">Applications</string>
     <string name="shortcuts_select_custom_app_title">Select Custom Application</string>
@@ -1894,5 +1899,8 @@
     <!-- QuickSettings collapse panel -->
     <string name="quick_settings_collapse_title">Auto Collapse Panel</string>
     <string name="quick_settings_collapse_summary">Collapse the Quick Settings panel upon toggle. Note that this is only for certain tiles like toggles</string>
+
+    <!-- Device specific settings -->
+    <string name="screen_off_gesture_settings_title">Screen Off Gestures</string>
 
 </resources>

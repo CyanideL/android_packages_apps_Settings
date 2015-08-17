@@ -80,6 +80,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_CATEGORY_INTERFACE = "interface";
 
     private static final String KEY_SCREEN_TIMEOUT = "screen_timeout";
+    private static final String KEY_SCREEN_OFF_GESTURE_SETTINGS = "screen_off_gesture_settings";
     private static final String KEY_FONT_SIZE = "font_size";
     private static final String KEY_SCREEN_SAVER = "screensaver";
     private static final String KEY_LIFT_TO_WAKE = "lift_to_wake";
@@ -227,6 +228,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             prefSet.removePreference(mTorchOff);
             prefSet.removePreference(mTorchOffDelay);
         }
+
+        Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
+                getPreferenceScreen(), KEY_SCREEN_OFF_GESTURE_SETTINGS);
 
     }
 
