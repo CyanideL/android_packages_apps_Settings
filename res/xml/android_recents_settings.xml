@@ -87,6 +87,13 @@
             android:fragment="com.android.settings.ScreenPinningSettings"
             android:defaultValue="false" />
 
+        <!-- Shake to clear recents -->
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="shake_to_clean_recents"
+            android:title="@string/shake_to_clear_recents_title"
+            android:summary="@string/shake_to_clear_recents_summary"
+            android:defaultValue="false" />
+
         <SwitchPreference
             android:key="android_recents_show_search_bar"
             android:title="@string/android_recents_show_search_bar_title"

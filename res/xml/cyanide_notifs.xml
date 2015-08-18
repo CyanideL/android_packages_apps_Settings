@@ -16,34 +16,41 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-	<PreferenceScreen
+    <PreferenceScreen
         android:key="breathing_notifications"
         android:fragment="com.android.settings.cyanide.BreathingNotifications"
         android:summary="@string/breathing_notifications_summary"
         android:title="@string/breathing_notifications_title" />
 
-	<!-- Notification colors -->
+    <!-- Notification colors -->
     <PreferenceScreen
         android:id="@+id/notification_colors"
         android:title="@string/custom_notification_color_settings_title"
         android:summary="@string/custom_notification_color_settings_summary"
         android:fragment="com.android.settings.cyanide.NotificationColorSettings" />
 
-	<SwitchPreference
+    <SwitchPreference
         android:key="disable_immersive_message"
         android:title="@string/disable_immersive_message_title"
         android:summary="@string/disable_immersive_message_summary"
         android:persistent="false" />
 
-	<PreferenceCategory
+    <!-- Shake to clean notifications -->
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="shake_to_clean_notifications"
+        android:title="@string/shake_to_clean_notifications_title"
+        android:summary="@string/shake_to_clean_notifications_summary"
+        android:defaultValue="false" />
+
+    <PreferenceCategory
 		android:key="heads_up"
 		android:title="@string/heads_up_title">
 
-		<!-- Heads Up Notifications -->
-		<Preference
-			android:key="heads_up_enabled"
-			android:fragment="com.android.settings.cyanide.HeadsUpSettings"
-			android:title="@string/category_heads_up" />
+        <!-- Heads Up Notifications -->
+        <Preference
+            android:key="heads_up_enabled"
+            android:fragment="com.android.settings.cyanide.HeadsUpSettings"
+            android:title="@string/category_heads_up" />
 
     </PreferenceCategory>
 
@@ -69,12 +76,12 @@
 		android:key="notification_manager"
 		android:title="@string/notification_manager">
 
-		<!-- Notification Manager -->
-		<PreferenceScreen
-			android:id="@+id/notification_manager"
-			android:title="@string/notification_manager"
-			android:fragment="com.android.settings.notification.NotificationManagerSettings" />
+        <!-- Notification Manager -->
+        <PreferenceScreen
+            android:id="@+id/notification_manager"
+            android:title="@string/notification_manager"
+            android:fragment="com.android.settings.notification.NotificationManagerSettings" />
 
-	</PreferenceCategory>
+    </PreferenceCategory>
 
 </PreferenceScreen>

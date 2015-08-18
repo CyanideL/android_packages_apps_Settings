@@ -197,8 +197,8 @@ public class MainSettings extends SettingsPreferenceFragment {
             frags[7] = new InterfaceSettings();
             frags[8] = new LockScreenSettings();
             frags[9] = new CyanideNotifs();
-            frags[10] = new NotificationDrawerSettings();
-            frags[11] = new PowerMenu();
+            frags[10] = new PowerMenu();
+            frags[11] = new NotificationDrawerSettings();
             frags[12] = new AndroidRecentsSettings();
             frags[13] = new StatusBarSettings();
             frags[14] = new SlimSizer();
@@ -236,8 +236,8 @@ public class MainSettings extends SettingsPreferenceFragment {
                     getString(R.string.interface_settings_title),
                     getString(R.string.lockscreen_settings),
                     getString(R.string.cyanide_notifs_title),
-                    getString(R.string.notification_drawer_title),
                     getString(R.string.power_menu_title),
+                    getString(R.string.notification_drawer_title),
                     //getString(R.string.progress_bar_cat_title),
                     getString(R.string.Recents_panel),
                     getString(R.string.status_bar_title),
@@ -256,8 +256,8 @@ public class MainSettings extends SettingsPreferenceFragment {
                     getString(R.string.interface_settings_title),
                     getString(R.string.lockscreen_settings),
                     getString(R.string.cyanide_notifs_title),
-                    getString(R.string.notification_drawer_title),
                     getString(R.string.power_menu_title),
+                    getString(R.string.notification_drawer_title),
                     //getString(R.string.progress_bar_cat_title),
                     getString(R.string.Recents_panel),
                     getString(R.string.status_bar_title),

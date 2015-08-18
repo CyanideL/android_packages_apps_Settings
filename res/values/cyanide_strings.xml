@@ -1909,4 +1909,12 @@
     <string name="reset_user_preferences_summary">Restores user interface preferences to default values</string>
     <string name="reset_user_preferences_dialog">Are you sure you want to reset your preferences?</string>
 
+    <!-- Shake to clear recents switch -->
+    <string name="shake_to_clear_recents_title">Shake to clear recents</string>
+    <string name="shake_to_clear_recents_summary">Use this switch, or longpress clear all recents button to enable shake to clear all recents feature.</string>
+
+    <!-- Shake to clean notifications switch -->
+    <string name="shake_to_clean_notifications_title">Shake to clean notifications</string>
+    <string name="shake_to_clean_notifications_summary">Use this switch, or longpress clear all notifications button to enable shake to clean the notifications feature</string>
+
 </resources>
