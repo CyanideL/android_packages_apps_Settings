@@ -1888,8 +1888,8 @@
     <string name="show_fourg_title">Show 4G instead of LTE</string>
     <string name="show_fourg_summary">Replaces LTE statusbar indicator with 4G. THIS OPTION WILL RESTART SYSTEMUI!!!</string>
 
-    <!-- RSRA LTE switch -->
-    <string name="show_rsrp_title">Use rsrp LTE</string>
+    <!-- RSRP LTE switch -->
+    <string name="show_rsrp_title">Use RSRP LTE</string>
     <string name="show_rsrp_summary">Replace standard LTE signal strength with an alternative one, this only works with LTE!!! Requires a reboot to take effect</string>
 
     <!-- Three-fingers-swipe to screenshot -->
@@ -1902,5 +1902,11 @@
 
     <!-- Device specific settings -->
     <string name="screen_off_gesture_settings_title">Screen Off Gestures</string>
+
+    <!--User preferences settings-->
+    <string name="personalization">Personalization</string>
+    <string name="reset_user_preferences_title">Reset preferences</string>
+    <string name="reset_user_preferences_summary">Restores user interface preferences to default values</string>
+    <string name="reset_user_preferences_dialog">Are you sure you want to reset your preferences?</string>
 
 </resources>
