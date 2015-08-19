@@ -1817,7 +1817,7 @@
     <string name="hardware_keys_action_unpin">Unpin</string>
     <string name="hardware_keys_action_restartui">Restart SystemUI</string>
 
-    <string name="default_landscape_orientation_title">Default Orientation</string>
+    <string name="default_landscape_orientation_title">Landscape Orientation</string>
     <string name="default_landscape_orientation_summary">Use landscape as default orientation</string>
 
     <!-- Lockscreen wallpaper -->
