@@ -1817,7 +1817,7 @@
     <string name="hardware_keys_action_unpin">Unpin</string>
     <string name="hardware_keys_action_restartui">Restart SystemUI</string>
 
-    <string name="default_landscape_orientation_title">Landscape Orientation</string
+    <string name="default_landscape_orientation_title">Landscape Orientation</string>
     <string name="default_landscape_orientation_summary">Use landscape as default orientation</string>
 
     <!-- Volume icon switch -->
@@ -1917,5 +1917,12 @@
     <string name="keep_screen_on_never">Never</string>
     <string name="keep_screen_on_debugging">While USB debugging</string>
     <string name="keep_screen_on_charging">While Charging</string>
+
+    <!-- Lockscreen wallpaper -->
+    <string name="lockscreen_wallpaper_title">Wallpaper</string>
+    <string name="lockscreen_wallpaper_summary">Set lockscreen wallpaper</string>
+    <string name="lockscreen_wallpaper_set_title">Set lock screen wallpaper</string>
+    <string name="lockscreen_wallpaper_clear_title">Clear lock screen wallpaper</string>
+    <string name="reset_lockscreen_wallpaper">Set to default</string>
 
 </resources>
