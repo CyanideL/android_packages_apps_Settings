@@ -1901,9 +1901,9 @@
 
     <!--User preferences settings-->
     <string name="personalization">Personalization</string>
-    <string name="reset_user_preferences_title">Reset preferences</string>
-    <string name="reset_user_preferences_summary">Restores user interface preferences to default values</string>
-    <string name="reset_user_preferences_dialog">Are you sure you want to reset your preferences?</string>
+    <string name="reset_user_preferences_title">Reset User Preferences</string>
+    <string name="reset_user_preferences_summary">Restores USER interface preferences to default values</string>
+    <string name="reset_user_preferences_dialog">Are you sure you want to reset your preferences? WARNING, this will reset ANY changes you have made to the rom after installing</string>
 
     <!-- Shake to clear recents switch -->
     <string name="shake_to_clear_recents_title">Shake to clear recents</string>
