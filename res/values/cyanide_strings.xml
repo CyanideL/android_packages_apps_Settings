@@ -1925,4 +1925,7 @@
     <string name="lockscreen_wallpaper_clear_title">Clear lock screen wallpaper</string>
     <string name="reset_lockscreen_wallpaper">Set to default</string>
 
+    <string name="status_bar_custom_header_title">Time Contexts Background</string>
+    <string name="status_bar_custom_header_summary">Enable notification panel header image based on time</string>
+
 </resources>
