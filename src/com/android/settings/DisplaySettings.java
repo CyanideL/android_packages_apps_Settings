@@ -385,7 +385,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         final ContentResolver resolver = getContentResolver();
         
         boolean dozeEnabled = Settings.Secure.getInt(
-                getContentResolver(), Settings.Secure.DOZE_ENABLED, 1) != 0;
+                getContentResolver(), Settings.Secure.DOZE_ENABLED, 0) != 0;
         if (mDozeFragment != null) {
             mDozeFragment.setSummary(dozeEnabled
                     ? R.string.summary_doze_enabled : R.string.summary_doze_disabled);
