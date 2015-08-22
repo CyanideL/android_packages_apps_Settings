@@ -69,10 +69,10 @@
             android:summary="@string/block_on_secure_keyguard_summary"
 			android:persistent="false" />
 
-        <!-- <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+        <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
             android:key="sysui_qs_main_tiles"
             android:title="@string/qs_main_tiles_title"
-            android:defaultValue="false" /> -->
+            android:defaultValue="false" />
 
         <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
             android:key="force_expanded_notifications"
