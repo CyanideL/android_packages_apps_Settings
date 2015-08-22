@@ -44,7 +44,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
 
-import com.android.settings.cyanide.util.Helpers;
 import com.android.settings.Utils;
 
 import com.android.settings.R;
@@ -55,8 +54,7 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
 
     private static final String TAG = "CarrierLabel";
 
-    private static final String STATUS_BAR_CARRIER = "status_bar_carrier";
-    private static final String CARRIERLABEL_ON_LOCKSCREEN="lock_screen_hide_carrier";
+    private static final String STATUS_BAR_CUSTOM_CARRIER = "status_bar_custom_carrier";
     private static final String CUSTOM_CARRIER_LABEL = "custom_carrier_label";
     private static final String STATUS_BAR_CARRIER_COLOR = "status_bar_carrier_color";
 
@@ -66,10 +64,8 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
     private static final int WHITE = 0xffffffff;
     private static final int CYANIDE_BLUE = 0xff1976D2;
 
-    private SwitchPreference mStatusBarCarrier;
-    private SwitchPreference mCarrierLabelOnLockScreen;
+    private ListPreference mStatusBarCarrier;
     private PreferenceScreen mCustomCarrierLabel;
-
     private String mCustomCarrierLabelText;
     private ColorPickerPreference mCarrierColorPicker;
 
@@ -90,31 +86,18 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
         mResolver = getActivity().getContentResolver();
         addPreferencesFromResource(R.xml.cyanide_carrierlabel);
 
-        int intColor;
         String hexColor;
 
-        mStatusBarCarrier = (SwitchPreference) findPreference(STATUS_BAR_CARRIER);
-        mStatusBarCarrier.setChecked(Settings.System.getInt(mResolver,
-                    Settings.System.STATUS_BAR_CARRIER, 0) == 1);
+        mStatusBarCarrier = (ListPreference) findPreference(STATUS_BAR_CUSTOM_CARRIER);
+        int statusBarCarrier = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_CUSTOM_CARRIER, 1);
+        mStatusBarCarrier.setValue(String.valueOf(statusBarCarrier));
+        mStatusBarCarrier.setSummary(mStatusBarCarrier.getEntry());
         mStatusBarCarrier.setOnPreferenceChangeListener(this);
         mCustomCarrierLabel = (PreferenceScreen) findPreference(CUSTOM_CARRIER_LABEL);
 
-        //CarrierLabel on LockScreen
-        mCarrierLabelOnLockScreen = (SwitchPreference) findPreference(CARRIERLABEL_ON_LOCKSCREEN);
-        if (!Utils.isWifiOnly(getActivity())) {
-            mCarrierLabelOnLockScreen.setOnPreferenceChangeListener(this);
-
-            boolean hideCarrierLabelOnLS = Settings.System.getInt(
-                    mResolver,
-                    Settings.System.LOCK_SCREEN_HIDE_CARRIER, 0) == 1;
-            mCarrierLabelOnLockScreen.setChecked(hideCarrierLabelOnLS);
-        } else {
-            prefs.removePreference(mCarrierLabelOnLockScreen);
-        }
-
         mCarrierColorPicker = (ColorPickerPreference) findPreference(STATUS_BAR_CARRIER_COLOR);
         mCarrierColorPicker.setOnPreferenceChangeListener(this);
-        intColor = Settings.System.getInt(mResolver,
+        int intColor = Settings.System.getInt(mResolver,
                     Settings.System.STATUS_BAR_CARRIER_COLOR, WHITE);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mCarrierColorPicker.setSummary(hexColor);
@@ -168,16 +151,11 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
                     Settings.System.STATUS_BAR_CARRIER_COLOR, intHex);
             return true;
         } else if (preference == mStatusBarCarrier) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_CARRIER, value ? 1 : 0);
-            return true;
-         } else if (preference == mCarrierLabelOnLockScreen) {
-			 boolean value = (Boolean) newValue;
-             Settings.System.putInt(mResolver,
-                    Settings.System.LOCK_SCREEN_HIDE_CARRIER,
-                    value ? 1 : 0);
-            Helpers.restartSystemUI();
-            return true;
+            int statusBarCarrier = Integer.valueOf((String) newValue);
+            int index = mStatusBarCarrier.findIndexOfValue((String) newValue);
+            Settings.System.putInt(
+                    mResolver, Settings.System.STATUS_BAR_CUSTOM_CARRIER, statusBarCarrier);
+            mStatusBarCarrier.setSummary(mStatusBarCarrier.getEntries()[index]);
          }
          return false;
     }
@@ -250,10 +228,7 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_CARRIER, 0);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.LOCK_SCREEN_HIDE_CARRIER, 0);
-                                    Helpers.restartSystemUI();
+                                    Settings.System.STATUS_BAR_CUSTOM_CARRIER, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_CARRIER_COLOR,
                                     WHITE);
@@ -264,10 +239,7 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_CARRIER, 1);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.LOCK_SCREEN_HIDE_CARRIER, 1);
-                                    Helpers.restartSystemUI();
+                                    Settings.System.STATUS_BAR_CUSTOM_CARRIER, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_CARRIER_COLOR,
                                     CYANIDE_BLUE);
