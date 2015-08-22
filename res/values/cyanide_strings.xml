@@ -32,6 +32,7 @@
     <string name="background_title">Background</string>
     <string name="icon_title">Icon</string>
     <string name="icons_title">Icons</string>
+    <string name="ripple_title">Ripple Effect Color</string>
     <string name="text_title">Text</string>
     <string name="category_colors_title">Customize Colors</string>
     <string name="battery_style_reset_message">Reset battery bar color?</string>
@@ -104,7 +105,7 @@
     <string name="lock_clock_weather_general_summary">General cLock weather settings</string>
     <string name="changelog_summary">View the latest changes to CyanideL source code</string>
     <string name="visualizer_summary">Display the visualizer on the lock screen</string>
-    <string name="qs_colors_summary">Text &amp; Icon Colors</string>
+    <string name="qs_colors_summary">Icons, text &amp; ripple colors</string>
     <string name="cyanide_ls_shortcuts_summary">Custom Circle &amp; Slider Shortcuts</string>
     <string name="omniswitch_settings_summary">Option to use OmniSwitch as you default recents app</string>
     <string name="navring_summary">Configure custom shortcuts for Navring</string>

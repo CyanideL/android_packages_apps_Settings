@@ -42,6 +42,8 @@ public class QSColors extends SettingsPreferenceFragment implements
             "qs_background_color";
     private static final String PREF_QS_ICON_COLOR =
             "qs_icon_color";
+    private static final String PREF_QS_RIPPLE_COLOR =
+            "qs_ripple_color";
     private static final String PREF_QS_TEXT_COLOR =
             "qs_text_color";
 
@@ -54,6 +56,7 @@ public class QSColors extends SettingsPreferenceFragment implements
 
     private ColorPickerPreference mQSBackgroundColor;
     private ColorPickerPreference mQSIconColor;
+    private ColorPickerPreference mQSRippleColor;
     private ColorPickerPreference mQSTextColor;
 
     private ContentResolver mResolver;
@@ -96,6 +99,15 @@ public class QSColors extends SettingsPreferenceFragment implements
         mQSIconColor.setSummary(hexColor);
         mQSIconColor.setOnPreferenceChangeListener(this);
         mQSIconColor.setAlphaSliderEnabled(true);
+
+        mQSRippleColor =
+                (ColorPickerPreference) findPreference(PREF_QS_RIPPLE_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.QS_RIPPLE_COLOR, WHITE); 
+        mQSRippleColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mQSRippleColor.setSummary(hexColor);
+        mQSRippleColor.setOnPreferenceChangeListener(this);
 
         mQSTextColor =
                 (ColorPickerPreference) findPreference(PREF_QS_TEXT_COLOR);
@@ -148,6 +160,14 @@ public class QSColors extends SettingsPreferenceFragment implements
                 Settings.System.QS_ICON_COLOR, intHex);
             preference.setSummary(hex);
             return true;
+        } else if (preference == mQSRippleColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                Settings.System.QS_RIPPLE_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
         } else if (preference == mQSTextColor) {
             hex = ColorPickerPreference.convertToARGB(
                 Integer.valueOf(String.valueOf(newValue)));
@@ -198,6 +218,8 @@ public class QSColors extends SettingsPreferenceFragment implements
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_ICON_COLOR, WHITE);
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.QS_RIPPLE_COLOR, WHITE);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_TEXT_COLOR, WHITE);
                             getOwner().refreshSettings();
                         }
@@ -210,6 +232,9 @@ public class QSColors extends SettingsPreferenceFragment implements
                                     0x00000000);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_ICON_COLOR,
+                                    CYANIDE_BLUE);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.QS_RIPPLE_COLOR,
                                     CYANIDE_BLUE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_TEXT_COLOR,

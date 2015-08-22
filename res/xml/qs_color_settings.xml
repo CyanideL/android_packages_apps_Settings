@@ -33,6 +33,11 @@
             android:defaultValue="0xffffffff" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="qs_ripple_color"
+            android:title="@string/ripple_title"
+            android:defaultValue="0xffffffff" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="qs_text_color"
             android:title="@string/text_title"
             android:defaultValue="0xffffffff" />
