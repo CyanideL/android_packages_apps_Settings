@@ -84,6 +84,7 @@ public class DraggableGridView extends ViewGroup implements
 
         setListeners();
         setChildrenDrawingOrderEnabled(true);
+        setSoundEffectsEnabled(false);
     }
 
     public void setUseLargeFirstRow(boolean largeFirstRow) {
@@ -132,6 +133,13 @@ public class DraggableGridView extends ViewGroup implements
         super.removeViewAt(index);
         mNewPositions.remove(index);
     };
+
+    public void resetState() {
+        removeAllViews();
+        mNewPositions.clear();
+        mLastTarget = -1;
+        mDragged = -1;
+    }
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
