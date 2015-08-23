@@ -60,10 +60,12 @@ import com.android.internal.util.cyanide.ActionConfig;
 import com.android.internal.util.cyanide.ActionConstants;
 import com.android.internal.util.cyanide.ActionHelper;
 import com.android.internal.util.cyanide.ImageHelper;
-import com.android.internal.util.cyanide.DeviceUtils;
-import com.android.internal.util.cyanide.DeviceUtils.FilteredDeviceFeaturesArray;
+import com.android.internal.util.cyanide.ActionUtils;
+import com.android.internal.util.cyanide.ActionUtils.FilteredDeviceFeaturesArray;
 import com.android.internal.util.cyanide.LockScreenColorHelper;
 import com.android.internal.util.cyanide.PolicyHelper;
+import com.android.internal.util.cyanide.QSBarHelper;
+import com.android.internal.util.cyanide.QSColorHelper;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
@@ -98,6 +100,7 @@ public class ActionListViewSettings extends ListFragment implements
     private static final int POWER_MENU_SHORTCUT   = 5;
     private static final int SHAKE_EVENTS_DISABLED = 6;
     private static final int QUICKTILE             = 7;
+    private static final int QUICK_SETTINGS_BAR    = 8;
 
     private static final int DEFAULT_MAX_ACTION_NUMBER = 5;
 
@@ -201,7 +204,7 @@ public class ActionListViewSettings extends ListFragment implements
         mDisableMessage = (TextView) view.findViewById(R.id.disable_message);
 
         FilteredDeviceFeaturesArray finalActionDialogArray = new FilteredDeviceFeaturesArray();
-        finalActionDialogArray = DeviceUtils.filterUnsupportedDeviceFeatures(mActivity,
+        finalActionDialogArray = ActionUtils.filterUnsupportedDeviceFeatures(mActivity,
             res.getStringArray(res.getIdentifier(
                     mActionValuesKey, "array", "com.android.settings")),
             res.getStringArray(res.getIdentifier(
@@ -542,6 +545,9 @@ public class ActionListViewSettings extends ListFragment implements
             case POWER_MENU_SHORTCUT:
                 return PolicyHelper.getPowerMenuConfigWithDescription(
                     mActivity, mActionValuesKey, mActionEntriesKey);
+            case QUICK_SETTINGS_BAR:
+                return QSBarHelper.getQSBarConfigWithDescription(
+                    mActivity, mActionValuesKey, mActionEntriesKey);
 /* Disabled for now till all features are back. Enable it step per step!!!!!!
             case NAV_RING:
                 return ActionHelper.getNavRingConfigWithDescription(
@@ -572,6 +578,10 @@ public class ActionListViewSettings extends ListFragment implements
                 break;
             case POWER_MENU_SHORTCUT:
                 PolicyHelper.setPowerMenuConfig(mActivity, actionConfigs, reset);
+                break;
+            case QUICK_SETTINGS_BAR:
+                QSBarHelper.setQSBarConfig(mActivity, actionConfigs, reset);
+                //updateFabVisibility(reset ? mDefaultNumberOfActions : actionConfigs.size());
                 break;
 /* Disabled for now till all features are back. Enable it step per step!!!!!!
             case NAV_RING:
@@ -654,6 +664,13 @@ public class ActionListViewSettings extends ListFragment implements
                         holder.iconView.setColorFilter(iconColor, Mode.MULTIPLY);
                     }
                 }
+            } else if (mActionMode == QUICK_SETTINGS_BAR) {
+                d = ImageHelper.resize(
+                        mActivity, QSBarHelper.getQSBarIconImage(mActivity,
+                        getItem(position).getClickAction()), 32);
+                final int iconColor = QSColorHelper.getIconColor(mActivity);
+                holder.iconView.setImageBitmap(ImageHelper.drawableToBitmap(d));
+                holder.iconView.setColorFilter(iconColor, Mode.MULTIPLY);
             } else {
                 holder.iconView.setImageDrawable(d);
             }
@@ -759,6 +776,7 @@ public class ActionListViewSettings extends ListFragment implements
                         case NAV_RING:
                         case PIE:
                         case PIE_SECOND:
+                        case QUICK_SETTINGS_BAR:
                         default:
                             actionMode = res.getString(R.string.shortcut_action_help_button);
                             break;

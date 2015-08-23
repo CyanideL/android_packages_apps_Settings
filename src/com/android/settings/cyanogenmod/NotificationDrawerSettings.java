@@ -43,22 +43,24 @@ import com.android.internal.widget.LockPatternUtils;
 
 public class NotificationDrawerSettings extends SettingsPreferenceFragment implements Indexable,
         Preference.OnPreferenceChangeListener {
+
+    private static final String PREF_QS_TYPE = "qs_type";
     private static final String QUICK_PULLDOWN = "quick_pulldown";
     private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
     private static final String PREF_BLOCK_ON_SECURE_KEYGUARD = "block_on_secure_keyguard";
 
+    private ListPreference mQSType;
     private ListPreference mQuickPulldown;
     private ListPreference mSmartPulldown;
     private SwitchPreference mBlockOnSecureKeyguard;
     private ListPreference mNumColumns;
-    private Preference mQSTiles;
+
+    private ContentResolver mResolver;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.notification_drawer_settings);
-
-        mQSTiles = findPreference("qs_order");
     }
 
     @Override
@@ -66,11 +68,18 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
         super.onActivityCreated(savedInstanceState);
 
         PreferenceScreen prefSet = getPreferenceScreen();
-        ContentResolver resolver = getActivity().getContentResolver();
-        mQuickPulldown = (ListPreference) prefSet.findPreference(QUICK_PULLDOWN);
+        mResolver = getActivity().getContentResolver();
 
+        mQSType = (ListPreference) findPreference(PREF_QS_TYPE);
+        int type = Settings.System.getInt(mResolver,
+               Settings.System.QS_TYPE, 0);
+        mQSType.setValue(String.valueOf(type));
+        mQSType.setSummary(mQSType.getEntry());
+        mQSType.setOnPreferenceChangeListener(this);
+
+        mQuickPulldown = (ListPreference) prefSet.findPreference(QUICK_PULLDOWN);
         mQuickPulldown.setOnPreferenceChangeListener(this);
-        int quickPulldownValue = Settings.System.getIntForUser(resolver,
+        int quickPulldownValue = Settings.System.getIntForUser(mResolver,
                 Settings.System.QS_QUICK_PULLDOWN, 1, UserHandle.USER_CURRENT);
         mQuickPulldown.setValue(String.valueOf(quickPulldownValue));
         updatePulldownSummary(quickPulldownValue);
@@ -78,7 +87,7 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
         // Smart Pulldown
         mSmartPulldown = (ListPreference) findPreference(PREF_SMART_PULLDOWN);
         mSmartPulldown.setOnPreferenceChangeListener(this);
-        int smartPulldown = Settings.System.getInt(getContentResolver(),
+        int smartPulldown = Settings.System.getInt(mResolver,
                 Settings.System.QS_SMART_PULLDOWN, 1);
         mSmartPulldown.setValue(String.valueOf(smartPulldown));
         updateSmartPulldownSummary(smartPulldown);
@@ -86,13 +95,13 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
         final LockPatternUtils lockPatternUtils = new LockPatternUtils(getActivity());
         mBlockOnSecureKeyguard = (SwitchPreference) findPreference(PREF_BLOCK_ON_SECURE_KEYGUARD);
         if (lockPatternUtils.isSecure()) {
-            mBlockOnSecureKeyguard.setChecked(Settings.Secure.getInt(getContentResolver(),
+            mBlockOnSecureKeyguard.setChecked(Settings.Secure.getInt(mResolver,
                     Settings.Secure.STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD, 1) == 1);
             mBlockOnSecureKeyguard.setOnPreferenceChangeListener(this);
 		}
 
         mNumColumns = (ListPreference) prefSet.findPreference("sysui_qs_num_columns");
-        int numColumns = Settings.Secure.getIntForUser(resolver,
+        int numColumns = Settings.Secure.getIntForUser(mResolver,
                 Settings.Secure.QS_NUM_TILE_COLUMNS, getDefaultNumColums(),
                 UserHandle.USER_CURRENT);
         mNumColumns.setValue(String.valueOf(numColumns));
@@ -101,38 +110,44 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
         DraggableGridView.setColumnCount(numColumns);
     }
 
-    @Override
+    /*@Override
     public void onResume() {
         super.onResume();
 
         int qsTileCount = QSTiles.determineTileCount(getActivity());
         mQSTiles.setSummary(getResources().getQuantityString(R.plurals.qs_tiles_summary,
                     qsTileCount, qsTileCount));
-    }
+    }*/
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        ContentResolver resolver = getContentResolver();
-        if (preference == mQuickPulldown) {
+        if (preference == mQSType) {
+            int intValue = Integer.valueOf((String) newValue);
+            int index = mQSType.findIndexOfValue((String) newValue);
+            Settings.System.putInt(mResolver,
+                Settings.System.QS_TYPE, intValue);
+            preference.setSummary(mQSType.getEntries()[index]);
+            return true;
+        } else if (preference == mQuickPulldown) {
             int quickPulldownValue = Integer.valueOf((String) newValue);
-            Settings.System.putIntForUser(resolver, Settings.System.QS_QUICK_PULLDOWN,
+            Settings.System.putIntForUser(mResolver, Settings.System.QS_QUICK_PULLDOWN,
                     quickPulldownValue, UserHandle.USER_CURRENT);
             updatePulldownSummary(quickPulldownValue);
             return true;
         } else if (preference == mSmartPulldown) {
             int smartPulldown = Integer.valueOf((String) newValue);
-            Settings.System.putIntForUser(resolver, Settings.System.QS_SMART_PULLDOWN,
+            Settings.System.putIntForUser(mResolver, Settings.System.QS_SMART_PULLDOWN,
                     smartPulldown, UserHandle.USER_CURRENT);
             updateSmartPulldownSummary(smartPulldown);
             return true;
         } else if (preference == mBlockOnSecureKeyguard) {
-            Settings.Secure.putInt(getContentResolver(),
+            Settings.Secure.putInt(mResolver,
                     Settings.Secure.STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD,
                     (Boolean) newValue ? 1 : 0);
             return true;
 		} else if (preference == mNumColumns) {
             int numColumns = Integer.valueOf((String) newValue);
-            Settings.Secure.putIntForUser(resolver, Settings.Secure.QS_NUM_TILE_COLUMNS,
+            Settings.Secure.putIntForUser(mResolver, Settings.Secure.QS_NUM_TILE_COLUMNS,
                     numColumns, UserHandle.USER_CURRENT);
             updateNumColumnsSummary(numColumns);
             DraggableGridView.setColumnCount(numColumns);

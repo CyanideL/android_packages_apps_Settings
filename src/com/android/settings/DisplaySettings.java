@@ -60,7 +60,7 @@ import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
-import com.android.internal.util.cm.QSUtils;
+import com.android.internal.util.cyanide.QsDeviceUtils;
 import com.android.settings.Utils;
 
 import java.util.ArrayList;
@@ -225,7 +225,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mTorchOffDelay.setSummary(mTorchOffDelay.getEntry());
         mTorchOffDelay.setOnPreferenceChangeListener(this);
 
-        if (!QSUtils.deviceSupportsFlashLight(activity)) {
+        if (!QsDeviceUtils.deviceSupportsFlashLight(activity)) {
             prefSet.removePreference(mTorchOff);
             prefSet.removePreference(mTorchOffDelay);
         }

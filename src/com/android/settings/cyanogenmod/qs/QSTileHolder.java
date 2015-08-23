@@ -23,6 +23,8 @@ import com.android.internal.util.cm.QSConstants;
 import com.android.internal.util.cm.QSUtils;
 import com.android.settings.R;
 
+import com.android.internal.util.cyanide.QsDeviceUtils;
+
 /**
  * This class holds the icon, the name - or the string the user sees,
  * and the value which will be stored
@@ -56,8 +58,8 @@ public class QSTileHolder {
         // or it supports Dual Sim Dual Active.
         // TODO: Should be spawning off a tile per sim
         if (TextUtils.equals(QSConstants.TILE_LTE, tileType)
-                && (!QSUtils.deviceSupportsLte(context)
-                || QSUtils.deviceSupportsDdsSupported(context))) {
+                && (!QsDeviceUtils.deviceSupportsLte(context)
+                || QsDeviceUtils.deviceSupportsDdsSupported(context))) {
             return null;
         }
 

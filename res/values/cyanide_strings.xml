@@ -19,6 +19,7 @@
     <!-- General strings -->
     <string name="ok">OK</string>
     <string name="reset">Reset</string>
+    <string name="customize_title">Customize</string>
     <string name="reset_android">Android</string>
     <string name="reset_cyanide">Cyanide</string>
     <string name="style_title">Style</string>
@@ -30,6 +31,7 @@
     <string name="color_title">Color</string>
     <string name="colors_title">Colors</string>
     <string name="background_title">Background</string>
+    <string name="hidden_title">Hidden</string>
     <string name="icon_title">Icon</string>
     <string name="icons_title">Icons</string>
     <string name="ripple_title">Ripple Effect Color</string>
