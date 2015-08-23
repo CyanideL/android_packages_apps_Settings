@@ -961,7 +961,7 @@
     <string name="qs_tile_reboot">Reboot Recovery</string>
     <string name="qs_tile_ambient_display">Ambient Display</string>
     <string name="qs_tile_usb_tether">USB Tethering</string>
-    <string name="qs_tile_slimpie">SlimPIE Control</string>
+    <string name="qs_tile_slimpie">SlimPie</string>
 	<string name="qs_tile_gesture_anywhere">Gesture Anywhere</string>
 	<string name="qs_tile_navbar">Navigation Bar</string>
 	<string name="qs_tile_hwkeys">Hardware Keys</string>

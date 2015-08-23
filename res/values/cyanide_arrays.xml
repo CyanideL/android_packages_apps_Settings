@@ -1917,29 +1917,61 @@
 
     <string-array name="qs_bar_button_entries">
         <item>@string/qs_tile_airplane_mode</item>
+        <item>@string/qs_tile_ambient_display</item>
+        <item>@string/qs_tile_appcirclebar</item>
+        <item>@string/qs_tile_appsidebar</item>
         <item>@string/qs_tile_bluetooth</item>
+        <item>@string/qs_tile_cyanide</item>
+        <item>@string/qs_tile_hwkeys</item>
         <item>@string/qs_tile_display_inversion</item>
         <item>@string/qs_tile_display_rotation</item>
         <item>@string/qs_tile_flashlight</item>
+        <item>@string/qs_tile_floating_windows</item>
+        <item>@string/qs_tile_gesture_anywhere</item>
+        <item>@string/qs_tile_heads_up</item>
         <item>@string/qs_tile_hotspot</item>
         <item>@string/qs_tile_location</item>
         <item>@string/qs_tile_lte</item>
         <item>@string/qs_tile_mobile_data</item>
+        <item>@string/qs_tile_navbar</item>
         <item>@string/qs_tile_nfc</item>
+        <item>@string/qs_pa_pie_control_tile</item>
+        <item>@string/qs_tile_powermenu</item>
+        <item>@string/qs_tile_systemui_restart</item>
+        <item>@string/qs_tile_screen_off</item>
+        <item>@string/qs_tile_slim_floats</item>
+        <item>@string/qs_tile_slimpie</item>
+        <item>@string/qs_tile_themes</item>
         <item>@string/qs_tile_wifi</item>
     </string-array>
 
     <string-array name="qs_bar_button_values" translatable="false">
         <item>airplane</item>
+        <item>ambient</item>
+        <item>appcirclebar</item>
+        <item>appsidebar</item>
         <item>bt</item>
+        <item>cyanide</item>
+        <item>hwkeys</item>
         <item>inversion</item>
         <item>rotation</item>
         <item>flashlight</item>
+        <item>floating</item>
+        <item>gestureanywhere</item>
+        <item>headsup</item>
         <item>hotspot</item>
         <item>location</item>
         <item>lte</item>
         <item>data</item>
+        <item>navbar</item>
         <item>nfc</item>
+        <item>piecontrol</item>
+        <item>powermenu</item>
+        <item>restartui</item>
+        <item>screenoff</item>
+        <item>slimfloats</item>
+        <item>slimpie</item>
+        <item>themes</item>
         <item>wifi</item>
     </string-array>
 
