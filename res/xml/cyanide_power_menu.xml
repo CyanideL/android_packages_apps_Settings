@@ -33,15 +33,15 @@
 
     <!-- Power Menu -->
     <PreferenceScreen
-        android:key="global_menu_settings"
+        android:key="power_menu_actions"
         android:fragment="com.android.settings.cyanide.dslv.ActionListViewSettings"
         android:title="@string/power_menu_targets">
             <extra android:name="actionMode" android:value="5" />
-            <extra android:name="maxAllowedActions" android:value="20" />
+            <extra android:name="maxAllowedActions" android:value="25" />
             <extra android:name="disableLongpress" android:value="true" />
             <extra android:name="disableDeleteLastEntry" android:value="true" />
-            <extra android:name="actionValues" android:value="shortcut_action_power_menu_values" />
-            <extra android:name="actionEntries" android:value="shortcut_action_power_menu_entries" />
+            <extra android:name="actionValues" android:value="power_menu_action_values" />
+            <extra android:name="actionEntries" android:value="power_menu_action_entries" />
             <extra android:name="fragment" android:value="com.android.settings.cyanide.fragments.PowerMenuFragment" />
     </PreferenceScreen>
 

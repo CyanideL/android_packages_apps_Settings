@@ -24,6 +24,8 @@
     <string name="reset_cyanide">Cyanide</string>
     <string name="style_title">Style</string>
     <string name="options_title">Options</string>
+    <string name="icons_normal_title">Icons normal</string>
+    <string name="icons_enabled_selected_title">Icons enabled&#47;selected</string>
     <string name="help">Help</string>
     <string name="attention">Attention</string>
     <string name="enabled">Enabled</string>
@@ -142,6 +144,21 @@
     <string name="hex_hint">#ff000000</string>
     <string name="set">Set</string>
     <string name="color_default">Default</string>
+
+    <!-- Shortcut picker -->
+    <string name="shortcut_picker_choose_longpress_action">Choose longpress action:</string>
+    <string name="shortcut_picker_choose_new_action">Choose new action:</string>
+    <string name="shortcut_picker_reassign_action">Reassign action:</string>
+    <string name="shortcut_picker_choose_action">Choose action:</string>
+    <string name="shortcut_picker_applications_title">Applications</string>
+    <string name="shortcut_picker_activities_title">Activities</string>
+    <string name="shortcut_picker_select_app_title">Select application:</string>
+    <string name="shortcut_picker_select_activity_title">Select activity:</string>
+    <string name="shortcut_picker_choose_icon_type_title">Choose icon type:</string>
+    <string name="shortcut_picker_icon_type_default_title">Default</string>
+    <string name="shortcut_picker_icon_type_system_title">System icons</string>
+    <string name="shortcut_picker_select_system_icon_title">Select system icon:</string>
+    <string name="shortcut_picker_icon_type_custom_title">Gallery</string>
 
     <!-- About device screen, CPU and RAM info. -->
     <string name="cpu_info">CPU</string>

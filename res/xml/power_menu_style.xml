@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright (C) 2013 SlimRoms
+<!-- 
+     Copyright (C) 2013 SlimRoms
+     Copyright (C) 2015 The Fusion Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -26,27 +28,30 @@
             android:defaultValue="false" />
 
     </PreferenceCategory>
-    
+
     <PreferenceCategory
-        android:title="@string/style_title">
+        android:key="power_menu_cat_colors"
+        android:title="@string/colors_title">
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="power_menu_icon_normal_color"
+            android:title="@string/icons_normal_title"
+            android:defaultValue="0xffffffff" />
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="power_menu_icon_enabled_selected_color"
+            android:title="@string/icons_enabled_selected_title"
+            android:defaultValue="0xffffffff" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="pref_power_menu_text_color"
-            android:defaultValue="0xffffffff"
-            android:title="@string/shortcuts_text_color_title" />
+            android:key="power_menu_ripple_color"
+            android:title="@string/colors_buttons_bar_ripple_color_title"
+            android:defaultValue="0xffffffff" />
 
-        <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="pref_power_menu_icon_color"
-            android:defaultValue="0xff009688"
-            android:title="@string/shortcuts_color_title" />
-
-        <ListPreference
-            android:key="pref_power_menu_color_mode"
-            android:entries="@array/icon_color_mode_entries"
-            android:entryValues="@array/icon_color_mode_values"
-            android:title="@string/shortcuts_color_mode_title"
-            android:dialogTitle="@string/shortcuts_color_mode_title"
-            android:summary="@string/shortcuts_color_mode_summary" />
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="power_menu_text_color"
+            android:title="@string/text_title"
+            android:defaultValue="0xffffffff" />
 
     </PreferenceCategory>
 

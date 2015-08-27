@@ -1408,12 +1408,11 @@
         <item>9</item>
     </string-array>
 
-    <string-array name="shortcut_action_power_menu_entries">
+    <string-array name="power_menu_action_entries">
         <item>@string/shortcut_action_airplane</item>
         <item>@string/shortcut_action_ambient_display</item>
         <item>@string/shortcut_action_appcirclebar</item>
         <item>@string/shortcut_action_appsidebar</item>
-        <item>@string/shortcut_action_app</item>
         <item>@string/shortcut_action_expanded_desktop</item>
         <item>@string/shortcut_action_floating_windows</item>
         <item>@string/shortcut_action_gesture_anywhere</item>
@@ -1435,12 +1434,11 @@
         <item>@string/shortcut_action_users</item>
     </string-array>
 
-    <string-array name="shortcut_action_power_menu_values" translatable="false">
+    <string-array name="power_menu_action_values" translatable="false">
         <item>**airplane**</item>
         <item>**ambient_display**</item>
         <item>**appcirclebar**</item>
         <item>**appsidebar**</item>
-        <item>**app**</item>
         <item>**expanded_desktop**</item>
         <item>**floating_windows**</item>
         <item>**gesture_anywhere**</item>

@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2012 Slimroms
+ * Copyright (C) 2015 The Fusion Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,22 +46,36 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 public class PowerMenuStyle extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
-    private static final String POWER_MENU_ONTHEGO_ENABLED = "power_menu_onthego_enabled";
-    private static final String POWER_MENU_TEXT_COLOR = "pref_power_menu_text_color";
-    private static final String POWER_MENU_ICON_COLOR = "pref_power_menu_icon_color";
-    private static final String POWER_MENU_COLOR_MODE = "pref_power_menu_color_mode";
-    
+    private static final String POWER_MENU_ONTHEGO_ENABLED =
+            "power_menu_onthego_enabled";
+    private static final String PREF_ICON_NORMAL_COLOR =
+            "power_menu_icon_normal_color";
+    private static final String PREF_ICON_ENABLED_SELECTED_COLOR =
+            "power_menu_icon_enabled_selected_color";
+    private static final String PREF_RIPPLE_COLOR =
+            "power_menu_ripple_color";
+    private static final String PREF_TEXT_COLOR =
+            "power_menu_text_color";
+
+    private static final int WHITE = 0xffffffff;
+    private static final int BLACK = 0xff000000;
     private static final int CYANIDE_BLUE = 0xff1976D2;
-    
+    private static final int MATERIAL_TEAL_500 = 0xff009688;
+
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
     private SwitchPreference mOnTheGoPowerMenu;
-    private ColorPickerPreference mPowerMenuColor;
-    private ColorPickerPreference mPowerMenuTextColor;
-    private ListPreference mPowerMenuColorMode;
 
-    private boolean mCheckPreferences;
+    private ColorPickerPreference mIconNormalColor;
+    private ColorPickerPreference mIconEnabledSelectedColor;
+    private ColorPickerPreference mRippleColor;
+    private ColorPickerPreference mTextColor;
+
+    private ContentResolver mResolver;
+
+    private static final int MIN_DELAY_VALUE = 1;
+    private static final int MAX_DELAY_VALUE = 30;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -68,72 +83,65 @@ public class PowerMenuStyle extends SettingsPreferenceFragment implements
         refreshSettings();
     }
 
-    public PreferenceScreen refreshSettings() {
-        mCheckPreferences = false;
-        PreferenceScreen prefSet = getPreferenceScreen();
-        if (prefSet != null) {
-            prefSet.removeAll();
+    public void refreshSettings() {
+        PreferenceScreen prefs = getPreferenceScreen();
+        if (prefs != null) {
+            prefs.removeAll();
         }
 
         // Load the preferences from an XML resource
         addPreferencesFromResource(R.xml.power_menu_style);
+        mResolver = getActivity().getContentResolver();
 
-        prefSet = getPreferenceScreen();
-        ContentResolver resolver = getActivity().getContentResolver();
+        int intColor;
+        String hexColor;
 
         mOnTheGoPowerMenu = (SwitchPreference) findPreference(POWER_MENU_ONTHEGO_ENABLED);
-        mOnTheGoPowerMenu.setChecked(Settings.System.getInt(resolver,
-                Settings.System.POWER_MENU_ONTHEGO_ENABLED, 1) == 1);
+        mOnTheGoPowerMenu.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.POWER_MENU_ONTHEGO_ENABLED, 0) == 1);
         mOnTheGoPowerMenu.setOnPreferenceChangeListener(this);
 
-        mPowerMenuColor =
-            (ColorPickerPreference) findPreference(POWER_MENU_ICON_COLOR);
-        int intColor = Settings.System.getInt(getContentResolver(),
-                    Settings.System.POWER_MENU_ICON_COLOR, -2);
-        if (intColor == -2) {
-            intColor = getResources().getColor(
-                com.android.internal.R.color.power_menu_icon_default_color);
-            mPowerMenuColor.setSummary(
-                getResources().getString(R.string.default_string));
-        } else {
-            String hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mPowerMenuColor.setSummary(hexColor);
-        }
-        mPowerMenuColor.setNewPreviewColor(intColor);
-        mPowerMenuColor.setOnPreferenceChangeListener(this);
+        mIconNormalColor =
+                (ColorPickerPreference) findPreference(PREF_ICON_NORMAL_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.POWER_MENU_ICON_NORMAL_COLOR,
+                WHITE); 
+        mIconNormalColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mIconNormalColor.setSummary(hexColor);
+        mIconNormalColor.setOnPreferenceChangeListener(this);
 
-        mPowerMenuTextColor =
-            (ColorPickerPreference) findPreference(POWER_MENU_TEXT_COLOR);
-        intColor = Settings.System.getInt(getContentResolver(),
-                    Settings.System.POWER_MENU_TEXT_COLOR, -2);
-        if (intColor == -2) {
-            intColor = getResources().getColor(
-                com.android.internal.R.color.power_menu_text_default_color);
-            mPowerMenuTextColor.setSummary(
-                getResources().getString(R.string.default_string));
-        } else {
-            String hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mPowerMenuTextColor.setSummary(hexColor);
-        }
-        mPowerMenuTextColor.setNewPreviewColor(intColor);
-        mPowerMenuTextColor.setOnPreferenceChangeListener(this);
+        mIconEnabledSelectedColor =
+                (ColorPickerPreference) findPreference(PREF_ICON_ENABLED_SELECTED_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.POWER_MENU_ICON_ENABLED_SELECTED_COLOR,
+                MATERIAL_TEAL_500); 
+        mIconEnabledSelectedColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mIconEnabledSelectedColor.setSummary(hexColor);
+        mIconEnabledSelectedColor.setOnPreferenceChangeListener(this);
 
-        mPowerMenuColorMode = (ListPreference) prefSet.findPreference(
-                POWER_MENU_COLOR_MODE);
-        mPowerMenuColorMode.setValue(String.valueOf(
-                Settings.System.getIntForUser(getContentResolver(),
-                Settings.System.POWER_MENU_ICON_COLOR_MODE, 0,
-                UserHandle.USER_CURRENT_OR_SELF)));
-        mPowerMenuColorMode.setSummary(mPowerMenuColorMode.getEntry());
-        mPowerMenuColorMode.setOnPreferenceChangeListener(this);
+        mRippleColor =
+                (ColorPickerPreference) findPreference(PREF_RIPPLE_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.POWER_MENU_RIPPLE_COLOR, WHITE); 
+        mRippleColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mRippleColor.setSummary(hexColor);
+        mRippleColor.setOnPreferenceChangeListener(this);
 
-        updateColorPreference();
+        mTextColor =
+                (ColorPickerPreference) findPreference(PREF_TEXT_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.POWER_MENU_TEXT_COLOR,
+                WHITE); 
+        mTextColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mTextColor.setSummary(hexColor);
+        mTextColor.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);
-        mCheckPreferences = true;
-        return prefSet;
     }
-
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -155,53 +163,49 @@ public class PowerMenuStyle extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-		ContentResolver resolver = getActivity().getContentResolver();
-        if (!mCheckPreferences) {
-            return false;
-        }
+        String hex;
+        int intHex;
+
         if (preference == mOnTheGoPowerMenu) {
             boolean value = (Boolean) newValue;
-            Settings.System.putInt(resolver, Settings.System.POWER_MENU_ONTHEGO_ENABLED, value ? 1 : 0);
+            Settings.System.putInt(mResolver,
+                    Settings.System.POWER_MENU_ONTHEGO_ENABLED, value ? 1 : 0);
             return true;
-        } else if (preference == mPowerMenuColor) {
-            String hex = ColorPickerPreference.convertToARGB(
+        } else if (preference == mIconNormalColor) {
+            hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.POWER_MENU_ICON_NORMAL_COLOR, intHex);
             preference.setSummary(hex);
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.POWER_MENU_ICON_COLOR, intHex);
             return true;
-        } else if (preference == mPowerMenuColorMode) {
-            String val = (String) newValue;
-            Settings.System.putInt(getContentResolver(),
-                Settings.System.POWER_MENU_ICON_COLOR_MODE,
-                Integer.valueOf(val));
-            int index = mPowerMenuColorMode.findIndexOfValue(val);
-            mPowerMenuColorMode.setSummary(
-                mPowerMenuColorMode.getEntries()[index]);
-            updateColorPreference();
-            return true;
-        } else if (preference == mPowerMenuTextColor) {
-            String hex = ColorPickerPreference.convertToARGB(
+        } else if (preference == mIconEnabledSelectedColor) {
+            hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.POWER_MENU_ICON_ENABLED_SELECTED_COLOR, intHex);
             preference.setSummary(hex);
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(getActivity().getContentResolver(),
+            return true;
+        } else if (preference == mRippleColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.POWER_MENU_RIPPLE_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mTextColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
                     Settings.System.POWER_MENU_TEXT_COLOR, intHex);
+            preference.setSummary(hex);
             return true;
         }
+
         return false;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
-
-    private void updateColorPreference() {
-        int colorMode = Settings.System.getInt(getContentResolver(),
-                Settings.System.POWER_MENU_ICON_COLOR_MODE, 0);
-        mPowerMenuColor.setEnabled(colorMode != 3);
     }
 
     private void showDialogInner(int id) {
@@ -236,30 +240,37 @@ public class PowerMenuStyle extends SettingsPreferenceFragment implements
                     .setNeutralButton(R.string.reset_android,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            Settings.System.putInt(getActivity().getContentResolver(),
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.POWER_MENU_ONTHEGO_ENABLED, 0);
-                            Settings.System.putInt(getActivity().getContentResolver(),
-                                    Settings.System.POWER_MENU_ICON_COLOR, -2);
-                            Settings.System.putInt(getActivity().getContentResolver(),
-                                   Settings.System.POWER_MENU_ICON_COLOR_MODE, 3);
-                            Settings.System.putInt(getActivity().getContentResolver(),
-                                    Settings.System.POWER_MENU_TEXT_COLOR, -2);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.POWER_MENU_ICON_NORMAL_COLOR,
+                                    MATERIAL_TEAL_500);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.POWER_MENU_ICON_ENABLED_SELECTED_COLOR,
+                                    CYANIDE_BLUE);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.POWER_MENU_RIPPLE_COLOR, WHITE);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.POWER_MENU_TEXT_COLOR, BLACK);
                             getOwner().refreshSettings();
                         }
                     })
                     .setPositiveButton(R.string.reset_cyanide,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            Settings.System.putInt(getActivity().getContentResolver(),
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.POWER_MENU_ONTHEGO_ENABLED, 1);
-                            Settings.System.putInt(getActivity().getContentResolver(),
-                                    Settings.System.POWER_MENU_ICON_COLOR,
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.POWER_MENU_ICON_NORMAL_COLOR,
                                     0xff00ff00);
-                            Settings.System.putInt(getActivity().getContentResolver(),
-                                   Settings.System.POWER_MENU_ICON_COLOR_MODE, 0);
-                            Settings.System.putInt(getActivity().getContentResolver(),
-                                    Settings.System.POWER_MENU_TEXT_COLOR,
-                                    0xff1976D2);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.POWER_MENU_ICON_ENABLED_SELECTED_COLOR,
+                                    CYANIDE_BLUE);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.POWER_MENU_RIPPLE_COLOR,
+                                    CYANIDE_BLUE);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.POWER_MENU_TEXT_COLOR, CYANIDE_BLUE);
                             getOwner().refreshSettings();
                         }
                     })
