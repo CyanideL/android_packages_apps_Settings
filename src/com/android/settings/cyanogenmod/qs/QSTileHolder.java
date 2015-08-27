@@ -258,6 +258,10 @@ public class QSTileHolder {
                 resourceName = "ic_qs_stweaks";
                 stringId = R.string.qs_tile_stweaks;
                 break;
+            case QSConstants.TILE_VOLUME:
+                resourceName = "ic_qs_volume_panel";
+                stringId = R.string.qs_tile_volume_panel;
+                break;
 
             // Dynamic tiles
             case QSConstants.DYNAMIC_TILE_NEXT_ALARM:
