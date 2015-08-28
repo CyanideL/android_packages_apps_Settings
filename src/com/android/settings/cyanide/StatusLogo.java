@@ -23,11 +23,11 @@ import android.app.DialogFragment;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
-import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.UserHandle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
@@ -51,6 +51,7 @@ public class StatusLogo extends SettingsPreferenceFragment implements OnPreferen
 
     private static final String TAG = "StatusLogo";
 
+    private static final String KEY_CYANIDE_LOGO_STYLE = "status_bar_cyanide_logo_style";
     private static final String KEY_CYANIDE_LOGO_COLOR = "status_bar_cyanide_logo_color";
 
     private static final int DEFAULT_COLOR = 0xffffffff;
@@ -59,40 +60,40 @@ public class StatusLogo extends SettingsPreferenceFragment implements OnPreferen
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
+    private ListPreference mCyanideLogoStyle;
     private ColorPickerPreference mCyanideLogoColor;
 
     private boolean mCheckPreferences;
+    private ContentResolver mResolver;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        createCustomView();
+        refreshSettings();
     }
 
-    private PreferenceScreen createCustomView() {
-        mCheckPreferences = false;
-        PreferenceScreen prefSet = getPreferenceScreen();
-        if (prefSet != null) {
-            prefSet.removeAll();
+    public void refreshSettings() {
+        PreferenceScreen prefs = getPreferenceScreen();
+        if (prefs != null) {
+            prefs.removeAll();
         }
 
         addPreferencesFromResource(R.xml.status_bar_logo);
-        prefSet = getPreferenceScreen();
+        mResolver = getActivity().getContentResolver();
 
-        PackageManager pm = getPackageManager();
-        Resources systemUiResources;
-        try {
-            systemUiResources = pm.getResourcesForApplication("com.android.systemui");
-        } catch (Exception e) {
-            Log.e(TAG, "can't access systemui resources",e);
-            return null;
-        }
+        mCyanideLogoStyle = (ListPreference) findPreference(KEY_CYANIDE_LOGO_STYLE);
+        int cyanideLogoStyle = Settings.System.getIntForUser(mResolver,
+                Settings.System.STATUS_BAR_CYANIDE_LOGO_STYLE, 0,
+                UserHandle.USER_CURRENT);
+        mCyanideLogoStyle.setValue(String.valueOf(cyanideLogoStyle));
+        mCyanideLogoStyle.setSummary(mCyanideLogoStyle.getEntry());
+        mCyanideLogoStyle.setOnPreferenceChangeListener(this);
 
         // CyanideL logo color
         mCyanideLogoColor =
-            (ColorPickerPreference) prefSet.findPreference(KEY_CYANIDE_LOGO_COLOR);
+            (ColorPickerPreference) findPreference(KEY_CYANIDE_LOGO_COLOR);
         mCyanideLogoColor.setOnPreferenceChangeListener(this);
-        int intColor = Settings.System.getInt(getContentResolver(),
+        int intColor = Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_CYANIDE_LOGO_COLOR, 0xffffffff);
         String hexColor = String.format("#%08x", (0xffffffff & intColor));
             mCyanideLogoColor.setSummary(hexColor);
@@ -100,9 +101,6 @@ public class StatusLogo extends SettingsPreferenceFragment implements OnPreferen
             mCyanideLogoColor.setAlphaSliderEnabled(true);
 
         setHasOptionsMenu(true);
-        mCheckPreferences = true;
-        return prefSet;
-
     }
 
     @Override
@@ -124,12 +122,21 @@ public class StatusLogo extends SettingsPreferenceFragment implements OnPreferen
     }
     
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mCyanideLogoColor) {
+        if (preference == mCyanideLogoStyle) {
+            int cyanideLogoStyle = Integer.valueOf((String) newValue);
+            int index = mCyanideLogoStyle.findIndexOfValue((String) newValue);
+            Settings.System.putIntForUser(
+                    mResolver, Settings.System.STATUS_BAR_CYANIDE_LOGO_STYLE, cyanideLogoStyle,
+                    UserHandle.USER_CURRENT);
+            mCyanideLogoStyle.setSummary(
+                    mCyanideLogoStyle.getEntries()[index]);
+            return true;
+        } else if (preference == mCyanideLogoColor) {
             String hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
             preference.setSummary(hex);
             int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(getContentResolver(),
+            Settings.System.putInt(mResolver,
                     Settings.System.STATUS_BAR_CYANIDE_LOGO_COLOR, intHex);
             return true;  
         }
@@ -168,23 +175,27 @@ public class StatusLogo extends SettingsPreferenceFragment implements OnPreferen
                     .setNeutralButton(R.string.reset_android,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            Settings.System.putInt(getActivity().getContentResolver(),
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_CYANIDE_LOGO, 0);
-                            Settings.System.putInt(getActivity().getContentResolver(),
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_CYANIDE_LOGO_STYLE, 0);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_CYANIDE_LOGO_COLOR,
                                     DEFAULT_COLOR);
-                            getOwner().createCustomView();
+                            getOwner().refreshSettings();
                         }
                     })
                     .setPositiveButton(R.string.reset_cyanide,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            Settings.System.putInt(getActivity().getContentResolver(),
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_CYANIDE_LOGO, 1);
-                            Settings.System.putInt(getActivity().getContentResolver(),
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_CYANIDE_LOGO_STYLE, 1);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_CYANIDE_LOGO_COLOR,
                                     CYANIDE_BLUE);
-                            getOwner().createCustomView();
+                            getOwner().refreshSettings();
                         }
                     })
                     .create();

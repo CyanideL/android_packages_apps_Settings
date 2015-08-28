@@ -929,6 +929,10 @@
     <string name="status_bar_cyanide_logo_title">CyanideL Logo</string>
     <string name="status_bar_cyanide_logo_summary">Logo Switch &amp; Color</string>
     <string name="status_bar_cyanide_logo_color">CyanideL Logo Color</string>
+    <string name="status_bar_cyanide_logo_position">Location</string>
+    <string name="status_bar_cyanide_logo_position_summary">Choose which side to display the logo on, left or right</string>
+    <string name="status_bar_logo_position_right">Place on the right</string>
+    <string name="status_bar_logo_position_left">Place on the left</string>
 
     <!-- Show carrier label and custom -->
     <string name="carrier_options">Custom Carrier Label</string>
