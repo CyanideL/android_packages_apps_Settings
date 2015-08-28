@@ -1970,4 +1970,8 @@
     <string name="weather_long_shortcut_title">Weather Longpress Shortcut</string>
     <string name="default_shortcut">Default</string>
 
+    <!-- Toast Icons -->
+    <string name="toast_icon_title">Toast App Icon</string>
+    <string name="toast_icon_summary">Whether to show the app icon which created the toast</string>
+
 </resources>
