@@ -1888,6 +1888,8 @@
     <string name="button_ripple_color_mode_custom_title">Custom color</string>
     <string name="button_ripple_color_mode_never_title">Don\`t colorize</string>
     <string name="buttons_actions_title">Customize</string>
+    <string name="buttons_extension_title">Second Row</string>
+    <string name="buttons_extension_summary">Enable using an additional row for more shortcuts</string>
     <string name="buttons_bar_actions_summary">Arrange the order, and choose the shortcuts to display</string>
     <string name="buttons_bar_launch_type_title">Click Type</string>
     <string name="buttons_bar_launch_type_click_title">Single tap</string>

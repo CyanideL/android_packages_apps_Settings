@@ -96,7 +96,7 @@ public class ActionListViewSettings extends ListFragment implements
     private static final int NAV_BAR               = 0;
     private static final int PIE                   = 1;
     private static final int PIE_SECOND            = 2;
-    private static final int NAV_RING              = 3;
+    private static final int BUTTONS_BAR_EXTENSION = 3;
     private static final int LOCKSCREEN_BUTTONS_BAR = 4;
     private static final int POWER_MENU            = 5;
     private static final int SHAKE_EVENTS_DISABLED = 6;
@@ -564,12 +564,8 @@ public class ActionListViewSettings extends ListFragment implements
             case QUICK_SETTINGS_BAR:
                 return QSBarHelper.getQSBarConfigWithDescription(
                     mActivity, mActionValuesKey, mActionEntriesKey);
-/* Disabled for now till all features are back. Enable it step per step!!!!!!
-            case NAV_RING:
-                return ActionHelper.getNavRingConfigWithDescription(
-                    mActivity, mActionValuesKey, mActionEntriesKey);
-            case SHAKE_EVENTS_DISABLED:
-                return ActionHelper.getDisabledShakeApps(mActivity);*/
+            case BUTTONS_BAR_EXTENSION:
+                return ActionHelper.getLockscreenButtonBarExtensionConfig(mActivity);
 
         }
         return null;
@@ -604,13 +600,10 @@ public class ActionListViewSettings extends ListFragment implements
                 QSBarHelper.setQSBarConfig(mActivity, actionConfigs, reset);
                 updateFabVisibility(reset ? mDefaultNumberOfActions : actionConfigs.size());
                 break;
-/* Disabled for now till all features are back. Enable it step per step!!!!!!
-            case NAV_RING:
-                ActionHelper.setNavRingConfig(mActivity, actionConfigs, reset);
+            case BUTTONS_BAR_EXTENSION:
+                ActionHelper.setLockscreenButtonBarExtensionConfig(mActivity, actionConfigs, reset);
+                updateFabVisibility(reset ? mDefaultNumberOfActions : actionConfigs.size());
                 break;
-            case SHAKE_EVENTS_DISABLED:
-                ActionHelper.setDisabledShakeApps(mActivity, actionConfigs, reset);
-                break;*/
         }
     }
 
@@ -671,7 +664,24 @@ public class ActionListViewSettings extends ListFragment implements
                     + " " + getItem(position).getLongpressActionDescription());
             }
             if (mActionMode == LOCKSCREEN_BUTTONS_BAR) {
-                final int iconSize =Settings.System.getInt(mActivity.getContentResolver(),
+                final int iconSize = Settings.System.getInt(mActivity.getContentResolver(),
+                        Settings.System.LOCK_SCREEN_BUTTONS_BAR_ICON_SIZE, 36);
+                d = ImageHelper.resize(
+                        mActivity, ActionHelper.getActionIconImage(mActivity,
+                        getItem(position).getClickAction(), iconUri), iconSize);
+                final int iconColor = LockScreenColorHelper.getIconColor(mActivity, d);
+
+            if (LockScreenColorHelper.getIconColorMode(mActivity) == 2
+                        && !LockScreenColorHelper.isGrayscaleIcon(mActivity, d)) {
+                    holder.iconView.setImageBitmap(ImageHelper.getColoredBitmap(d, iconColor));
+                } else {
+                    holder.iconView.setImageBitmap(ImageHelper.drawableToBitmap(d));
+                    if (iconColor != 0) {
+                        holder.iconView.setColorFilter(iconColor, Mode.MULTIPLY);
+                    }
+                }
+           } else if (mActionMode == BUTTONS_BAR_EXTENSION) {
+                final int iconSize = Settings.System.getInt(mActivity.getContentResolver(),
                         Settings.System.LOCK_SCREEN_BUTTONS_BAR_ICON_SIZE, 36);
                 d = ImageHelper.resize(
                         mActivity, ActionHelper.getActionIconImage(mActivity,
@@ -801,14 +811,11 @@ public class ActionListViewSettings extends ListFragment implements
                         case POWER_MENU:
                             actionMode = res.getString(R.string.shortcut_action_help_shortcut);
                             break;
-                        case SHAKE_EVENTS_DISABLED:
-                            actionMode = res.getString(R.string.shortcut_action_help_app);
-                            break;
                         case NAV_BAR:
-                        case NAV_RING:
                         case PIE:
                         case PIE_SECOND:
                         case QUICK_SETTINGS_BAR:
+                        case BUTTONS_BAR_EXTENSION:
                         default:
                             actionMode = res.getString(R.string.shortcut_action_help_button);
                             break;
@@ -1025,6 +1032,11 @@ public class ActionListViewSettings extends ListFragment implements
                 tt.setText(labels[position]);
                 Drawable ic = ImageHelper.resize(getOwner().mActivity, (Drawable) getItem(position), 24);
                 if (getOwner().mActionMode == LOCKSCREEN_BUTTONS_BAR) {
+                    final int iconSize = Settings.System.getInt(getOwner().mActivity.getContentResolver(),
+                            Settings.System.LOCK_SCREEN_BUTTONS_BAR_ICON_SIZE, 36);
+                    ic = ImageHelper.resize(getOwner().mActivity, (Drawable) getItem(position), iconSize);
+                    int iconColor = LockScreenColorHelper.getIconColor(getOwner().mActivity, ic);
+                } else if (getOwner().mActionMode == BUTTONS_BAR_EXTENSION) {
                     final int iconSize = Settings.System.getInt(getOwner().mActivity.getContentResolver(),
                             Settings.System.LOCK_SCREEN_BUTTONS_BAR_ICON_SIZE, 36);
                     ic = ImageHelper.resize(getOwner().mActivity, (Drawable) getItem(position), iconSize);
