@@ -50,6 +50,7 @@ public class StatusBarWeather extends SettingsPreferenceFragment
         implements OnPreferenceChangeListener {
 
     private static final String STATUS_BAR_TEMPERATURE = "status_bar_temperature";
+    private static final String PREF_STATUS_BAR_WEATHER_FONT_STYLE = "status_bar_weather_font_style";
     private static final String STATUS_BAR_TEMPERATURE_STYLE = "status_bar_temperature_style";
     private static final String PREF_STATUS_BAR_WEATHER_COLOR = "status_bar_weather_color";
     private static final String PREF_STATUS_BAR_WEATHER_SIZE = "status_bar_weather_size";
@@ -60,6 +61,7 @@ public class StatusBarWeather extends SettingsPreferenceFragment
     private static final int CYANIDE_BLUE = 0xff1976D2;
 
     private ListPreference mStatusBarTemperature;
+    private ListPreference mStatusBarTemperatureFontStyle;
     private ListPreference mStatusBarTemperatureStyle;
     private ColorPickerPreference mStatusBarTemperatureColor;
     private SeekBarPreferenceCham mStatusBarTemperatureSize;
@@ -88,6 +90,12 @@ public class StatusBarWeather extends SettingsPreferenceFragment
         mStatusBarTemperature.setValue(String.valueOf(temperatureShow));
         mStatusBarTemperature.setSummary(mStatusBarTemperature.getEntry());
         mStatusBarTemperature.setOnPreferenceChangeListener(this);
+
+        mStatusBarTemperatureFontStyle = (ListPreference) findPreference(PREF_STATUS_BAR_WEATHER_FONT_STYLE);
+        mStatusBarTemperatureFontStyle.setOnPreferenceChangeListener(this);
+        mStatusBarTemperatureFontStyle.setValue(Integer.toString(Settings.System.getInt(getActivity()
+                .getContentResolver(), Settings.System.STATUS_BAR_WEATHER_FONT_STYLE, 0)));
+        mStatusBarTemperatureFontStyle.setSummary(mStatusBarTemperatureFontStyle.getEntry());
 
         mStatusBarTemperatureStyle = (ListPreference) findPreference(STATUS_BAR_TEMPERATURE_STYLE);
         int temperatureStyle = Settings.System.getIntForUser(mResolver,
@@ -145,6 +153,13 @@ public class StatusBarWeather extends SettingsPreferenceFragment
             mStatusBarTemperature.setSummary(
                     mStatusBarTemperature.getEntries()[index]);
             updateWeatherOptions();
+            return true;
+        } else if (preference == mStatusBarTemperatureFontStyle) {
+            int val = Integer.parseInt((String) newValue);
+            int index = mStatusBarTemperatureFontStyle.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_WEATHER_FONT_STYLE, val);
+            mStatusBarTemperatureFontStyle.setSummary(mStatusBarTemperatureFontStyle.getEntries()[index]);
             return true;
         } else if (preference == mStatusBarTemperatureStyle) {
             int temperatureStyle = Integer.valueOf((String) newValue);
@@ -207,6 +222,8 @@ public class StatusBarWeather extends SettingsPreferenceFragment
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_SHOW_WEATHER_TEMP, 0);
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_WEATHER_FONT_STYLE, 0);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_WEATHER_TEMP_STYLE, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_WEATHER_COLOR,
@@ -222,6 +239,8 @@ public class StatusBarWeather extends SettingsPreferenceFragment
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_SHOW_WEATHER_TEMP, 1);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_WEATHER_FONT_STYLE, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_WEATHER_TEMP_STYLE, 1);
                             Settings.System.putInt(getOwner().mResolver,
@@ -247,10 +266,12 @@ public class StatusBarWeather extends SettingsPreferenceFragment
     private void updateWeatherOptions() {
         if (Settings.System.getInt(mResolver,
             Settings.System.STATUS_BAR_SHOW_WEATHER_TEMP, 0) == 0) {
+            mStatusBarTemperatureFontStyle.setEnabled(false);
             mStatusBarTemperatureStyle.setEnabled(false);
             mStatusBarTemperatureColor.setEnabled(false);
             mStatusBarTemperatureSize.setEnabled(false);
         } else {
+            mStatusBarTemperatureFontStyle.setEnabled(true);
             mStatusBarTemperatureStyle.setEnabled(true);
             mStatusBarTemperatureColor.setEnabled(true);
             mStatusBarTemperatureSize.setEnabled(true);
