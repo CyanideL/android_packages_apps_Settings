@@ -53,6 +53,14 @@ public class LockScreenColorSettings extends SettingsPreferenceFragment implemen
             "colors_text_color";
     private static final String PREF_ICON_COLOR =
             "colors_icon_color";
+    private static final String LOCKSCREEN_OWNER_INFO_COLOR = 
+            "lockscreen_owner_info_color";
+    private static final String LOCKSCREEN_ALARM_COLOR = 
+            "lockscreen_alarm_color";
+    private static final String LOCKSCREEN_CLOCK_COLOR = 
+            "lockscreen_clock_color";
+    private static final String LOCKSCREEN_CLOCK_DATE_COLOR = 
+            "lockscreen_clock_date_color";
     private static final String PREF_BUTTONS_BAR_RIPPLE_COLOR =
             "colors_buttons_bar_ripple_color";
 
@@ -67,6 +75,10 @@ public class LockScreenColorSettings extends SettingsPreferenceFragment implemen
     private SwitchPreference mButtonsDefaultColorizeCustomIcons;
     private ColorPickerPreference mTextColor;
     private ColorPickerPreference mIconColor;
+    private ColorPickerPreference mLockscreenOwnerInfoColorPicker;
+    private ColorPickerPreference mLockscreenAlarmColorPicker;
+    private ColorPickerPreference mLockscreenClockColorPicker;
+    private ColorPickerPreference mLockscreenClockDateColorPicker;
     private ColorPickerPreference mButtonsBarRippleColor;
 
     private ContentResolver mResolver;
@@ -139,6 +151,38 @@ public class LockScreenColorSettings extends SettingsPreferenceFragment implemen
         mIconColor.setSummary(hexColor);
         mIconColor.setOnPreferenceChangeListener(this);
         mIconColor.setAlphaSliderEnabled(true);
+
+        mLockscreenOwnerInfoColorPicker = (ColorPickerPreference) findPreference(LOCKSCREEN_OWNER_INFO_COLOR);
+        mLockscreenOwnerInfoColorPicker.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_OWNER_INFO_COLOR, DEFAULT_COLOR);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mLockscreenOwnerInfoColorPicker.setSummary(hexColor);
+        mLockscreenOwnerInfoColorPicker.setNewPreviewColor(intColor);
+
+        mLockscreenAlarmColorPicker = (ColorPickerPreference) findPreference(LOCKSCREEN_ALARM_COLOR);
+        mLockscreenAlarmColorPicker.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_ALARM_COLOR, DEFAULT_COLOR);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mLockscreenAlarmColorPicker.setSummary(hexColor);
+        mLockscreenAlarmColorPicker.setNewPreviewColor(intColor);
+
+        mLockscreenClockColorPicker = (ColorPickerPreference) findPreference(LOCKSCREEN_CLOCK_COLOR);
+        mLockscreenClockColorPicker.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_CLOCK_COLOR, DEFAULT_COLOR);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mLockscreenClockColorPicker.setSummary(hexColor);
+        mLockscreenClockColorPicker.setNewPreviewColor(intColor);
+
+        mLockscreenClockDateColorPicker = (ColorPickerPreference) findPreference(LOCKSCREEN_CLOCK_DATE_COLOR);
+        mLockscreenClockDateColorPicker.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_CLOCK_DATE_COLOR, DEFAULT_COLOR);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mLockscreenClockDateColorPicker.setSummary(hexColor);
+        mLockscreenClockDateColorPicker.setNewPreviewColor(intColor);
 
         if (colorizeButtonsBarRipple) {
             mButtonsBarRippleColor =
@@ -218,6 +262,38 @@ public class LockScreenColorSettings extends SettingsPreferenceFragment implemen
                     Settings.System.LOCK_SCREEN_ICON_COLOR, intHex);
             preference.setSummary(hex);
             return true;
+        } else if (preference == mLockscreenOwnerInfoColorPicker) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.LOCKSCREEN_OWNER_INFO_COLOR, intHex);
+            return true;
+        } else if (preference == mLockscreenAlarmColorPicker) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.LOCKSCREEN_ALARM_COLOR, intHex);
+            return true;
+        } else if (preference == mLockscreenClockColorPicker) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.LOCKSCREEN_CLOCK_COLOR, intHex);
+            return true;
+        } else if (preference == mLockscreenClockDateColorPicker) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.LOCKSCREEN_CLOCK_DATE_COLOR, intHex);
+            return true;
         } else if (preference == mButtonsBarRippleColor) {
             hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
@@ -275,6 +351,18 @@ public class LockScreenColorSettings extends SettingsPreferenceFragment implemen
                                     Settings.System.LOCK_SCREEN_ICON_COLOR,
                                     DEFAULT_COLOR);
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.LOCKSCREEN_OWNER_INFO_COLOR,
+                                    DEFAULT_COLOR);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.LOCKSCREEN_ALARM_COLOR,
+                                    DEFAULT_COLOR);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.LOCKSCREEN_CLOCK_COLOR,
+                                    DEFAULT_COLOR);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.LOCKSCREEN_CLOCK_DATE_COLOR,
+                                    DEFAULT_COLOR);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.LOCK_SCREEN_BUTTONS_BAR_RIPPLE_COLOR,
                                     DEFAULT_COLOR);
                             getOwner().refreshSettings();
@@ -294,6 +382,18 @@ public class LockScreenColorSettings extends SettingsPreferenceFragment implemen
                                     CYANIDE_BLUE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.LOCK_SCREEN_ICON_COLOR,
+                                    CYANIDE_BLUE);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.LOCKSCREEN_OWNER_INFO_COLOR,
+                                    CYANIDE_BLUE);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.LOCKSCREEN_ALARM_COLOR,
+                                    CYANIDE_BLUE);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.LOCKSCREEN_CLOCK_COLOR,
+                                    CYANIDE_BLUE);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.LOCKSCREEN_CLOCK_DATE_COLOR,
                                     CYANIDE_BLUE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.LOCK_SCREEN_BUTTONS_BAR_RIPPLE_COLOR,
