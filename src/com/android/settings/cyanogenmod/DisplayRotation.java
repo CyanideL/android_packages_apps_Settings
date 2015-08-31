@@ -48,6 +48,7 @@ public class DisplayRotation extends SettingsPreferenceFragment {
     private SwitchPreference mRotation90Pref;
     private SwitchPreference mRotation180Pref;
     private SwitchPreference mRotation270Pref;
+    private SwitchPreference mLockScreenRotationPref;
 
     public static final int ROTATION_0_MODE = 1;
     public static final int ROTATION_90_MODE = 2;
@@ -80,6 +81,12 @@ public class DisplayRotation extends SettingsPreferenceFragment {
         mRotation90Pref = (SwitchPreference) prefSet.findPreference(ROTATION_90_PREF);
         mRotation180Pref = (SwitchPreference) prefSet.findPreference(ROTATION_180_PREF);
         mRotation270Pref = (SwitchPreference) prefSet.findPreference(ROTATION_270_PREF);
+        mLockScreenRotationPref = (SwitchPreference) prefSet.findPreference(KEY_LOCKSCREEN_ROTATION);
+
+        boolean configEnableLockRotation = getResources().
+                        getBoolean(com.android.internal.R.bool.config_enableLockScreenRotation);
+        Boolean lockScreenRotationEnabled = Settings.System.getInt(getContentResolver(),
+                        Settings.System.LOCKSCREEN_ROTATION, configEnableLockRotation ? 1 : 0) != 0;
 
         int mode = Settings.System.getInt(getContentResolver(),
                 Settings.System.ACCELEROMETER_ROTATION_ANGLES,
@@ -89,6 +96,7 @@ public class DisplayRotation extends SettingsPreferenceFragment {
         mRotation90Pref.setChecked((mode & ROTATION_90_MODE) != 0);
         mRotation180Pref.setChecked((mode & ROTATION_180_MODE) != 0);
         mRotation270Pref.setChecked((mode & ROTATION_270_MODE) != 0);
+        mLockScreenRotationPref.setChecked(lockScreenRotationEnabled);
 
         boolean hasRotationLock = false;
 //        getResources().getBoolean(
@@ -101,15 +109,6 @@ public class DisplayRotation extends SettingsPreferenceFragment {
             mRotation90Pref.setDependency(null);
             mRotation180Pref.setDependency(null);
             mRotation270Pref.setDependency(null);
-        }
-
-        final SwitchPreference lockScreenRotation =
-                (SwitchPreference) findPreference(KEY_LOCKSCREEN_ROTATION);
-        boolean canRotateLockscreen = getResources().getBoolean(
-                com.android.internal.R.bool.config_enableLockScreenRotation);
-
-        if (lockScreenRotation != null && !canRotateLockscreen) {
-            getPreferenceScreen().removePreference(lockScreenRotation);
         }
     }
 
@@ -136,6 +135,7 @@ public class DisplayRotation extends SettingsPreferenceFragment {
 
     private void updateAccelerometerRotationSwitch() {
         mAccelerometer.setChecked(!RotationPolicy.isRotationLocked(getActivity()));
+        mAccelerometer.setEnabled(RotationPolicy.isRotationLockToggleVisible(getActivity()));
     }
 
     private int getRotationBitmask() {
@@ -158,9 +158,12 @@ public class DisplayRotation extends SettingsPreferenceFragment {
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
             Preference preference) {
+        boolean value;
+
         if (preference == mAccelerometer) {
             RotationPolicy.setRotationLockForAccessibility(getActivity(),
                     !mAccelerometer.isChecked());
+            return true;
         } else if (preference == mLandscape) {
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.DEFAULT_LANDSCAPE_ORIENTATION, mLandscape.isChecked() ? 1 : 0);
@@ -175,6 +178,11 @@ public class DisplayRotation extends SettingsPreferenceFragment {
             }
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.ACCELEROMETER_ROTATION_ANGLES, mode);
+            return true;
+        } else if (preference == mLockScreenRotationPref) {
+            value = mLockScreenRotationPref.isChecked();
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.LOCKSCREEN_ROTATION, value ? 1 : 0);
             return true;
         }
 
