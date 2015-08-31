@@ -38,6 +38,7 @@
     <string name="icons_title">Icons</string>
     <string name="ripple_title">Ripple Effect Color</string>
     <string name="text_title">Text</string>
+    <string name="text_cat_title">Category Text</string>
     <string name="category_colors_title">Customize Colors</string>
     <string name="battery_style_reset_message">Reset battery bar color?</string>
     <string name="reset_message">Reset all entries to default?</string>
@@ -88,6 +89,8 @@
     <string name="system_header_title">System Settings</string>
     <string name="weather_control_master_title">Weather Control</string>
     <string name="kernel_tweak">Kernel Auditor</string>
+    <string name="settings_colors_title">Settings Custom Colors</string>
+    <string name="settings_colors_summary">Set custom colors for dashboard background, text, categories etc</string>
 
     <!-- Summary Strings -->
     <string name="appcirclebar_settings_summary">Activate &amp; configure circle bar trigger spot &amp; included applications</string>

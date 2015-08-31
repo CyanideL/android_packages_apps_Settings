@@ -17,6 +17,7 @@
 package com.android.settings.dashboard;
 
 import android.content.Context;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -63,6 +64,12 @@ public class DashboardTileView extends FrameLayout implements View.OnClickListen
 
         setOnClickListener(this);
         setBackgroundResource(R.drawable.dashboard_tile_background);
+        setBackgroundColor(Settings.System.getInt(context.getContentResolver(),
+            Settings.System.SETTINGS_BG_COLOR, 0xffffffff));
+        mTitleTextView.setTextColor(Settings.System.getInt(context.getContentResolver(),
+            Settings.System.SETTINGS_TITLE_TEXT_COLOR, 0xffffffff));
+        mStatusTextView.setTextColor(Settings.System.getInt(context.getContentResolver(),
+            Settings.System.SETTINGS_CAT_TEXT_COLOR, 0xffffffff));
         setFocusable(true);
     }
 
