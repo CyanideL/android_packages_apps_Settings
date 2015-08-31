@@ -59,6 +59,8 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
             "android_recents_clear_all_icon_color";
     private static final String RECENTS_EMPTY_CYANIDE_LOGO =
             "recents_empty_cyanide_logo";
+    private static final String MEM_TEXT_COLOR =
+            "mem_text_color";
     private static final String KEY_SCREEN_PINNING = 
             "screen_pinning_settings";
 
@@ -78,6 +80,7 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
     private ColorPickerPreference mClearAllIconColor;
     private ColorPickerPreference mClearAllBgColor;
     private SwitchPreference mRecentsStyle;
+    private ColorPickerPreference mMemTextColor;
     private PreferenceScreen mScreenPinning;
     private Preference mOmniSwitch;
 
@@ -174,6 +177,16 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
             Settings.System.RECENTS_EMPTY_CYANIDE_LOGO, 0) == 1);
         mRecentsStyle.setOnPreferenceChangeListener(this);
 
+        mMemTextColor =
+                    (ColorPickerPreference) findPreference(MEM_TEXT_COLOR);
+            intColor = Settings.System.getInt(mResolver,
+                    Settings.System.MEM_TEXT_COLOR, WHITE); 
+            mMemTextColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mMemTextColor.setSummary(hexColor);
+            mMemTextColor.setAlphaSliderEnabled(true);
+            mMemTextColor.setOnPreferenceChangeListener(this);
+
         final boolean screenPinning = Settings.System.getInt(getContentResolver(),
                 Settings.System.LOCK_TO_APP_ENABLED, 0) == 1;
         if (mScreenPinning != null) {
@@ -268,6 +281,14 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
                     value ? 1 : 0);
             Helpers.restartSystemUI();
             return true;
+        } else if (preference == mMemTextColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.MEM_TEXT_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
         } else if (preference == mScreenPinning) {
             value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
@@ -330,6 +351,9 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
                                     Settings.System.RECENTS_EMPTY_CYANIDE_LOGO, 0);
                                     Helpers.restartSystemUI();
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.MEM_TEXT_COLOR,
+                                    WHITE);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.LOCK_TO_APP_ENABLED, 0);
                             getOwner().refreshSettings();
                         }
@@ -356,6 +380,9 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.RECENTS_EMPTY_CYANIDE_LOGO, 1);
                                     Helpers.restartSystemUI();
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.MEM_TEXT_COLOR,
+                                    CYANIDE_BLUE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.LOCK_TO_APP_ENABLED, 0);
                             getOwner().refreshSettings();
