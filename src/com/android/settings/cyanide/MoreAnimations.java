@@ -35,16 +35,20 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
+
 public class MoreAnimations extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final String KEY_TOAST_ANIMATION = "toast_animation";
     private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
     private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
+    private static final String TOAST_TEXT_COLOR = "toast_text_color";
 
     private ListPreference mListViewAnimation;
     private ListPreference mListViewInterpolator;
     private ListPreference mToastAnimation;
+    private ColorPickerPreference mTextColor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,7 +58,10 @@ public class MoreAnimations extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.cyanide_more_animations);
 
-	PreferenceScreen prefSet = getPreferenceScreen();
+	    PreferenceScreen prefSet = getPreferenceScreen();
+    
+        int intColor = 0xffffffff;
+        String hexColor = String.format("#%08x", (0xffffffff & 0xffffffff));
 
         mToastAnimation = (ListPreference) prefSet.findPreference(KEY_TOAST_ANIMATION);
         mToastAnimation.setSummary(mToastAnimation.getEntry());
@@ -78,6 +85,15 @@ public class MoreAnimations extends SettingsPreferenceFragment implements
         mListViewInterpolator.setSummary(mListViewInterpolator.getEntry());
         mListViewInterpolator.setOnPreferenceChangeListener(this);
         mListViewInterpolator.setEnabled(listviewanimation > 0);
+
+        mTextColor =
+                (ColorPickerPreference) findPreference(TOAST_TEXT_COLOR);
+        intColor = Settings.System.getInt(getContentResolver(),
+                Settings.System.TOAST_TEXT_COLOR, 0xffffffff);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mTextColor.setNewPreviewColor(intColor);
+        mTextColor.setSummary(hexColor);
+        mTextColor.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -113,6 +129,14 @@ public class MoreAnimations extends SettingsPreferenceFragment implements
                     Settings.System.LISTVIEW_INTERPOLATOR,
                     value);
             mListViewInterpolator.setSummary(mListViewInterpolator.getEntries()[index]);
+        }
+        if (preference == mTextColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.TOAST_TEXT_COLOR, intHex);
+            preference.setSummary(hex);
         }
         return true;
     }
