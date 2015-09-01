@@ -102,6 +102,7 @@ public class ActionListViewSettings extends ListFragment implements
     private static final int SHAKE_EVENTS_DISABLED = 6;
     private static final int QUICKTILE             = 7;
     private static final int QUICK_SETTINGS_BAR    = 8;
+    private static final int RECENT_APP_SIDEBAR     = 9;
 
     private static final int DEFAULT_MAX_ACTION_NUMBER = 5;
     private static final int DEFAULT_NUMBER_OF_ACTIONS = 3;
@@ -564,6 +565,9 @@ public class ActionListViewSettings extends ListFragment implements
             case QUICK_SETTINGS_BAR:
                 return QSBarHelper.getQSBarConfigWithDescription(
                     mActivity, mActionValuesKey, mActionEntriesKey);
+            case RECENT_APP_SIDEBAR:
+                return ActionHelper.getRecentAppSidebarConfigWithDescription(
+                    mActivity, mActionValuesKey, mActionEntriesKey);
             case BUTTONS_BAR_EXTENSION:
                 return ActionHelper.getLockscreenButtonBarExtensionConfig(mActivity);
 
@@ -600,10 +604,13 @@ public class ActionListViewSettings extends ListFragment implements
                 QSBarHelper.setQSBarConfig(mActivity, actionConfigs, reset);
                 updateFabVisibility(reset ? mDefaultNumberOfActions : actionConfigs.size());
                 break;
+            case RECENT_APP_SIDEBAR:
+                ActionHelper.setRecentAppSidebarConfig(mActivity, actionConfigs, reset);
+                updateFabVisibility(reset ? mDefaultNumberOfActions : actionConfigs.size());
+                break;
             case BUTTONS_BAR_EXTENSION:
                 ActionHelper.setLockscreenButtonBarExtensionConfig(mActivity, actionConfigs, reset);
                 updateFabVisibility(reset ? mDefaultNumberOfActions : actionConfigs.size());
-                break;
         }
     }
 
@@ -815,6 +822,7 @@ public class ActionListViewSettings extends ListFragment implements
                         case PIE:
                         case PIE_SECOND:
                         case QUICK_SETTINGS_BAR:
+                        case RECENT_APP_SIDEBAR:
                         case BUTTONS_BAR_EXTENSION:
                         default:
                             actionMode = res.getString(R.string.shortcut_action_help_button);
