@@ -97,7 +97,7 @@
                 android:summary="@string/proximity_wake_summary"
                 settings:advanced="true"/>
 
-        <!-- DeviceHandler device specific screen off gesture settings -->
+        <!-- DeviceHandler device specific screen off gesture settings
         <Preference
                 android:key="screen_off_gesture_settings"
                 android:title="@string/screen_off_gesture_settings_title">
@@ -105,7 +105,7 @@
                     android:action="com.slim.action.LAUNCH_SCREEN_OFF_GESTURE_SETTINGS"
                     android:targetPackage="com.slim.device"
                     android:targetClass="com.slim.device.settings.ScreenOffGestureSettings" />
-        </Preference>
+        </Preference>-->
 
         <!-- Seconds before sleep -->
         <ListPreference
