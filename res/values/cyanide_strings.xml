@@ -876,7 +876,7 @@
     <string name="notif_system_icons_icon_color_title">Icons</string>
     <string name="notif_status_area_icons_color_mode_title">Colorize Icons</string>
     <string name="notif_status_area_show_ticker_title">Show Ticker</string>
-    <string name="notif_status_area_show_ticker_summary">Enable to show the ticker</string>
+    <string name="notif_status_area_show_ticker_summary">Enable to show the ticker. WARNING: Enabling this feature WILL cause random systemui FC after theme change etc</string>
     <string name="notif_status_area_show_count_title">Notification Count</string>
     <string name="notif_status_area_show_count_summary">Enable to display the number of pending notifications</string>
     <string name="notif_status_area_notif_text_color_title">Ticker Text</string>
