@@ -34,12 +34,15 @@ public class ButtonExtensionFragment extends SettingsPreferenceFragment implemen
             "buttons_cat_notifications";
     private static final String PREF_BUTTONS_BAR_EXTENSION_LAUNCH_TYPE =
             "buttons_bar_extension_launch_type";
+    private static final String PREF_BUTTONS_BAR_EXTENSION_ICON_SIZE =
+            "buttons_bar_extension_icon_size";
     private static final String PREF_HIDE_BUTTONS_BAR_EXTENSION =
             "buttons_bar_hide_bar_extension";
     private static final String PREF_NUMBER_OF_NOTIFICATIONS =
             "buttons_bar_extension_number_of_notifications";
 
     private ListPreference mButtonsBarExtensionLaunchType;
+    private ListPreference mButtonsBarExtensionIconSize;
     private ListPreference mHideButtonsBarExtension;
     private ListPreference mNumberOfNotifications;
 
@@ -73,6 +76,14 @@ public class ButtonExtensionFragment extends SettingsPreferenceFragment implemen
         mButtonsBarExtensionLaunchType.setValue(String.valueOf(intValue));
         mButtonsBarExtensionLaunchType.setSummary(mButtonsBarExtensionLaunchType.getEntry());
         mButtonsBarExtensionLaunchType.setOnPreferenceChangeListener(this);
+
+        mButtonsBarExtensionIconSize =
+                (ListPreference) findPreference(PREF_BUTTONS_BAR_EXTENSION_ICON_SIZE);
+        intValue = Settings.System.getInt(mResolver,
+                Settings.System.LOCK_SCREEN_BUTTONS_BAR_EXTENSION_ICON_SIZE, 36);
+        mButtonsBarExtensionIconSize.setValue(String.valueOf(intValue));
+        mButtonsBarExtensionIconSize.setSummary(mButtonsBarExtensionIconSize.getEntry());
+        mButtonsBarExtensionIconSize.setOnPreferenceChangeListener(this);
 
         mHideButtonsBarExtension =
                 (ListPreference) findPreference(PREF_HIDE_BUTTONS_BAR_EXTENSION);
@@ -112,6 +123,13 @@ public class ButtonExtensionFragment extends SettingsPreferenceFragment implemen
             Settings.System.putInt(mResolver,
                     Settings.System.LOCK_SCREEN_BUTTONS_BAR_EXTENSION_LAUNCH_TYPE, intValue);
             preference.setSummary(mButtonsBarExtensionLaunchType.getEntries()[index]);
+            return true;
+        } else if (preference == mButtonsBarExtensionIconSize) {
+            intValue = Integer.valueOf((String) newValue);
+            index = mButtonsBarExtensionIconSize.findIndexOfValue((String) newValue);
+            Settings.System.putInt(mResolver,
+                    Settings.System.LOCK_SCREEN_BUTTONS_BAR_EXTENSION_ICON_SIZE, intValue);
+            preference.setSummary(mButtonsBarExtensionIconSize.getEntries()[index]);
             return true;
         } else if (preference == mHideButtonsBarExtension) {
             intValue = Integer.valueOf((String) newValue);

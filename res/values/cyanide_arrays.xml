@@ -2005,4 +2005,16 @@
         <item>5</item>
     </string-array>
 
+    <string-array name="lock_screen_buttons_bar_extension_icon_size_entries">
+        <item>@string/buttons_bar_icon_size_24_title</item>
+        <item>@string/buttons_bar_icon_size_36_title</item>
+        <item>@string/buttons_bar_icon_size_48_title</item>
+    </string-array>
+
+    <string-array name="lock_screen_buttons_bar_extension_icon_size_values" translatable="false">
+        <item>24</item>
+        <item>36</item>
+        <item>48</item>
+    </string-array>
+
 </resources>

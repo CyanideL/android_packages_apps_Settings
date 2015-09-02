@@ -36,6 +36,12 @@
             android:entries="@array/lock_screen_buttons_bar_launch_type_entries"
             android:entryValues="@array/lock_screen_buttons_bar_launch_type_values" />
 
+        <ListPreference
+            android:key="buttons_bar_extension_icon_size"
+            android:title="@string/buttons_bar_icon_size_title"
+            android:entries="@array/lock_screen_buttons_bar_extension_icon_size_entries"
+            android:entryValues="@array/lock_screen_buttons_bar_extension_icon_size_values" />
+
     <PreferenceCategory
         android:key="buttons_cat_notifications"
         android:title="@string/lock_screen_cat_notifications_title">
