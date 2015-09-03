@@ -40,6 +40,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
 
+import com.android.settings.cyanide.SeekBarPreference;
+
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
@@ -55,6 +57,7 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment
 
     private static final String PREF_ENABLE = "clock_style";
     private static final String PREF_FONT_STYLE = "font_style";
+    private static final String PREF_FONT_SIZE  = "font_size";
     private static final String PREF_AM_PM_STYLE = "status_bar_am_pm";
     private static final String PREF_COLOR_PICKER = "clock_color";
     private static final String PREF_CLOCK_DATE_DISPLAY = "clock_date_display";
@@ -76,6 +79,7 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment
 
     private ListPreference mClockStyle;
     private ListPreference mFontStyle;
+    private SeekBarPreference mStatusBarDateSize;
     private ListPreference mClockAmPmStyle;
     private ColorPickerPreference mColorPicker;
     private ListPreference mClockDateDisplay;
@@ -118,6 +122,11 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment
                 .getContentResolver(), Settings.System.STATUSBAR_CLOCK_STYLE,
                 0)));
         mClockStyle.setSummary(mClockStyle.getEntry());
+
+        mStatusBarDateSize = (SeekBarPreference) findPreference(PREF_FONT_SIZE);
+        mStatusBarDateSize.setValue(Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.STATUSBAR_CLOCK_FONT_SIZE, 14));
+        mStatusBarDateSize.setOnPreferenceChangeListener(this);
 
         mFontStyle = (ListPreference) findPreference(PREF_FONT_STYLE);
         mFontStyle.setOnPreferenceChangeListener(this);
@@ -225,6 +234,11 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUSBAR_CLOCK_STYLE, val);
             mClockStyle.setSummary(mClockStyle.getEntries()[index]);
+            return true;
+         } else if (preference == mStatusBarDateSize) {
+            int width = ((Integer)newValue).intValue();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUSBAR_CLOCK_FONT_SIZE, width);
             return true;
          } else if (preference == mFontStyle) {
             int val = Integer.parseInt((String) newValue);
@@ -423,6 +437,8 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment
                             Settings.System.putInt(getActivity().getContentResolver(),
                                     Settings.System.STATUSBAR_CLOCK_STYLE, 0);
                             Settings.System.putInt(getActivity().getContentResolver(),
+                                    Settings.System.STATUSBAR_CLOCK_FONT_SIZE, 14);
+                            Settings.System.putInt(getActivity().getContentResolver(),
                                     Settings.System.STATUSBAR_CLOCK_FONT_STYLE, 4);
                             Settings.System.putInt(getActivity().getContentResolver(),
                                     Settings.System.STATUSBAR_CLOCK_DATE_DISPLAY, 0);
@@ -439,6 +455,8 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment
                                     Settings.System.STATUSBAR_CLOCK_AM_PM_STYLE, 1);
                             Settings.System.putInt(getActivity().getContentResolver(),
                                     Settings.System.STATUSBAR_CLOCK_STYLE, 1);
+                            Settings.System.putInt(getActivity().getContentResolver(),
+                                    Settings.System.STATUSBAR_CLOCK_FONT_SIZE, 16);
                             Settings.System.putInt(getActivity().getContentResolver(),
                                     Settings.System.STATUSBAR_CLOCK_FONT_STYLE, 3);
                             Settings.System.putInt(getActivity().getContentResolver(),
