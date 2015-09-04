@@ -51,7 +51,7 @@ import com.android.settings.cyanogenmod.BaseSystemSettingSwitchBar;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.cyanogenmod.PackageListAdapter;
 import com.android.settings.cyanogenmod.PackageListAdapter.PackageItem;
-import com.android.settings.cyanide.SeekBarPreference;
+import com.android.settings.widget.SeekBarPreferenceCham;
 
 import com.android.internal.util.cm.ScreenType;
 
@@ -71,8 +71,8 @@ public class HeadsUpSettings extends SettingsPreferenceFragment
     private static final String PREF_HEADS_UP_TIME_OUT = "heads_up_time_out";
     private static final String PREF_HEADS_UP_SNOOZE_TIME = "heads_up_snooze_time";
 
-    private SeekBarPreference mHeadsUpTimeOut;
-    private SeekBarPreference mHeadsUpSnoozeTime;
+    private SeekBarPreferenceCham mHeadsUpTimeOut;
+    private SeekBarPreferenceCham mHeadsUpSnoozeTime;
 
     private PackageListAdapter mPackageAdapter;
     private PackageManager mPackageManager;
@@ -110,7 +110,7 @@ public class HeadsUpSettings extends SettingsPreferenceFragment
 
         int defaultTimeOut = systemUiResources.getInteger(systemUiResources.getIdentifier(
                     "com.android.systemui:integer/heads_up_notification_decay", null, null));
-        mHeadsUpTimeOut = (SeekBarPreference) findPreference(PREF_HEADS_UP_TIME_OUT);
+        mHeadsUpTimeOut = (SeekBarPreferenceCham) findPreference(PREF_HEADS_UP_TIME_OUT);
         int headsUpTimeOut = Settings.System.getInt(getContentResolver(),
                 Settings.System.HEADS_UP_NOTIFICATION_DECAY, defaultTimeOut);
         mHeadsUpTimeOut.setValue(headsUpTimeOut / 1000);
@@ -118,7 +118,7 @@ public class HeadsUpSettings extends SettingsPreferenceFragment
 
         int defaultSnooze = systemUiResources.getInteger(systemUiResources.getIdentifier(
                     "com.android.systemui:integer/heads_up_default_snooze_length_ms", null, null));
-        mHeadsUpSnoozeTime = (SeekBarPreference) findPreference(PREF_HEADS_UP_SNOOZE_TIME);
+        mHeadsUpSnoozeTime = (SeekBarPreferenceCham) findPreference(PREF_HEADS_UP_SNOOZE_TIME);
         int headsUpSnooze = Settings.System.getInt(getContentResolver(),
                 Settings.System.HEADS_UP_NOTIFICATION_SNOOZE, defaultSnooze);
         mHeadsUpSnoozeTime.setValue(headsUpSnooze / 60 / 1000);

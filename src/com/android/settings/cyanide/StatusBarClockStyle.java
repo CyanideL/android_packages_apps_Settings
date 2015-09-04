@@ -40,7 +40,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
 
-import com.android.settings.cyanide.SeekBarPreference;
+import com.android.settings.widget.SeekBarPreferenceCham;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -79,7 +79,7 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment
 
     private ListPreference mClockStyle;
     private ListPreference mFontStyle;
-    private SeekBarPreference mStatusBarDateSize;
+    private SeekBarPreferenceCham mStatusBarDateSize;
     private ListPreference mClockAmPmStyle;
     private ColorPickerPreference mColorPicker;
     private ListPreference mClockDateDisplay;
@@ -123,7 +123,7 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment
                 0)));
         mClockStyle.setSummary(mClockStyle.getEntry());
 
-        mStatusBarDateSize = (SeekBarPreference) findPreference(PREF_FONT_SIZE);
+        mStatusBarDateSize = (SeekBarPreferenceCham) findPreference(PREF_FONT_SIZE);
         mStatusBarDateSize.setValue(Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.STATUSBAR_CLOCK_FONT_SIZE, 14));
         mStatusBarDateSize.setOnPreferenceChangeListener(this);

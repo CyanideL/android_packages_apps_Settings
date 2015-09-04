@@ -73,7 +73,7 @@
                         android:defaultValue="false"
                         android:disableDependentsState="true" />
 
-                    <com.android.settings.cyanide.SeekBarPreference
+                    <com.android.settings.widget.SeekBarPreferenceCham
                         android:key="doze_brightness"
                         android:title="@string/doze_brightness_title"
                         android:max="30"

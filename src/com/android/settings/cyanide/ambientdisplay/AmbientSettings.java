@@ -47,7 +47,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.cyanogenmod.SystemSettingSwitchPreference;
 import com.android.settings.cyanide.ambientdisplay.ShakeSensorManager;
-import com.android.settings.cyanide.SeekBarPreference;
+import com.android.settings.widget.SeekBarPreferenceCham;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,7 +78,7 @@ public class AmbientSettings extends SettingsPreferenceFragment implements
     private ListPreference mDozePulseOut;
     private ListPreference mDozeShakeThreshold;
     private SystemSettingSwitchPreference mDozeTimeMode;
-    private SeekBarPreference mDozeBrightness;
+    private SeekBarPreferenceCham mDozeBrightness;
 
     private ShakeSensorManager mShakeSensorManager;
     private AlertDialog mDialog;
@@ -125,7 +125,7 @@ public class AmbientSettings extends SettingsPreferenceFragment implements
         updateDozeOptions();
         mShakeSensorManager = new ShakeSensorManager(activity, this);
 
-        mDozeBrightness = (SeekBarPreference) findPreference(KEY_DOZE_BRIGHTNESS);
+        mDozeBrightness = (SeekBarPreferenceCham) findPreference(KEY_DOZE_BRIGHTNESS);
         int dozeBrightness = Settings.System.getInt(resolver,
                     Settings.System.DOZE_BRIGHTNESS, clampAbsoluteBrightness(resources.getInteger(
                 com.android.internal.R.integer.config_screenBrightnessSettingMinimum)));
