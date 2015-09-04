@@ -45,6 +45,7 @@ import android.view.MenuItem;
 import android.widget.EditText;
 
 import com.android.settings.Utils;
+import com.android.settings.widget.SeekBarPreferenceCham;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -56,6 +57,7 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
 
     private static final String STATUS_BAR_CUSTOM_CARRIER = "status_bar_custom_carrier";
     private static final String CUSTOM_CARRIER_LABEL = "custom_carrier_label";
+    private static final String STATUS_BAR_CARRIER_FONT_SIZE  = "status_bar_carrier_font_size";
     private static final String STATUS_BAR_CARRIER_COLOR = "status_bar_carrier_color";
 
     private static final int MENU_RESET = Menu.FIRST;
@@ -67,6 +69,7 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
     private ListPreference mStatusBarCarrier;
     private PreferenceScreen mCustomCarrierLabel;
     private String mCustomCarrierLabelText;
+    private SeekBarPreferenceCham mStatusBarCarrierSize;
     private ColorPickerPreference mCarrierColorPicker;
 
     private ContentResolver mResolver;
@@ -95,6 +98,11 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
         mStatusBarCarrier.setOnPreferenceChangeListener(this);
         mCustomCarrierLabel = (PreferenceScreen) findPreference(CUSTOM_CARRIER_LABEL);
 
+        mStatusBarCarrierSize = (SeekBarPreferenceCham) findPreference(STATUS_BAR_CARRIER_FONT_SIZE);
+        mStatusBarCarrierSize.setValue(Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.STATUS_BAR_CARRIER_FONT_SIZE, 14));
+        mStatusBarCarrierSize.setOnPreferenceChangeListener(this);
+
         mCarrierColorPicker = (ColorPickerPreference) findPreference(STATUS_BAR_CARRIER_COLOR);
         mCarrierColorPicker.setOnPreferenceChangeListener(this);
         int intColor = Settings.System.getInt(mResolver,
@@ -105,6 +113,7 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
         mCarrierColorPicker.setAlphaSliderEnabled(true);
 
         updateCustomLabelTextSummary();
+        enableCarrierOptions();
         setHasOptionsMenu(true);
 
     }
@@ -142,7 +151,14 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mCarrierColorPicker) {
+        if (preference == mStatusBarCarrier) {
+            int statusBarCarrier = Integer.valueOf((String) newValue);
+            int index = mStatusBarCarrier.findIndexOfValue((String) newValue);
+            Settings.System.putInt(
+                    mResolver, Settings.System.STATUS_BAR_CUSTOM_CARRIER, statusBarCarrier);
+            mStatusBarCarrier.setSummary(mStatusBarCarrier.getEntries()[index]);
+            enableCarrierOptions();
+         } else if (preference == mCarrierColorPicker) {
             String hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
             preference.setSummary(hex);
@@ -150,12 +166,11 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
             Settings.System.putInt(mResolver,
                     Settings.System.STATUS_BAR_CARRIER_COLOR, intHex);
             return true;
-        } else if (preference == mStatusBarCarrier) {
-            int statusBarCarrier = Integer.valueOf((String) newValue);
-            int index = mStatusBarCarrier.findIndexOfValue((String) newValue);
-            Settings.System.putInt(
-                    mResolver, Settings.System.STATUS_BAR_CUSTOM_CARRIER, statusBarCarrier);
-            mStatusBarCarrier.setSummary(mStatusBarCarrier.getEntries()[index]);
+         } else if (preference == mStatusBarCarrierSize) {
+            int width = ((Integer)newValue).intValue();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_CARRIER_FONT_SIZE, width);
+            return true;
          }
          return false;
     }
@@ -232,6 +247,8 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_CARRIER_COLOR,
                                     WHITE);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_CARRIER_FONT_SIZE, 14);
                             getOwner().refreshSettings();
                         }
                     })
@@ -243,6 +260,8 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_CARRIER_COLOR,
                                     CYANIDE_BLUE);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_CARRIER_FONT_SIZE, 16);
                             getOwner().refreshSettings();
                         }
                     })
@@ -254,6 +273,19 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
         @Override
         public void onCancel(DialogInterface dialog) {
 
+        }
+    }
+
+    private void enableCarrierOptions() {
+        if (Settings.System.getInt(mResolver,
+            Settings.System.STATUS_BAR_CUSTOM_CARRIER, 0) == 0) {
+            mCustomCarrierLabel.setEnabled(false);
+            mStatusBarCarrierSize.setEnabled(false);
+            mCarrierColorPicker.setEnabled(false);
+        } else {
+            mCustomCarrierLabel.setEnabled(true);
+            mStatusBarCarrierSize.setEnabled(true);
+            mCarrierColorPicker.setEnabled(true);
         }
     }
 }
