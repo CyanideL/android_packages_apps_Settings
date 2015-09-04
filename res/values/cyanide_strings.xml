@@ -2015,4 +2015,8 @@
     <string name="recent_app_sidebar_bg_color_title">Background color</string>
     <string name="recent_app_sidebar_scale_title">Size</string>
 
+    <!-- Expand volume panel -->
+    <string name="volume_panel_expanded_title">Expanded Volume Panel</string>
+    <string name="volume_panel_expanded_summary">Show volume panel in expanded mode by default</string>
+
 </resources>

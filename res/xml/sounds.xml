@@ -42,6 +42,12 @@
                 android:icon="@*android:drawable/ic_audio_alarm"
                 android:title="@string/alarm_volume_option_title" />
 
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+                android:key="volume_panel_expanded"
+                android:title="@string/volume_panel_expanded_title"
+                android:summary="@string/volume_panel_expanded_summary"
+                android:defaultValue="false" />
+
         <!-- Link Volume Notification -->
         <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
                 android:key="volume_link_notification"
