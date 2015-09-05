@@ -51,6 +51,7 @@ public class StatusLogo extends SettingsPreferenceFragment implements OnPreferen
 
     private static final String TAG = "StatusLogo";
 
+    private static final String STATUS_BAR_CYANIDE_LOGO_SHOW = "status_bar_cyanide_logo_show";
     private static final String KEY_CYANIDE_LOGO_STYLE = "status_bar_cyanide_logo_style";
     private static final String KEY_CYANIDE_LOGO_COLOR = "status_bar_cyanide_logo_color";
 
@@ -60,6 +61,7 @@ public class StatusLogo extends SettingsPreferenceFragment implements OnPreferen
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
+    private ListPreference mShowCyanideLogo;
     private ListPreference mCyanideLogoStyle;
     private ColorPickerPreference mCyanideLogoColor;
 
@@ -80,6 +82,14 @@ public class StatusLogo extends SettingsPreferenceFragment implements OnPreferen
 
         addPreferencesFromResource(R.xml.status_bar_logo);
         mResolver = getActivity().getContentResolver();
+
+        mShowCyanideLogo = (ListPreference) findPreference(STATUS_BAR_CYANIDE_LOGO_SHOW);
+        int showCyanideLogo = Settings.System.getIntForUser(mResolver,
+                Settings.System.STATUS_BAR_CYANIDE_LOGO_SHOW, 0,
+                UserHandle.USER_CURRENT);
+        mShowCyanideLogo.setValue(String.valueOf(showCyanideLogo));
+        mShowCyanideLogo.setSummary(mShowCyanideLogo.getEntry());
+        mShowCyanideLogo.setOnPreferenceChangeListener(this);
 
         mCyanideLogoStyle = (ListPreference) findPreference(KEY_CYANIDE_LOGO_STYLE);
         int cyanideLogoStyle = Settings.System.getIntForUser(mResolver,
@@ -122,7 +132,14 @@ public class StatusLogo extends SettingsPreferenceFragment implements OnPreferen
     }
     
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mCyanideLogoStyle) {
+        if (preference == mShowCyanideLogo) {
+            int showCyanideLogo = Integer.valueOf((String) newValue);
+            int index = mShowCyanideLogo.findIndexOfValue((String) newValue);
+            Settings.System.putInt(
+                    mResolver, Settings.System.STATUS_BAR_CYANIDE_LOGO_SHOW, showCyanideLogo);
+            mShowCyanideLogo.setSummary(mShowCyanideLogo.getEntries()[index]);
+            return true;
+        } else if (preference == mCyanideLogoStyle) {
             int cyanideLogoStyle = Integer.valueOf((String) newValue);
             int index = mCyanideLogoStyle.findIndexOfValue((String) newValue);
             Settings.System.putIntForUser(
@@ -176,7 +193,7 @@ public class StatusLogo extends SettingsPreferenceFragment implements OnPreferen
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_CYANIDE_LOGO, 0);
+                                    Settings.System.STATUS_BAR_CYANIDE_LOGO_SHOW, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_CYANIDE_LOGO_STYLE, 0);
                             Settings.System.putInt(getOwner().mResolver,
@@ -189,7 +206,7 @@ public class StatusLogo extends SettingsPreferenceFragment implements OnPreferen
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_CYANIDE_LOGO, 1);
+                                    Settings.System.STATUS_BAR_CYANIDE_LOGO_SHOW, 3);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_CYANIDE_LOGO_STYLE, 1);
                             Settings.System.putInt(getOwner().mResolver,

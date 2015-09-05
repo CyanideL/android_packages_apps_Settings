@@ -949,8 +949,12 @@
     <string name="status_bar_cyanide_logo_color">CyanideL Logo Color</string>
     <string name="status_bar_cyanide_logo_position">Location</string>
     <string name="status_bar_cyanide_logo_position_summary">Choose which side to display the logo on, left or right</string>
-    <string name="status_bar_logo_position_right">Place on the right</string>
-    <string name="status_bar_logo_position_left">Place on the left</string>
+    <string name="status_bar_logo_position_right">Right</string>
+    <string name="status_bar_logo_position_left">Left</string>
+    <string name="show_logo_disabled">Disabled</string>
+    <string name="show_logo_keyguard">Lockscreen only</string>
+    <string name="show_logo_statusbar">Statusbar only</string>
+    <string name="show_logo_enabled">Lockscreen &amp; Statusbar</string>
 
     <!-- Show carrier label and custom -->
     <string name="carrier_options">Custom Carrier Label</string>
@@ -1827,15 +1831,15 @@
     <string name="sms_security_check_unlimited">Unlimited</string>
     
     <!-- Status bar temperature -->
-    <string name="status_bar_temperature_title">Temperature</string>
+    <string name="status_bar_temperature_title">Weather Temperature</string>
     <string name="status_bar_temperature_summary">Options to enable temperature in the status bar</string>
     <string name="status_bar_temperature_hidden">Hidden</string>
     <string name="status_bar_temperature_show_scale">Shown with scale</string>
     <string name="status_bar_temperature_hide_scale">Shown without scale</string>
     <string name="status_bar_temperature_location_title">Placement</string>
     <string name="status_bar_temperature_location_summary">Select where the weather temperature is shown on the statusbar</string>
-    <string name="status_bar_temperature_location_right">Show on right</string>
-    <string name="status_bar_temperature_location_left">Show on left</string>
+    <string name="status_bar_temperature_location_right">Right</string>
+    <string name="status_bar_temperature_location_left">Left</string>
     <string name="status_bar_weather_color_title">Temperature Color</string>
     <string name="status_bar_weather_size_title">Font Size</string>
     <string name="status_bar_weather_font_style_title">Font</string>

@@ -2049,4 +2049,19 @@
         <item>48</item>
     </string-array>
 
+    <!-- Cyanide Logo -->
+    <string-array name="cyanide_logo_entries">
+        <item>@string/show_logo_disabled</item>
+        <item>@string/show_logo_keyguard</item>
+        <item>@string/show_logo_statusbar</item>
+        <item>@string/show_logo_enabled</item>
+    </string-array>
+
+    <string-array name="cyanide_logo_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
 </resources>
