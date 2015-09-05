@@ -42,14 +42,18 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import com.android.settings.widget.SeekBarPreferenceCham;
 
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
+
 import com.android.internal.util.cyanide.DeviceUtils;
 
 public class Greeting extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String KEY_STATUS_BAR_GREETING = "status_bar_greeting";
+    private static final String KEY_STATUS_BAR_GREETING_COLOR = "status_bar_greeting_color";
     private static final String KEY_STATUS_BAR_GREETING_TIMEOUT = "status_bar_greeting_timeout";
 
     private SwitchPreference mStatusBarGreeting;
+    private ColorPickerPreference mStatusBarGreetingColor;
     private SeekBarPreferenceCham mStatusBarGreetingTimeout;
 
     private String mCustomGreetingText = "";
@@ -70,6 +74,17 @@ public class Greeting extends SettingsPreferenceFragment implements OnPreference
         boolean greeting = mCustomGreetingText != null && !TextUtils.isEmpty(mCustomGreetingText);
         mStatusBarGreeting.setChecked(greeting);
 
+        mStatusBarGreetingColor =
+                (ColorPickerPreference) findPreference(KEY_STATUS_BAR_GREETING_COLOR);
+        int intColor = Settings.System.getInt(getContentResolver(),
+                Settings.System.STATUS_BAR_GREETING_COLOR,
+                0xffffffff); 
+        mStatusBarGreetingColor.setNewPreviewColor(intColor);
+        String hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mStatusBarGreetingColor.setSummary(hexColor);
+        mStatusBarGreetingColor.setOnPreferenceChangeListener(this);
+        mStatusBarGreetingColor.setAlphaSliderEnabled(true);
+
         mStatusBarGreetingTimeout =
                 (SeekBarPreferenceCham) prefSet.findPreference(KEY_STATUS_BAR_GREETING_TIMEOUT);
         int statusBarGreetingTimeout = Settings.System.getInt(getContentResolver(),
@@ -80,7 +95,15 @@ public class Greeting extends SettingsPreferenceFragment implements OnPreference
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mStatusBarGreetingTimeout) {
+        if (preference == mStatusBarGreetingColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.STATUS_BAR_GREETING_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mStatusBarGreetingTimeout) {
             int timeout = (Integer) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUS_BAR_GREETING_TIMEOUT, timeout * 1);
