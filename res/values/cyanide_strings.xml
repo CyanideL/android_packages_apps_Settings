@@ -794,6 +794,7 @@
     <string name="lockscreen_alarm_color">Alarm Text</string>
     <string name="lockscreen_clock_color">Clock</string>
     <string name="lockscreen_clock_date_color">Date</string>
+    <string name="lockscreen_indication_text_color">Indication Text</string>
     
     <!-- Weather settings -->
     <string name="lock_screen_buttons_settings_title">Buttons</string>

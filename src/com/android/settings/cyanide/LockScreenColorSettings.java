@@ -53,6 +53,8 @@ public class LockScreenColorSettings extends SettingsPreferenceFragment implemen
             "colors_text_color";
     private static final String PREF_ICON_COLOR =
             "colors_icon_color";
+    private static final String LOCKSCREEN_INDICATION_TEXT_COLOR =
+            "lockscreen_indication_text_color";
     private static final String LOCKSCREEN_OWNER_INFO_COLOR = 
             "lockscreen_owner_info_color";
     private static final String LOCKSCREEN_ALARM_COLOR = 
@@ -75,6 +77,7 @@ public class LockScreenColorSettings extends SettingsPreferenceFragment implemen
     private SwitchPreference mButtonsDefaultColorizeCustomIcons;
     private ColorPickerPreference mTextColor;
     private ColorPickerPreference mIconColor;
+    private ColorPickerPreference mLockscreenIndicationTextColorPicker;
     private ColorPickerPreference mLockscreenOwnerInfoColorPicker;
     private ColorPickerPreference mLockscreenAlarmColorPicker;
     private ColorPickerPreference mLockscreenClockColorPicker;
@@ -151,6 +154,14 @@ public class LockScreenColorSettings extends SettingsPreferenceFragment implemen
         mIconColor.setSummary(hexColor);
         mIconColor.setOnPreferenceChangeListener(this);
         mIconColor.setAlphaSliderEnabled(true);
+
+        mLockscreenIndicationTextColorPicker = (ColorPickerPreference) findPreference(LOCKSCREEN_INDICATION_TEXT_COLOR);
+        mLockscreenIndicationTextColorPicker.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(mResolver,
+                    Settings.System.LOCKSCREEN_INDICATION_TEXT_COLOR, DEFAULT_COLOR);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mLockscreenIndicationTextColorPicker.setSummary(hexColor);
+        mLockscreenIndicationTextColorPicker.setNewPreviewColor(intColor);
 
         mLockscreenOwnerInfoColorPicker = (ColorPickerPreference) findPreference(LOCKSCREEN_OWNER_INFO_COLOR);
         mLockscreenOwnerInfoColorPicker.setOnPreferenceChangeListener(this);
@@ -262,6 +273,14 @@ public class LockScreenColorSettings extends SettingsPreferenceFragment implemen
                     Settings.System.LOCK_SCREEN_ICON_COLOR, intHex);
             preference.setSummary(hex);
             return true;
+        } else if (preference == mLockscreenIndicationTextColorPicker) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.LOCKSCREEN_INDICATION_TEXT_COLOR, intHex);
+            return true;
         } else if (preference == mLockscreenOwnerInfoColorPicker) {
             hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
@@ -351,6 +370,9 @@ public class LockScreenColorSettings extends SettingsPreferenceFragment implemen
                                     Settings.System.LOCK_SCREEN_ICON_COLOR,
                                     DEFAULT_COLOR);
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.LOCKSCREEN_INDICATION_TEXT_COLOR,
+                                    DEFAULT_COLOR);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.LOCKSCREEN_OWNER_INFO_COLOR,
                                     DEFAULT_COLOR);
                             Settings.System.putInt(getOwner().mResolver,
@@ -382,6 +404,9 @@ public class LockScreenColorSettings extends SettingsPreferenceFragment implemen
                                     CYANIDE_BLUE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.LOCK_SCREEN_ICON_COLOR,
+                                    CYANIDE_BLUE);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.LOCKSCREEN_INDICATION_TEXT_COLOR,
                                     CYANIDE_BLUE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.LOCKSCREEN_OWNER_INFO_COLOR,
