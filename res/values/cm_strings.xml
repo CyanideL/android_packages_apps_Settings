@@ -973,6 +973,7 @@
 	<string name="qs_tile_kernel_adiutor">Kernel Adiutor</string>
 	<string name="qs_tile_stweaks">STweaks</string>
 	<string name="qs_tile_volume_panel">Volume Panel</string>
+	<string name="qs_tile_led">LED</string>
 	
 	<string name="qs_dynamic_tile_next_alarm">Next alarm</string>
     <string name="qs_dynamic_tile_ime_selector">IME selector</string>

@@ -262,6 +262,10 @@ public class QSTileHolder {
                 resourceName = "ic_qs_volume_panel";
                 stringId = R.string.qs_tile_volume_panel;
                 break;
+            case QSConstants.TILE_LED:
+                resourceName = "ic_qs_led_on";
+                stringId = R.string.qs_tile_led;
+                break;
 
             // Dynamic tiles
             case QSConstants.DYNAMIC_TILE_NEXT_ALARM:
