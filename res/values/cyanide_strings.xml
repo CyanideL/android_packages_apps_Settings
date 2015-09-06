@@ -192,30 +192,30 @@
     
     <string name="shortcut_action_none">None</string>
     <string name="shortcut_action_none">None</string>
-    <string name="shortcut_action_app">Custom app</string>
+    <string name="shortcut_action_app">Custom App</string>
     <string name="shortcut_action_home">Home</string>
     <string name="shortcut_action_back">Back</string>
-    <string name="shortcut_action_kill">Kill app</string>
-    <string name="shortcut_action_lastapp">Last app</string>
+    <string name="shortcut_action_kill">Kill App</string>
+    <string name="shortcut_action_lastapp">Last App</string>
     <string name="shortcut_action_assist">Search</string>
     <string name="shortcut_action_screenshot">Screenshot</string>
     <string name="shortcut_action_torch">Torch</string>
     <string name="shortcut_action_menu">Menu</string>
     <string name="shortcut_action_ime">IME Switcher</string>
-    <string name="shortcut_action_power_menu">Power menu</string>
+    <string name="shortcut_action_power_menu">Power Menu</string>
     <string name="shortcut_action_recent">Recents</string>
     <string name="shortcut_action_power">Screen Off</string>
     <string name="shortcut_action_search">Search in app</string>
     <string name="shortcut_action_ring_silent">Ringer/Silent</string>
     <string name="shortcut_action_ring_vib">Ringer/Vibrate</string>
     <string name="shortcut_action_ring_vib_silent">Silent/Vibrate</string>
-    <string name="shortcut_action_navbar">Navigation bar</string>
+    <string name="shortcut_action_navbar">Navigation Bar</string>
     <string name="shortcut_action_pie">SlimPIE Control</string>
     <string name="shortcut_action_pa_pie">PA Pie Control</string>
-    <string name="shortcut_action_expanded_desktop">Expanded desktop</string>
+    <string name="shortcut_action_expanded_desktop">Expanded Desktop</string>
     <string name="shortcut_action_notifications">Notifications</string>
     <string name="shortcut_action_qs">Quick Settings</string>
-    <string name="shortcut_action_smart">Smart pulldown</string>
+    <string name="shortcut_action_smart">Smart Pulldown</string>
 
     <string name="shortcut_action_longpress">Longpress:</string>
     <string name="shortcut_action_select_action_longpress">Choose Longpress Action:</string>
@@ -237,7 +237,7 @@
     <string name="shortcut_action_help_main">To add a %1$s, select the Add icon. Once a %1$s is added, selecting the row will change the target%2$s\n\nTo remove a %1$s, swipe the row horizontally left or right. Re-order a %1$s in the list by vertically dragging the anchor on the left.\n\nTo clear or reset to defaults, select the Reset icon.</string>
     <string name="shortcut_action_help_delete_last_entry">Removing every %1$s in the list will disable the feature entirely.</string>
     <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Removing every %1$s in the list will disable the second pie layer entirely.</string>
-    <string name="shortcut_action_theme_switch">Theme switcher</string>
+    <string name="shortcut_action_theme_switch">Theme Switcher</string>
     <string name="shortcut_action_airplane">Airplane mode</string>
     <string name="shortcut_action_power_off">Power off</string>
     <string name="shortcut_action_reboot">Reboot</string>
@@ -1438,8 +1438,8 @@
     <!-- Themes -->
     <string name="theme_settings_title">Cyanide Blackout</string>
     <string name="theme_auto_mode_title">Switch theme</string>
-    <string name="theme_override_custom_colors_title">Override custom colors</string>
-    <string name="theme_override_custom_colors_summary">Override custom notification and qs colors</string>
+    <string name="theme_override_custom_colors_title">Override Custom Colors</string>
+    <string name="theme_override_custom_colors_summary">This will allow blackout to set the colors over power menu, quick settings and notifications. May require a reboot</string>
     <string name="theme_auto_mode_off">Manual</string>
     <string name="theme_auto_mode_lightsensor">On light condition change (experimental)</string>
     <string name="theme_auto_mode_twilight">On daytime</string>

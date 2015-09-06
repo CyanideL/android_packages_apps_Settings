@@ -963,7 +963,7 @@
 	<string name="qs_tile_hwkeys">Hardware Keys</string>
 	<string name="qs_tile_heads_up">Heads Up</string>
 	<string name="qs_tile_music_play">Play</string>
-	<string name="qs_tile_trds">TRDS</string>
+	<string name="qs_tile_trds">Cyanide Blackout</string>
 	<string name="qs_tile_appsidebar">App SideBar</string>
 	<string name="qs_tile_powermenu">Power Menu</string>
 	<string name="qs_tile_systemui_restart">Restart SystemUI</string>
