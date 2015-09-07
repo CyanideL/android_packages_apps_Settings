@@ -325,7 +325,7 @@ public class StatusBarNotifStatusAreaSettings extends SettingsPreferenceFragment
                                     CYANIDE_BLUE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NOTIF_COUNT_ICON_COLOR,
-                                    CYANIDE_BLUE);
+                                    0xff00ff00);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NOTIF_COUNT_TEXT_COLOR,
                                     CYANIDE_BLUE);
