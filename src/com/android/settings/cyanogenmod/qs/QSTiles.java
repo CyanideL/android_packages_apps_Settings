@@ -219,7 +219,7 @@ public class QSTiles extends Fragment implements
             ImageView icon = (ImageView) qsTile.findViewById(android.R.id.icon);
             Drawable d = Utils.getNamedDrawable(getSystemUIContext(getActivity()),
                     item.resourceName);
-            d.setColorFilter(getIconColor(), PorterDuff.Mode.SRC_ATOP);
+            if (d != null) d.setColorFilter(getIconColor(), PorterDuff.Mode.SRC_ATOP);
             icon.setImageDrawable(d);
             TextView title = (TextView) qsTile.findViewById(android.R.id.title);
             title.setText(item.name);

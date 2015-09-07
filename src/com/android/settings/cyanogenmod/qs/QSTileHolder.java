@@ -223,7 +223,7 @@ public class QSTileHolder {
                 stringId = R.string.qs_tile_music_play;
                 break;
             case QSConstants.TILE_TRDS:
-                resourceName = "ic_qs_trds_on";
+                resourceName = "ic_qs_blackout";
                 stringId = R.string.qs_tile_trds;
                 break;
             case QSConstants.TILE_APPSIDEBAR:
