@@ -50,12 +50,27 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
     private static final String PREF_BLOCK_ON_SECURE_KEYGUARD = "block_on_secure_keyguard";
     private static final String PANEL = "qs_cat_panel";
     private static final String BAR = "qs_cat_bar";
+    private static final String PREF_QS_OPTIONS_CAT = "qs_options_cat";
+    private static final String QS_MAIN_TILES = "sysui_qs_main_tiles";
+    private static final String QS_VIBRATE = "quick_settings_vibrate";
+    private static final String QS_COLLAPSE_PANEL = "quick_settings_collapse_panel";
+    private static final String QS_SHOW_BRIGHTNESS_SLIDER = "qs_show_brightness_slider";
+    private static final String QS_WIFI_DETAIL = "qs_wifi_detail";
+    private static final String QS_LOCATION_ADVANCED = "qs_location_advanced";
+    private static final String QS_LS_HIDE_TILES_SENSITIVE_DATA = "lockscreen_hide_qs_tiles_with_sensitive_data";
 
     private ListPreference mQSType;
     private ListPreference mQuickPulldown;
     private ListPreference mSmartPulldown;
     private SwitchPreference mBlockOnSecureKeyguard;
     private ListPreference mNumColumns;
+    private SwitchPreference mQsMainTiles;
+    private SwitchPreference mQsVibrate;
+    private SwitchPreference mQsCollapsePanel;
+    private SwitchPreference mQsHideSensitiveData;
+    private SwitchPreference mQsBrightnessSlider;
+    private SwitchPreference mQsWifiDetail;
+    private SwitchPreference mQsLocationAdvanced;
 
     private ContentResolver mResolver;
 
@@ -93,6 +108,9 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
         mQSType.setSummary(mQSType.getEntry());
         mQSType.setOnPreferenceChangeListener(this);
 
+        PreferenceCategory qsPanelOptionsCat = 
+                (PreferenceCategory) findPreference(PREF_QS_OPTIONS_CAT);
+
         mQuickPulldown = (ListPreference) findPreference(QUICK_PULLDOWN);
         mQuickPulldown.setOnPreferenceChangeListener(this);
         int quickPulldownValue = Settings.System.getIntForUser(mResolver,
@@ -125,7 +143,50 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
         mNumColumns.setOnPreferenceChangeListener(this);
         DraggableGridView.setColumnCount(numColumns);
 
+        mQsMainTiles = (SwitchPreference) findPreference(QS_MAIN_TILES);
+        mQsMainTiles.setChecked(Settings.Secure.getInt(mResolver,
+            Settings.Secure.QS_USE_MAIN_TILES, 1) == 1);
+        mQsMainTiles.setOnPreferenceChangeListener(this);
+
+        mQsVibrate = (SwitchPreference) findPreference(QS_VIBRATE);
+        mQsVibrate.setChecked(Settings.System.getInt(mResolver,
+            Settings.System.QUICK_SETTINGS_TILES_VIBRATE, 0) == 1);
+        mQsVibrate.setOnPreferenceChangeListener(this);
+
+        mQsCollapsePanel = (SwitchPreference) findPreference(QS_COLLAPSE_PANEL);
+        mQsCollapsePanel.setChecked(Settings.System.getInt(mResolver,
+            Settings.System.QUICK_SETTINGS_COLLAPSE_PANEL, 0) == 1);
+        mQsCollapsePanel.setOnPreferenceChangeListener(this);
+
+        mQsHideSensitiveData = (SwitchPreference) findPreference(QS_LS_HIDE_TILES_SENSITIVE_DATA);
+        mQsHideSensitiveData.setChecked(Settings.Secure.getInt(mResolver,
+            Settings.Secure.LOCKSCREEN_HIDE_TILES_WITH_SENSITIVE_DATA, 0) == 1);
+        mQsHideSensitiveData.setOnPreferenceChangeListener(this);
+
+        mQsBrightnessSlider = (SwitchPreference) findPreference(QS_SHOW_BRIGHTNESS_SLIDER);
+        mQsBrightnessSlider.setChecked(Settings.Secure.getInt(mResolver,
+            Settings.Secure.QS_SHOW_BRIGHTNESS_SLIDER, 1) == 1);
+        mQsBrightnessSlider.setOnPreferenceChangeListener(this);
+
+        mQsWifiDetail = (SwitchPreference) findPreference(QS_WIFI_DETAIL);
+        mQsWifiDetail.setChecked(Settings.Secure.getInt(mResolver,
+            Settings.Secure.QS_WIFI_DETAIL, 0) == 1);
+        mQsWifiDetail.setOnPreferenceChangeListener(this);
+
+        mQsLocationAdvanced = (SwitchPreference) findPreference(QS_LOCATION_ADVANCED);
+        mQsLocationAdvanced.setChecked(Settings.Secure.getInt(mResolver,
+            Settings.Secure.QS_LOCATION_ADVANCED, 0) == 1);
+        mQsLocationAdvanced.setOnPreferenceChangeListener(this);
+
         if (panelType) {
+            qsPanelOptionsCat.removePreference(mQsMainTiles);
+            qsPanelOptionsCat.removePreference(mNumColumns);
+            qsPanelOptionsCat.removePreference(mQsVibrate);
+            qsPanelOptionsCat.removePreference(mQsCollapsePanel);
+            qsPanelOptionsCat.removePreference(mQsHideSensitiveData);
+            qsPanelOptionsCat.removePreference(mQsBrightnessSlider);
+            qsPanelOptionsCat.removePreference(mQsWifiDetail);
+            qsPanelOptionsCat.removePreference(mQsLocationAdvanced);
             removePreference(PANEL);
         } else {
             removePreference(BAR);
@@ -133,6 +194,17 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
         if (noPanel) {
             removePreference(PANEL);
             removePreference(BAR);
+            qsPanelOptionsCat.removePreference(mQsMainTiles);
+            qsPanelOptionsCat.removePreference(mNumColumns);
+            qsPanelOptionsCat.removePreference(mQuickPulldown);
+            qsPanelOptionsCat.removePreference(mSmartPulldown);
+            qsPanelOptionsCat.removePreference(mQsVibrate);
+            qsPanelOptionsCat.removePreference(mQsCollapsePanel);
+            qsPanelOptionsCat.removePreference(mQsHideSensitiveData);
+            qsPanelOptionsCat.removePreference(mQsBrightnessSlider);
+            qsPanelOptionsCat.removePreference(mQsWifiDetail);
+            qsPanelOptionsCat.removePreference(mQsLocationAdvanced);
+            qsPanelOptionsCat.removePreference(mBlockOnSecureKeyguard);
         }
     }
 
@@ -179,7 +251,37 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
             updateNumColumnsSummary(numColumns);
             DraggableGridView.setColumnCount(numColumns);
             return true;
-		}
+		} else if (preference == mQsVibrate) {
+            Settings.System.putInt(mResolver,
+                    Settings.System.QUICK_SETTINGS_TILES_VIBRATE,
+            (Boolean) newValue ? 1 : 0);
+            return true;
+       } else if (preference == mQsCollapsePanel) {
+            Settings.System.putInt(mResolver,
+                    Settings.System.QUICK_SETTINGS_COLLAPSE_PANEL,
+            (Boolean) newValue ? 1 : 0);
+            return true;
+       } else if (preference == mQsHideSensitiveData) {
+            Settings.Secure.putInt(mResolver,
+                    Settings.Secure.LOCKSCREEN_HIDE_TILES_WITH_SENSITIVE_DATA,
+            (Boolean) newValue ? 1 : 0);
+            return true;
+       } else if (preference == mQsBrightnessSlider) {
+            Settings.Secure.putInt(mResolver,
+                    Settings.Secure.QS_SHOW_BRIGHTNESS_SLIDER,
+            (Boolean) newValue ? 1 : 0);
+            return true;
+       } else if (preference == mQsWifiDetail) {
+            Settings.Secure.putInt(mResolver,
+                    Settings.Secure.QS_WIFI_DETAIL,
+            (Boolean) newValue ? 1 : 0);
+            return true;
+       } else if (preference == mQsLocationAdvanced) {
+            Settings.Secure.putInt(mResolver,
+                    Settings.Secure.QS_LOCATION_ADVANCED,
+            (Boolean) newValue ? 1 : 0);
+            return true;
+        }
         return false;
     }
 
