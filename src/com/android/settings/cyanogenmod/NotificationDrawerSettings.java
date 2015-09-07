@@ -48,6 +48,8 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
     private static final String QUICK_PULLDOWN = "quick_pulldown";
     private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
     private static final String PREF_BLOCK_ON_SECURE_KEYGUARD = "block_on_secure_keyguard";
+    private static final String PANEL = "qs_cat_panel";
+    private static final String BAR = "qs_cat_bar";
 
     private ListPreference mQSType;
     private ListPreference mQuickPulldown;
@@ -60,15 +62,29 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.notification_drawer_settings);
+        refreshSettings();
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        refreshSettings();
+    }
 
-        PreferenceScreen prefSet = getPreferenceScreen();
+    public void refreshSettings() {
+        PreferenceScreen prefs = getPreferenceScreen();
+        if (prefs != null) {
+            prefs.removeAll();
+        }
+
+        addPreferencesFromResource(R.xml.notification_drawer_settings);
         mResolver = getActivity().getContentResolver();
+
+        boolean panelType = Settings.System.getInt(mResolver,
+                Settings.System.QS_TYPE, 0) == 1;
+
+        boolean noPanel = Settings.System.getInt(mResolver,
+                Settings.System.QS_TYPE, 2) == 2;
 
         mQSType = (ListPreference) findPreference(PREF_QS_TYPE);
         int type = Settings.System.getInt(mResolver,
@@ -77,7 +93,7 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
         mQSType.setSummary(mQSType.getEntry());
         mQSType.setOnPreferenceChangeListener(this);
 
-        mQuickPulldown = (ListPreference) prefSet.findPreference(QUICK_PULLDOWN);
+        mQuickPulldown = (ListPreference) findPreference(QUICK_PULLDOWN);
         mQuickPulldown.setOnPreferenceChangeListener(this);
         int quickPulldownValue = Settings.System.getIntForUser(mResolver,
                 Settings.System.QS_QUICK_PULLDOWN, 1, UserHandle.USER_CURRENT);
@@ -100,7 +116,7 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
             mBlockOnSecureKeyguard.setOnPreferenceChangeListener(this);
 		}
 
-        mNumColumns = (ListPreference) prefSet.findPreference("sysui_qs_num_columns");
+        mNumColumns = (ListPreference) findPreference("sysui_qs_num_columns");
         int numColumns = Settings.Secure.getIntForUser(mResolver,
                 Settings.Secure.QS_NUM_TILE_COLUMNS, getDefaultNumColums(),
                 UserHandle.USER_CURRENT);
@@ -108,6 +124,16 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
         updateNumColumnsSummary(numColumns);
         mNumColumns.setOnPreferenceChangeListener(this);
         DraggableGridView.setColumnCount(numColumns);
+
+        if (panelType) {
+            removePreference(PANEL);
+        } else {
+            removePreference(BAR);
+        }
+        if (noPanel) {
+            removePreference(PANEL);
+            removePreference(BAR);
+        }
     }
 
     /*@Override
@@ -127,6 +153,7 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
             Settings.System.putInt(mResolver,
                 Settings.System.QS_TYPE, intValue);
             preference.setSummary(mQSType.getEntries()[index]);
+            refreshSettings();
             return true;
         } else if (preference == mQuickPulldown) {
             int quickPulldownValue = Integer.valueOf((String) newValue);
