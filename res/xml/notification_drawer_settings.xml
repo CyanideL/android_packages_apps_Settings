@@ -74,7 +74,7 @@
                 <extra android:name="actionValues" android:value="shortcut_action_tile_values" />
                 <extra android:name="actionEntries" android:value="shortcut_action_tile_entries" />
                 <extra android:name="fragment" android:value="com.android.settings.cyanide.fragments.QuickTileFragment" />
-    </PreferenceScreen>
+        </PreferenceScreen>
 
 		<SwitchPreference
             android:key="qs_location_advanced"
@@ -119,12 +119,6 @@
         <SwitchPreference
             android:key="sysui_qs_main_tiles"
             android:title="@string/qs_main_tiles_title"
-            android:defaultValue="false" />
-
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-            android:key="force_expanded_notifications"
-            android:title="@string/notification_force_expand_title"
-            android:summary="@string/notification_force_expand_summary"
             android:defaultValue="false" />
 
         <ListPreference

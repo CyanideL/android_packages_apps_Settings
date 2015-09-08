@@ -52,12 +52,15 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
     private static final String BAR = "qs_cat_bar";
     private static final String PREF_QS_OPTIONS_CAT = "qs_options_cat";
     private static final String QS_MAIN_TILES = "sysui_qs_main_tiles";
+    private static final String QS_NUM_COLUMNS = "sysui_qs_num_columns";
     private static final String QS_VIBRATE = "quick_settings_vibrate";
     private static final String QS_COLLAPSE_PANEL = "quick_settings_collapse_panel";
     private static final String QS_SHOW_BRIGHTNESS_SLIDER = "qs_show_brightness_slider";
     private static final String QS_WIFI_DETAIL = "qs_wifi_detail";
     private static final String QS_LOCATION_ADVANCED = "qs_location_advanced";
     private static final String QS_LS_HIDE_TILES_SENSITIVE_DATA = "lockscreen_hide_qs_tiles_with_sensitive_data";
+
+    private PreferenceCategory mPanelBarOptions;
 
     private ListPreference mQSType;
     private ListPreference mQuickPulldown;
@@ -95,21 +98,14 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
         addPreferencesFromResource(R.xml.notification_drawer_settings);
         mResolver = getActivity().getContentResolver();
 
-        boolean panelType = Settings.System.getInt(mResolver,
-                Settings.System.QS_TYPE, 0) == 1;
-
-        boolean noPanel = Settings.System.getInt(mResolver,
-                Settings.System.QS_TYPE, 2) == 2;
-
         mQSType = (ListPreference) findPreference(PREF_QS_TYPE);
+        mQSType.setOnPreferenceChangeListener(this);
         int type = Settings.System.getInt(mResolver,
                Settings.System.QS_TYPE, 0);
         mQSType.setValue(String.valueOf(type));
         mQSType.setSummary(mQSType.getEntry());
-        mQSType.setOnPreferenceChangeListener(this);
 
-        PreferenceCategory qsPanelOptionsCat = 
-                (PreferenceCategory) findPreference(PREF_QS_OPTIONS_CAT);
+        mPanelBarOptions = (PreferenceCategory) findPreference(PREF_QS_OPTIONS_CAT);
 
         mQuickPulldown = (ListPreference) findPreference(QUICK_PULLDOWN);
         mQuickPulldown.setOnPreferenceChangeListener(this);
@@ -130,7 +126,7 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
         mBlockOnSecureKeyguard = (SwitchPreference) findPreference(PREF_BLOCK_ON_SECURE_KEYGUARD);
         if (lockPatternUtils.isSecure()) {
             mBlockOnSecureKeyguard.setChecked(Settings.Secure.getInt(mResolver,
-                    Settings.Secure.STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD, 1) == 1);
+                    Settings.Secure.STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD, 0) == 1);
             mBlockOnSecureKeyguard.setOnPreferenceChangeListener(this);
 		}
 
@@ -145,7 +141,7 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
 
         mQsMainTiles = (SwitchPreference) findPreference(QS_MAIN_TILES);
         mQsMainTiles.setChecked(Settings.Secure.getInt(mResolver,
-            Settings.Secure.QS_USE_MAIN_TILES, 1) == 1);
+            Settings.Secure.QS_USE_MAIN_TILES, 0) == 1);
         mQsMainTiles.setOnPreferenceChangeListener(this);
 
         mQsVibrate = (SwitchPreference) findPreference(QS_VIBRATE);
@@ -178,34 +174,8 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
             Settings.Secure.QS_LOCATION_ADVANCED, 0) == 1);
         mQsLocationAdvanced.setOnPreferenceChangeListener(this);
 
-        if (panelType) {
-            qsPanelOptionsCat.removePreference(mQsMainTiles);
-            qsPanelOptionsCat.removePreference(mNumColumns);
-            qsPanelOptionsCat.removePreference(mQsVibrate);
-            qsPanelOptionsCat.removePreference(mQsCollapsePanel);
-            qsPanelOptionsCat.removePreference(mQsHideSensitiveData);
-            qsPanelOptionsCat.removePreference(mQsBrightnessSlider);
-            qsPanelOptionsCat.removePreference(mQsWifiDetail);
-            qsPanelOptionsCat.removePreference(mQsLocationAdvanced);
-            removePreference(PANEL);
-        } else {
-            removePreference(BAR);
-        }
-        if (noPanel) {
-            removePreference(PANEL);
-            removePreference(BAR);
-            qsPanelOptionsCat.removePreference(mQsMainTiles);
-            qsPanelOptionsCat.removePreference(mNumColumns);
-            qsPanelOptionsCat.removePreference(mQuickPulldown);
-            qsPanelOptionsCat.removePreference(mSmartPulldown);
-            qsPanelOptionsCat.removePreference(mQsVibrate);
-            qsPanelOptionsCat.removePreference(mQsCollapsePanel);
-            qsPanelOptionsCat.removePreference(mQsHideSensitiveData);
-            qsPanelOptionsCat.removePreference(mQsBrightnessSlider);
-            qsPanelOptionsCat.removePreference(mQsWifiDetail);
-            qsPanelOptionsCat.removePreference(mQsLocationAdvanced);
-            qsPanelOptionsCat.removePreference(mBlockOnSecureKeyguard);
-        }
+        hideBarOptions();
+        hideAllOptions();
     }
 
     /*@Override
@@ -225,6 +195,8 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
             Settings.System.putInt(mResolver,
                 Settings.System.QS_TYPE, intValue);
             preference.setSummary(mQSType.getEntries()[index]);
+            hideBarOptions();
+            hideAllOptions();
             refreshSettings();
             return true;
         } else if (preference == mQuickPulldown) {
@@ -250,6 +222,11 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
                     numColumns, UserHandle.USER_CURRENT);
             updateNumColumnsSummary(numColumns);
             DraggableGridView.setColumnCount(numColumns);
+            return true;
+		} else if (preference == mQsMainTiles) {
+            Settings.Secure.putInt(mResolver,
+                    Settings.Secure.QS_USE_MAIN_TILES,
+            (Boolean) newValue ? 1 : 0);
             return true;
 		} else if (preference == mQsVibrate) {
             Settings.System.putInt(mResolver,
@@ -340,6 +317,38 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
             return Math.max(1, val);
         } catch (Exception e) {
             return 3;
+        }
+    }
+
+    private void hideBarOptions() {
+        if (Settings.System.getInt(mResolver,
+            Settings.System.QS_TYPE, 0) == 0) {
+            removePreference(BAR);
+        } else {
+            removePreference(PANEL);
+            hidePanelOptions();
+        }
+    }
+
+    private void hidePanelOptions() {
+        if (Settings.System.getInt(mResolver,
+            Settings.System.QS_TYPE, 1) == 1) {
+            mPanelBarOptions.removePreference(mQsMainTiles);
+            mPanelBarOptions.removePreference(mNumColumns);
+            mPanelBarOptions.removePreference(mQsVibrate);
+            mPanelBarOptions.removePreference(mQsCollapsePanel);
+            mPanelBarOptions.removePreference(mQsHideSensitiveData);
+            mPanelBarOptions.removePreference(mQsBrightnessSlider);
+            mPanelBarOptions.removePreference(mQsWifiDetail);
+            mPanelBarOptions.removePreference(mQsLocationAdvanced);
+        }
+    }
+
+    private void hideAllOptions() {
+        if (Settings.System.getInt(mResolver,
+            Settings.System.QS_TYPE, 2) == 2) {
+            removePreference(BAR);
+            removePreference(PREF_QS_OPTIONS_CAT);
         }
     }
 
