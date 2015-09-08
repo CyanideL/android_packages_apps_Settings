@@ -85,7 +85,7 @@ public class StatusLogo extends SettingsPreferenceFragment implements OnPreferen
 
         mShowCyanideLogo = (ListPreference) findPreference(STATUS_BAR_CYANIDE_LOGO_SHOW);
         int showCyanideLogo = Settings.System.getIntForUser(mResolver,
-                Settings.System.STATUS_BAR_CYANIDE_LOGO_SHOW, 0,
+                Settings.System.STATUS_BAR_CYANIDE_LOGO_SHOW, 3,
                 UserHandle.USER_CURRENT);
         mShowCyanideLogo.setValue(String.valueOf(showCyanideLogo));
         mShowCyanideLogo.setSummary(mShowCyanideLogo.getEntry());

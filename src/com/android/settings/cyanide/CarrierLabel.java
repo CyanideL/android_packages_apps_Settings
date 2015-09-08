@@ -92,7 +92,7 @@ public class CarrierLabel extends SettingsPreferenceFragment implements OnPrefer
         String hexColor;
 
         mStatusBarCarrier = (ListPreference) findPreference(STATUS_BAR_CUSTOM_CARRIER);
-        int statusBarCarrier = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_CUSTOM_CARRIER, 1);
+        int statusBarCarrier = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_CUSTOM_CARRIER, 0);
         mStatusBarCarrier.setValue(String.valueOf(statusBarCarrier));
         mStatusBarCarrier.setSummary(mStatusBarCarrier.getEntry());
         mStatusBarCarrier.setOnPreferenceChangeListener(this);
