@@ -25,6 +25,7 @@ import android.content.DialogInterface.OnCancelListener;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
@@ -41,6 +42,11 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
 
     private static final String SHOW_CYANIDE_BUTTON = "show_cyanide_button";
     private static final String PREF_ENABLE_TASK_MANAGER = "enable_task_manager";
+    private static final String TASK_MANAGER_CAT_COLORS = "task_manager_options";
+    private static final String TASK_MANAGER_APP_COLOR = "task_manager_app_color";
+    private static final String TASK_MANAGER_TASK_TEXT_COLOR = "task_manager_task_text_color";
+    private static final String TASK_MANAGER_TITLE_TEXT_COLOR = "task_manager_title_text_color";
+    private static final String TASK_MANAGER_MEMORY_TEXT_COLOR = "task_manager_memory_text_color";
     private static final String STATUS_BAR_POWER_MENU = "status_bar_power_menu";
     private static final String PREF_SHOW_WEATHER = "expanded_header_show_weather";
     private static final String PREF_SHOW_LOCATION = "expanded_header_show_weather_location";
@@ -63,6 +69,10 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
     private ColorPickerPreference mBackgroundColor;
     private ColorPickerPreference mTextColor;
     private ColorPickerPreference mIconColor;
+    private ColorPickerPreference mTaskAppColor;
+    private ColorPickerPreference mTaskTextColor;
+    private ColorPickerPreference mTaskTitleColor;
+    private ColorPickerPreference mTaskMemTextColor;
 
     private ContentResolver mResolver;
 
@@ -120,6 +130,48 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
             removePreference(PREF_SHOW_LOCATION);
         }
 
+        PreferenceCategory taskColors =
+                (PreferenceCategory) findPreference(TASK_MANAGER_CAT_COLORS);
+
+        if (enableTaskManager) {
+            mTaskAppColor = (ColorPickerPreference) findPreference(TASK_MANAGER_APP_COLOR);
+            intColor = Settings.System.getInt(mResolver,
+                    Settings.System.TASK_MANAGER_APP_COLOR,
+                    DEFAULT_COLOR); 
+            mTaskAppColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mTaskAppColor.setSummary(hexColor);
+            mTaskAppColor.setOnPreferenceChangeListener(this);
+
+            mTaskTextColor = (ColorPickerPreference) findPreference(TASK_MANAGER_TASK_TEXT_COLOR);
+            intColor = Settings.System.getInt(mResolver,
+                    Settings.System.TASK_MANAGER_TASK_TEXT_COLOR,
+                    DEFAULT_COLOR); 
+            mTaskTextColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mTaskTextColor.setSummary(hexColor);
+            mTaskTextColor.setOnPreferenceChangeListener(this);
+
+            mTaskTitleColor = (ColorPickerPreference) findPreference(TASK_MANAGER_TITLE_TEXT_COLOR);
+            intColor = Settings.System.getInt(mResolver,
+                    Settings.System.TASK_MANAGER_TITLE_TEXT_COLOR,
+                    DEFAULT_COLOR); 
+            mTaskTitleColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mTaskTitleColor.setSummary(hexColor);
+            mTaskTitleColor.setOnPreferenceChangeListener(this);
+
+            mTaskMemTextColor = (ColorPickerPreference) findPreference(TASK_MANAGER_MEMORY_TEXT_COLOR);
+            intColor = Settings.System.getInt(mResolver,
+                    Settings.System.TASK_MANAGER_MEMORY_TEXT_COLOR,
+                    DEFAULT_COLOR); 
+            mTaskMemTextColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mTaskMemTextColor.setSummary(hexColor);
+            mTaskMemTextColor.setOnPreferenceChangeListener(this);
+        } else {
+            removePreference(TASK_MANAGER_CAT_COLORS);
+        }
         mBackgroundColor =
                 (ColorPickerPreference) findPreference(PREF_BG_COLOR);
         intColor = Settings.System.getInt(mResolver,
@@ -198,6 +250,7 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
             Settings.System.putInt(mResolver,
                 Settings.System.ENABLE_TASK_MANAGER,
                 value ? 1 : 0);
+            refreshSettings();
             return true;
         } else if (preference == mShowWeather) {
             value = (Boolean) newValue;
@@ -211,6 +264,38 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
             Settings.System.putInt(mResolver,
                 Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER_LOCATION,
                 value ? 1 : 0);
+            return true;
+        } else if (preference == mTaskAppColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                Settings.System.TASK_MANAGER_APP_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mTaskTextColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                Settings.System.TASK_MANAGER_TASK_TEXT_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mTaskTitleColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                Settings.System.TASK_MANAGER_TITLE_TEXT_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mTaskMemTextColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                Settings.System.TASK_MANAGER_MEMORY_TEXT_COLOR, intHex);
+            preference.setSummary(hex);
             return true;
         } else if (preference == mBackgroundColor) {
             hex = ColorPickerPreference.convertToARGB(
