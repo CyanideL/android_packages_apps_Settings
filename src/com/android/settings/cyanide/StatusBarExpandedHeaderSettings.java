@@ -36,23 +36,21 @@ import android.view.MenuItem;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
+import com.android.internal.util.cyanide.QsDeviceUtils;
 
 public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String SHOW_CYANIDE_BUTTON = "show_cyanide_button";
-    private static final String PREF_ENABLE_TASK_MANAGER = "enable_task_manager";
-    private static final String TASK_MANAGER_CAT_COLORS = "task_manager_options";
-    private static final String TASK_MANAGER_APP_COLOR = "task_manager_app_color";
-    private static final String TASK_MANAGER_TASK_TEXT_COLOR = "task_manager_task_text_color";
-    private static final String TASK_MANAGER_TITLE_TEXT_COLOR = "task_manager_title_text_color";
-    private static final String TASK_MANAGER_MEMORY_TEXT_COLOR = "task_manager_memory_text_color";
+    private static final String KEY_BUTTONS_CATEGORY = "expanded_header_cat_qs";
     private static final String STATUS_BAR_POWER_MENU = "status_bar_power_menu";
     private static final String PREF_SHOW_WEATHER = "expanded_header_show_weather";
     private static final String PREF_SHOW_LOCATION = "expanded_header_show_weather_location";
     private static final String PREF_BG_COLOR = "expanded_header_background_color";
     private static final String PREF_TEXT_COLOR = "expanded_header_text_color";
     private static final String PREF_ICON_COLOR = "expanded_header_icon_color";
+    private static final String PREF_SHOW_QS_BUTTON = "expanded_header_show_qs_button";
+    private static final String PREF_SHOW_TORCH_BUTTON = "expanded_header_show_torch_button";
+    private static final String PREF_RIPPLE_COLOR = "expanded_header_ripple_color";
 
     private static final int DEFAULT_COLOR = 0xffffffff;
     private static final int CYANIDE_BLUE = 0xff1976D2;
@@ -61,18 +59,15 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
-    private SwitchPreference mEnableCyanideButton;
-    private SwitchPreference mEnableTaskManager;
     private ListPreference mStatusBarPowerMenu;
     private SwitchPreference mShowWeather;
     private SwitchPreference mShowLocation;
+    private SwitchPreference mShowQsButton;
+    private SwitchPreference mShowTorchButton;
     private ColorPickerPreference mBackgroundColor;
     private ColorPickerPreference mTextColor;
     private ColorPickerPreference mIconColor;
-    private ColorPickerPreference mTaskAppColor;
-    private ColorPickerPreference mTaskTextColor;
-    private ColorPickerPreference mTaskTitleColor;
-    private ColorPickerPreference mTaskMemTextColor;
+    private ColorPickerPreference mRippleColor;
 
     private ContentResolver mResolver;
 
@@ -91,19 +86,11 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         addPreferencesFromResource(R.xml.cyanide_status_bar_expanded_header_settings);
         mResolver = getActivity().getContentResolver();
 
-        boolean enableTaskManager = Settings.System.getInt(mResolver,
-                Settings.System.ENABLE_TASK_MANAGER, 0) == 1;
-
         boolean showWeather = Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER, 0) == 1;
 
         int intColor;
         String hexColor;
-
-        mEnableCyanideButton = (SwitchPreference) findPreference(SHOW_CYANIDE_BUTTON);
-        mEnableCyanideButton.setChecked(Settings.System.getInt(mResolver,
-                    Settings.System.SHOW_CYANIDE_BUTTON, 1) == 1);
-        mEnableCyanideButton.setOnPreferenceChangeListener(this);
 
         // status bar power menu
         mStatusBarPowerMenu = (ListPreference) findPreference(STATUS_BAR_POWER_MENU);
@@ -112,10 +99,6 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                 STATUS_BAR_POWER_MENU, 2);
         mStatusBarPowerMenu.setValue(String.valueOf(statusBarPowerMenu));
         mStatusBarPowerMenu.setSummary(mStatusBarPowerMenu.getEntry());
-
-        mEnableTaskManager = (SwitchPreference) findPreference(PREF_ENABLE_TASK_MANAGER);
-        mEnableTaskManager.setChecked(enableTaskManager);
-        mEnableTaskManager.setOnPreferenceChangeListener(this);
 
         mShowWeather = (SwitchPreference) findPreference(PREF_SHOW_WEATHER);
         mShowWeather.setChecked(showWeather);
@@ -130,48 +113,30 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
             removePreference(PREF_SHOW_LOCATION);
         }
 
-        PreferenceCategory taskColors =
-                (PreferenceCategory) findPreference(TASK_MANAGER_CAT_COLORS);
+        PreferenceCategory buttonsCategory = (PreferenceCategory)
+                findPreference(KEY_BUTTONS_CATEGORY);
 
-        if (enableTaskManager) {
-            mTaskAppColor = (ColorPickerPreference) findPreference(TASK_MANAGER_APP_COLOR);
-            intColor = Settings.System.getInt(mResolver,
-                    Settings.System.TASK_MANAGER_APP_COLOR,
-                    DEFAULT_COLOR); 
-            mTaskAppColor.setNewPreviewColor(intColor);
-            hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mTaskAppColor.setSummary(hexColor);
-            mTaskAppColor.setOnPreferenceChangeListener(this);
+        mShowQsButton =
+                (SwitchPreference) findPreference(PREF_SHOW_QS_BUTTON);
+        mShowQsButton.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_QS_BUTTON, 0) == 1);
+        mShowQsButton.setOnPreferenceChangeListener(this);
 
-            mTaskTextColor = (ColorPickerPreference) findPreference(TASK_MANAGER_TASK_TEXT_COLOR);
-            intColor = Settings.System.getInt(mResolver,
-                    Settings.System.TASK_MANAGER_TASK_TEXT_COLOR,
-                    DEFAULT_COLOR); 
-            mTaskTextColor.setNewPreviewColor(intColor);
-            hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mTaskTextColor.setSummary(hexColor);
-            mTaskTextColor.setOnPreferenceChangeListener(this);
+        mShowTorchButton =
+                (SwitchPreference) findPreference(PREF_SHOW_TORCH_BUTTON);
+        mShowTorchButton.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_TORCH_BUTTON, 0) == 1);
+        mShowTorchButton.setOnPreferenceChangeListener(this);
 
-            mTaskTitleColor = (ColorPickerPreference) findPreference(TASK_MANAGER_TITLE_TEXT_COLOR);
-            intColor = Settings.System.getInt(mResolver,
-                    Settings.System.TASK_MANAGER_TITLE_TEXT_COLOR,
-                    DEFAULT_COLOR); 
-            mTaskTitleColor.setNewPreviewColor(intColor);
-            hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mTaskTitleColor.setSummary(hexColor);
-            mTaskTitleColor.setOnPreferenceChangeListener(this);
-
-            mTaskMemTextColor = (ColorPickerPreference) findPreference(TASK_MANAGER_MEMORY_TEXT_COLOR);
-            intColor = Settings.System.getInt(mResolver,
-                    Settings.System.TASK_MANAGER_MEMORY_TEXT_COLOR,
-                    DEFAULT_COLOR); 
-            mTaskMemTextColor.setNewPreviewColor(intColor);
-            hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mTaskMemTextColor.setSummary(hexColor);
-            mTaskMemTextColor.setOnPreferenceChangeListener(this);
-        } else {
-            removePreference(TASK_MANAGER_CAT_COLORS);
+        // Remove Torch button switch for non-flash devices
+        if(!QsDeviceUtils.deviceSupportsFlashLight(getActivity()) && buttonsCategory != null) {
+            mShowTorchButton = (SwitchPreference) buttonsCategory
+                    .findPreference(PREF_SHOW_TORCH_BUTTON);
+            if (mShowTorchButton != null) {
+                buttonsCategory.removePreference(mShowTorchButton);
+            }
         }
+
         mBackgroundColor =
                 (ColorPickerPreference) findPreference(PREF_BG_COLOR);
         intColor = Settings.System.getInt(mResolver,
@@ -203,6 +168,16 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         mIconColor.setOnPreferenceChangeListener(this);
         mIconColor.setAlphaSliderEnabled(true);
 
+        mRippleColor =
+                (ColorPickerPreference) findPreference(PREF_RIPPLE_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.STATUS_BAR_EXPANDED_HEADER_RIPPLE_COLOR,
+                DEFAULT_COLOR); 
+        mRippleColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mRippleColor.setSummary(hexColor);
+        mRippleColor.setOnPreferenceChangeListener(this);
+
         setHasOptionsMenu(true);
     }
 
@@ -229,10 +204,16 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         String hex;
         int intHex;
 
-        if (preference == mEnableCyanideButton) {
+        if (preference == mShowQsButton) {
             value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
-                Settings.System.SHOW_CYANIDE_BUTTON,
+                Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_QS_BUTTON,
+                value ? 1 : 0);
+            return true;
+        } else if (preference == mShowTorchButton) {
+            value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_TORCH_BUTTON,
                 value ? 1 : 0);
             return true;
         } else if (preference == mStatusBarPowerMenu) {
@@ -244,13 +225,6 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                     .findIndexOfValue(statusBarPowerMenu);
             mStatusBarPowerMenu
                     .setSummary(mStatusBarPowerMenu.getEntries()[statusBarPowerMenuIndex]);
-            return true;
-        } else if (preference == mEnableTaskManager) {
-            value = (Boolean) newValue;
-            Settings.System.putInt(mResolver,
-                Settings.System.ENABLE_TASK_MANAGER,
-                value ? 1 : 0);
-            refreshSettings();
             return true;
         } else if (preference == mShowWeather) {
             value = (Boolean) newValue;
@@ -264,38 +238,6 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
             Settings.System.putInt(mResolver,
                 Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER_LOCATION,
                 value ? 1 : 0);
-            return true;
-        } else if (preference == mTaskAppColor) {
-            hex = ColorPickerPreference.convertToARGB(
-                Integer.valueOf(String.valueOf(newValue)));
-            intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(mResolver,
-                Settings.System.TASK_MANAGER_APP_COLOR, intHex);
-            preference.setSummary(hex);
-            return true;
-        } else if (preference == mTaskTextColor) {
-            hex = ColorPickerPreference.convertToARGB(
-                Integer.valueOf(String.valueOf(newValue)));
-            intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(mResolver,
-                Settings.System.TASK_MANAGER_TASK_TEXT_COLOR, intHex);
-            preference.setSummary(hex);
-            return true;
-        } else if (preference == mTaskTitleColor) {
-            hex = ColorPickerPreference.convertToARGB(
-                Integer.valueOf(String.valueOf(newValue)));
-            intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(mResolver,
-                Settings.System.TASK_MANAGER_TITLE_TEXT_COLOR, intHex);
-            preference.setSummary(hex);
-            return true;
-        } else if (preference == mTaskMemTextColor) {
-            hex = ColorPickerPreference.convertToARGB(
-                Integer.valueOf(String.valueOf(newValue)));
-            intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(mResolver,
-                Settings.System.TASK_MANAGER_MEMORY_TEXT_COLOR, intHex);
-            preference.setSummary(hex);
             return true;
         } else if (preference == mBackgroundColor) {
             hex = ColorPickerPreference.convertToARGB(
@@ -321,6 +263,14 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                 Settings.System.STATUS_BAR_EXPANDED_HEADER_ICON_COLOR, intHex);
             preference.setSummary(hex);
             return true;
+        } else if (preference == mRippleColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                Settings.System.STATUS_BAR_EXPANDED_HEADER_RIPPLE_COLOR, intHex);
+            preference.setSummary(hex);
+             return true;
         }
         return false;
     }
@@ -358,11 +308,11 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.SHOW_CYANIDE_BUTTON, 0);
+                                    Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_QS_BUTTON, 0);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_TORCH_BUTTON, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_POWER_MENU, 0);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.ENABLE_TASK_MANAGER, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER, 0);
                             Settings.System.putInt(getOwner().mResolver,
@@ -376,6 +326,9 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_ICON_COLOR,
                                     DEFAULT_COLOR);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_EXPANDED_HEADER_RIPPLE_COLOR,
+                                    DEFAULT_COLOR);
                             getOwner().refreshSettings();
                         }
                     })
@@ -383,11 +336,11 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.SHOW_CYANIDE_BUTTON, 1);
+                                    Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_QS_BUTTON, 1);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_TORCH_BUTTON, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_POWER_MENU, 2);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.ENABLE_TASK_MANAGER, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER, 1);
                             Settings.System.putInt(getOwner().mResolver,
@@ -400,6 +353,9 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                                     CYANIDE_BLUE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_ICON_COLOR,
+                                    CYANIDE_BLUE);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_EXPANDED_HEADER_RIPPLE_COLOR,
                                     CYANIDE_BLUE);
                             getOwner().refreshSettings();
                         }

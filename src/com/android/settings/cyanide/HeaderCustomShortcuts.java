@@ -37,18 +37,14 @@ import com.android.settings.cyanide.AppSelectListPreference;
 public class HeaderCustomShortcuts extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String CLOCK_SHORTCUT = "clock_shortcut";
-    private static final String CLOCK_LONG_SHORTCUT = "clock_long_shortcut";
-    private static final String CALENDAR_SHORTCUT = "calendar_shortcut";
-    private static final String CALENDAR_LONG_SHORTCUT = "calendar_long_shortcut";
+    private static final String HEADER_BUTTON_SHORTCUT = "header_button_shortcut";
+    private static final String HEADER_BUTTON_LONG_SHORTCUT = "header_button_long_shortcut";
     private static final String CYANIDE_SHORTCUT = "cyanide_shortcut";
     private static final String CYANIDE_LONG_SHORTCUT = "cyanide_long_shortcut";
     private static final String WEATHER_LONG_SHORTCUT = "weather_long_shortcut";
 
-    private AppSelectListPreference mClockShortcut;
-    private AppSelectListPreference mClockLongShortcut;
-    private AppSelectListPreference mCalendarShortcut;
-    private AppSelectListPreference mCalendarLongShortcut;
+    private AppSelectListPreference mHeaderShortcut;
+    private AppSelectListPreference mHeaderLongShortcut;
     private AppSelectListPreference mCyanideShortcut;
     private AppSelectListPreference mCyanideLongShortcut;
     private AppSelectListPreference mWeatherLongShortcut;
@@ -62,17 +58,11 @@ public class HeaderCustomShortcuts extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.cyanide_header_custom_shortcuts);
         mResolver = getActivity().getContentResolver();
 
-        mClockShortcut = (AppSelectListPreference) findPreference(CLOCK_SHORTCUT);
-        mClockShortcut.setOnPreferenceChangeListener(this);
+        mHeaderShortcut = (AppSelectListPreference) findPreference(HEADER_BUTTON_SHORTCUT);
+        mHeaderShortcut.setOnPreferenceChangeListener(this);
 
-        mClockLongShortcut = (AppSelectListPreference) findPreference(CLOCK_LONG_SHORTCUT);
-        mClockLongShortcut.setOnPreferenceChangeListener(this);
-
-        mCalendarShortcut = (AppSelectListPreference) findPreference(CALENDAR_SHORTCUT);
-        mCalendarShortcut.setOnPreferenceChangeListener(this);
-
-        mCalendarLongShortcut = (AppSelectListPreference) findPreference(CALENDAR_LONG_SHORTCUT);
-        mCalendarLongShortcut.setOnPreferenceChangeListener(this);
+        mHeaderLongShortcut = (AppSelectListPreference) findPreference(HEADER_BUTTON_LONG_SHORTCUT);
+        mHeaderLongShortcut.setOnPreferenceChangeListener(this);
 
         mCyanideShortcut = (AppSelectListPreference) findPreference(CYANIDE_SHORTCUT);
         mCyanideShortcut.setOnPreferenceChangeListener(this);
@@ -87,21 +77,13 @@ public class HeaderCustomShortcuts extends SettingsPreferenceFragment implements
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mClockShortcut) {
+        if (preference == mHeaderShortcut) {
             String value = (String) newValue;
-            Settings.System.putString(mResolver, Settings.System.CLOCK_SHORTCUT, value);
+            Settings.System.putString(mResolver, Settings.System.HEADER_BUTTON_SHORTCUT, value);
             updateShortcutSummary();
-        } else if (preference == mClockLongShortcut) {
+        } else if (preference == mHeaderLongShortcut) {
             String value = (String) newValue;
-            Settings.System.putString(mResolver, Settings.System.CLOCK_LONG_SHORTCUT, value);
-            updateShortcutSummary();
-        } else if (preference == mCalendarShortcut) {
-            String value = (String) newValue;
-            Settings.System.putString(mResolver, Settings.System.CALENDAR_SHORTCUT, value);
-            updateShortcutSummary();
-        } else if (preference == mCalendarLongShortcut) {
-            String value = (String) newValue;
-            Settings.System.putString(mResolver, Settings.System.CALENDAR_LONG_SHORTCUT, value);
+            Settings.System.putString(mResolver, Settings.System.HEADER_BUTTON_LONG_SHORTCUT, value);
             updateShortcutSummary();
         } else if (preference == mCyanideShortcut) {
             String value = (String) newValue;
@@ -122,74 +104,38 @@ public class HeaderCustomShortcuts extends SettingsPreferenceFragment implements
     private void updateShortcutSummary() {
         final PackageManager packageManager = getPackageManager();
 
-        mClockShortcut.setSummary(getResources().getString(R.string.default_shortcut));
-        String clockShortcutIntentUri = Settings.System.getString(mResolver, Settings.System.CLOCK_SHORTCUT);
-        if (clockShortcutIntentUri != null) {
-            Intent clockShortcutIntent = null;
+        mHeaderShortcut.setSummary(getResources().getString(R.string.default_shortcut));
+        String headerShortcutIntentUri = Settings.System.getString(mResolver, Settings.System.HEADER_BUTTON_SHORTCUT);
+        if (headerShortcutIntentUri != null) {
+            Intent headerShortcutIntent = null;
             try {
-                clockShortcutIntent = Intent.parseUri(clockShortcutIntentUri, 0);
+                headerShortcutIntent = Intent.parseUri(headerShortcutIntentUri, 0);
             } catch (URISyntaxException e) {
-                clockShortcutIntent = null;
+                headerShortcutIntent = null;
             }
 
-            if(clockShortcutIntent != null) {
-                ResolveInfo info = packageManager.resolveActivity(clockShortcutIntent, 0);
+            if(headerShortcutIntent != null) {
+                ResolveInfo info = packageManager.resolveActivity(headerShortcutIntent, 0);
                 if (info != null) {
-                    mClockShortcut.setSummary(info.loadLabel(packageManager));
+                    mHeaderShortcut.setSummary(info.loadLabel(packageManager));
                 }
             }
         }
 
-        mClockLongShortcut.setSummary(getResources().getString(R.string.default_shortcut));
-        String clockLongShortcutIntentUri = Settings.System.getString(mResolver, Settings.System.CLOCK_LONG_SHORTCUT);
-        if (clockLongShortcutIntentUri != null) {
-            Intent clockLongShortcutIntent = null;
+        mHeaderLongShortcut.setSummary(getResources().getString(R.string.default_shortcut));
+        String headerLongShortcutIntentUri = Settings.System.getString(mResolver, Settings.System.HEADER_BUTTON_LONG_SHORTCUT);
+        if (headerLongShortcutIntentUri != null) {
+            Intent headerLongShortcutIntent = null;
             try {
-                clockLongShortcutIntent = Intent.parseUri(clockLongShortcutIntentUri, 0);
+                headerLongShortcutIntent = Intent.parseUri(headerLongShortcutIntentUri, 0);
             } catch (URISyntaxException e) {
-                clockLongShortcutIntent = null;
+                headerLongShortcutIntent = null;
             }
 
-            if(clockLongShortcutIntent != null) {
-                ResolveInfo info = packageManager.resolveActivity(clockLongShortcutIntent, 0);
+            if(headerLongShortcutIntent != null) {
+                ResolveInfo info = packageManager.resolveActivity(headerLongShortcutIntent, 0);
                 if (info != null) {
-                    mClockLongShortcut.setSummary(info.loadLabel(packageManager));
-                }
-            }
-        }
-
-        mCalendarShortcut.setSummary(getResources().getString(R.string.default_shortcut));
-        String calendarShortcutIntentUri = Settings.System.getString(mResolver, Settings.System.CALENDAR_SHORTCUT);
-        if (calendarShortcutIntentUri != null) {
-            Intent calendarShortcutIntent = null;
-            try {
-                calendarShortcutIntent = Intent.parseUri(calendarShortcutIntentUri, 0);
-            } catch (URISyntaxException e) {
-                calendarShortcutIntent = null;
-            }
-
-            if(calendarShortcutIntent != null) {
-                ResolveInfo info = packageManager.resolveActivity(calendarShortcutIntent, 0);
-                if (info != null) {
-                    mCalendarShortcut.setSummary(info.loadLabel(packageManager));
-                }
-            }
-        }
-
-        mCalendarLongShortcut.setSummary(getResources().getString(R.string.default_shortcut));
-        String calendarLongShortcutIntentUri = Settings.System.getString(mResolver, Settings.System.CALENDAR_LONG_SHORTCUT);
-        if (calendarLongShortcutIntentUri != null) {
-            Intent calendarLongShortcutIntent = null;
-            try {
-                calendarLongShortcutIntent = Intent.parseUri(calendarLongShortcutIntentUri, 0);
-            } catch (URISyntaxException e) {
-                calendarLongShortcutIntent = null;
-            }
-
-            if(calendarLongShortcutIntent != null) {
-                ResolveInfo info = packageManager.resolveActivity(calendarLongShortcutIntent, 0);
-                if (info != null) {
-                    mCalendarLongShortcut.setSummary(info.loadLabel(packageManager));
+                    mHeaderLongShortcut.setSummary(info.loadLabel(packageManager));
                 }
             }
         }

@@ -17,6 +17,8 @@
 package com.android.settings;
 
 import com.android.settings.applications.AppOpsSummary;
+import com.android.settings.cyanide.StatusBarExpandedHeaderSettings;
+import com.android.settings.cyanogenmod.NotificationDrawerSettings;
 
 /**
  * Top-level Settings activity
@@ -121,5 +123,7 @@ public class Settings extends SettingsActivity {
     public static class AppSideBarSettingsActivity extends SettingsActivity { /* empty */ }
     public static class PAPieControlSettingsActivity extends SettingsActivity { /* empty */ }
     public static class FloatingWindowsSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class StatusBarExpandedHeaderSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class NotificationDrawerSettings extends SettingsActivity { /* empty */ }
 }
 

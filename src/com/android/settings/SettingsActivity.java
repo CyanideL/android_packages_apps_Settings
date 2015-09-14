@@ -138,6 +138,8 @@ import com.android.settings.cyanide.AppCircleBar;
 import com.android.settings.cyanide.AppSideBar;
 import com.android.settings.cyanide.PAPieControl;
 import com.android.settings.cyanide.FloatingWindows;
+import com.android.settings.cyanide.StatusBarExpandedHeaderSettings;
+import com.android.settings.cyanogenmod.NotificationDrawerSettings;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -351,7 +353,9 @@ public class SettingsActivity extends Activity
             DisplayRotation.class.getName(),
             AppSideBar.class.getName(),
             PAPieControl.class.getName(),
-            FloatingWindows.class.getName()
+            FloatingWindows.class.getName(),
+            StatusBarExpandedHeaderSettings.class.getName(),
+            NotificationDrawerSettings.class.getName()
     };
 
 

@@ -338,7 +338,7 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
             mPanelBarOptions.removePreference(mQsVibrate);
             mPanelBarOptions.removePreference(mQsCollapsePanel);
             mPanelBarOptions.removePreference(mQsHideSensitiveData);
-            mPanelBarOptions.removePreference(mQsBrightnessSlider);
+            //mPanelBarOptions.removePreference(mQsBrightnessSlider);
             mPanelBarOptions.removePreference(mQsWifiDetail);
             mPanelBarOptions.removePreference(mQsLocationAdvanced);
         }

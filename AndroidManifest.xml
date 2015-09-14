@@ -2139,6 +2139,32 @@
                 android:resource="@id/display_and_lights_settings" />
         </activity>
 
+        <!-- Pseudo-activity used to provide an intent-filter entry point to display statusbar expanded header settings -->
+        <activity android:name="Settings$StatusBarExpandedHeaderSettingsActivity"
+                android:label="@string/status_bar_expanded_header_settings_title"
+                android:taskAffinity=""
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.cyanide.StatusBarExpandedHeaderSettings" />
+        </activity>
+
+        <!-- Pseudo-activity used to provide an intent-filter entry point to display statusbar expanded qs settings -->
+        <activity android:name="Settings$NotificationDrawerSettings"
+                android:label="@string/notification_drawer_title"
+                android:taskAffinity=""
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.cyanogenmod.NotificationDrawerSettings" />
+        </activity>
+
         <!-- Buttons options -->
         <activity android:name="Settings$ButtonSettings"
                 android:uiOptions="splitActionBarWhenNarrow"
