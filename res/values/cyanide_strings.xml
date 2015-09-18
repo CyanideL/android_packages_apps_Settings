@@ -1887,6 +1887,10 @@
     <string name="status_bar_weather_font_condensed_bold_italic">Condensed Bold Italic</string>
     <string name="status_bar_weather_font_medium">Medium</string>
     <string name="status_bar_weather_font_medium_italic">Medium Italic</string>
+    <string name="weather_cat_notification_icons_title">Notification icons</string>
+    <string name="weather_hide_weather_title">Hide</string>
+    <string name="weather_hide_weather_summary">Enable to choose a number of visible notification icons to hide the Weather Temp on the status bar</string>
+    <string name="weather_number_of_notification_icons_title">Number of notification icons</string>
 
     <!-- SlimDim -->
     <string name="dim_nav_buttons_category">SlimDim</string>
