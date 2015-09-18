@@ -976,6 +976,10 @@
     <string name="show_logo_keyguard">Lockscreen only</string>
     <string name="show_logo_statusbar">Statusbar only</string>
     <string name="show_logo_enabled">Lockscreen &amp; Statusbar</string>
+    <string name="logo_cat_notification_icons_title">Notification icons</string>
+    <string name="logo_hide_logo_title">Hide</string>
+    <string name="logo_hide_logo_summary">Enable to choose a number of visible notification icons to hide the Cyanide logo on the status bar</string>
+    <string name="logo_number_of_notification_icons_title">Number of notification icons</string>
 
     <!-- Show carrier label and custom -->
     <string name="carrier_options">Custom Carrier Label</string>

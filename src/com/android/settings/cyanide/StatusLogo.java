@@ -53,6 +53,8 @@ public class StatusLogo extends SettingsPreferenceFragment implements OnPreferen
 
     private static final String STATUS_BAR_CYANIDE_LOGO_SHOW = "status_bar_cyanide_logo_show";
     private static final String KEY_CYANIDE_LOGO_STYLE = "status_bar_cyanide_logo_style";
+    private static final String PREF_NUMBER_OF_NOTIFICATION_ICONS = "logo_number_of_notification_icons";
+    private static final String PREF_HIDE_LOGO = "logo_hide_logo";
     private static final String KEY_CYANIDE_LOGO_COLOR = "status_bar_cyanide_logo_color";
 
     private static final int DEFAULT_COLOR = 0xffffffff;
@@ -63,6 +65,8 @@ public class StatusLogo extends SettingsPreferenceFragment implements OnPreferen
 
     private ListPreference mShowCyanideLogo;
     private ListPreference mCyanideLogoStyle;
+    private SwitchPreference mHideLogo;
+    private ListPreference mNumberOfNotificationIcons;
     private ColorPickerPreference mCyanideLogoColor;
 
     private boolean mCheckPreferences;
@@ -98,6 +102,20 @@ public class StatusLogo extends SettingsPreferenceFragment implements OnPreferen
         mCyanideLogoStyle.setValue(String.valueOf(cyanideLogoStyle));
         mCyanideLogoStyle.setSummary(mCyanideLogoStyle.getEntry());
         mCyanideLogoStyle.setOnPreferenceChangeListener(this);
+
+        mHideLogo =
+                (SwitchPreference) findPreference(PREF_HIDE_LOGO);
+        mHideLogo.setChecked(Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_CYANIDE_LOGO_HIDE_LOGO, 1) == 1);
+        mHideLogo.setOnPreferenceChangeListener(this);
+
+        mNumberOfNotificationIcons =
+                (ListPreference) findPreference(PREF_NUMBER_OF_NOTIFICATION_ICONS);
+        int numberOfNotificationIcons = Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_CYANIDE_LOGO_NUMBER_OF_NOTIFICATION_ICONS, 1);
+        mNumberOfNotificationIcons.setValue(String.valueOf(numberOfNotificationIcons));
+        mNumberOfNotificationIcons.setSummary(mNumberOfNotificationIcons.getEntry());
+        mNumberOfNotificationIcons.setOnPreferenceChangeListener(this);
 
         // CyanideL logo color
         mCyanideLogoColor =
@@ -148,6 +166,20 @@ public class StatusLogo extends SettingsPreferenceFragment implements OnPreferen
             mCyanideLogoStyle.setSummary(
                     mCyanideLogoStyle.getEntries()[index]);
             return true;
+        } else if (preference == mHideLogo) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_CYANIDE_LOGO_HIDE_LOGO,
+                    value ? 1 : 0);
+            return true;
+        } else if (preference == mNumberOfNotificationIcons) {
+            int intValue = Integer.valueOf((String) newValue);
+            int index = mNumberOfNotificationIcons.findIndexOfValue((String) newValue);
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_CYANIDE_LOGO_NUMBER_OF_NOTIFICATION_ICONS,
+                    intValue);
+            preference.setSummary(mNumberOfNotificationIcons.getEntries()[index]);
+            return true;
         } else if (preference == mCyanideLogoColor) {
             String hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
@@ -197,6 +229,10 @@ public class StatusLogo extends SettingsPreferenceFragment implements OnPreferen
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_CYANIDE_LOGO_STYLE, 0);
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_CYANIDE_LOGO_HIDE_LOGO, 0);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_CYANIDE_LOGO_NUMBER_OF_NOTIFICATION_ICONS, 0);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_CYANIDE_LOGO_COLOR,
                                     DEFAULT_COLOR);
                             getOwner().refreshSettings();
@@ -209,6 +245,10 @@ public class StatusLogo extends SettingsPreferenceFragment implements OnPreferen
                                     Settings.System.STATUS_BAR_CYANIDE_LOGO_SHOW, 3);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_CYANIDE_LOGO_STYLE, 1);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_CYANIDE_LOGO_HIDE_LOGO, 1);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_CYANIDE_LOGO_NUMBER_OF_NOTIFICATION_ICONS, 4);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_CYANIDE_LOGO_COLOR,
                                     CYANIDE_BLUE);
