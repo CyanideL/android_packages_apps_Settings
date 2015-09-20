@@ -18,18 +18,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/status_bar_expanded_header_settings_title">
 
-    <PreferenceScreen
-        android:key="custom_header_shortcuts"
-        android:title="@string/custom_header_shortcuts_title"
-        android:summary="@string/custom_header_shortcuts_summary"
-        android:fragment="com.android.settings.cyanide.HeaderCustomShortcuts" />
-
         <!--<SwitchPreference
             android:key="enable_task_manager"
             android:title="@string/enable_task_manager_title"
-            android:summary="@string/enable_task_manager_summary" />-->
+            android:summary="@string/enable_task_manager_summary" />-
 
-        <!--<PreferenceCategory
+        <PreferenceCategory
             android:key="task_manager_options"
             android:title="@string/task_manager_options">
 
@@ -56,6 +50,46 @@
     </PreferenceCategory>-->
 
     <PreferenceCategory
+        android:key="expanded_header_cat_qs"
+        android:title="@string/status_bar_buttons">
+
+        <PreferenceScreen
+            android:key="custom_header_shortcuts"
+            android:title="@string/custom_header_shortcuts_title"
+            android:summary="@string/custom_header_shortcuts_summary"
+            android:fragment="com.android.settings.cyanide.HeaderCustomShortcuts" />
+
+        <SwitchPreference
+            android:key="show_cyanide_button"
+            android:title="@string/show_cyanide_button_title"
+            android:summary="@string/show_cyanide_button_summary" />
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="heads_up_show_status_button"
+            android:title="@string/show_headsup_button_title"
+            android:summary="@string/show_headsup_button_summary" />
+
+        <ListPreference
+            android:key="status_bar_power_menu"
+            android:title="@string/status_bar_power_menu_title"
+            android:dialogTitle="@string/status_bar_power_menu_dialog_title"
+            android:entries="@array/status_bar_power_menu_entries"
+            android:entryValues="@array/status_bar_power_menu_values"
+            android:persistent="false" />
+
+        <SwitchPreference
+ 	        android:key="expanded_header_show_qs_button"
+            android:title="@string/expanded_header_show_qs_button_title"
+            android:summary="@string/expanded_header_show_qs_button_summary" />
+
+        <SwitchPreference
+	        android:key="expanded_header_show_torch_button"
+	        android:title="@string/expanded_header_show_torch_button_title"
+	        android:summary="@string/expanded_header_show_torch_button_summary" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="expanded_header_weather_category"
         android:title="@string/header_weather_title">
 
@@ -74,41 +108,8 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="expanded_header_cat_qs"
-        android:title="@string/status_bar_buttons">
-
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-            android:key="heads_up_show_status_button"
-            android:title="@string/show_headsup_button_title"
-            android:summary="@string/show_headsup_button_summary"
-            android:defaultValue="false" />
-
-        <ListPreference
-            android:key="status_bar_power_menu"
-            android:title="@string/status_bar_power_menu_title"
-            android:dialogTitle="@string/status_bar_power_menu_dialog_title"
-            android:entries="@array/status_bar_power_menu_entries"
-            android:entryValues="@array/status_bar_power_menu_values"
-            android:defaultValue="0"
-            android:persistent="false" />
-
-        <SwitchPreference
- 	        android:key="expanded_header_show_qs_button"
-            android:title="@string/expanded_header_show_qs_button_title"
-            android:summary="@string/expanded_header_show_qs_button_summary"
-            android:defaultValue="false" />
-
-        <SwitchPreference
-	        android:key="expanded_header_show_torch_button"
-	        android:title="@string/expanded_header_show_torch_button_title"
-	        android:summary="@string/expanded_header_show_torch_button_summary"
-	        android:defaultValue="false" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
         android:key="expanded_header_category_color"
-        android:title="@string/colors_title">
+        android:title="@string/status_bar_expanded_header_color_settings_title">
 
          <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="expanded_header_background_color"

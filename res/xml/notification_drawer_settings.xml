@@ -25,129 +25,111 @@
         android:entries="@array/qs_type_entries"
         android:entryValues="@array/qs_type_values" />
 
-    <PreferenceCategory
-        android:key="qs_cat_panel"
-        android:title="@string/qs_type_panel">
+    <PreferenceScreen
+        android:key="qs_panel_tiles"
+        android:title="@string/customize_title"
+        android:summary="@string/qs_panel_tiles_summary"
+        android:fragment="com.android.settings.cyanogenmod.qs.QSTiles" />
 
-        <PreferenceScreen
-            android:key="qs_panel_tiles"
-            android:title="@string/customize_title"
-            android:summary="@string/qs_panel_tiles_summary"
-            android:fragment="com.android.settings.cyanogenmod.qs.QSTiles" />
+    <PreferenceScreen
+        android:key="qs_bar_buttons"
+        android:title="@string/customize_title"
+        android:summary="@string/qs_bar_buttons_summary"
+        android:fragment="com.android.settings.cyanide.dslv.ActionListViewSettings">
+            <extra android:name="actionMode" android:value="8" />
+            <extra android:name="maxAllowedActions" android:value="50" />
+            <extra android:name="defaultNumberOfActions" android:value="6" />
+            <extra android:name="disableLongpress" android:value="true" />
+            <extra android:name="disableIconPicker" android:value="true" />
+            <extra android:name="disableDeleteLastEntry" android:value="true" />
+            <extra android:name="actionValues" android:value="qs_bar_button_values" />
+            <extra android:name="actionEntries" android:value="qs_bar_button_entries" />
+    </PreferenceScreen>
 
-    </PreferenceCategory>
+    <PreferenceScreen
+        android:key="cyanide_action_tile"
+        android:fragment="com.android.settings.cyanide.dslv.ActionListViewSettings"
+        android:title="@string/qs_slim_action_title"
+        android:summary="@string/qs_slim_action_summary">
+            <extra android:name="actionMode" android:value="7" />
+            <extra android:name="maxAllowedActions" android:value="10" />
+            <extra android:name="disableLongpress" android:value="true" />
+            <extra android:name="disableDeleteLastEntry" android:value="true" />
+            <extra android:name="actionValues" android:value="shortcut_action_tile_values" />
+            <extra android:name="actionEntries" android:value="shortcut_action_tile_entries" />
+            <extra android:name="fragment" android:value="com.android.settings.cyanide.fragments.QuickTileFragment" />
+    </PreferenceScreen>
 
-    <PreferenceCategory
-        android:key="qs_cat_bar"
-        android:title="@string/qs_type_bar">
+    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+        android:key="qs_location_advanced"
+        android:title="@string/qs_advanced_location_title"
+        android:summary="@string/qs_advanced_location_summary"
+        android:defaultValue="false" />
 
-        <PreferenceScreen
-            android:key="qs_bar_buttons"
-            android:title="@string/customize_title"
-            android:summary="@string/qs_bar_buttons_summary"
-            android:fragment="com.android.settings.cyanide.dslv.ActionListViewSettings">
-                <extra android:name="actionMode" android:value="8" />
-                <extra android:name="maxAllowedActions" android:value="50" />
-                <extra android:name="defaultNumberOfActions" android:value="6" />
-                <extra android:name="disableLongpress" android:value="true" />
-                <extra android:name="disableIconPicker" android:value="true" />
-                <extra android:name="disableDeleteLastEntry" android:value="true" />
-                <extra android:name="actionValues" android:value="qs_bar_button_values" />
-                <extra android:name="actionEntries" android:value="qs_bar_button_entries" />
-        </PreferenceScreen>
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="quick_settings_collapse_panel"
+        android:title="@string/quick_settings_collapse_title"
+        android:summary="@string/quick_settings_collapse_summary"
+        android:defaultValue="false"/>
 
-    </PreferenceCategory>
+    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+        android:key="qs_show_brightness_slider"
+        android:title="@string/qs_brightness_slider_title"
+        android:defaultValue="true"/>
 
-    <PreferenceCategory
-        android:key="qs_options_cat"
-        android:title="@string/qs_category_title">
+    <PreferenceScreen
+        android:key="qs_colors"
+        android:title="@string/qs_colors_title"
+        android:summary="@string/qs_colors_summary"
+        android:fragment="com.android.settings.cyanide.QSColors" />
 
-        <PreferenceScreen
-            android:key="navbar_targets_settings"
-            android:fragment="com.android.settings.cyanide.dslv.ActionListViewSettings"
-            android:title="@string/qs_slim_action_title"
-            android:summary="@string/qs_slim_action_summary">
-                <extra android:name="actionMode" android:value="7" />
-                <extra android:name="maxAllowedActions" android:value="10" />
-                <extra android:name="disableLongpress" android:value="true" />
-                <extra android:name="disableDeleteLastEntry" android:value="true" />
-                <extra android:name="actionValues" android:value="shortcut_action_tile_values" />
-                <extra android:name="actionEntries" android:value="shortcut_action_tile_entries" />
-                <extra android:name="fragment" android:value="com.android.settings.cyanide.fragments.QuickTileFragment" />
-        </PreferenceScreen>
+    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+         android:key="qs_wifi_detail"
+         android:title="@string/qs_wifi_detail_title"
+         android:summary="@string/qs_wifi_detail_summary"
+         android:defaultValue="false" />
 
-		<SwitchPreference
-            android:key="qs_location_advanced"
-            android:title="@string/qs_advanced_location_title"
-            android:summary="@string/qs_advanced_location_summary"
-            android:defaultValue="false" />
+    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+        android:key="block_on_secure_keyguard"
+        android:title="@string/block_on_secure_keyguard_title"
+        android:summary="@string/block_on_secure_keyguard_summary"
+        android:persistent="false" />
 
-        <SwitchPreference
-            android:key="quick_settings_collapse_panel"
-            android:title="@string/quick_settings_collapse_title"
-            android:summary="@string/quick_settings_collapse_summary"
-            android:defaultValue="false"/>
+    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+        android:key="lockscreen_hide_qs_tiles_with_sensitive_data"
+        android:title="@string/qs_hide_tiles_with_sensitive_data"
+        android:defaultValue="false" />
 
-        <SwitchPreference
-            android:key="qs_show_brightness_slider"
-            android:title="@string/qs_brightness_slider_title"
-            android:defaultValue="true"/>
+    <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+        android:key="sysui_qs_main_tiles"
+        android:title="@string/qs_main_tiles_title"
+        android:defaultValue="false" />
 
-        <PreferenceScreen
-			android:key="qs_colors"
-			android:title="@string/qs_colors_title"
-			android:summary="@string/qs_colors_summary"
-			android:fragment="com.android.settings.cyanide.QSColors" />
+    <ListPreference
+        android:key="sysui_qs_num_columns"
+        android:title="@string/qs_num_columns_title"
+        android:entries="@array/qs_num_columns_entries"
+        android:entryValues="@array/qs_num_columns_values"
+        android:persistent="false" />
 
-        <SwitchPreference
-             android:key="qs_wifi_detail"
-             android:title="@string/qs_wifi_detail_title"
-             android:summary="@string/qs_wifi_detail_summary"
-             android:defaultValue="false" />
+    <ListPreference
+        android:key="quick_pulldown"
+        android:title="@string/quick_pulldown_title"
+        android:entries="@array/quick_pulldown_entries"
+        android:entryValues="@array/quick_pulldown_values"
+        android:persistent="false" />
 
-        <SwitchPreference
-            android:key="block_on_secure_keyguard"
-            android:title="@string/block_on_secure_keyguard_title"
-            android:summary="@string/block_on_secure_keyguard_summary"
-			android:persistent="false" />
+    <ListPreference
+        android:key="smart_pulldown"
+        android:title="@string/smart_pulldown_title"
+        android:entries="@array/smart_pulldown_entries"
+        android:entryValues="@array/smart_pulldown_values"
+        android:persistent="false" />
 
-        <SwitchPreference
-            android:key="lockscreen_hide_qs_tiles_with_sensitive_data"
-            android:title="@string/qs_hide_tiles_with_sensitive_data"
-            android:defaultValue="false" />
-
-        <SwitchPreference
-            android:key="sysui_qs_main_tiles"
-            android:title="@string/qs_main_tiles_title"
-            android:defaultValue="false" />
-
-        <ListPreference
-            android:key="sysui_qs_num_columns"
-            android:title="@string/qs_num_columns_title"
-            android:entries="@array/qs_num_columns_entries"
-            android:entryValues="@array/qs_num_columns_values"
-            android:persistent="false" />
-
-        <ListPreference
-			android:key="quick_pulldown"
-			android:title="@string/quick_pulldown_title"
-			android:entries="@array/quick_pulldown_entries"
-			android:entryValues="@array/quick_pulldown_values"
-			android:persistent="false" />
-
-        <ListPreference
-			android:key="smart_pulldown"
-			android:title="@string/smart_pulldown_title"
-			android:entries="@array/smart_pulldown_entries"
-			android:entryValues="@array/smart_pulldown_values"
-			android:persistent="false" />
-
-        <SwitchPreference
-			android:key="quick_settings_vibrate"
-			android:title="@string/quick_settings_vibrate_title"
-			android:summary="@string/quick_settings_vibrate_summary"
-			android:defaultValue="false"/>
-
-    </PreferenceCategory>
+    <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+        android:key="quick_settings_vibrate"
+        android:title="@string/quick_settings_vibrate_title"
+        android:summary="@string/quick_settings_vibrate_summary"
+        android:defaultValue="false"/>
 
 </PreferenceScreen>

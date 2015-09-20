@@ -47,33 +47,16 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
     private static final String PREF_QS_TYPE = "qs_type";
     private static final String QUICK_PULLDOWN = "quick_pulldown";
     private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
-    private static final String PREF_BLOCK_ON_SECURE_KEYGUARD = "block_on_secure_keyguard";
-    private static final String PANEL = "qs_cat_panel";
-    private static final String BAR = "qs_cat_bar";
-    private static final String PREF_QS_OPTIONS_CAT = "qs_options_cat";
-    private static final String QS_MAIN_TILES = "sysui_qs_main_tiles";
-    private static final String QS_NUM_COLUMNS = "sysui_qs_num_columns";
-    private static final String QS_VIBRATE = "quick_settings_vibrate";
-    private static final String QS_COLLAPSE_PANEL = "quick_settings_collapse_panel";
-    private static final String QS_SHOW_BRIGHTNESS_SLIDER = "qs_show_brightness_slider";
-    private static final String QS_WIFI_DETAIL = "qs_wifi_detail";
-    private static final String QS_LOCATION_ADVANCED = "qs_location_advanced";
-    private static final String QS_LS_HIDE_TILES_SENSITIVE_DATA = "lockscreen_hide_qs_tiles_with_sensitive_data";
+    private static final String PREF_NUM_OF_COLUMNS = "sysui_qs_num_columns";
 
-    private PreferenceCategory mPanelBarOptions;
+    private static final int QS_TYPE_PANEL  = 0;
+    private static final int QS_TYPE_BAR    = 1;
+    private static final int QS_TYPE_HIDDEN = 2;
 
     private ListPreference mQSType;
     private ListPreference mQuickPulldown;
     private ListPreference mSmartPulldown;
-    private SwitchPreference mBlockOnSecureKeyguard;
     private ListPreference mNumColumns;
-    private SwitchPreference mQsMainTiles;
-    private SwitchPreference mQsVibrate;
-    private SwitchPreference mQsCollapsePanel;
-    private SwitchPreference mQsHideSensitiveData;
-    private SwitchPreference mQsBrightnessSlider;
-    private SwitchPreference mQsWifiDetail;
-    private SwitchPreference mQsLocationAdvanced;
 
     private ContentResolver mResolver;
 
@@ -98,14 +81,43 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
         addPreferencesFromResource(R.xml.notification_drawer_settings);
         mResolver = getActivity().getContentResolver();
 
-        mQSType = (ListPreference) findPreference(PREF_QS_TYPE);
-        mQSType.setOnPreferenceChangeListener(this);
-        int type = Settings.System.getInt(mResolver,
-               Settings.System.QS_TYPE, 0);
-        mQSType.setValue(String.valueOf(type));
-        mQSType.setSummary(mQSType.getEntry());
+        final int qsType = Settings.System.getInt(mResolver,
+               Settings.System.QS_TYPE, QS_TYPE_PANEL);
 
-        mPanelBarOptions = (PreferenceCategory) findPreference(PREF_QS_OPTIONS_CAT);
+        mQSType = (ListPreference) findPreference(PREF_QS_TYPE);
+        mQSType.setValue(String.valueOf(qsType));
+        mQSType.setSummary(mQSType.getEntry());
+        mQSType.setOnPreferenceChangeListener(this);
+
+        if (qsType == QS_TYPE_PANEL) {
+            mNumColumns = (ListPreference) findPreference(PREF_NUM_OF_COLUMNS);
+            int numColumns = Settings.Secure.getIntForUser(getContentResolver(),
+                    Settings.Secure.QS_NUM_TILE_COLUMNS, getDefaultNumColums(),
+                    UserHandle.USER_CURRENT);
+            mNumColumns.setValue(String.valueOf(numColumns));
+            updateNumColumnsSummary(numColumns);
+            mNumColumns.setOnPreferenceChangeListener(this);
+            DraggableGridView.setColumnCount(numColumns);
+
+        } else {
+            removePreference("sysui_qs_num_columns");
+        }
+
+        if (qsType == QS_TYPE_BAR || qsType == QS_TYPE_HIDDEN) {
+            removePreference("qs_panel_tiles");
+            removePreference("sysui_qs_num_columns");
+            removePreference("sysui_qs_main_tiles");
+            removePreference("cyanide_action_tile");
+            removePreference("qs_location_advanced");
+            removePreference("qs_wifi_detail");
+            removePreference("quick_settings_vibrate");
+            removePreference("quick_settings_collapse_panel");
+            removePreference("lockscreen_hide_qs_tiles_with_sensitive_data");
+        }
+
+        if (qsType == QS_TYPE_PANEL || qsType == QS_TYPE_HIDDEN) {
+            removePreference("qs_bar_buttons");
+        }
 
         mQuickPulldown = (ListPreference) findPreference(QUICK_PULLDOWN);
         mQuickPulldown.setOnPreferenceChangeListener(this);
@@ -121,61 +133,7 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
                 Settings.System.QS_SMART_PULLDOWN, 1);
         mSmartPulldown.setValue(String.valueOf(smartPulldown));
         updateSmartPulldownSummary(smartPulldown);
-        
-        final LockPatternUtils lockPatternUtils = new LockPatternUtils(getActivity());
-        mBlockOnSecureKeyguard = (SwitchPreference) findPreference(PREF_BLOCK_ON_SECURE_KEYGUARD);
-        if (lockPatternUtils.isSecure()) {
-            mBlockOnSecureKeyguard.setChecked(Settings.Secure.getInt(mResolver,
-                    Settings.Secure.STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD, 0) == 1);
-            mBlockOnSecureKeyguard.setOnPreferenceChangeListener(this);
-		}
 
-        mNumColumns = (ListPreference) findPreference("sysui_qs_num_columns");
-        int numColumns = Settings.Secure.getIntForUser(mResolver,
-                Settings.Secure.QS_NUM_TILE_COLUMNS, getDefaultNumColums(),
-                UserHandle.USER_CURRENT);
-        mNumColumns.setValue(String.valueOf(numColumns));
-        updateNumColumnsSummary(numColumns);
-        mNumColumns.setOnPreferenceChangeListener(this);
-        DraggableGridView.setColumnCount(numColumns);
-
-        mQsMainTiles = (SwitchPreference) findPreference(QS_MAIN_TILES);
-        mQsMainTiles.setChecked(Settings.Secure.getInt(mResolver,
-            Settings.Secure.QS_USE_MAIN_TILES, 0) == 1);
-        mQsMainTiles.setOnPreferenceChangeListener(this);
-
-        mQsVibrate = (SwitchPreference) findPreference(QS_VIBRATE);
-        mQsVibrate.setChecked(Settings.System.getInt(mResolver,
-            Settings.System.QUICK_SETTINGS_TILES_VIBRATE, 0) == 1);
-        mQsVibrate.setOnPreferenceChangeListener(this);
-
-        mQsCollapsePanel = (SwitchPreference) findPreference(QS_COLLAPSE_PANEL);
-        mQsCollapsePanel.setChecked(Settings.System.getInt(mResolver,
-            Settings.System.QUICK_SETTINGS_COLLAPSE_PANEL, 0) == 1);
-        mQsCollapsePanel.setOnPreferenceChangeListener(this);
-
-        mQsHideSensitiveData = (SwitchPreference) findPreference(QS_LS_HIDE_TILES_SENSITIVE_DATA);
-        mQsHideSensitiveData.setChecked(Settings.Secure.getInt(mResolver,
-            Settings.Secure.LOCKSCREEN_HIDE_TILES_WITH_SENSITIVE_DATA, 0) == 1);
-        mQsHideSensitiveData.setOnPreferenceChangeListener(this);
-
-        mQsBrightnessSlider = (SwitchPreference) findPreference(QS_SHOW_BRIGHTNESS_SLIDER);
-        mQsBrightnessSlider.setChecked(Settings.Secure.getInt(mResolver,
-            Settings.Secure.QS_SHOW_BRIGHTNESS_SLIDER, 1) == 1);
-        mQsBrightnessSlider.setOnPreferenceChangeListener(this);
-
-        mQsWifiDetail = (SwitchPreference) findPreference(QS_WIFI_DETAIL);
-        mQsWifiDetail.setChecked(Settings.Secure.getInt(mResolver,
-            Settings.Secure.QS_WIFI_DETAIL, 0) == 1);
-        mQsWifiDetail.setOnPreferenceChangeListener(this);
-
-        mQsLocationAdvanced = (SwitchPreference) findPreference(QS_LOCATION_ADVANCED);
-        mQsLocationAdvanced.setChecked(Settings.Secure.getInt(mResolver,
-            Settings.Secure.QS_LOCATION_ADVANCED, 0) == 1);
-        mQsLocationAdvanced.setOnPreferenceChangeListener(this);
-
-        hideBarOptions();
-        hideAllOptions();
     }
 
     /*@Override
@@ -195,8 +153,6 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
             Settings.System.putInt(mResolver,
                 Settings.System.QS_TYPE, intValue);
             preference.setSummary(mQSType.getEntries()[index]);
-            hideBarOptions();
-            hideAllOptions();
             refreshSettings();
             return true;
         } else if (preference == mQuickPulldown) {
@@ -211,52 +167,12 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
                     smartPulldown, UserHandle.USER_CURRENT);
             updateSmartPulldownSummary(smartPulldown);
             return true;
-        } else if (preference == mBlockOnSecureKeyguard) {
-            Settings.Secure.putInt(mResolver,
-                    Settings.Secure.STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD,
-                    (Boolean) newValue ? 1 : 0);
-            return true;
 		} else if (preference == mNumColumns) {
             int numColumns = Integer.valueOf((String) newValue);
             Settings.Secure.putIntForUser(mResolver, Settings.Secure.QS_NUM_TILE_COLUMNS,
                     numColumns, UserHandle.USER_CURRENT);
             updateNumColumnsSummary(numColumns);
             DraggableGridView.setColumnCount(numColumns);
-            return true;
-		} else if (preference == mQsMainTiles) {
-            Settings.Secure.putInt(mResolver,
-                    Settings.Secure.QS_USE_MAIN_TILES,
-            (Boolean) newValue ? 1 : 0);
-            return true;
-		} else if (preference == mQsVibrate) {
-            Settings.System.putInt(mResolver,
-                    Settings.System.QUICK_SETTINGS_TILES_VIBRATE,
-            (Boolean) newValue ? 1 : 0);
-            return true;
-       } else if (preference == mQsCollapsePanel) {
-            Settings.System.putInt(mResolver,
-                    Settings.System.QUICK_SETTINGS_COLLAPSE_PANEL,
-            (Boolean) newValue ? 1 : 0);
-            return true;
-       } else if (preference == mQsHideSensitiveData) {
-            Settings.Secure.putInt(mResolver,
-                    Settings.Secure.LOCKSCREEN_HIDE_TILES_WITH_SENSITIVE_DATA,
-            (Boolean) newValue ? 1 : 0);
-            return true;
-       } else if (preference == mQsBrightnessSlider) {
-            Settings.Secure.putInt(mResolver,
-                    Settings.Secure.QS_SHOW_BRIGHTNESS_SLIDER,
-            (Boolean) newValue ? 1 : 0);
-            return true;
-       } else if (preference == mQsWifiDetail) {
-            Settings.Secure.putInt(mResolver,
-                    Settings.Secure.QS_WIFI_DETAIL,
-            (Boolean) newValue ? 1 : 0);
-            return true;
-       } else if (preference == mQsLocationAdvanced) {
-            Settings.Secure.putInt(mResolver,
-                    Settings.Secure.QS_LOCATION_ADVANCED,
-            (Boolean) newValue ? 1 : 0);
             return true;
         }
         return false;
@@ -317,38 +233,6 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment imple
             return Math.max(1, val);
         } catch (Exception e) {
             return 3;
-        }
-    }
-
-    private void hideBarOptions() {
-        if (Settings.System.getInt(mResolver,
-            Settings.System.QS_TYPE, 0) == 0) {
-            removePreference(BAR);
-        } else {
-            removePreference(PANEL);
-            hidePanelOptions();
-        }
-    }
-
-    private void hidePanelOptions() {
-        if (Settings.System.getInt(mResolver,
-            Settings.System.QS_TYPE, 1) == 1) {
-            mPanelBarOptions.removePreference(mQsMainTiles);
-            mPanelBarOptions.removePreference(mNumColumns);
-            mPanelBarOptions.removePreference(mQsVibrate);
-            mPanelBarOptions.removePreference(mQsCollapsePanel);
-            mPanelBarOptions.removePreference(mQsHideSensitiveData);
-            //mPanelBarOptions.removePreference(mQsBrightnessSlider);
-            mPanelBarOptions.removePreference(mQsWifiDetail);
-            mPanelBarOptions.removePreference(mQsLocationAdvanced);
-        }
-    }
-
-    private void hideAllOptions() {
-        if (Settings.System.getInt(mResolver,
-            Settings.System.QS_TYPE, 2) == 2) {
-            removePreference(BAR);
-            removePreference(PREF_QS_OPTIONS_CAT);
         }
     }
 

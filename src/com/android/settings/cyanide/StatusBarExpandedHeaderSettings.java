@@ -48,6 +48,7 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
     private static final String PREF_BG_COLOR = "expanded_header_background_color";
     private static final String PREF_TEXT_COLOR = "expanded_header_text_color";
     private static final String PREF_ICON_COLOR = "expanded_header_icon_color";
+    private static final String PREF_SHOW_CYANIDE_BUTTON = "show_cyanide_button";
     private static final String PREF_SHOW_QS_BUTTON = "expanded_header_show_qs_button";
     private static final String PREF_SHOW_TORCH_BUTTON = "expanded_header_show_torch_button";
     private static final String PREF_RIPPLE_COLOR = "expanded_header_ripple_color";
@@ -62,6 +63,7 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
     private ListPreference mStatusBarPowerMenu;
     private SwitchPreference mShowWeather;
     private SwitchPreference mShowLocation;
+    private SwitchPreference mShowCyanideButton;
     private SwitchPreference mShowQsButton;
     private SwitchPreference mShowTorchButton;
     private ColorPickerPreference mBackgroundColor;
@@ -115,6 +117,12 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
 
         PreferenceCategory buttonsCategory = (PreferenceCategory)
                 findPreference(KEY_BUTTONS_CATEGORY);
+
+        mShowCyanideButton =
+                (SwitchPreference) findPreference(PREF_SHOW_CYANIDE_BUTTON);
+        mShowCyanideButton.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.SHOW_CYANIDE_BUTTON, 1) == 1);
+        mShowCyanideButton.setOnPreferenceChangeListener(this);
 
         mShowQsButton =
                 (SwitchPreference) findPreference(PREF_SHOW_QS_BUTTON);
@@ -204,7 +212,13 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         String hex;
         int intHex;
 
-        if (preference == mShowQsButton) {
+        if (preference == mShowCyanideButton) {
+            value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                Settings.System.SHOW_CYANIDE_BUTTON,
+                value ? 1 : 0);
+            return true;
+        } else if (preference == mShowQsButton) {
             value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                 Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_QS_BUTTON,
@@ -308,6 +322,8 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.SHOW_CYANIDE_BUTTON, 0);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_QS_BUTTON, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_TORCH_BUTTON, 0);
@@ -316,7 +332,7 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER, 0);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER_LOCATION, 1);
+                                    Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER_LOCATION, 0);
                              Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_BG_COLOR,
                                     DEFAULT_BG_COLOR);
@@ -336,6 +352,8 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.SHOW_CYANIDE_BUTTON, 1);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_QS_BUTTON, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_TORCH_BUTTON, 1);
@@ -347,7 +365,7 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER_LOCATION, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_BG_COLOR,
-                                    0x00000000);
+                                    0xff000000);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_TEXT_COLOR,
                                     CYANIDE_BLUE);
@@ -356,7 +374,7 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                                     CYANIDE_BLUE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_RIPPLE_COLOR,
-                                    CYANIDE_BLUE);
+                                    0xff00ff00);
                             getOwner().refreshSettings();
                         }
                     })

@@ -83,7 +83,7 @@
     <string name="status_bar_random_title">Random Settings</string>
     <string name="Recents_panel">Recent Apps Panel</string>
     <string name="recents_control_title">Clear All Button Options</string>
-    <string name="status_bar_expanded_header_settings_title">Status Bar Header</string>
+    <string name="status_bar_expanded_header_settings_title">Expanded Header</string>
     <string name="header_weather_title">Status Bar Weather</string>
     <string name="stweaks_title">STweaks</string>
     <string name="system_header_title">System Settings</string>
@@ -123,6 +123,7 @@
     <string name="floating_master_switch">Master Switch</string>
     <string name="floating_additional_options">Additional Float Options</string>
     <string name="dock_summary">Dock Settings</string>
+    <string name="status_bar_expanded_header_color_settings_title">Status Bar Header Colors</string>
 
     <!-- Cyanide Settings Animations -->
     <string name="cyanide_animations_settings">Animations Settings</string>
