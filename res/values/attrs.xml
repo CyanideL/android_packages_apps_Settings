@@ -129,6 +129,7 @@
         <attr name="unitsLeft" format="string" />
         <attr name="unitsRight" format="string" />
         <attr name="interval" format="integer" />
+        <attr name="isSeconds" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="ImageListPreference">

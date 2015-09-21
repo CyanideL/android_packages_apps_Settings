@@ -47,19 +47,19 @@
         android:summary="@string/status_bar_cyanide_logo_summary"
         android:fragment="com.android.settings.cyanide.StatusLogo" />
 
+    <!-- Greeting -->
+    <PreferenceScreen
+        android:key="status_bar_greeting_settings"
+        android:title="@string/status_bar_greeting_settings_title"
+        android:summary="@string/status_bar_greeting_settings_summary"
+        android:fragment="com.android.settings.cyanide.StatusBarGreetingSettings" />
+
     <!-- Status Bar Expanded Header Options -->
     <PreferenceScreen
         android:key="status_bar_expanded_header_settings"
         android:title="@string/status_bar_expanded_header_settings_title"
         android:summary="@string/header_settings_summary"
         android:fragment="com.android.settings.cyanide.StatusBarExpandedHeaderSettings" />
-
-    <!-- Greeting -->
-	<PreferenceScreen
-		android:key="status_bar_greeting"
-		android:title="@string/status_bar_greeting_title"
-		android:summary="@string/status_bar_greeting_summary"	
-		android:fragment="com.android.settings.cyanide.Greeting" />
 
     <!-- Signal Colors -->
     <PreferenceScreen
