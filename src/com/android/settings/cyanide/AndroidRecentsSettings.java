@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2014 DarkKat
+ *               2015 CyanideL
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -61,6 +62,10 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
             "recents_empty_cyanide_logo";
     private static final String MEM_TEXT_COLOR =
             "mem_text_color";
+    private static final String MEMORY_BAR_COLOR =
+            "memory_bar_color";
+    private static final String MEMORY_BAR_USED_COLOR =
+            "memory_bar_used_color";
     private static final String KEY_SCREEN_PINNING = 
             "screen_pinning_settings";
 
@@ -81,6 +86,8 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
     private ColorPickerPreference mClearAllBgColor;
     private SwitchPreference mRecentsStyle;
     private ColorPickerPreference mMemTextColor;
+    private ColorPickerPreference mMemBarColor;
+    private ColorPickerPreference mMemBarUsedColor;
     private PreferenceScreen mScreenPinning;
     private Preference mOmniSwitch;
 
@@ -178,14 +185,31 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
         mRecentsStyle.setOnPreferenceChangeListener(this);
 
         mMemTextColor =
-                    (ColorPickerPreference) findPreference(MEM_TEXT_COLOR);
-            intColor = Settings.System.getInt(mResolver,
-                    Settings.System.MEM_TEXT_COLOR, WHITE); 
-            mMemTextColor.setNewPreviewColor(intColor);
-            hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mMemTextColor.setSummary(hexColor);
-            mMemTextColor.setAlphaSliderEnabled(true);
-            mMemTextColor.setOnPreferenceChangeListener(this);
+                (ColorPickerPreference) findPreference(MEM_TEXT_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.MEM_TEXT_COLOR, WHITE); 
+        mMemTextColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mMemTextColor.setSummary(hexColor);
+        mMemTextColor.setOnPreferenceChangeListener(this);
+
+        mMemBarColor =
+                (ColorPickerPreference) findPreference(MEMORY_BAR_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.MEMORY_BAR_COLOR, WHITE); 
+        mMemBarColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mMemBarColor.setSummary(hexColor);
+        mMemBarColor.setOnPreferenceChangeListener(this);
+
+        mMemBarUsedColor =
+                (ColorPickerPreference) findPreference(MEMORY_BAR_USED_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.MEMORY_BAR_USED_COLOR, WHITE); 
+        mMemBarUsedColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mMemBarUsedColor.setSummary(hexColor);
+        mMemBarUsedColor.setOnPreferenceChangeListener(this);
 
         final boolean screenPinning = Settings.System.getInt(getContentResolver(),
                 Settings.System.LOCK_TO_APP_ENABLED, 0) == 1;
@@ -289,6 +313,22 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
                     Settings.System.MEM_TEXT_COLOR, intHex);
             preference.setSummary(hex);
             return true;
+        } else if (preference == mMemBarColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.MEMORY_BAR_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mMemBarUsedColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.MEMORY_BAR_USED_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
         } else if (preference == mScreenPinning) {
             value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
@@ -354,6 +394,12 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
                                     Settings.System.MEM_TEXT_COLOR,
                                     WHITE);
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.MEMORY_BAR_COLOR,
+                                    WHITE);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.MEMORY_BAR_USED_COLOR,
+                                    WHITE);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.LOCK_TO_APP_ENABLED, 0);
                             getOwner().refreshSettings();
                         }
@@ -383,6 +429,12 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.MEM_TEXT_COLOR,
                                     CYANIDE_BLUE);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.MEMORY_BAR_COLOR,
+                                    CYANIDE_BLUE);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.MEMORY_BAR_USED_COLOR,
+                                    0xff00ff00);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.LOCK_TO_APP_ENABLED, 0);
                             getOwner().refreshSettings();

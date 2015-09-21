@@ -65,6 +65,35 @@
 
 	</PreferenceCategory>
 
+    <PreferenceCategory
+			android:key="memory_bar"
+			android:title="@string/memory_bar_options_title">
+
+        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
+            android:key="systemui_recents_mem_display"
+            android:title="@string/recents_show_membar_title"
+            android:summary="@string/recents_show_membar_summary" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="memory_bar_color"
+            android:title="@string/membar_bar_color"
+            android:defaultValue="0xffffffff"
+            android:dependency="systemui_recents_mem_display" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="memory_bar_used_color"
+            android:title="@string/membar_bar_used_color"
+            android:defaultValue="0xffffffff"
+            android:dependency="systemui_recents_mem_display" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="mem_text_color"
+            android:title="@string/membar_text_color"
+            android:defaultValue="0xffffffff"
+            android:dependency="systemui_recents_mem_display" />
+
+    </PreferenceCategory>
+
 	<PreferenceCategory
 			android:key="recents_panel"
 			android:title="@string/recents_random_title">

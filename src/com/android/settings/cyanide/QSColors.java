@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2015 DarkKat
+ *               2015 CyanideL
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,6 +41,12 @@ public class QSColors extends SettingsPreferenceFragment implements
 
     private static final String PREF_QS_BACKGROUND_COLOR =
             "qs_background_color";
+    private static final String QS_BRIGHTNESS_SLIDER_COLOR =
+            "qs_brightness_slider_color";
+    private static final String QS_BRIGHTNESS_SLIDER_BG_COLOR =
+            "qs_brightness_slider_bg_color";
+    private static final String QS_BRIGHTNESS_SLIDER_ICON_COLOR =
+            "qs_brightness_slider_icon_color";
     private static final String PREF_QS_ICON_COLOR =
             "qs_icon_color";
     private static final String PREF_QS_RIPPLE_COLOR =
@@ -55,6 +62,9 @@ public class QSColors extends SettingsPreferenceFragment implements
     private static final int DLG_RESET = 0;
 
     private ColorPickerPreference mQSBackgroundColor;
+    private ColorPickerPreference mQSBrightnessSliderColor;
+    private ColorPickerPreference mQSBrightnessSliderBgColor;
+    private ColorPickerPreference mQSBrightnessSliderIconColor;
     private ColorPickerPreference mQSIconColor;
     private ColorPickerPreference mQSRippleColor;
     private ColorPickerPreference mQSTextColor;
@@ -89,6 +99,36 @@ public class QSColors extends SettingsPreferenceFragment implements
         mQSBackgroundColor.setSummary(hexColor);
         mQSBackgroundColor.setAlphaSliderEnabled(true);
         mQSBackgroundColor.setOnPreferenceChangeListener(this);
+
+        mQSBrightnessSliderColor =
+                (ColorPickerPreference) findPreference(QS_BRIGHTNESS_SLIDER_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.QS_BRIGHTNESS_SLIDER_COLOR,
+                DEFAULT_BACKGROUND_COLOR); 
+        mQSBrightnessSliderColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mQSBrightnessSliderColor.setSummary(hexColor);
+        mQSBrightnessSliderColor.setOnPreferenceChangeListener(this);
+
+        mQSBrightnessSliderBgColor =
+                (ColorPickerPreference) findPreference(QS_BRIGHTNESS_SLIDER_BG_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.QS_BRIGHTNESS_SLIDER_BG_COLOR,
+                DEFAULT_BACKGROUND_COLOR); 
+        mQSBrightnessSliderBgColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mQSBrightnessSliderBgColor.setSummary(hexColor);
+        mQSBrightnessSliderBgColor.setOnPreferenceChangeListener(this);
+
+        mQSBrightnessSliderIconColor =
+                (ColorPickerPreference) findPreference(QS_BRIGHTNESS_SLIDER_ICON_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.QS_BRIGHTNESS_SLIDER_ICON_COLOR,
+                WHITE); 
+        mQSBrightnessSliderIconColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mQSBrightnessSliderIconColor.setSummary(hexColor);
+        mQSBrightnessSliderIconColor.setOnPreferenceChangeListener(this);
 
         mQSIconColor =
                 (ColorPickerPreference) findPreference(PREF_QS_ICON_COLOR);
@@ -160,6 +200,30 @@ public class QSColors extends SettingsPreferenceFragment implements
                 Settings.System.QS_ICON_COLOR, intHex);
             preference.setSummary(hex);
             return true;
+        } else if (preference == mQSBrightnessSliderColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                Settings.System.QS_BRIGHTNESS_SLIDER_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mQSBrightnessSliderBgColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                Settings.System.QS_BRIGHTNESS_SLIDER_BG_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mQSBrightnessSliderIconColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                Settings.System.QS_BRIGHTNESS_SLIDER_ICON_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
         } else if (preference == mQSRippleColor) {
             hex = ColorPickerPreference.convertToARGB(
                 Integer.valueOf(String.valueOf(newValue)));
@@ -216,6 +280,15 @@ public class QSColors extends SettingsPreferenceFragment implements
                                     Settings.System.QS_BACKGROUND_COLOR,
                                     DEFAULT_BACKGROUND_COLOR);
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.QS_BRIGHTNESS_SLIDER_COLOR,
+                                    DEFAULT_BACKGROUND_COLOR);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.QS_BRIGHTNESS_SLIDER_BG_COLOR,
+                                    DEFAULT_BACKGROUND_COLOR);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.QS_BRIGHTNESS_SLIDER_ICON_COLOR,
+                                    WHITE);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_ICON_COLOR, WHITE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_RIPPLE_COLOR, WHITE);
@@ -229,7 +302,16 @@ public class QSColors extends SettingsPreferenceFragment implements
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_BACKGROUND_COLOR,
-                                    0x00000000);
+                                    0xff000000);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.QS_BRIGHTNESS_SLIDER_COLOR,
+                                    0xffff0000);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.QS_BRIGHTNESS_SLIDER_BG_COLOR,
+                                    0xff00ff00);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.QS_BRIGHTNESS_SLIDER_ICON_COLOR,
+                                    WHITE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_ICON_COLOR,
                                     CYANIDE_BLUE);

@@ -763,9 +763,12 @@
     <string name="android_recents_clear_all_use_icon_color_summary">Enable to use a custom color for the clear all button icon</string>
     <string name="recents_clear_all_dismiss_all_title">Clear All Tasks</string>
     <string name="recents_clear_all_dismiss_all_summary">Choose whether to dismiss all tasks or ignore the foreground task</string>
+    <string name="memory_bar_options_title">Memory Bar Settings</string>
     <string name="recents_show_membar_title">Memory Bar</string>
     <string name="recents_show_membar_summary">Show a bar with the device\'s available memory</string>
-    <string name="membar_text_color">Memory Bar Text Color</string>
+    <string name="membar_text_color">Bar Text Color</string>
+    <string name="membar_bar_color">Bar Free Color</string>
+    <string name="membar_bar_used_color">Bar Used Color</string>
 
     <!-- Volume Steps -->
     <string name="volume_steps_title">Volume Steps</string>
@@ -2083,5 +2086,10 @@
     <!-- Media art -->
     <string name="media_art_title">Media Cover Art</string>
     <string name="media_art_summary">Enable media cover art on the lockscreen</string>
+
+    <!-- Brightness Slider Colors -->
+    <string name="brightness_slider_color_title">Brightness Slider Color</string>
+    <string name="brightness_slider_bg_color_title">Brightness Slider Background Color</string>
+    <string name="brightness_slider_icon_color_title">Brightness Slider Icons Color</string>
 
 </resources>
