@@ -125,5 +125,6 @@ public class Settings extends SettingsActivity {
     public static class FloatingWindowsSettingsActivity extends SettingsActivity { /* empty */ }
     public static class StatusBarExpandedHeaderSettingsActivity extends SettingsActivity { /* empty */ }
     public static class NotificationDrawerSettings extends SettingsActivity { /* empty */ }
+    public static class StatusBarSettingsSettingsActivity extends SettingsActivity { /* empty */ }
 }
 

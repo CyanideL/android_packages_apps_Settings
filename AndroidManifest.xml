@@ -2165,6 +2165,20 @@
                 android:value="com.android.settings.cyanogenmod.NotificationDrawerSettings" />
         </activity>
 
+        <!-- Status bar settings activity. -->
+        <activity android:name="Settings$StatusBarSettingsSettingsActivity"
+                android:label="@string/status_bar_title"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.cyanogenmod.StatusBarSettings" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/display_and_lights_settings" />
+        </activity>
+
         <!-- Buttons options -->
         <activity android:name="Settings$ButtonSettings"
                 android:uiOptions="splitActionBarWhenNarrow"

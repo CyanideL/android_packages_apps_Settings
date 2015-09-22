@@ -140,6 +140,7 @@ import com.android.settings.cyanide.PAPieControl;
 import com.android.settings.cyanide.FloatingWindows;
 import com.android.settings.cyanide.StatusBarExpandedHeaderSettings;
 import com.android.settings.cyanogenmod.NotificationDrawerSettings;
+import com.android.settings.cyanogenmod.StatusBarSettings;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -355,7 +356,8 @@ public class SettingsActivity extends Activity
             PAPieControl.class.getName(),
             FloatingWindows.class.getName(),
             StatusBarExpandedHeaderSettings.class.getName(),
-            NotificationDrawerSettings.class.getName()
+            NotificationDrawerSettings.class.getName(),
+            StatusBarSettings.class.getName()
     };
 
 
