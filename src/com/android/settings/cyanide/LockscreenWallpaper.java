@@ -19,24 +19,30 @@ package com.android.settings.cyanide;
 
 import android.app.Activity;
 import android.app.WallpaperManager;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.preference.Preference;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
 import android.widget.Toast;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.widget.SeekBarPreferenceCham;
 
-public class LockscreenWallpaper extends SettingsPreferenceFragment {
+public class LockscreenWallpaper extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
     public static final int IMAGE_PICK = 1;
 
     private static final String KEY_WALLPAPER_SET = "lockscreen_wallpaper_set";
     private static final String KEY_WALLPAPER_CLEAR = "lockscreen_wallpaper_clear";
+    private static final String LOCKSCREEN_BLUR_RADIUS  = "lockscreen_blur_radius";
 
     private Preference mSetWallpaper;
     private Preference mClearWallpaper;
+    private SeekBarPreferenceCham mBlurRadius;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,6 +51,21 @@ public class LockscreenWallpaper extends SettingsPreferenceFragment {
 
         mSetWallpaper = (Preference) findPreference(KEY_WALLPAPER_SET);
         mClearWallpaper = (Preference) findPreference(KEY_WALLPAPER_CLEAR);
+
+        mBlurRadius = (SeekBarPreferenceCham) findPreference(LOCKSCREEN_BLUR_RADIUS);
+        mBlurRadius.setValue(Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.LOCKSCREEN_BLUR_RADIUS, 0));
+        mBlurRadius.setOnPreferenceChangeListener(this);
+    }
+
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mBlurRadius) {
+            int width = ((Integer)newValue).intValue();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LOCKSCREEN_BLUR_RADIUS, width);
+            return true;
+         }
+         return false;
     }
 
     @Override

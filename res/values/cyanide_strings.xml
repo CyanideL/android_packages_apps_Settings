@@ -2095,4 +2095,9 @@
     <string name="brightness_slider_bg_color_title">Brightness Slider Background Color</string>
     <string name="brightness_slider_icon_color_title">Brightness Slider Icons Color</string>
 
+    <!-- Lockscreen see through -->
+    <string name="lockscreen_see_through_title">Lockscreen Blur</string>
+    <string name="lockscreen_see_through_summary">Blurs and displays the content behind your lockscreen.</string>
+    <string name="lockscreen_blur_radius">Blur effect intensity</string> 
+
 </resources>
