@@ -48,6 +48,8 @@ public class StatusBarGreetingSettings extends SettingsPreferenceFragment implem
             "greeting_custom_label";
     private static final String PREF_TIMEOUT =
             "greeting_timeout";
+    private static final String PREF_FONT_SIZE  =
+            "status_bar_greeting_font_size";
     private static final String PREF_COLOR =
             "greeting_color";
 
@@ -62,6 +64,7 @@ public class StatusBarGreetingSettings extends SettingsPreferenceFragment implem
     private ListPreference mShowLabel;
     private EditTextPreference mCustomLabel;
     private SeekBarPreferenceCham mTimeOut;
+    private SeekBarPreferenceCham mGreetingFontSize;
     private ColorPickerPreference mColor;
 
     private ContentResolver mResolver;
@@ -104,6 +107,12 @@ public class StatusBarGreetingSettings extends SettingsPreferenceFragment implem
             mTimeOut.setValue(timeout / 1);
             mTimeOut.setOnPreferenceChangeListener(this);
 
+            mGreetingFontSize = 
+                    (SeekBarPreferenceCham) findPreference(PREF_FONT_SIZE);
+            mGreetingFontSize.setValue(Settings.System.getInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_GREETING_FONT_SIZE, 14));
+            mGreetingFontSize.setOnPreferenceChangeListener(this);
+
             mColor =
                     (ColorPickerPreference) findPreference(PREF_COLOR);
             int intColor = Settings.System.getInt(mResolver,
@@ -116,6 +125,7 @@ public class StatusBarGreetingSettings extends SettingsPreferenceFragment implem
         } else {
             removePreference(PREF_CUSTOM_LABEL);
             removePreference(PREF_TIMEOUT);
+            removePreference(PREF_FONT_SIZE);
             removePreference(PREF_COLOR);
         }
 
@@ -162,6 +172,11 @@ public class StatusBarGreetingSettings extends SettingsPreferenceFragment implem
             int timeout = (Integer) newValue;
             Settings.System.putInt(mResolver,
                     Settings.System.STATUS_BAR_GREETING_TIMEOUT, timeout * 1);
+            return true;
+        } else if (preference == mGreetingFontSize) {
+            int width = ((Integer)newValue).intValue();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_GREETING_FONT_SIZE, width);
             return true;
         } else if (preference == mColor) {
             String hex = ColorPickerPreference.convertToARGB(
@@ -237,6 +252,8 @@ public class StatusBarGreetingSettings extends SettingsPreferenceFragment implem
                                     Settings.System.STATUS_BAR_GREETING_TIMEOUT,
                                     400);
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_GREETING_FONT_SIZE, 14);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_GREETING_COLOR,
                                     WHITE);
                             getOwner().refreshSettings();
@@ -250,6 +267,8 @@ public class StatusBarGreetingSettings extends SettingsPreferenceFragment implem
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_GREETING_TIMEOUT,
                                     1000);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_GREETING_FONT_SIZE, 14);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_GREETING_COLOR,
                                     CYANIDE_BLUE);

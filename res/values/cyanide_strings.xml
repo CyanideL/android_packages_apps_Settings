@@ -971,7 +971,10 @@
     <string name="greeting_show_label_once_title">Once after boot</string>
     <string name="greeting_custom_label_title">Custom Text</string>
     <string name="greeting_custom_label_dlg_message">Enter a new text, which will be shown as greeting. An empty field will revert the text to:\n\'%s\'</string>
-    <string name="greeting_timeout_title">Time out</string>
+    <string name="greeting_timeout_title">Time Out</string>
+    <string name="greeting_label_font_size">Greeting Label Text Size</string>
+    <string name="greeting_show_label_preview_title">Show Label Preview</string>
+    <string name="greeting_show_label_preview_summary">Show a preview of the current used greeting text, which will be shown as greeting</string>
 
     <!-- Statusbar CyanideL logo -->
     <string name="status_bar_cyanide_logo_title">CyanideL Logo</string>
