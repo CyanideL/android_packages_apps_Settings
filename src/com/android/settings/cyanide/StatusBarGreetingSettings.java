@@ -27,6 +27,7 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -48,6 +49,8 @@ public class StatusBarGreetingSettings extends SettingsPreferenceFragment implem
             "greeting_custom_label";
     private static final String PREF_TIMEOUT =
             "greeting_timeout";
+    private static final String PREF_PREVIEW_LABEL  =
+            "status_bar_greeting_show_label_preview";
     private static final String PREF_FONT_SIZE  =
             "status_bar_greeting_font_size";
     private static final String PREF_COLOR =
@@ -64,6 +67,7 @@ public class StatusBarGreetingSettings extends SettingsPreferenceFragment implem
     private ListPreference mShowLabel;
     private EditTextPreference mCustomLabel;
     private SeekBarPreferenceCham mTimeOut;
+    SwitchPreference mPreviewLabel;
     private SeekBarPreferenceCham mGreetingFontSize;
     private ColorPickerPreference mColor;
 
@@ -107,11 +111,21 @@ public class StatusBarGreetingSettings extends SettingsPreferenceFragment implem
             mTimeOut.setValue(timeout / 1);
             mTimeOut.setOnPreferenceChangeListener(this);
 
-            mGreetingFontSize = 
-                    (SeekBarPreferenceCham) findPreference(PREF_FONT_SIZE);
-            mGreetingFontSize.setValue(Settings.System.getInt(getActivity().getContentResolver(),
-                    Settings.System.STATUS_BAR_GREETING_FONT_SIZE, 14));
-            mGreetingFontSize.setOnPreferenceChangeListener(this);
+            mPreviewLabel = (SwitchPreference) findPreference(PREF_PREVIEW_LABEL);
+            boolean previewLabel = Settings.System.getInt(mResolver,
+                Settings.System.STATUS_BAR_GREETING_SHOW_LABEL_PREVIEW, 0) == 1;
+            mPreviewLabel.setChecked(previewLabel);
+            mPreviewLabel.setOnPreferenceChangeListener(this);
+
+            if (previewLabel) {
+                mGreetingFontSize = 
+                        (SeekBarPreferenceCham) findPreference(PREF_FONT_SIZE);
+                mGreetingFontSize.setValue(Settings.System.getInt(mResolver,
+                        Settings.System.STATUS_BAR_GREETING_FONT_SIZE, 12));
+                mGreetingFontSize.setOnPreferenceChangeListener(this);
+            } else {
+                removePreference(PREF_FONT_SIZE);
+            }
 
             mColor =
                     (ColorPickerPreference) findPreference(PREF_COLOR);
@@ -122,6 +136,9 @@ public class StatusBarGreetingSettings extends SettingsPreferenceFragment implem
             String hexColor = String.format("#%08x", (0xffffffff & intColor));
             mColor.setSummary(hexColor);
             mColor.setOnPreferenceChangeListener(this);
+
+            updateCustomLabelPreference();
+            updateShowLabelSummary(showLabel);
         } else {
             removePreference(PREF_CUSTOM_LABEL);
             removePreference(PREF_TIMEOUT);
@@ -129,10 +146,7 @@ public class StatusBarGreetingSettings extends SettingsPreferenceFragment implem
             removePreference(PREF_COLOR);
         }
 
-        updateShowLabelSummary(showLabel);
-        updateCustomLabelPreference();
         setHasOptionsMenu(true);
-
     }
 
     @Override
@@ -173,6 +187,12 @@ public class StatusBarGreetingSettings extends SettingsPreferenceFragment implem
             Settings.System.putInt(mResolver,
                     Settings.System.STATUS_BAR_GREETING_TIMEOUT, timeout * 1);
             return true;
+        } else if (preference == mPreviewLabel) {
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_GREETING_SHOW_LABEL_PREVIEW,
+            (Boolean) newValue ? 1 : 0);
+            refreshSettings();
+            return true;
         } else if (preference == mGreetingFontSize) {
             int width = ((Integer)newValue).intValue();
             Settings.System.putInt(getActivity().getContentResolver(),
@@ -188,6 +208,11 @@ public class StatusBarGreetingSettings extends SettingsPreferenceFragment implem
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 
     private void updateShowLabelSummary(int index) {
