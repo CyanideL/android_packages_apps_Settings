@@ -105,16 +105,6 @@
             android:summary="@string/recents_empty_style_summary"
             android:defaultValue="false" />
 
-        <com.android.settings.cyanogenmod.SystemSettingSwitchPreference
-            android:key="systemui_recents_mem_display"
-            android:title="@string/recents_show_membar_title"
-            android:summary="@string/recents_show_membar_summary" />
-
-        <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="mem_text_color"
-            android:title="@string/membar_text_color"
-            android:defaultValue="0xffffffff" />
-
         <PreferenceScreen
             android:key="screen_pinning_settings"
             android:title="@string/screen_pinning_title"
