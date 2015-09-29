@@ -60,6 +60,7 @@
     <string name="cyanide_animations_title">Animations</string>
     <string name="status_bar_battery_style">Battery Options</string>
     <string name="status_bar_buttons">Buttons</string>
+    <string name="status_bar_buttons_summary">Customize the buttons to show and use in the expanded header</string>
     <string name="breathing_notifications_summary">Enable Blinking Status Bar Notifications</string>
     <string name="qs_colors_title">Custom Colors</string>
     <string name="custom_header_title">Customization</string>
