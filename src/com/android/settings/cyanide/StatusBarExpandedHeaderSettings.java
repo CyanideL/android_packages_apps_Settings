@@ -49,6 +49,7 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
     private static final String PREF_TEXT_COLOR = "expanded_header_text_color";
     private static final String PREF_ICON_COLOR = "expanded_header_icon_color";
     private static final String PREF_SHOW_CYANIDE_BUTTON = "show_cyanide_button";
+    private static final String PREF_SHOW_CAMERA_BUTTON = "show_camera_button";
     private static final String PREF_SHOW_QS_BUTTON = "expanded_header_show_qs_button";
     private static final String PREF_SHOW_TORCH_BUTTON = "expanded_header_show_torch_button";
     private static final String PREF_RIPPLE_COLOR = "expanded_header_ripple_color";
@@ -64,6 +65,7 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
     private SwitchPreference mShowWeather;
     private SwitchPreference mShowLocation;
     private SwitchPreference mShowCyanideButton;
+    private SwitchPreference mShowCameraButton;
     private SwitchPreference mShowQsButton;
     private SwitchPreference mShowTorchButton;
     private ColorPickerPreference mBackgroundColor;
@@ -117,6 +119,12 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
 
         PreferenceCategory buttonsCategory = (PreferenceCategory)
                 findPreference(KEY_BUTTONS_CATEGORY);
+
+        mShowCameraButton =
+                (SwitchPreference) findPreference(PREF_SHOW_CAMERA_BUTTON);
+        mShowCameraButton.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.SHOW_CAMERA_BUTTON, 0) == 1);
+        mShowCameraButton.setOnPreferenceChangeListener(this);
 
         mShowCyanideButton =
                 (SwitchPreference) findPreference(PREF_SHOW_CYANIDE_BUTTON);
@@ -212,7 +220,13 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         String hex;
         int intHex;
 
-        if (preference == mShowCyanideButton) {
+        if (preference == mShowCameraButton) {
+            value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                Settings.System.SHOW_CAMERA_BUTTON,
+                value ? 1 : 0);
+            return true;
+        } else if (preference == mShowCyanideButton) {
             value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                 Settings.System.SHOW_CYANIDE_BUTTON,
@@ -322,6 +336,8 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.SHOW_CAMERA_BUTTON, 0);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.SHOW_CYANIDE_BUTTON, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_QS_BUTTON, 0);
@@ -351,6 +367,8 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                     .setPositiveButton(R.string.reset_cyanide,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.SHOW_CAMERA_BUTTON, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.SHOW_CYANIDE_BUTTON, 1);
                             Settings.System.putInt(getOwner().mResolver,

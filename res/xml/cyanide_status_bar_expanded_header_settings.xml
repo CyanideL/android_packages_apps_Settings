@@ -60,6 +60,11 @@
             android:fragment="com.android.settings.cyanide.HeaderCustomShortcuts" />
 
         <SwitchPreference
+            android:key="show_camera_button"
+            android:title="@string/expanded_header_show_camera_button_title"
+            android:summary="@string/expanded_header_show_camera_button_summary" />
+
+        <SwitchPreference
             android:key="show_cyanide_button"
             android:title="@string/show_cyanide_button_title"
             android:summary="@string/show_cyanide_button_summary" />

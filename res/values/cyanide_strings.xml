@@ -2085,6 +2085,8 @@
     <string name="expanded_header_show_qs_button_summary">Enable to show the QS button for quick settings. Click for quick settings panel and long click for status bar header</string>
     <string name="expanded_header_show_torch_button_title">Torch Button</string>
     <string name="expanded_header_show_torch_button_summary">Enable to show the Torch button above quick settings</string>
+    <string name="expanded_header_show_camera_button_title">Camera Button</string>
+    <string name="expanded_header_show_camera_button_summary">Enable to show the Camera button in the expanded header</string>
 
     <!-- Media art -->
     <string name="media_art_title">Media Cover Art</string>
