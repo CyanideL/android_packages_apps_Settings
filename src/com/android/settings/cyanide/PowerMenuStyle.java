@@ -31,6 +31,7 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
+import android.preference.SlimSeekBarPreference;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.util.Log;
@@ -48,6 +49,8 @@ public class PowerMenuStyle extends SettingsPreferenceFragment implements
 
     private static final String POWER_MENU_ONTHEGO_ENABLED =
             "power_menu_onthego_enabled";
+    private static final String PREF_ON_THE_GO_ALPHA =
+            "on_the_go_alpha";
     private static final String PREF_ICON_NORMAL_COLOR =
             "power_menu_icon_normal_color";
     private static final String PREF_ICON_ENABLED_SELECTED_COLOR =
@@ -66,6 +69,7 @@ public class PowerMenuStyle extends SettingsPreferenceFragment implements
     private static final int DLG_RESET = 0;
 
     private SwitchPreference mOnTheGoPowerMenu;
+    private SlimSeekBarPreference mOnTheGoAlphaPref;
 
     private ColorPickerPreference mIconNormalColor;
     private ColorPickerPreference mIconEnabledSelectedColor;
@@ -100,6 +104,11 @@ public class PowerMenuStyle extends SettingsPreferenceFragment implements
         mOnTheGoPowerMenu.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.POWER_MENU_ONTHEGO_ENABLED, 0) == 1);
         mOnTheGoPowerMenu.setOnPreferenceChangeListener(this);
+
+        mOnTheGoAlphaPref = (SlimSeekBarPreference) findPreference(PREF_ON_THE_GO_ALPHA);
+        mOnTheGoAlphaPref.setDefault(50);
+        mOnTheGoAlphaPref.setInterval(1);
+        mOnTheGoAlphaPref.setOnPreferenceChangeListener(this);
 
         mIconNormalColor =
                 (ColorPickerPreference) findPreference(PREF_ICON_NORMAL_COLOR);
@@ -170,6 +179,11 @@ public class PowerMenuStyle extends SettingsPreferenceFragment implements
             boolean value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                     Settings.System.POWER_MENU_ONTHEGO_ENABLED, value ? 1 : 0);
+            return true;
+        } else if (preference == mOnTheGoAlphaPref) {
+            float val = Float.parseFloat((String) newValue);
+            Settings.System.putFloat(mResolver, Settings.System.ON_THE_GO_ALPHA,
+                    val / 100);
             return true;
         } else if (preference == mIconNormalColor) {
             hex = ColorPickerPreference.convertToARGB(
