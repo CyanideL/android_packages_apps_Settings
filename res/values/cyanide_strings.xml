@@ -1672,6 +1672,8 @@
     <string name="notification_bg_guts_color_title">Background on longpress</string>
     <string name="notification_app_icon_bg_color_title">App icon background</string>
     <string name="notification_clear_all_icon_color_title">Clear all icon</string>
+    <string name="notification_snooze_button_title">Snooze Button</string>
+    <string name="notification_snooze_button_summary">This allows hiding the new snooze button attached to notifications if you don\'t like it(ME)</string>
 
     <!-- Task Manager -->
     <string name="enable_task_manager_title">Task Manager</string>
