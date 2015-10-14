@@ -2090,14 +2090,6 @@
     <string name="volume_panel_expanded_title">Expanded Volume Panel</string>
     <string name="volume_panel_expanded_summary">Show volume panel in expanded mode by default</string>
 
-    <!-- Statusbar expanded header setting-->
-    <string name="expanded_header_show_qs_button_title">Quick Settings Button</string>
-    <string name="expanded_header_show_qs_button_summary">Enable to show the QS button for quick settings. Click for quick settings panel and long click for status bar header</string>
-    <string name="expanded_header_show_torch_button_title">Torch Button</string>
-    <string name="expanded_header_show_torch_button_summary">Enable to show the Torch button above quick settings</string>
-    <string name="expanded_header_show_camera_button_title">Camera Button</string>
-    <string name="expanded_header_show_camera_button_summary">Enable to show the Camera button in the expanded header</string>
-
     <!-- Media art -->
     <string name="media_art_title">Media Cover Art</string>
     <string name="media_art_summary">Enable media cover art on the lockscreen</string>
@@ -2117,5 +2109,20 @@
     <string name="power_menu_onthego_title">On-The-Go Mode</string>
     <string name="onthego_alpha_title">On-The-Go Alpha</string>
     <string name="onthego_alpha_summary">Alpha value of the On-The-Go overlay. Needs re-toggling.</string>
+
+    <!-- Header Bar -->
+    <string name="panel_shortcuts_title">Shortcut Bar</string>
+    <string name="panel_shortcuts_summary">View/Change shortcuts in the Expanded Header Bar. This is viewable in the button panel of the expanded header</string>
+    <string name="panel_shorcuts_longpress_title">Shortcuts longpress</string>
+    <string name="panel_shorcuts_longpress_summary">Open custom lock screen shortcuts on longpress</string>
+    <string name="panel_shorcuts_launch_type_title">Shortcut click type</string>
+    <string name="panel_shortcuts_single_tap">Click</string>
+    <string name="panel_shortcuts_double_tap">Double tap</string>
+    <string name="panel_shortcuts_longpress">Longpress</string>
+    <string name="header_bar_icon_color_mode_title">Colorize Icon</string>
+    <string name="header_bar_icon_color_mode_dialog_title">Choose when to colorize the icon</string>
+    <string name="header_bar_ripple_color_mode_title">Colorize ripple effect</string>
+    <string name="header_bar_ripple_color_mode_dialog_title">Choose how to colorize the ripple effect</string>
+    <string name="colors_buttons_bar_ripple_color_title">Ripple Effect</string>
 
 </resources>

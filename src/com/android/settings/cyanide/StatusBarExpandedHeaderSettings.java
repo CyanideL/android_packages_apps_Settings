@@ -77,10 +77,6 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         int intColor;
         String hexColor;
 
-        mShowWeather = (SwitchPreference) findPreference(PREF_SHOW_WEATHER);
-        mShowWeather.setChecked(showWeather);
-        mShowWeather.setOnPreferenceChangeListener(this);
-
         mShowLocation = (SwitchPreference) findPreference(PREF_SHOW_LOCATION);
         mShowLocation.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER_LOCATION, 1) == 1);

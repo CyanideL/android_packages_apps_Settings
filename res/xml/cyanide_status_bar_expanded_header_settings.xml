@@ -24,6 +24,12 @@
         android:summary="@string/custom_header_shortcuts_summary"
         android:fragment="com.android.settings.cyanide.HeaderCustomShortcuts" />
 
+    <PreferenceScreen
+        android:key="panel_shortcuts"
+        android:title="@string/panel_shortcuts_title"
+        android:summary="@string/panel_shortcuts_summary"
+        android:fragment="com.android.settings.cyanide.fragments.PanelShortcutFragment" />
+
     <PreferenceCategory
         android:key="expanded_header_weather_category"
         android:title="@string/header_weather_title">

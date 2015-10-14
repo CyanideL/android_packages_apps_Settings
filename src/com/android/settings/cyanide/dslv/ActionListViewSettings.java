@@ -103,6 +103,7 @@ public class ActionListViewSettings extends ListFragment implements
     private static final int QUICKTILE             = 7;
     private static final int QUICK_SETTINGS_BAR    = 8;
     private static final int RECENT_APP_SIDEBAR     = 9;
+    private static final int PANEL_SHORTCUTS     = 10;
 
     private static final int DEFAULT_MAX_ACTION_NUMBER = 5;
     private static final int DEFAULT_NUMBER_OF_ACTIONS = 3;
@@ -568,6 +569,8 @@ public class ActionListViewSettings extends ListFragment implements
             case RECENT_APP_SIDEBAR:
                 return ActionHelper.getRecentAppSidebarConfigWithDescription(
                     mActivity, mActionValuesKey, mActionEntriesKey);
+            case PANEL_SHORTCUTS:
+                return ActionHelper.getPanelShortcutsConfig(mActivity);
             case BUTTONS_BAR_EXTENSION:
                 return ActionHelper.getLockscreenButtonBarExtensionConfig(mActivity);
 
@@ -606,6 +609,10 @@ public class ActionListViewSettings extends ListFragment implements
                 break;
             case RECENT_APP_SIDEBAR:
                 ActionHelper.setRecentAppSidebarConfig(mActivity, actionConfigs, reset);
+                updateFabVisibility(reset ? mDefaultNumberOfActions : actionConfigs.size());
+                break;
+            case PANEL_SHORTCUTS:
+                ActionHelper.setPanelShortcutsConfig(mActivity, actionConfigs, reset);
                 updateFabVisibility(reset ? mDefaultNumberOfActions : actionConfigs.size());
                 break;
             case BUTTONS_BAR_EXTENSION:
@@ -823,6 +830,7 @@ public class ActionListViewSettings extends ListFragment implements
                         case PIE_SECOND:
                         case QUICK_SETTINGS_BAR:
                         case RECENT_APP_SIDEBAR:
+                        case PANEL_SHORTCUTS:
                         case BUTTONS_BAR_EXTENSION:
                         default:
                             actionMode = res.getString(R.string.shortcut_action_help_button);
