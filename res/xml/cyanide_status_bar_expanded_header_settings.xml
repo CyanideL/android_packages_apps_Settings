@@ -19,20 +19,14 @@
     android:title="@string/status_bar_expanded_header_settings_title">
 
     <PreferenceScreen
-        android:key="header_buttons_settings"
-        android:title="@string/status_bar_buttons"
-        android:summary="@string/status_bar_buttons_summary"
-        android:fragment="com.android.settings.cyanide.StatusBarHeaderButtons" />
+        android:key="custom_header_shortcuts"
+        android:title="@string/custom_header_shortcuts_title"
+        android:summary="@string/custom_header_shortcuts_summary"
+        android:fragment="com.android.settings.cyanide.HeaderCustomShortcuts" />
 
     <PreferenceCategory
         android:key="expanded_header_weather_category"
         android:title="@string/header_weather_title">
-
-        <SwitchPreference
-            android:key="expanded_header_show_weather"
-            android:title="@string/weather_show_weather_title"
-            android:summary="@string/weather_show_weather_summary"
-            android:defaultValue="false" />
 
         <SwitchPreference
             android:key="expanded_header_show_weather_location"
