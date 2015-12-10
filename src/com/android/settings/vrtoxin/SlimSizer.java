@@ -281,7 +281,7 @@ public class SlimSizer extends Fragment {
                         // of the selected item
                         short state = sdAvailable();
                         File path = new File(Environment
-                                .getExternalStorageDirectory() + "/vrtoxin");
+                                .getExternalStorageDirectory() + "/cyanide");
                         File savefile = new File(path + "/systemappremover.stf");
                         if (which == 0) {
                             // load profile action
