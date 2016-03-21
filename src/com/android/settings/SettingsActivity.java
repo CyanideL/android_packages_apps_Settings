@@ -119,6 +119,7 @@ import com.android.settings.vpn2.VpnSettings;
 import com.android.settings.wfd.WifiDisplaySettings;
 import com.android.settings.widget.SwitchBar;
 import com.android.settings.wifi.AdvancedWifiSettings;
+import com.android.settings.deviceinfo.AdvancedStorageSettings;
 import com.android.settings.wifi.SavedAccessPointsWifiSettings;
 import com.android.settings.wifi.WifiAPITest;
 import com.android.settings.wifi.WifiInfo;
@@ -261,6 +262,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             WirelessSettings.class.getName(),
             WifiSettings.class.getName(),
             AdvancedWifiSettings.class.getName(),
+            AdvancedStorageSettings.class.getName(),
             SavedAccessPointsWifiSettings.class.getName(),
             BluetoothSettings.class.getName(),
             SimSettings.class.getName(),
@@ -410,6 +412,7 @@ public class SettingsActivity extends SettingsDrawerActivity
     private boolean mSearchMenuItemExpanded = false;
     private SearchResultsSummary mSearchResultsFragment;
     private String mSearchQuery;
+    private UserManager mUm;
 
     // Categories
     private ArrayList<DashboardCategory> mCategories = new ArrayList<DashboardCategory>();
@@ -533,6 +536,7 @@ public class SettingsActivity extends SettingsDrawerActivity
         if (intent.getBooleanExtra(EXTRA_HIDE_DRAWER, false)) {
             setIsDrawerPresent(false);
         }
+        mUm = (UserManager) getSystemService(Context.USER_SERVICE);
 
         mDevelopmentPreferences = getSharedPreferences(DevelopmentSettings.PREF_FILE,
                 Context.MODE_PRIVATE);
