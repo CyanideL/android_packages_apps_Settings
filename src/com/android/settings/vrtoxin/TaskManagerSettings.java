@@ -56,6 +56,7 @@ public class TaskManagerSettings extends SettingsPreferenceFragment implements
     private static final String TASK_MANAGER_TITLE_TEXT_COLOR = "task_manager_title_text_color";
     private static final String TASK_MANAGER_TASK_KILL_ALL_COLOR = "task_manager_kill_all_color";
     private static final String QS_TASK_ANIMATION = "qs_task_animation";
+    private static final String TASK_MANAGER_FONT_STYLE = "task_manager_font_style";
 
     private static final int WHITE = 0xffffffff;
     private static final int BLACK = 0xff000000;
@@ -76,6 +77,7 @@ public class TaskManagerSettings extends SettingsPreferenceFragment implements
     private ColorPickerPreference mTaskTitleTextColor;
     private ColorPickerPreference mTaskKillAllColor;
     private ListPreference mAnimation;
+    private ListPreference mFontStyle;
 
     private ContentResolver mResolver;
 
@@ -189,6 +191,12 @@ public class TaskManagerSettings extends SettingsPreferenceFragment implements
             mAnimation.setSummary(mAnimation.getEntry());
             mAnimation.setOnPreferenceChangeListener(this);
 
+            mFontStyle = (ListPreference) findPreference(TASK_MANAGER_FONT_STYLE);
+            mFontStyle.setOnPreferenceChangeListener(this);
+            mFontStyle.setValue(Integer.toString(Settings.System.getInt(getActivity()
+                    .getContentResolver(), Settings.System.TASK_MANAGER_FONT_STYLE, 0)));
+            mFontStyle.setSummary(mFontStyle.getEntry());
+
         } else {
             removePreference(COLORS_CATEGORY);
             removePreference(QS_TASK_ANIMATION);
@@ -222,6 +230,7 @@ public class TaskManagerSettings extends SettingsPreferenceFragment implements
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         String hex;
         int intHex;
+        int index;
 
         if (preference == mTaskManager) {
             boolean value = (Boolean) newValue;
@@ -300,6 +309,13 @@ public class TaskManagerSettings extends SettingsPreferenceFragment implements
             mAnimation.setValue(String.valueOf(newValue));
             mAnimation.setSummary(mAnimation.getEntry());
             return true;
+        } else if (preference == mFontStyle) {
+            int val = Integer.parseInt((String) newValue);
+            index = mFontStyle.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.TASK_MANAGER_FONT_STYLE, val);
+            mFontStyle.setSummary(mFontStyle.getEntries()[index]);
+            return true;
         }
         return false;
     }
@@ -371,6 +387,9 @@ public class TaskManagerSettings extends SettingsPreferenceFragment implements
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_TASK_ANIMATION,
                                     0);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.TASK_MANAGER_FONT_STYLE,
+                                    0);
                             getOwner().refreshSettings();
                         }
                     })
@@ -407,6 +426,9 @@ public class TaskManagerSettings extends SettingsPreferenceFragment implements
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_TASK_ANIMATION,
                                     6);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.TASK_MANAGER_FONT_STYLE,
+                                    20);
                             getOwner().refreshSettings();
                         }
                     })

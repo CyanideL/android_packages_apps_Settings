@@ -35,6 +35,14 @@
         android:summary="@string/expansion_view_animation_summary"
         android:persistent="false" />
 
+    <!-- Font Styles -->
+    <ListPreference
+        android:key="task_manager_font_style"
+        android:title="@string/status_bar_weather_font_style_title"
+        android:dialogTitle="@string/status_bar_weather_font_style_title"
+        android:entries="@array/status_bar_font_style_entries"
+        android:entryValues="@array/status_bar_font_style_values" />
+
     <PreferenceCategory
         android:key="task_manager_colors"
         android:title="@string/colors_title">
