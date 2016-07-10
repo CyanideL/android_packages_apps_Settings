@@ -200,6 +200,7 @@ public class TaskManagerSettings extends SettingsPreferenceFragment implements
         } else {
             removePreference(COLORS_CATEGORY);
             removePreference(QS_TASK_ANIMATION);
+            removePreference(TASK_MANAGER_FONT_STYLE);
         }
 
         setHasOptionsMenu(true);
