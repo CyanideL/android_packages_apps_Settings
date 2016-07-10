@@ -55,6 +55,7 @@ public class TaskManagerSettings extends SettingsPreferenceFragment implements
     private static final String TASK_MANAGER_TASK_TEXT_COLOR = "task_manager_task_text_color";
     private static final String TASK_MANAGER_TITLE_TEXT_COLOR = "task_manager_title_text_color";
     private static final String TASK_MANAGER_TASK_KILL_ALL_COLOR = "task_manager_kill_all_color";
+    private static final String QS_TASK_ANIMATION = "qs_task_animation";
 
     private static final int WHITE = 0xffffffff;
     private static final int BLACK = 0xff000000;
@@ -74,6 +75,7 @@ public class TaskManagerSettings extends SettingsPreferenceFragment implements
     private ColorPickerPreference mTaskTextColor;
     private ColorPickerPreference mTaskTitleTextColor;
     private ColorPickerPreference mTaskKillAllColor;
+    private ListPreference mAnimation;
 
     private ContentResolver mResolver;
 
@@ -180,8 +182,16 @@ public class TaskManagerSettings extends SettingsPreferenceFragment implements
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mTaskTitleTextColor.setSummary(hexColor);
             mTaskTitleTextColor.setOnPreferenceChangeListener(this);
+
+            mAnimation = (ListPreference) findPreference(QS_TASK_ANIMATION);
+            mAnimation.setValue(String.valueOf(Settings.System.getInt(
+                    getContentResolver(), Settings.System.QS_TASK_ANIMATION, 0)));
+            mAnimation.setSummary(mAnimation.getEntry());
+            mAnimation.setOnPreferenceChangeListener(this);
+
         } else {
             removePreference(COLORS_CATEGORY);
+            removePreference(QS_TASK_ANIMATION);
         }
 
         setHasOptionsMenu(true);
@@ -284,6 +294,12 @@ public class TaskManagerSettings extends SettingsPreferenceFragment implements
                     Settings.System.TASK_MANAGER_TITLE_TEXT_COLOR, intHex);
             preference.setSummary(hex);
             return true;
+        } else if (preference == mAnimation) {
+            Settings.System.putInt(mResolver, Settings.System.QS_TASK_ANIMATION,
+                    Integer.valueOf((String) newValue));
+            mAnimation.setValue(String.valueOf(newValue));
+            mAnimation.setSummary(mAnimation.getEntry());
+            return true;
         }
         return false;
     }
@@ -352,6 +368,9 @@ public class TaskManagerSettings extends SettingsPreferenceFragment implements
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.TASK_MANAGER_TASK_KILL_ALL_COLOR,
                                     WHITE);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.QS_TASK_ANIMATION,
+                                    0);
                             getOwner().refreshSettings();
                         }
                     })
@@ -385,6 +404,9 @@ public class TaskManagerSettings extends SettingsPreferenceFragment implements
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.TASK_MANAGER_TASK_KILL_ALL_COLOR,
                                     0xff00ff00);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.QS_TASK_ANIMATION,
+                                    6);
                             getOwner().refreshSettings();
                         }
                     })
