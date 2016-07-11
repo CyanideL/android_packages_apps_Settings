@@ -60,6 +60,8 @@ public class DashboardOptions extends SettingsPreferenceFragment implements
     private static final String MODS_DIVIDER_COLOR = "mods_divider_color";
     private static final String MODS_TAB_TEXT_COLOR = "mods_tab_text_color";
     private static final String KEY_CM_TABS_EFFECT = "tabs_effect";
+    private static final String SETTINGS_CAT_SPACE_COLOR  = "settings_cat_space_color";
+    private static final String SETTINGS_TOOLBAR_BG_COLOR = "settings_toolbar_bg_color";
 
     private ColorPickerPreference mBgColor;
     private ColorPickerPreference mIconColor;
@@ -74,6 +76,8 @@ public class DashboardOptions extends SettingsPreferenceFragment implements
     private ColorPickerPreference mDividerColor;
     private ColorPickerPreference mTabTextColor;
     private ListPreference mListViewTabsEffect;
+    private ColorPickerPreference mSpaceColor;
+    private ColorPickerPreference mHeaderColor;
 
     private static final int TRANSLUCENT_BLACK = 0x80000000;
     private static final int CYANIDE_BLUE = 0xff1976D2;
@@ -207,6 +211,24 @@ public class DashboardOptions extends SettingsPreferenceFragment implements
         mListViewTabsEffect.setSummary(mListViewTabsEffect.getEntry());
         mListViewTabsEffect.setOnPreferenceChangeListener(this);
 
+        mSpaceColor =
+                (ColorPickerPreference) findPreference(SETTINGS_CAT_SPACE_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.SETTINGS_CAT_SPACE_COLOR, BLACK);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mSpaceColor.setNewPreviewColor(intColor);
+        mSpaceColor.setSummary(hexColor);
+        mSpaceColor.setOnPreferenceChangeListener(this);
+
+        mHeaderColor =
+                (ColorPickerPreference) findPreference(SETTINGS_TOOLBAR_BG_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.SETTINGS_TOOLBAR_BG_COLOR, BLACK);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mHeaderColor.setNewPreviewColor(intColor);
+        mHeaderColor.setSummary(hexColor);
+        mHeaderColor.setOnPreferenceChangeListener(this);
+
         setHasOptionsMenu(true);
     }
 
@@ -331,6 +353,22 @@ public class DashboardOptions extends SettingsPreferenceFragment implements
                      Settings.System.MODS_TABS_EFFECT, value);
             mListViewTabsEffect.setSummary(mListViewTabsEffect.getEntries()[index]);
             return true;
+        } else if (preference == mSpaceColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.SETTINGS_CAT_SPACE_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mHeaderColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.SETTINGS_TOOLBAR_BG_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
         }
         return false;
     }
@@ -400,6 +438,12 @@ public class DashboardOptions extends SettingsPreferenceFragment implements
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.MODS_TAB_TEXT_COLOR,
                                     WHITE);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.SETTINGS_CAT_SPACE_COLOR,
+                                    WHITE);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.SETTINGS_TOOLBAR_BG_COLOR,
+                                    0xff263238);
                             getOwner().refreshSettings();
                         }
                     })
@@ -439,6 +483,12 @@ public class DashboardOptions extends SettingsPreferenceFragment implements
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.MODS_TAB_TEXT_COLOR,
                                     CYANIDE_GREEN);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.SETTINGS_CAT_SPACE_COLOR,
+                                    BLACK);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.SETTINGS_TOOLBAR_BG_COLOR,
+                                    BLACK);
                             getOwner().refreshSettings();
                         }
                     })
