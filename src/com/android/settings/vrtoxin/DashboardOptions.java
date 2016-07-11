@@ -59,6 +59,7 @@ public class DashboardOptions extends SettingsPreferenceFragment implements
     private static final String MODS_UNDERLINE_COLOR = "mods_underline_color";
     private static final String MODS_DIVIDER_COLOR = "mods_divider_color";
     private static final String MODS_TAB_TEXT_COLOR = "mods_tab_text_color";
+    private static final String KEY_CM_TABS_EFFECT = "tabs_effect";
 
     private ColorPickerPreference mBgColor;
     private ColorPickerPreference mIconColor;
@@ -72,6 +73,7 @@ public class DashboardOptions extends SettingsPreferenceFragment implements
     private ColorPickerPreference mUnderlineColor;
     private ColorPickerPreference mDividerColor;
     private ColorPickerPreference mTabTextColor;
+    private ListPreference mListViewTabsEffect;
 
     private static final int TRANSLUCENT_BLACK = 0x80000000;
     private static final int CYANIDE_BLUE = 0xff1976D2;
@@ -198,6 +200,13 @@ public class DashboardOptions extends SettingsPreferenceFragment implements
         mTabTextColor.setSummary(hexColor);
         mTabTextColor.setOnPreferenceChangeListener(this);
 
+        mListViewTabsEffect = (ListPreference) findPreference(KEY_CM_TABS_EFFECT);
+        int tabsEffect = Settings.System.getInt(mResolver,
+                Settings.System.MODS_TABS_EFFECT, 0);
+        mListViewTabsEffect.setValue(String.valueOf(tabsEffect));
+        mListViewTabsEffect.setSummary(mListViewTabsEffect.getEntry());
+        mListViewTabsEffect.setOnPreferenceChangeListener(this);
+
         setHasOptionsMenu(true);
     }
 
@@ -314,6 +323,13 @@ public class DashboardOptions extends SettingsPreferenceFragment implements
             Settings.System.putInt(mResolver,
                     Settings.System.MODS_TAB_TEXT_COLOR, intHex);
             preference.setSummary(hex);
+            return true;
+        } else if (preference == mListViewTabsEffect) {
+            int value = Integer.valueOf((String) newValue);
+            int index = mListViewTabsEffect.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getContentResolver(),
+                     Settings.System.MODS_TABS_EFFECT, value);
+            mListViewTabsEffect.setSummary(mListViewTabsEffect.getEntries()[index]);
             return true;
         }
         return false;

@@ -90,6 +90,13 @@
         android:key="mods_menu"
         android:title="@string/mods_menu_title" >
 
+        <ListPreference
+            android:key="tabs_effect"
+            android:title="@string/tabs_effect_title"
+            android:entries="@array/tabs_effect_entries"
+            android:entryValues="@array/tabs_effect_values"
+            android:persistent="false" />
+
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="mods_divider_color"
             android:title="@string/divider_title"
