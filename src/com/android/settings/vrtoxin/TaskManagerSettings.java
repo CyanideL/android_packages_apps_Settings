@@ -57,6 +57,7 @@ public class TaskManagerSettings extends SettingsPreferenceFragment implements
     private static final String TASK_MANAGER_TASK_KILL_ALL_COLOR = "task_manager_kill_all_color";
     private static final String QS_TASK_ANIMATION = "qs_task_animation";
     private static final String TASK_MANAGER_FONT_STYLE = "task_manager_font_style";
+    private static final String TASK_MANAGER_BAR_THICKNESS = "task_manager_bar_thickness";
 
     private static final int WHITE = 0xffffffff;
     private static final int BLACK = 0xff000000;
@@ -78,6 +79,7 @@ public class TaskManagerSettings extends SettingsPreferenceFragment implements
     private ColorPickerPreference mTaskKillAllColor;
     private ListPreference mAnimation;
     private ListPreference mFontStyle;
+    private ListPreference mBarThickness;
 
     private ContentResolver mResolver;
 
@@ -197,10 +199,17 @@ public class TaskManagerSettings extends SettingsPreferenceFragment implements
                     .getContentResolver(), Settings.System.TASK_MANAGER_FONT_STYLE, 0)));
             mFontStyle.setSummary(mFontStyle.getEntry());
 
+            mBarThickness = (ListPreference) findPreference(TASK_MANAGER_BAR_THICKNESS);
+            mBarThickness.setOnPreferenceChangeListener(this);
+            mBarThickness.setValue(Integer.toString(Settings.System.getInt(getActivity()
+                    .getContentResolver(), Settings.System.TASK_MANAGER_BAR_THICKNESS, 1)));
+            mBarThickness.setSummary(mBarThickness.getEntry());
+
         } else {
             removePreference(COLORS_CATEGORY);
             removePreference(QS_TASK_ANIMATION);
             removePreference(TASK_MANAGER_FONT_STYLE);
+            removePreference(TASK_MANAGER_BAR_THICKNESS);
         }
 
         setHasOptionsMenu(true);
@@ -317,6 +326,13 @@ public class TaskManagerSettings extends SettingsPreferenceFragment implements
                     Settings.System.TASK_MANAGER_FONT_STYLE, val);
             mFontStyle.setSummary(mFontStyle.getEntries()[index]);
             return true;
+        } else if (preference == mBarThickness) {
+            int val = Integer.parseInt((String) newValue);
+            index = mBarThickness.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.TASK_MANAGER_BAR_THICKNESS, val);
+            mBarThickness.setSummary(mBarThickness.getEntries()[index]);
+            return true;
         }
         return false;
     }
@@ -391,6 +407,9 @@ public class TaskManagerSettings extends SettingsPreferenceFragment implements
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.TASK_MANAGER_FONT_STYLE,
                                     0);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.TASK_MANAGER_BAR_THICKNESS,
+                                    1);
                             getOwner().refreshSettings();
                         }
                     })
@@ -430,6 +449,9 @@ public class TaskManagerSettings extends SettingsPreferenceFragment implements
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.TASK_MANAGER_FONT_STYLE,
                                     20);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.TASK_MANAGER_BAR_THICKNESS,
+                                    4);
                             getOwner().refreshSettings();
                         }
                     })

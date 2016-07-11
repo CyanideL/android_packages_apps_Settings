@@ -43,6 +43,12 @@
         android:entries="@array/status_bar_font_style_entries"
         android:entryValues="@array/status_bar_font_style_values" />
 
+    <ListPreference
+        android:key="task_manager_bar_thickness"
+        android:entries="@array/task_memory_size_entries"
+        android:entryValues="@array/task_memory_size_values"
+        android:title="@string/task_manager_memory_bar_title" />
+
     <PreferenceCategory
         android:key="task_manager_colors"
         android:title="@string/colors_title">
