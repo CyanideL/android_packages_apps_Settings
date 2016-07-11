@@ -3084,7 +3084,7 @@
                 android:resource="@id/display_settings" />
         </activity>
 
-        <!-- Expanded Header Activity -->
+        <!-- Task Manager Activity -->
         <activity android:name="Settings$TaskManagerSettingsActivity"
                 android:label="@string/task_manager_title"
                 android:excludeFromRecents="true">
@@ -3094,6 +3094,20 @@
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.vrtoxin.TaskManagerSettings" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/display_settings" />
+        </activity>
+
+        <!-- Quick Settings Activity -->
+        <activity android:name="Settings$QuickSettingsSettingsActivity"
+                android:label="@string/quick_settings_title"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.vrtoxin.QuickSettings" />
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
                 android:resource="@id/display_settings" />
         </activity>

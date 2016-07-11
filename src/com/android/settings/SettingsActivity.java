@@ -156,6 +156,7 @@ import com.android.settings.vrtoxin.ExpansionView;
 import com.android.settings.vrtoxin.VolumeDialogSettings;
 import com.android.settings.vrtoxin.StatusBarExpandedHeaderSettings;
 import com.android.settings.vrtoxin.TaskManagerSettings;
+import com.android.settings.vrtoxin.QuickSettings;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -413,7 +414,8 @@ public class SettingsActivity extends Activity
             ExpansionViewTraffic.class.getName(),
             StatusBarExpandedHeaderSettings.class.getName(),
             RunningServices.class.getName(),
-            TaskManagerSettings.class.getName()
+            TaskManagerSettings.class.getName(),
+            QuickSettings.class.getName()
     };
 
 
