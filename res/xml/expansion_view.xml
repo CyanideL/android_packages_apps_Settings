@@ -164,7 +164,7 @@
             android:title="@string/status_bar_weather_size_title"
             android:defaultValue="14"
             android:max="30"
-            settings:minimum="4"
+            settings:minimum="0"
             settings:unitsLeft=""
             settings:unitsRight="dp" />
 
