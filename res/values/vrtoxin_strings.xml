@@ -1197,6 +1197,9 @@
     <string name="recents_clear_all_location_top_center">Top center</string>
     <string name="recents_clear_all_location_bottom_right">Bottom right</string>
     <string name="recents_clear_all_location_bottom_left">Bottom left</string>
+    <string name="recents_clear_all_location_center_center">Center center</string>
+    <string name="recents_clear_all_location_center_right">Center right</string>
+    <string name="recents_clear_all_location_center_left">Center left</string>
     <string name="recents_clear_all_location_bottom_center">Bottom center</string>
     <string name="android_recents_cat_clear_all_button_title">Clear All Button</string>
     <string name="android_recents_show_search_bar_title">Search Bar</string>

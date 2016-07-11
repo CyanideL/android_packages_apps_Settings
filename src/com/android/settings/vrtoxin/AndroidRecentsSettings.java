@@ -351,6 +351,15 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
         } else if (value == 5) {
             Settings.System.putInt(resolver, Settings.System.RECENTS_CLEAR_ALL_LOCATION, 5);
             summary = R.string.recents_clear_all_location_bottom_center;
+        } else if (value == 6) {
+            Settings.System.putInt(resolver, Settings.System.RECENTS_CLEAR_ALL_LOCATION, 6);
+            summary = R.string.recents_clear_all_location_center_right;
+        } else if (value == 7) {
+            Settings.System.putInt(resolver, Settings.System.RECENTS_CLEAR_ALL_LOCATION, 7);
+            summary = R.string.recents_clear_all_location_center_left;
+        } else if (value == 8) {
+            Settings.System.putInt(resolver, Settings.System.RECENTS_CLEAR_ALL_LOCATION, 8);
+            summary = R.string.recents_clear_all_location_center_center;
         }
         if (mRecentsClearAllLocation != null && summary != -1) {
             mRecentsClearAllLocation.setSummary(res.getString(summary));
