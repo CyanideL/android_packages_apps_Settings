@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2015-16 Cyanide Android (rogersb11)
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/mods_menu_title">
+
+        <ListPreference
+            android:key="tabs_effect"
+            android:title="@string/tabs_effect_title"
+            android:entries="@array/tabs_effect_entries"
+            android:entryValues="@array/tabs_effect_values"
+            android:persistent="false" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="drawer_bg_color"
+            android:title="@string/drawer_bg_title"
+            android:defaultValue="0x80000000" />
+
+        <ListPreference
+            android:key="drawer_font_style"
+            android:entries="@array/status_bar_font_style_entries"
+            android:entryValues="@array/status_bar_font_style_values"
+            android:title="@string/drawer_font_title" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="drawer_icon_color"
+            android:title="@string/drawer_icon_title"
+            android:defaultValue="0xff1976D2" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="drawer_text_color"
+            android:title="@string/drawer_text_title"
+            android:defaultValue="0xff000000" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="mods_divider_color"
+            android:title="@string/divider_title"
+            android:defaultValue="0x80000000" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="drawer_scrim_color"
+            android:title="@string/drawer_overlay_title"
+            android:defaultValue="0x80000000" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="mods_tab_text_color"
+            android:title="@string/tab_text_title"
+            android:defaultValue="0xffffffff" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="mods_underline_color"
+            android:title="@string/underline_title"
+            android:defaultValue="0xff000000" />
+
+</PreferenceScreen>

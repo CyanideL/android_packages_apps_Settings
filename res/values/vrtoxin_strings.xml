@@ -29,6 +29,11 @@
     <string name="style_title">Style</string>
     <string name="options_title">Options</string>
     <string name="mods_menu_title">Mods Menu</string>
+    <string name="drawer_text_title">Drawer Text</string>
+    <string name="drawer_icon_title">Drawer Icon</string>
+    <string name="drawer_bg_title">Drawer Background</string>
+    <string name="drawer_overlay_title">Overlay</string>
+    <string name="drawer_font_title">Drawer Font Style</string>
     <string name="mods_menu_summary">Customize colors of the CyanideMods Tab</string>
     <string name="show_title">Show</string>
     <string name="color_dark_mode_title">Color (light status bar)</string>
@@ -2803,5 +2808,67 @@
     <string name="effect_zoom_in">Zoom in</string>
     <string name="effect_zoom_out_slide">Zoom out slide</string>
     <string name="effect_zoom_out">Zoom out</string>
+
+    <string-array name="frags_array">
+        <item>Advanced Sounds</item>
+        <item>Animations</item>
+        <item>Battery</item>
+        <item>Buttons</item>
+        <item>Dashboard</item>
+        <item>Floating Windows</item>
+        <item>Interface</item>
+        <item>Lock Screen</item>
+        <item>Notifications</item>
+        <item>Power Menu</item>
+        <item>Quick Settings</item>
+        <item>Recents Panel</item>
+        <item>Status Bar</item>
+        <item>System App Remover</item>
+        <item>Wakelock Blocker</item>
+    </string-array>
+    <string name="drawer_open">Zoom out slide</string>
+    <string name="drawer_close">Zoom out</string>
+
+    <!-- Drawer Stuff -->
+    <string-array name="drawer_titles">
+        <item>Advanced Sounds</item>
+        <item>Animations</item>
+        <item>Battery</item>
+        <item>Buttons</item>
+        <item>Dashboard</item>
+        <item>Floating Windows</item>
+        <item>Interface</item>
+        <item>Lock Screen</item>
+        <item>Mods Menu</item>
+        <item>Notifications</item>
+        <item>Power Menu</item>
+        <item>Quick Settings</item>
+        <item>Recents Panel</item>
+        <item>Status Bar</item>
+        <item>System App Remover</item>
+        <item>Wakelock Blocker</item>
+    </string-array>
+
+    <array name="drawer_icons">
+        <item>@drawable/advancedsounds</item>
+        <item>@drawable/animations</item>
+        <item>@drawable/battery</item>
+        <item>@drawable/buttons</item>
+        <item>@drawable/dashboard</item>
+        <item>@drawable/floatingwindows</item>
+        <item>@drawable/interfacesettings</item>
+        <item>@drawable/lockscreen</item>
+        <item>@drawable/modsmenu</item>
+        <item>@drawable/notification</item>
+        <item>@drawable/powermenu</item>
+        <item>@drawable/quicksettings</item>
+        <item>@drawable/recents</item>
+        <item>@drawable/statusbar</item>
+        <item>@drawable/systemappremover</item>
+        <item>@drawable/wakelockblocker</item>
+    </array>
+
+	<!-- drawer_list_item Imageview Description  -->
+    <string name="description_list_icon">Item Icon</string>
 
 </resources>
