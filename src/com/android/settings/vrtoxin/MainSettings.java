@@ -296,16 +296,16 @@ public class MainSettings extends SettingsPreferenceFragment implements OnBackSt
                 mFragContainer.setVisibility(View.VISIBLE);
                 break;
             case 10:
-                Fragment quickSettings = new QuickSettings();
-                fragmentTransaction.replace(R.id.fragment_content, quickSettings);
-                fragmentTransaction.addToBackStack("quickSettings");
+                Fragment powerMenuSettings = new PowerMenuSettings();
+                fragmentTransaction.replace(R.id.fragment_content, powerMenuSettings);
+                fragmentTransaction.addToBackStack("powerMenuSettings");
                 fragmentTransaction.commit();
                 mFragContainer.setVisibility(View.VISIBLE);
                 break;
             case 11:
-                Fragment powerMenuSettings = new PowerMenuSettings();
-                fragmentTransaction.replace(R.id.fragment_content, powerMenuSettings);
-                fragmentTransaction.addToBackStack("powerMenuSettings");
+                Fragment quickSettings = new QuickSettings();
+                fragmentTransaction.replace(R.id.fragment_content, quickSettings);
+                fragmentTransaction.addToBackStack("quickSettings");
                 fragmentTransaction.commit();
                 mFragContainer.setVisibility(View.VISIBLE);
                 break;
