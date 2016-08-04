@@ -2926,4 +2926,7 @@
     <string name="halo_msgbox_animation_flip">Flip</string>
     <string name="filter_notif_no_halo">No notifications in HALO</string>
 
+    <string name="halo_color_title">Halo color</string>
+    <string name="halo_color_summary">Defines what color the Halo bubble is</string>
+
 </resources>
