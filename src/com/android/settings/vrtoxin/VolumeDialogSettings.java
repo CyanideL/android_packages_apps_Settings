@@ -30,6 +30,7 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -45,7 +46,6 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 public class VolumeDialogSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String VOLUME_DIALOG_BG_COLOR = "volume_dialog_bg_color";
     private static final String VOLUME_DIALOG_ICON_COLOR = "volume_dialog_icon_color";
     private static final String VOLUME_DIALOG_SLIDER_COLOR = "volume_dialog_slider_color";
     private static final String VOLUME_DIALOG_SLIDER_INACTIVE_COLOR = "volume_dialog_slider_inactive_color";
@@ -59,12 +59,20 @@ public class VolumeDialogSettings extends SettingsPreferenceFragment implements
     private static final String PREF_VOLUME_DIALOG_STROKE_DASH_GAP = "volume_dialog_stroke_dash_gap";
     private static final String PREF_VOLUME_DIALOG_STROKE_DASH_WIDTH = "volume_dialog_stroke_dash_width";
     private static final String VOLUME_DIALOG_TIMEOUT = "volume_dialog_timeout";
+    private static final String BG_COLORS = "volume_bg_colors";
+    private static final String PREF_GRADIENT_ORIENTATION = "volume_dialog_background_gradient_orientation";
+    private static final String PREF_USE_CENTER_COLOR = "volume_dialog_background_gradient_use_center_color";
+    private static final String PREF_START_COLOR = "volume_dialog_background_color_start";
+    private static final String PREF_CENTER_COLOR = "volume_dialog_background_color_center";
+    private static final String PREF_END_COLOR = "volume_dialog_background_color_end";
 
     private static final int WHITE = 0xffffffff;
     private static final int BLACK = 0xff000000;
     private static final int VRTOXIN_BLUE = 0xff1976D2;
     private static final int MATERIAL_GREEN = 0xff009688;
     private static final int MATERIAL_BLUE_GREY = 0xff37474f;
+
+    private static final int BACKGROUND_ORIENTATION_T_B = 270;
 
     private static final int DISABLED  = 0;
     private static final int ACCENT    = 1;
@@ -86,6 +94,11 @@ public class VolumeDialogSettings extends SettingsPreferenceFragment implements
     private SeekBarPreference mVolumeDialogStrokeDashGap;
     private SeekBarPreference mVolumeDialogStrokeDashWidth;
     private SeekBarPreference mVolumeDialogTimeout;
+    private SwitchPreference mUseCenterColor;
+    private ColorPickerPreference mStartColor;
+    private ColorPickerPreference mCenterColor;
+    private ColorPickerPreference mEndColor;
+    private ListPreference mGradientOrientation;
 
     static final int DEFAULT_VOLUME_DIALOG_STROKE_COLOR = 0xFF80CBC4;
 
@@ -109,22 +122,15 @@ public class VolumeDialogSettings extends SettingsPreferenceFragment implements
         int intColor;
         String hexColor;
 
+        PreferenceCategory catBgColors =
+                (PreferenceCategory) findPreference(BG_COLORS);
+
         final int strokeMode = Settings.System.getInt(mResolver,
                 Settings.System.VOLUME_DIALOG_STROKE, ACCENT);
         boolean notDisabled = strokeMode == ACCENT || strokeMode == CUSTOM;
 
         PreferenceCategory catStroke =
                 (PreferenceCategory) findPreference(STROKE_CATEGORY);
-
-        mBgColor =
-                (ColorPickerPreference) findPreference(VOLUME_DIALOG_BG_COLOR);
-        intColor = Settings.System.getInt(mResolver,
-                Settings.System.VOLUME_DIALOG_BG_COLOR,
-                MATERIAL_BLUE_GREY);
-        mBgColor.setNewPreviewColor(intColor);
-        hexColor = String.format("#%08x", (0xffffffff & intColor));
-        mBgColor.setSummary(hexColor);
-        mBgColor.setOnPreferenceChangeListener(this);
 
         mIconColor =
                 (ColorPickerPreference) findPreference(VOLUME_DIALOG_ICON_COLOR);
@@ -226,6 +232,58 @@ public class VolumeDialogSettings extends SettingsPreferenceFragment implements
             catStroke.removePreference(findPreference(PREF_VOLUME_DIALOG_STROKE_DASH_WIDTH));
         }
 
+        mGradientOrientation =
+                (ListPreference) findPreference(PREF_GRADIENT_ORIENTATION);
+        final int orientation = Settings.System.getInt(mResolver,
+                Settings.System.VOLUME_DIALOG_BACKGROUND_GRADIENT_ORIENTATION,
+                BACKGROUND_ORIENTATION_T_B);
+        mGradientOrientation.setValue(String.valueOf(orientation));
+        mGradientOrientation.setSummary(mGradientOrientation.getEntry());
+        mGradientOrientation.setOnPreferenceChangeListener(this);
+
+        mStartColor =
+                (ColorPickerPreference) findPreference(PREF_START_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.VOLUME_DIALOG_BACKGROUND_COLOR_START, BLACK); 
+        mStartColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mStartColor.setSummary(hexColor);
+        mStartColor.setDefaultColors(BLACK, BLACK);
+        mStartColor.setOnPreferenceChangeListener(this);
+
+        final boolean useCenterColor = Settings.System.getInt(mResolver,
+                Settings.System.VOLUME_DIALOG_BACKGROUND_GRADIENT_USE_CENTER_COLOR, 0) == 1;;
+
+        mUseCenterColor = (SwitchPreference) findPreference(PREF_USE_CENTER_COLOR);
+        mUseCenterColor.setChecked(useCenterColor);
+        mUseCenterColor.setOnPreferenceChangeListener(this);
+
+        mStartColor.setTitle(getResources().getString(R.string.background_start_color_title));
+
+        if (useCenterColor) {
+            mCenterColor =
+                    (ColorPickerPreference) findPreference(PREF_CENTER_COLOR);
+            intColor = Settings.System.getInt(mResolver,
+                    Settings.System.VOLUME_DIALOG_BACKGROUND_COLOR_CENTER, BLACK); 
+            mCenterColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mCenterColor.setSummary(hexColor);
+            mCenterColor.setDefaultColors(BLACK, BLACK);
+            mCenterColor.setOnPreferenceChangeListener(this);
+        } else {
+            catBgColors.removePreference(findPreference(PREF_CENTER_COLOR));
+        }
+
+        mEndColor =
+                (ColorPickerPreference) findPreference(PREF_END_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.VOLUME_DIALOG_BACKGROUND_COLOR_END, BLACK); 
+        mEndColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mEndColor.setSummary(hexColor);
+        mEndColor.setDefaultColors(BLACK, BLACK);
+        mEndColor.setOnPreferenceChangeListener(this);
+
         mVolumeDialogTimeout =
                 (SeekBarPreference) findPreference(VOLUME_DIALOG_TIMEOUT);
         int volumeDialogTimeout = Settings.System.getInt(mResolver,
@@ -262,15 +320,7 @@ public class VolumeDialogSettings extends SettingsPreferenceFragment implements
         String hex;
         int intHex;
 
-        if (preference == mBgColor) {
-            hex = ColorPickerPreference.convertToARGB(
-                    Integer.valueOf(String.valueOf(newValue)));
-            intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(mResolver,
-                    Settings.System.VOLUME_DIALOG_BG_COLOR, intHex);
-            preference.setSummary(hex);
-            return true;
-        } else if (preference == mIconColor) {
+        if (preference == mIconColor) {
             hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
@@ -351,6 +401,45 @@ public class VolumeDialogSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(mResolver,
                     Settings.System.VOLUME_DIALOG_TIMEOUT, val * 1);
             return true;
+        } else if (preference == mUseCenterColor) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.VOLUME_DIALOG_BACKGROUND_GRADIENT_USE_CENTER_COLOR,
+                    value ? 1 : 0);
+            refreshSettings();
+            return true;
+        } else if (preference == mStartColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.VOLUME_DIALOG_BACKGROUND_COLOR_START, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mCenterColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.VOLUME_DIALOG_BACKGROUND_COLOR_CENTER, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mEndColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.VOLUME_DIALOG_BACKGROUND_COLOR_END, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mGradientOrientation) {
+            int intValue = Integer.valueOf((String) newValue);
+            int index = mGradientOrientation.findIndexOfValue((String) newValue);
+            Settings.System.putInt(mResolver,
+                    Settings.System.VOLUME_DIALOG_BACKGROUND_GRADIENT_ORIENTATION,
+                    intValue);
+            mGradientOrientation.setSummary(mGradientOrientation.getEntries()[index]);
+            return true;
         }
         return false;
     }
@@ -392,9 +481,9 @@ public class VolumeDialogSettings extends SettingsPreferenceFragment implements
                     .setNeutralButton(R.string.reset_android,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.VOLUME_DIALOG_BG_COLOR,
-                                    MATERIAL_BLUE_GREY);
+                            /*Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.VOLUME_DIALOG_BACKGROUND_COLOR_START,
+                                    MATERIAL_BLUE_GREY);*/
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.VOLUME_DIALOG_ICON_COLOR,
                                     MATERIAL_GREEN);
@@ -416,9 +505,6 @@ public class VolumeDialogSettings extends SettingsPreferenceFragment implements
                     .setPositiveButton(R.string.reset_vrtoxin,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.VOLUME_DIALOG_BG_COLOR,
-                                    0xff1b1f23);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.VOLUME_DIALOG_ICON_COLOR,
                                     VRTOXIN_BLUE);

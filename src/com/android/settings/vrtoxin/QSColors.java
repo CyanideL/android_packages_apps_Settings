@@ -24,8 +24,10 @@ import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.graphics.PorterDuff.Mode;
 import android.os.Bundle;
+import android.preference.ListPreference;
 import android.preference.SwitchPreference;
 import android.preference.Preference;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.view.Menu;
@@ -42,8 +44,6 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 public class QSColors extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String PREF_QS_BACKGROUND_COLOR =
-            "qs_background_color";
     private static final String QS_BRIGHTNESS_SLIDER_COLOR =
             "qs_brightness_slider_color";
     private static final String QS_BRIGHTNESS_SLIDER_BG_COLOR =
@@ -56,21 +56,40 @@ public class QSColors extends SettingsPreferenceFragment implements
             "qs_ripple_color";
     private static final String PREF_QS_TEXT_COLOR =
             "qs_text_color";
+    private static final String PREF_GRADIENT_ORIENTATION =
+            "qs_background_gradient_orientation";
+    private static final String PREF_USE_CENTER_COLOR =
+            "qs_background_gradient_use_center_color";
+    private static final String PREF_START_COLOR =
+            "qs_background_color_start";
+    private static final String PREF_CENTER_COLOR =
+            "qs_background_color_center";
+    private static final String PREF_END_COLOR =
+            "qs_background_color_end";
+    private static final String BG_COLORS =
+            "qs_bg_colors";
 
     private static final int DEFAULT_BACKGROUND_COLOR = 0xff263238;
     private static final int WHITE = 0xffffffff;
     private static final int CYANIDE_BLUE = 0xff1976D2;
+    private static final int BLACK = 0xff000000;
+
+    private static final int BACKGROUND_ORIENTATION_T_B = 270;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
-    private ColorPickerPreference mQSBackgroundColor;
     private ColorPickerPreference mQSBrightnessSliderColor;
     private ColorPickerPreference mQSBrightnessSliderBgColor;
     private ColorPickerPreference mQSBrightnessSliderIconColor;
     private ColorPickerPreference mQSIconColor;
     private ColorPickerPreference mQSRippleColor;
     private ColorPickerPreference mQSTextColor;
+    private SwitchPreference mUseCenterColor;
+    private ColorPickerPreference mStartColor;
+    private ColorPickerPreference mCenterColor;
+    private ColorPickerPreference mEndColor;
+    private ListPreference mGradientOrientation;
 
     private ContentResolver mResolver;
 
@@ -92,16 +111,8 @@ public class QSColors extends SettingsPreferenceFragment implements
         int intColor;
         String hexColor;
 
-        mQSBackgroundColor =
-                (ColorPickerPreference) findPreference(PREF_QS_BACKGROUND_COLOR);
-        intColor = Settings.System.getInt(mResolver,
-                Settings.System.QS_BACKGROUND_COLOR,
-                DEFAULT_BACKGROUND_COLOR); 
-        mQSBackgroundColor.setNewPreviewColor(intColor);
-        hexColor = String.format("#%08x", (0xffffffff & intColor));
-        mQSBackgroundColor.setSummary(hexColor);
-        mQSBackgroundColor.setAlphaSliderEnabled(true);
-        mQSBackgroundColor.setOnPreferenceChangeListener(this);
+        PreferenceCategory catBgColors =
+                (PreferenceCategory) findPreference(BG_COLORS);
 
         mQSBrightnessSliderColor =
                 (ColorPickerPreference) findPreference(QS_BRIGHTNESS_SLIDER_COLOR);
@@ -162,6 +173,58 @@ public class QSColors extends SettingsPreferenceFragment implements
         mQSTextColor.setOnPreferenceChangeListener(this);
         mQSTextColor.setAlphaSliderEnabled(true);
 
+        mGradientOrientation =
+                (ListPreference) findPreference(PREF_GRADIENT_ORIENTATION);
+        final int orientation = Settings.System.getInt(mResolver,
+                Settings.System.QS_BACKGROUND_GRADIENT_ORIENTATION,
+                BACKGROUND_ORIENTATION_T_B);
+        mGradientOrientation.setValue(String.valueOf(orientation));
+        mGradientOrientation.setSummary(mGradientOrientation.getEntry());
+        mGradientOrientation.setOnPreferenceChangeListener(this);
+
+        mStartColor =
+                (ColorPickerPreference) findPreference(PREF_START_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.QS_BACKGROUND_COLOR_START, BLACK); 
+        mStartColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mStartColor.setSummary(hexColor);
+        mStartColor.setDefaultColors(BLACK, BLACK);
+        mStartColor.setOnPreferenceChangeListener(this);
+
+        final boolean useCenterColor = Settings.System.getInt(mResolver,
+                Settings.System.QS_BACKGROUND_GRADIENT_USE_CENTER_COLOR, 0) == 1;;
+
+        mUseCenterColor = (SwitchPreference) findPreference(PREF_USE_CENTER_COLOR);
+        mUseCenterColor.setChecked(useCenterColor);
+        mUseCenterColor.setOnPreferenceChangeListener(this);
+
+        mStartColor.setTitle(getResources().getString(R.string.background_start_color_title));
+
+        if (useCenterColor) {
+            mCenterColor =
+                    (ColorPickerPreference) findPreference(PREF_CENTER_COLOR);
+            intColor = Settings.System.getInt(mResolver,
+                    Settings.System.QS_BACKGROUND_COLOR_CENTER, BLACK); 
+            mCenterColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mCenterColor.setSummary(hexColor);
+            mCenterColor.setDefaultColors(BLACK, BLACK);
+            mCenterColor.setOnPreferenceChangeListener(this);
+        } else {
+            catBgColors.removePreference(findPreference(PREF_CENTER_COLOR));
+        }
+
+        mEndColor =
+                (ColorPickerPreference) findPreference(PREF_END_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.QS_BACKGROUND_COLOR_END, BLACK); 
+        mEndColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mEndColor.setSummary(hexColor);
+        mEndColor.setDefaultColors(BLACK, BLACK);
+        mEndColor.setOnPreferenceChangeListener(this);
+
         setHasOptionsMenu(true);
     }
 
@@ -191,15 +254,7 @@ public class QSColors extends SettingsPreferenceFragment implements
         String hex;
         int intHex;
 
-        if (preference == mQSBackgroundColor) {
-            hex = ColorPickerPreference.convertToARGB(
-                Integer.valueOf(String.valueOf(newValue)));
-            intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(mResolver,
-                Settings.System.QS_BACKGROUND_COLOR, intHex);
-            preference.setSummary(hex);
-            return true;
-        } else if (preference == mQSIconColor) {
+        if (preference == mQSIconColor) {
             hex = ColorPickerPreference.convertToARGB(
                 Integer.valueOf(String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
@@ -247,6 +302,45 @@ public class QSColors extends SettingsPreferenceFragment implements
                 Settings.System.QS_TEXT_COLOR, intHex);
             preference.setSummary(hex);
             return true;
+        } else if (preference == mUseCenterColor) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.QS_BACKGROUND_GRADIENT_USE_CENTER_COLOR,
+                    value ? 1 : 0);
+            refreshSettings();
+            return true;
+        } else if (preference == mStartColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.QS_BACKGROUND_COLOR_START, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mCenterColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.QS_BACKGROUND_COLOR_CENTER, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mEndColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.QS_BACKGROUND_COLOR_END, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mGradientOrientation) {
+            int intValue = Integer.valueOf((String) newValue);
+            int index = mGradientOrientation.findIndexOfValue((String) newValue);
+            Settings.System.putInt(mResolver,
+                    Settings.System.QS_BACKGROUND_GRADIENT_ORIENTATION,
+                    intValue);
+            mGradientOrientation.setSummary(mGradientOrientation.getEntries()[index]);
+            return true;
         }
         return false;
     }
@@ -284,7 +378,7 @@ public class QSColors extends SettingsPreferenceFragment implements
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.QS_BACKGROUND_COLOR,
+                                    Settings.System.QS_BACKGROUND_COLOR_START,
                                     DEFAULT_BACKGROUND_COLOR);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_BRIGHTNESS_SLIDER_COLOR,
@@ -308,7 +402,7 @@ public class QSColors extends SettingsPreferenceFragment implements
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.QS_BACKGROUND_COLOR,
+                                    Settings.System.QS_BACKGROUND_COLOR_START,
                                     0xff000000);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_BRIGHTNESS_SLIDER_COLOR,

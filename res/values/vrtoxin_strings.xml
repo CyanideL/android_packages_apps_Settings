@@ -2871,4 +2871,22 @@
 	<!-- drawer_list_item Imageview Description  -->
     <string name="description_list_icon">Item Icon</string>
 
+    <!-- Gradient Backgrounds Settings -->
+    <string name="gradient_bg_colors_title">Background Color Options</string>
+    <string name="background_gradient_use_center_color_title">Use a center color</string>
+    <string name="background_gradient_use_center_color_summary">Enable to use a center color for the gradient</string>
+    <string name="background_start_color_title">Start</string>
+    <string name="background_center_color_title">Center</string>
+    <string name="background_end_color_title">End</string>
+    <string name="background_gradient_orientation_title">Orientation</string>
+    <string name="background_gradient_orientation_dlg_title">Choose the gradient orientation</string>
+    <string name="background_gradient_orientation_l_r_title">from left to right</string>
+    <string name="background_gradient_orientation_bl_tr_title">from bottom left to top right</string>
+    <string name="background_gradient_orientation_b_t_title">from bottom to top</string>
+    <string name="background_gradient_orientation_br_tl_title">from bottom right to top left</string>
+    <string name="background_gradient_orientation_r_l_title">from right to left</string>
+    <string name="background_gradient_orientation_tr_bl_title">from top right to bottom left</string>
+    <string name="background_gradient_orientation_t_b_title">from top to bottom</string>
+    <string name="background_gradient_orientation_tl_br_title">from top left to bottom right</string>
+
 </resources>

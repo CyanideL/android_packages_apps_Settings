@@ -157,6 +157,39 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="header_bg_colors"
+        android:title="@string/gradient_bg_colors_title">
+
+        <SwitchPreference
+            android:key="header_background_gradient_use_center_color"
+            android:title="@string/background_gradient_use_center_color_title"
+            android:summary="@string/background_gradient_use_center_color_summary" />
+
+        <ListPreference
+            android:key="header_background_gradient_orientation"
+            android:title="@string/background_gradient_orientation_title"
+            android:dialogTitle="@string/background_gradient_orientation_dlg_title"
+            android:entries="@array/background_gradient_orientation_entries"
+            android:entryValues="@array/background_gradient_orientation_values" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="header_background_color_start"
+            android:title="@string/color_title"
+            android:defaultValue="0xff000000" />
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="header_background_color_center"
+            android:title="@string/background_center_color_title"
+            android:defaultValue="0xff000000" />
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="header_background_color_end"
+            android:title="@string/background_end_color_title"
+            android:defaultValue="0xff000000" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="expanded_header_cat_color"
         android:title="@string/colors_title">
 
@@ -164,11 +197,6 @@
             android:key="expanded_header_alarm_color"
             android:title="@string/expanded_header_alarm_color"
             android:defaultValue="0xffffffff" />
-
-        <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="expanded_header_background_color"
-            android:title="@string/background_title"
-            android:defaultValue="0xff384248" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="expanded_header_clock_color"

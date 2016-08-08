@@ -49,7 +49,6 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
     private static final String PREF_SHOW_WEATHER = "expanded_header_show_weather";
     private static final String PREF_SHOW_LOCATION = "expanded_header_show_weather_location";
     private static final String STATUS_BAR_HEADER_FONT_STYLE = "status_bar_header_font_style";
-    private static final String PREF_BG_COLOR = "expanded_header_background_color";
     private static final String PREF_RIPPLE_COLOR = "expanded_header_ripple_color";
     private static final String PREF_TEXT_COLOR = "expanded_header_text_color";
     private static final String PREF_CUSTOM_HEADER_DEFAULT = "status_bar_custom_header_default";
@@ -69,11 +68,19 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
     private static final String STATUS_BAR_EXPANDED_HEADER_CORNER_RADIUS = "status_bar_expanded_header_corner_radius";
     private static final String STATUS_BAR_EXPANDED_HEADER_STROKE_DASH_GAP = "status_bar_expanded_header_stroke_dash_gap";
     private static final String STATUS_BAR_EXPANDED_HEADER_STROKE_DASH_WIDTH = "status_bar_expanded_header_stroke_dash_width";
+    private static final String BG_COLORS = "header_bg_colors";
+    private static final String PREF_GRADIENT_ORIENTATION = "header_background_gradient_orientation";
+    private static final String PREF_USE_CENTER_COLOR = "header_background_gradient_use_center_color";
+    private static final String PREF_START_COLOR = "header_background_color_start";
+    private static final String PREF_CENTER_COLOR = "header_background_color_center";
+    private static final String PREF_END_COLOR = "header_background_color_end";
 
     private static final int SYSTEMUI_SECONDARY = 0xff384248;
     private static final int BLACK = 0xff000000;
     private static final int WHITE = 0xffffffff;
     private static final int CYANIDE_BLUE = 0xff1976D2;
+
+    private static final int BACKGROUND_ORIENTATION_T_B = 270;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET  = 0;
@@ -104,6 +111,11 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
     private SeekBarPreference mSBEHCornerRadius;
     private SeekBarPreference mSBEHStrokeDashGap;
     private SeekBarPreference mSBEHStrokeDashWidth;
+    private SwitchPreference mUseCenterColor;
+    private ColorPickerPreference mStartColor;
+    private ColorPickerPreference mCenterColor;
+    private ColorPickerPreference mEndColor;
+    private ListPreference mGradientOrientation;
 
     private ContentResolver mResolver;
 
@@ -133,6 +145,8 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
 
         PreferenceCategory catStroke =
                 (PreferenceCategory) findPreference(STROKE_CATEGORY);
+        PreferenceCategory catBgColors =
+                (PreferenceCategory) findPreference(BG_COLORS);
 
         mShowWeather = (SwitchPreference) findPreference(PREF_SHOW_WEATHER);
         mShowWeather.setChecked(showWeather);
@@ -158,17 +172,6 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         mCustomHeaderDefault.setValue(Integer.toString(Settings.System.getInt(getActivity()
                 .getContentResolver(), Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT, 0)));
         mCustomHeaderDefault.setSummary(mCustomHeaderDefault.getEntry());
-
-        mBackgroundColor =
-                (ColorPickerPreference) findPreference(PREF_BG_COLOR);
-        intColor = Settings.System.getInt(mResolver,
-                Settings.System.STATUS_BAR_EXPANDED_HEADER_BG_COLOR,
-                SYSTEMUI_SECONDARY); 
-        mBackgroundColor.setNewPreviewColor(intColor);
-        hexColor = String.format("#%08x", (0xffffffff & intColor));
-        mBackgroundColor.setSummary(hexColor);
-        mBackgroundColor.setDefaultColors(SYSTEMUI_SECONDARY, SYSTEMUI_SECONDARY);
-        mBackgroundColor.setOnPreferenceChangeListener(this);
 
         mRippleColor =
                 (ColorPickerPreference) findPreference(PREF_RIPPLE_COLOR);
@@ -340,6 +343,58 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
             catStroke.removePreference(findPreference(STATUS_BAR_EXPANDED_HEADER_STROKE_DASH_WIDTH));
         }
 
+        mGradientOrientation =
+                (ListPreference) findPreference(PREF_GRADIENT_ORIENTATION);
+        final int orientation = Settings.System.getInt(mResolver,
+                Settings.System.HEADER_BACKGROUND_GRADIENT_ORIENTATION,
+                BACKGROUND_ORIENTATION_T_B);
+        mGradientOrientation.setValue(String.valueOf(orientation));
+        mGradientOrientation.setSummary(mGradientOrientation.getEntry());
+        mGradientOrientation.setOnPreferenceChangeListener(this);
+
+        mStartColor =
+                (ColorPickerPreference) findPreference(PREF_START_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.HEADER_BACKGROUND_COLOR_START, BLACK); 
+        mStartColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mStartColor.setSummary(hexColor);
+        mStartColor.setDefaultColors(BLACK, BLACK);
+        mStartColor.setOnPreferenceChangeListener(this);
+
+        final boolean useCenterColor = Settings.System.getInt(mResolver,
+                Settings.System.HEADER_BACKGROUND_GRADIENT_USE_CENTER_COLOR, 0) == 1;;
+
+        mUseCenterColor = (SwitchPreference) findPreference(PREF_USE_CENTER_COLOR);
+        mUseCenterColor.setChecked(useCenterColor);
+        mUseCenterColor.setOnPreferenceChangeListener(this);
+
+        mStartColor.setTitle(getResources().getString(R.string.background_start_color_title));
+
+        if (useCenterColor) {
+            mCenterColor =
+                    (ColorPickerPreference) findPreference(PREF_CENTER_COLOR);
+            intColor = Settings.System.getInt(mResolver,
+                    Settings.System.HEADER_BACKGROUND_COLOR_CENTER, BLACK); 
+            mCenterColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mCenterColor.setSummary(hexColor);
+            mCenterColor.setDefaultColors(BLACK, BLACK);
+            mCenterColor.setOnPreferenceChangeListener(this);
+        } else {
+            catBgColors.removePreference(findPreference(PREF_CENTER_COLOR));
+        }
+
+        mEndColor =
+                (ColorPickerPreference) findPreference(PREF_END_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.HEADER_BACKGROUND_COLOR_END, BLACK); 
+        mEndColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mEndColor.setSummary(hexColor);
+        mEndColor.setDefaultColors(BLACK, BLACK);
+        mEndColor.setOnPreferenceChangeListener(this);
+
         setHasOptionsMenu(true);
     }
 
@@ -396,14 +451,6 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUS_BAR_CUSTOM_HEADER_DEFAULT, val);
             mCustomHeaderDefault.setSummary(mCustomHeaderDefault.getEntries()[index]);
-            return true;
-        } else if (preference == mBackgroundColor) {
-            hex = ColorPickerPreference.convertToARGB(
-                Integer.valueOf(String.valueOf(newValue)));
-            intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(mResolver,
-                Settings.System.STATUS_BAR_EXPANDED_HEADER_BG_COLOR, intHex);
-            preference.setSummary(hex);
             return true;
         } else if (preference == mRippleColor) {
             hex = ColorPickerPreference.convertToARGB(
@@ -527,6 +574,45 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
             Settings.System.putInt(mResolver,
                     Settings.System.STATUS_BAR_EXPANDED_HEADER_STROKE_DASH_WIDTH, val * 1);
             return true;
+        } else if (preference == mUseCenterColor) {
+            value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.HEADER_BACKGROUND_GRADIENT_USE_CENTER_COLOR,
+                    value ? 1 : 0);
+            refreshSettings();
+            return true;
+        } else if (preference == mStartColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.HEADER_BACKGROUND_COLOR_START, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mCenterColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.HEADER_BACKGROUND_COLOR_CENTER, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mEndColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.HEADER_BACKGROUND_COLOR_END, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mGradientOrientation) {
+            int intValue = Integer.valueOf((String) newValue);
+            int index = mGradientOrientation.findIndexOfValue((String) newValue);
+            Settings.System.putInt(mResolver,
+                    Settings.System.HEADER_BACKGROUND_GRADIENT_ORIENTATION,
+                    intValue);
+            mGradientOrientation.setSummary(mGradientOrientation.getEntries()[index]);
+            return true;
         }
         return false;
     }
@@ -567,9 +653,9 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER_LOCATION, 1);
-                            Settings.System.putInt(getOwner().mResolver,
+                            /*Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_BG_COLOR,
-                                    SYSTEMUI_SECONDARY);
+                                    SYSTEMUI_SECONDARY);*/
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_RIPPLE_COLOR,
                                     WHITE);
@@ -629,9 +715,6 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER_LOCATION, 1);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_EXPANDED_HEADER_BG_COLOR,
-                                    BLACK);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_RIPPLE_COLOR,
                                     CYANIDE_BLUE);

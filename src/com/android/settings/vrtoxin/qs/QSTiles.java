@@ -244,7 +244,7 @@ public class QSTiles extends Fragment implements
 
     private int getBackgroundColor() {
         int bgColor = Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.QS_BACKGROUND_COLOR, 0xff263238);
+                Settings.System.QS_BACKGROUND_COLOR_START, 0xff263238);
         return bgColor;
     }
 
