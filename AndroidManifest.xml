@@ -3112,6 +3112,62 @@
                 android:resource="@id/display_settings" />
         </activity>
 
+        <!-- Animation Settings Activity -->
+        <activity android:name="Settings$AnimationSettingsSettingsActivity"
+                android:label="@string/vrtoxin_animations_settings"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.vrtoxin.MasterAnimationControl" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/display_settings" />
+        </activity>
+
+        <!-- Notifications Activity -->
+        <activity android:name="Settings$NotificationSettingsSettingsActivity"
+                android:label="@string/lock_screen_cat_notifications_title"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.vrtoxin.VrtoxinNotifs" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/display_settings" />
+        </activity>
+
+        <!-- Lockscreen Activity -->
+        <activity android:name="Settings$LockscreenSettingsSettingsActivity"
+                android:label="@string/lockscreen_settings"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.vrtoxin.LockS" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/display_settings" />
+        </activity>
+
+        <!-- Recents Activity -->
+        <activity android:name="Settings$RecentsPanelSettingsActivity"
+                android:label="@string/recents_panel"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.vrtoxin.AndroidRecentsSettings" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/display_settings" />
+        </activity>
+
         <activity android:name=".vrtoxin.MainSettings" />
         <activity android:name=".vrtoxin.Misc" />
         <activity android:name=".vrtoxin.StatusBarSettings" />

@@ -157,6 +157,10 @@ import com.android.settings.vrtoxin.VolumeDialogSettings;
 import com.android.settings.vrtoxin.StatusBarExpandedHeaderSettings;
 import com.android.settings.vrtoxin.TaskManagerSettings;
 import com.android.settings.vrtoxin.QuickSettings;
+import com.android.settings.vrtoxin.MasterAnimationControl;
+import com.android.settings.vrtoxin.VrtoxinNotifs;
+import com.android.settings.vrtoxin.LockS;
+import com.android.settings.vrtoxin.AndroidRecentsSettings;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -415,7 +419,11 @@ public class SettingsActivity extends Activity
             StatusBarExpandedHeaderSettings.class.getName(),
             RunningServices.class.getName(),
             TaskManagerSettings.class.getName(),
-            QuickSettings.class.getName()
+            QuickSettings.class.getName(),
+            MasterAnimationControl.class.getName(),
+            VrtoxinNotifs.class.getName(),
+            LockS.class.getName(),
+            AndroidRecentsSettings.class.getName()
     };
 
 
