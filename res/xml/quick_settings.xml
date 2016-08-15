@@ -112,6 +112,12 @@
              android:summary="@string/qs_wifi_detail_summary"
              android:defaultValue="false" />
 
+        <ListPreference
+            android:key="qs_font_styles"
+            android:entries="@array/status_bar_font_style_entries"
+            android:entryValues="@array/status_bar_font_style_values"
+            android:title="@string/status_bar_weather_font_style_title" />
+
         <com.android.settings.vrtoxin.SystemSettingSwitchPreference
             android:key="sysui_qs_main_tiles"
             android:title="@string/qs_main_tiles_title"

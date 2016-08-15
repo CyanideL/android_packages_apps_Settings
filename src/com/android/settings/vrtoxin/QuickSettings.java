@@ -57,6 +57,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements Prefere
     private static final String PREF_QS_CORNER_RADIUS = "qs_corner_radius";
     private static final String PREF_QS_STROKE_DASH_WIDTH = "qs_stroke_dash_width";
     private static final String PREF_QS_STROKE_DASH_GAP = "qs_stroke_dash_gap";
+    private static final String QS_FONT_STYLES = "qs_font_styles";
 
     private static final int QS_TYPE_PANEL  = 0;
     private static final int QS_TYPE_BAR    = 1;
@@ -81,6 +82,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements Prefere
     private SeekBarPreference mQSCornerRadius;
     private SeekBarPreference mQSStrokeDashGap;
     private SeekBarPreference mQSStrokeDashWidth;
+    private ListPreference mQSFontStyle;
 
     private ContentResolver mResolver;
 
@@ -257,6 +259,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements Prefere
             catStroke.removePreference(findPreference(PREF_QS_STROKE_DASH_GAP));
             catStroke.removePreference(findPreference(PREF_QS_STROKE_DASH_WIDTH));
         }
+
+        mQSFontStyle = (ListPreference) findPreference(QS_FONT_STYLES);
+        mQSFontStyle.setOnPreferenceChangeListener(this);
+        mQSFontStyle.setValue(Integer.toString(Settings.System.getInt(getActivity()
+                .getContentResolver(), Settings.System.QS_FONT_STYLES, 0)));
+        mQSFontStyle.setSummary(mQSFontStyle.getEntry());
     }
 
     /*@Override
@@ -358,6 +366,13 @@ public class QuickSettings extends SettingsPreferenceFragment implements Prefere
             int val = (Integer) newValue;
             Settings.System.putInt(mResolver,
                     Settings.System.QS_STROKE_DASH_WIDTH, val * 1);
+            return true;
+        } else if (preference == mQSFontStyle) {
+            int val = Integer.parseInt((String) newValue);
+            int index = mQSFontStyle.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.QS_FONT_STYLES, val);
+            mQSFontStyle.setSummary(mQSFontStyle.getEntries()[index]);
             return true;
         }
         return false;
