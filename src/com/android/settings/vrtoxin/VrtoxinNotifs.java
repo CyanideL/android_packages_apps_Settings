@@ -66,6 +66,7 @@ public class VrtoxinNotifs extends SettingsPreferenceFragment implements OnPrefe
     private static final String KEY_ZEN_ACCESS = "manage_zen_access";
     private static final String KEY_ZEN_MODE = "zen_mode";
     private static final String PREF_LESS_NOTIFICATION_SOUNDS = "less_notification_sounds";
+    private static final String NOTIFICATION_FONT_STYLES = "notification_font_styles";
 
     private static final String[] RESTRICTED_KEYS = {
         KEY_ZEN_ACCESS,
@@ -84,6 +85,7 @@ public class VrtoxinNotifs extends SettingsPreferenceFragment implements OnPrefe
     private Preference mNotificationAccess;
     private Preference mZenAccess;
     private ListPreference mAnnoyingNotifications;
+    private ListPreference mNotifsFontStyles;
 
     private UserManager mUserManager;
 
@@ -116,6 +118,12 @@ public class VrtoxinNotifs extends SettingsPreferenceFragment implements OnPrefe
         mZenAccess = findPreference(KEY_ZEN_ACCESS);
         refreshZenAccess();
 
+        mNotifsFontStyles = (ListPreference) findPreference(NOTIFICATION_FONT_STYLES);
+        mNotifsFontStyles.setOnPreferenceChangeListener(this);
+        mNotifsFontStyles.setValue(Integer.toString(Settings.System.getInt(getActivity()
+                .getContentResolver(), Settings.System.NOTIFICATION_FONT_STYLES, 0)));
+        mNotifsFontStyles.setSummary(mNotifsFontStyles.getEntry());
+
         mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
         mFingerprintVib = (SystemSettingSwitchPreference) prefScreen.findPreference("fingerprint_success_vib");
         if (!mFingerprintManager.isHardwareDetected()){
@@ -130,6 +138,13 @@ public class VrtoxinNotifs extends SettingsPreferenceFragment implements OnPrefe
             final int val = Integer.valueOf((String) o);
             Settings.System.putInt(getContentResolver(),
                     Settings.System.MUTE_ANNOYING_NOTIFICATIONS_THRESHOLD, val);
+        } else if (preference == mNotifsFontStyles) {
+            int val = Integer.parseInt((String) o);
+            int index = mNotifsFontStyles.findIndexOfValue((String) o);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.NOTIFICATION_FONT_STYLES, val);
+            mNotifsFontStyles.setSummary(mNotifsFontStyles.getEntries()[index]);
+            return true;
         }
         return true;
     }
