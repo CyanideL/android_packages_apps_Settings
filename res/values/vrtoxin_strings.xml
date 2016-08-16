@@ -2889,4 +2889,7 @@
     <string name="background_gradient_orientation_t_b_title">from top to bottom</string>
     <string name="background_gradient_orientation_tl_br_title">from top left to bottom right</string>
 
+    <!-- Notifications transparency -->
+    <string name="notifications_transparency">Transparency</string>
+
 </resources>
