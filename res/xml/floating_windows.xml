@@ -49,11 +49,19 @@
             android:dependency="floating_window_mode"
             android:defaultValue="false" />
 
+        <com.android.settings.vrtoxin.SecureSettingSwitchPreference
+            android:key="halo_float_notifications"
+            android:title="@string/halo_floating_notifications_title"
+            android:summary="@string/halo_floating_notifications_summary"
+            android:defaultValue="false"
+            android:dependency="floating_window_mode" />
+
         <!-- QS Float Mode -->
         <com.android.settings.vrtoxin.SystemSettingSwitchPreference
             android:key="qs_float_mode"
             android:title="@string/qs_float_mode"
             android:summary="@string/qs_float_mode_summary"
+            android:dependency="floating_window_mode"
 			android:defaultValue="false" />
 
     </PreferenceCategory>
