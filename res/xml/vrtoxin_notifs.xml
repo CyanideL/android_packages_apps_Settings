@@ -52,6 +52,7 @@
     <PreferenceScreen
         android:id="@+id/halo_settings"
         android:title="@string/halo_settings_title"
+        android:summary="@string/halo_settings_summary"
         android:fragment="com.android.settings.vrtoxin.Halo" />
 
     <!-- Heads up -->
