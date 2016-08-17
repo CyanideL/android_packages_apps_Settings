@@ -53,6 +53,7 @@ public class PowerMenuSettings extends SettingsPreferenceFragment implements
     private static final String PREF_TEXT_COLOR = "power_menu_text_color";
     private static final String POWER_MENU_ANIMATIONS = "power_menu_animations";
     private static final String PREF_TRANSPARENT_POWER_DIALOG_DIM = "transparent_power_dialog_dim";
+    private static final String PM_FONT_STYLES = "pm_font_styles";
 
     private static final int WHITE = 0xffffffff;
     private static final int VRTOXIN_BLUE = 0xff1976D2;
@@ -72,6 +73,7 @@ public class PowerMenuSettings extends SettingsPreferenceFragment implements
     ListPreference mPowerMenuAnimations;
     private SeekBarPreference mPowerDialogDim;
     private ContentResolver mResolver;
+    private ListPreference mPMFontStyles;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -164,6 +166,12 @@ public class PowerMenuSettings extends SettingsPreferenceFragment implements
         mPowerDialogDim.setValue(powerDialogDim / 1);
         mPowerDialogDim.setOnPreferenceChangeListener(this);
 
+        mPMFontStyles = (ListPreference) findPreference(PM_FONT_STYLES);
+        mPMFontStyles.setOnPreferenceChangeListener(this);
+        mPMFontStyles.setValue(Integer.toString(Settings.System.getInt(getActivity()
+                .getContentResolver(), Settings.System.PM_FONT_STYLES, 0)));
+        mPMFontStyles.setSummary(mPMFontStyles.getEntry());
+
         setHasOptionsMenu(true);
     }
 
@@ -254,6 +262,13 @@ public class PowerMenuSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(mResolver,
                     Settings.System.TRANSPARENT_POWER_DIALOG_DIM, alpha * 1);
             return true;
+         } else if (preference == mPMFontStyles) {
+            int val = Integer.parseInt((String) newValue);
+            int index = mPMFontStyles.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.PM_FONT_STYLES, val);
+            mPMFontStyles.setSummary(mPMFontStyles.getEntries()[index]);
+            return true;
         }
 
         return false;
@@ -315,6 +330,8 @@ public class PowerMenuSettings extends SettingsPreferenceFragment implements
                                     WHITE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.POWER_MENU_ANIMATIONS, 0);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.PM_FONT_STYLES, 0);
                             getOwner().refreshSettings();
                         }
                     })
@@ -339,7 +356,9 @@ public class PowerMenuSettings extends SettingsPreferenceFragment implements
                                     Settings.System.POWER_MENU_TEXT_COLOR,
                                     VRTOXIN_BLUE);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.POWER_MENU_ANIMATIONS, 5);
+                                    Settings.System.POWER_MENU_ANIMATIONS, 7);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.PM_FONT_STYLES, 20);
                             getOwner().refreshSettings();
                         }
                     })

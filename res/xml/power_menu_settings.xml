@@ -62,6 +62,12 @@
             <extra android:name="actionEntries" android:value="power_menu_action_entries" />
     </PreferenceScreen>
 
+    <ListPreference
+        android:key="pm_font_styles"
+        android:entries="@array/status_bar_font_style_entries"
+        android:entryValues="@array/status_bar_font_style_values"
+        android:title="@string/status_bar_weather_font_style_title" />
+
     <SlimSeekBarPreference
         android:key="on_the_go_alpha"
         android:title="@string/onthego_alpha_title"
