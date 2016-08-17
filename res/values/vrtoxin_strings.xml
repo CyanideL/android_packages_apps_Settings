@@ -211,7 +211,9 @@
     <string name="shortcut_action_smart">Smart Pulldown</string>
 
     <string name="shortcut_action_longpress">Longpress:</string>
+    <string name="shortcut_action_doubletap">Double-Tap:</string>
     <string name="shortcut_action_select_action_longpress">Choose Longpress Action:</string>
+    <string name="shortcut_action_select_action_doubletap">Choose Double-Tap action:</string>
     <string name="shortcut_action_select_action">Choose Action:</string>
     <string name="shortcut_action_select_action_newaction">Choose New Action:</string>
     <string name="shortcut_action_reset">Reset</string>

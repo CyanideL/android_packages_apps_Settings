@@ -101,7 +101,7 @@
     <string-array name="icon_types">
         <item>@string/shortcuts_icon_default</item>
         <item>@string/shortcuts_icon_presets</item>
-        <!-- <item>@string/shortcuts_icon_custom</item> -->
+        <item>@string/shortcuts_icon_custom</item>
     </string-array>
 
     <string-array name="shortcut_icon_picker_labels">
@@ -648,9 +648,9 @@
     </string-array>
 
     <string-array name="navigation_bar_menu_visibility_entries">
-        <item>@string/navigation_bar_menu_visibility_request_title</item>
         <item>@string/navigation_bar_menu_visibility_always_title</item>
         <item>@string/navigation_bar_menu_visibility_never_title</item>
+        <item>@string/navigation_bar_menu_visibility_request_title</item>
     </string-array>
 
     <string-array name="navigation_bar_menu_visibility_values" translatable="false">
