@@ -663,6 +663,7 @@
     <string name="qs_tile_caffeine">Caffeine</string>
     <string name="qs_tile_screenrecord">Screenrecord</string>
     <string name="qs_tile_layers">Layers</string>
+    <string name="qs_tile_halo">Halo</string>
 
     <!-- Pie control -->
     <string name="pie_control_title">SlimPie</string>

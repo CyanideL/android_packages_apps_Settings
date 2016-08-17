@@ -242,6 +242,10 @@ public class QSTileHolder {
                 resourceName = "ic_qs_layers_manager";
                 stringId = R.string.qs_tile_layers;
                 break;
+            case QSConstants.TILE_HALO:
+                resourceName = "ic_notify_halo_normal";
+                stringId = R.string.qs_tile_halo;
+                break;
             default:
                 return null;
         }
