@@ -153,4 +153,5 @@ public class Settings extends SettingsActivity {
     public static class NotificationSettingsSettingsActivity extends SettingsActivity { /* empty */ }
     public static class LockscreenSettingsSettingsActivity extends SettingsActivity { /* empty */ }
     public static class RecentsPanelSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class HaloSettingsSettingsActivity extends SettingsActivity { /* empty */ }
 }

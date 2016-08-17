@@ -161,6 +161,7 @@ import com.android.settings.vrtoxin.MasterAnimationControl;
 import com.android.settings.vrtoxin.VrtoxinNotifs;
 import com.android.settings.vrtoxin.LockS;
 import com.android.settings.vrtoxin.AndroidRecentsSettings;
+import com.android.settings.vrtoxin.Halo;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -423,7 +424,8 @@ public class SettingsActivity extends Activity
             MasterAnimationControl.class.getName(),
             VrtoxinNotifs.class.getName(),
             LockS.class.getName(),
-            AndroidRecentsSettings.class.getName()
+            AndroidRecentsSettings.class.getName(),
+            Halo.class.getName()
     };
 
 
@@ -1352,6 +1354,15 @@ public class SettingsActivity extends Activity
                             UserManager.DISALLOW_DEBUGGING_FEATURES)) {
                         removeTile = true;
                     }
+                /*} else if (id == R.id.cyanidemods) {
+                    boolean supported = false;
+                    try {
+                        supported = (getPackageManager().getPackageInfo("com.rogersb11.cyanide", 0).versionCode >= 0);
+                    } catch (PackageManager.NameNotFoundException e) {
+                    }
+                    if (!supported) {
+                        removeTile = true;
+                    }*/
                 } else if (id == R.id.supersu_settings) {
                     // Embedding into Settings is supported from SuperSU v1.85 and up
                     boolean supported = false;

@@ -828,6 +828,9 @@ public class InstalledAppDetails extends AppInfoBase
         if (!appRow.peekable) {
             notifSummary.add(context.getString(R.string.notifications_no_peeking));
         }
+        if (!appRow.halo) {
+            notifSummary.add(context.getString(R.string.filter_notif_no_halo));
+        }
         if (!appRow.keyguard) {
             notifSummary.add(context.getString(R.string.notifications_no_keyguard));
         }

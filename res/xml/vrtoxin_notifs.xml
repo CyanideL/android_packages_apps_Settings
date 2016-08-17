@@ -48,6 +48,12 @@
         android:entryValues="@array/status_bar_font_style_values"
         android:title="@string/status_bar_weather_font_style_title" />
 
+    <!-- Halo -->
+    <PreferenceScreen
+        android:id="@+id/halo_settings"
+        android:title="@string/halo_settings_title"
+        android:fragment="com.android.settings.vrtoxin.Halo" />
+
     <!-- Heads up -->
     <Preference
         android:key="heads_up_notifications"
