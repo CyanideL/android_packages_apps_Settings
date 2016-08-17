@@ -162,6 +162,7 @@ import com.android.settings.vrtoxin.VrtoxinNotifs;
 import com.android.settings.vrtoxin.LockS;
 import com.android.settings.vrtoxin.AndroidRecentsSettings;
 import com.android.settings.vrtoxin.Halo;
+import com.android.settings.notification.OtherSoundSettings;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -425,7 +426,8 @@ public class SettingsActivity extends Activity
             VrtoxinNotifs.class.getName(),
             LockS.class.getName(),
             AndroidRecentsSettings.class.getName(),
-            Halo.class.getName()
+            Halo.class.getName(),
+            OtherSoundSettings.class.getName()
     };
 
 
