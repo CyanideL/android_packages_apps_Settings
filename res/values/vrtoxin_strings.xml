@@ -490,7 +490,7 @@
     <string name="shortcut_action_ime">Open IME Switcher</string>
     <string name="shortcut_action_power_menu">Power Menu</string>
     <string name="shortcut_action_qs">QS Panel</string>
-    <string name="shortcut_action_settings_panel">Settings Panel</string>
+    <string name="shortcut_action_settings_panel">Quick Settings</string>
     <string name="shortcut_action_smart">Smart pulldown</string>
     <string name="shortcut_action_recent">Recents</string>
     <string name="shortcut_action_ring_vib">Ring/Vib</string>
