@@ -162,6 +162,8 @@ import com.android.settings.vrtoxin.VrtoxinNotifs;
 import com.android.settings.vrtoxin.LockS;
 import com.android.settings.vrtoxin.AndroidRecentsSettings;
 import com.android.settings.vrtoxin.Halo;
+import com.android.settings.vrtoxin.InterfaceSettings;
+import com.android.settings.vrtoxin.WakelockBlocker;
 import com.android.settings.notification.OtherSoundSettings;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -427,7 +429,9 @@ public class SettingsActivity extends Activity
             LockS.class.getName(),
             AndroidRecentsSettings.class.getName(),
             Halo.class.getName(),
-            OtherSoundSettings.class.getName()
+            OtherSoundSettings.class.getName(),
+            InterfaceSettings.class.getName(),
+            WakelockBlocker.class.getName()
     };
 
 
