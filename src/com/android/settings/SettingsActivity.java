@@ -1360,7 +1360,7 @@ public class SettingsActivity extends Activity
                             UserManager.DISALLOW_DEBUGGING_FEATURES)) {
                         removeTile = true;
                     }
-                /*} else if (id == R.id.cyanidemods) {
+                } else if (id == R.id.cyanidemods) {
                     boolean supported = false;
                     try {
                         supported = (getPackageManager().getPackageInfo("com.rogersb11.cyanide", 0).versionCode >= 0);
@@ -1368,7 +1368,7 @@ public class SettingsActivity extends Activity
                     }
                     if (!supported) {
                         removeTile = true;
-                    }*/
+                    }
                 } else if (id == R.id.supersu_settings) {
                     // Embedding into Settings is supported from SuperSU v1.85 and up
                     boolean supported = false;
