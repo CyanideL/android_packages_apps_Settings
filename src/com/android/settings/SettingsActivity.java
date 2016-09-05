@@ -128,6 +128,10 @@ import com.android.settingslib.drawer.DashboardCategory;
 import com.android.settingslib.drawer.SettingsDrawerActivity;
 import com.android.settingslib.drawer.Tile;
 
+// Cyanide Additions
+import com.android.settings.cyanide.dslv.ActionListViewSettings;
+import com.android.settings.cyanide.fragments.PanelShortcutFragment;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -345,6 +349,8 @@ public class SettingsActivity extends SettingsDrawerActivity
             TestingSettings.class.getName(),
             WifiAPITest.class.getName(),
             WifiInfo.class.getName(),
+            PanelShortcutFragment.class.getName(),
+            ActionListViewSettings.class.getName(),
     };
 
 
