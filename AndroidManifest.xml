@@ -3091,5 +3091,18 @@
             android:enabled="@bool/config_has_help" />
 
         <!-- This is the longest AndroidManifest.xml ever. -->
+
+        <!-- Expansion View Shortcuts Activity -->
+        <activity android:name="Settings$ShortcutBarSettingsActivity"
+                android:label="@string/panel_shortcuts_title"
+                android:taskAffinity="">
+            <intent-filter android:priority="1">
+                <action android:name="android.settings.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.cyanide.fragments.PanelShortcutFragment" />
+        </activity>
     </application>
 </manifest>

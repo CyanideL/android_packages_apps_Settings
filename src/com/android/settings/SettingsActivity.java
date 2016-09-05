@@ -135,6 +135,11 @@ import com.android.settingslib.drawer.SettingsDrawerActivity;
 import com.android.settingslib.drawer.Tile;
 
 import java.net.URISyntaxException;
+
+// Cyanide Additions
+import com.android.settings.cyanide.dslv.ActionListViewSettings;
+import com.android.settings.cyanide.fragments.PanelShortcutFragment;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -358,6 +363,8 @@ public class SettingsActivity extends SettingsDrawerActivity
             NightDisplaySettings.class.getName(),
             ManageDomainUrls.class.getName(),
             AutomaticStorageManagerSettings.class.getName()
+            PanelShortcutFragment.class.getName(),
+            ActionListViewSettings.class.getName(),
     };
 
 

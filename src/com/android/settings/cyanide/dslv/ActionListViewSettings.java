@@ -565,10 +565,10 @@ public class ActionListViewSettings extends ListFragment implements
                     mActivity, mActionValuesKey, mActionEntriesKey);
             case RECENT_APP_SIDEBAR:
                 return ActionHelper.getRecentAppSidebarConfigWithDescription(
-                    mActivity, mActionValuesKey, mActionEntriesKey);
+                    mActivity, mActionValuesKey, mActionEntriesKey);*/
             case PANEL_SHORTCUTS:
                 return ActionHelper.getPanelShortcutsConfig(mActivity);
-            case BUTTONS_BAR_EXTENSION:
+            /*case BUTTONS_BAR_EXTENSION:
                 return ActionHelper.getLockscreenButtonBarExtensionConfig(mActivity);*/
         }
         return null;
@@ -603,12 +603,12 @@ public class ActionListViewSettings extends ListFragment implements
             case RECENT_APP_SIDEBAR:
                 ActionHelper.setRecentAppSidebarConfig(mActivity, actionConfigs, reset);
                 updateFabVisibility(reset ? mDefaultNumberOfActions : actionConfigs.size());
-                break;
+                break;*/
             case PANEL_SHORTCUTS:
                 ActionHelper.setPanelShortcutsConfig(mActivity, actionConfigs, reset);
                 updateFabVisibility(reset ? mDefaultNumberOfActions : actionConfigs.size());
                 break;
-            case BUTTONS_BAR_EXTENSION:
+            /*case BUTTONS_BAR_EXTENSION:
                 ActionHelper.setLockscreenButtonBarExtensionConfig(mActivity, actionConfigs, reset);
                 updateFabVisibility(reset ? mDefaultNumberOfActions : actionConfigs.size());*/
         }
@@ -821,9 +821,9 @@ public class ActionListViewSettings extends ListFragment implements
                         case LOCKSCREEN_BUTTONS_BAR:
                         case POWER_MENU:
                         case QUICK_SETTINGS_BAR:
-                        case RECENT_APP_SIDEBAR:
+                        case RECENT_APP_SIDEBAR:*/
                         case PANEL_SHORTCUTS:
-                        case BUTTONS_BAR_EXTENSION:*/
+                        //case BUTTONS_BAR_EXTENSION:
                         default:
                             actionMode = res.getString(R.string.shortcut_action_help_button);
                             break;
@@ -875,21 +875,19 @@ public class ActionListViewSettings extends ListFragment implements
                     // on normal press action
                     String[] values = null;
                     String[] entries = null;
-                    if (!longpress) {
-                        List<String> finalEntriesList = new ArrayList<String>();
-                        List<String> finalValuesList = new ArrayList<String>();
+                    List<String> finalEntriesList = new ArrayList<String>();
+                    List<String> finalValuesList = new ArrayList<String>();
 
-                        for (int i = 0; i < getOwner().mActionDialogValues.length; i++) {
-                            if (!getOwner().mActionDialogValues[i]
-                                    .equals(ActionConstants.ACTION_NULL)) {
-                                finalEntriesList.add(getOwner().mActionDialogEntries[i]);
-                                finalValuesList.add(getOwner().mActionDialogValues[i]);
-                            }
+                    for (int i = 0; i < getOwner().mActionDialogValues.length; i++) {
+                        if (!getOwner().mActionDialogValues[i]
+                                .equals(ActionConstants.ACTION_NULL)) {
+                            finalEntriesList.add(getOwner().mActionDialogEntries[i]);
+                            finalValuesList.add(getOwner().mActionDialogValues[i]);
                         }
-
-                        entries = finalEntriesList.toArray(new String[finalEntriesList.size()]);
-                        values = finalValuesList.toArray(new String[finalValuesList.size()]);
                     }
+
+                    entries = finalEntriesList.toArray(new String[finalEntriesList.size()]);
+                    values = finalValuesList.toArray(new String[finalValuesList.size()]);
 
                     final String[] finalDialogValues =
                         longpress ? getOwner().mActionDialogValues : values;

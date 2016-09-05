@@ -17,8 +17,59 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- General Strings -->
+    <string name="ok">OK</string>
+    <string name="reset">Reset</string>
     <string name="help">Help</string>
     <string name="reset_message">Reset all entries to default?</string>
+    <string name="default_string">Default</string>
+    <string name="always_title">Always</string>
+    <string name="never_title">Never</string>
+    <string name="colors_cat_title">Customize Colors</string>
+    <string name="color_options_title">Color Options</string>
+    <string name="color_title">Color</string>
+    <string name="colors_title">Colors</string>
+    <string name="colorize_icons_title">Colorize icons</string>
+    <string name="colorize_icons_dialog_title">Choose when to colorize the icon</string>
+    <string name="ripple_title">Ripple Effect</string>
+    <string name="ripple_dark_mode_title">Ripple Effect Dark Mode</string>
+    <string name="colorize_ripple_title">Colorize ripple effect</string>
+    <string name="colorize_ripple_dialog_title">Choose how to colorize the ripple effect</string>
+    <string name="icon_is_greyscale_title">If the icon is an greyscale icon</string>
+    <string name="background_title">Background</string>
+    <string name="background_dark_mode_title">Background Dark Mode</string>
+    <string name="divider_title">Divider</string>
+    <string name="header_title">Header</string>
+    <string name="indicator_title">Indicator</string>
+    <string name="space_title">Space</string>
+    <string name="tab_text_title">Tab Text</string>
+    <string name="underline_title">Underline</string>
+    <string name="position_title">Position</string>
+    <string name="show_title">Show</string>
+    <string name="hidden_title">Hidden</string>
+    <string name="icon_title">Icon</string>
+    <string name="icons_title">Icons</string>
+    <string name="icons_dark_mode_title">Icons Dark Mode</string>
+    <string name="custom_colors">Custom Colors</string>
+    <string name="buttons_title">Buttons</string>
+    <string name="text_title">Text</string>
+    <string name="text_dark_mode_title">Text Dark Mode</string>
+    <string name="weather_text_title">Weather Text</string>
+    <string name="category_colors_title">Customize Colors</string>
+    <string name="reset_message">Reset all entries to default?</string>
+    <string name="reset_default_message">Reset default?</string>
+    <string name="reset_android">Android</string>
+    <string name="reset_developer">Developer</string>
+    <string name="dlg_reset_values_message">Reset values to\nAndroid- or Developer default?</string>
+    <string name="reset_developer">Reset values to\nAndroid- or Developer default?</string>
+    <string name="dlg_reset_colors_message">Reset colors to\nAndroid- or Cyanide default?</string>
+    <string name="additional_options_title">Additional options</string>
+    <string name="always_title">Always</string>
+    <string name="number_of_notifications_title">Number of notifications</string>
+    <string name="number_of_notifications_two_title">2</string>
+    <string name="number_of_notifications_three_title">3</string>
+    <string name="number_of_notifications_four_title">4</string>
+    <string name="number_of_notifications_five_title">5</string>
+    <string name="number_of_notifications_six_title">6</string>
 
     <!-- CyanideMods -->
     <string name="cyanidemods_app_title">CyanideMods</string>    
@@ -26,6 +77,16 @@
     <!-- About phone screen, Cyanide version -->
     <string name="cyanide_version">Cyanide Version</string>
     <string name="cyanide_version_default">Unknown</string>
+
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Color Picker</string>
+    <string name="press_color_to_apply">Press on color below to apply</string>
+    <string name="arrow_right" translatable="false">→</string>
+    <string name="arrow_down" translatable="false">↓</string>
+    <string name="hex">Hex:</string>
+    <string name="hex_hint">#ff000000</string>
+    <string name="set">Set</string>
+    <string name="color_default">Default</string>
 
     <!-- Shortcut picker -->
     <string name="shortcut_picker_choose_longpress_action">Choose longpress action:</string>
@@ -113,6 +174,7 @@
     <string name="shortcut_action_media_play_pause">Music - Play/Pause</string>
     <string name="shortcut_action_media_previous">Music - Previous Track</string>
     <string name="shortcut_action_wake_device">Wake Up Device</string>
+    <string name="shortcut_action_now_on_tap">Google Now On Tap</string>
 
     <string name="shortcuts_applications">Applications</string>
     <string name="shortcuts_select_custom_app_title">Select Custom Application</string>
@@ -279,5 +341,30 @@
     <string name="yahoo">Yahoo</string>
     <string name="youtube">Youtube</string>
     <string name="zedge">Zedge</string>
+
+    <!-- Expansion View Shortcut Bar -->
+    <string name="panel_shortcuts_title">Shortcut Bar</string>
+    <string name="panel_shortcuts_summary">View/Change shortcuts in the EmptyShade Shortcut Bar. This is visible when no notifications are visible</string>
+    <string name="panel_shorcuts_longpress_title">Shortcuts longpress</string>
+    <string name="panel_shorcuts_longpress_summary">Open custom lock screen shortcuts on longpress</string>
+    <string name="panel_shorcuts_launch_type_title">Shortcut click type</string>
+    <string name="panel_shortcuts_single_tap">Click</string>
+    <string name="panel_shortcuts_double_tap">Double Tap</string>
+    <string name="panel_shortcuts_longpress">Longpress</string>
+    <string name="header_bar_icon_color_mode_title">Colorize Icon</string>
+    <string name="header_bar_icon_color_mode_dialog_title">Choose when to colorize the icon</string>
+    <string name="header_bar_ripple_color_mode_title">Colorize Ripple Effect</string>
+    <string name="header_bar_ripple_color_mode_dialog_title">Choose how to colorize the ripple effect</string>
+    <string name="colors_buttons_bar_ripple_color_title">Ripple Effect</string>
+    <string name="panel_shortcuts_icon_size_title">Icon Size</string>
+    <string name="panel_shortcuts_icon_size_24_title">24dp</string>
+    <string name="panel_shortcuts_icon_size_36_title">36dp</string>
+    <string name="panel_shortcuts_icon_size_48_title">48dp</string>
+    <string name="panel_shortcuts_color_mode_never_title">Never</string>
+    <string name="panel_shortcuts_icon_color_mode_greyscale_title">If the icon is a greyscale icon</string>
+    <string name="panel_shortcuts_color_mode_always_title">Always</string>
+    <string name="panel_shortcuts_ripple_color_mode_auto_title">Auto</string>
+    <string name="panel_shortcuts_ripple_color_mode_custom_title">Custom Color</string>
+    <string name="panel_shortcuts_ripple_color_mode_never_title">Don\`t Colorize</string>
 
 </resources>
