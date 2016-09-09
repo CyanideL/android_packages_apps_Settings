@@ -52,7 +52,7 @@ import com.android.settings.cyanide.dslv.ActionListViewSettings;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 public class PanelShortcutFragment extends SettingsPreferenceFragment implements
-        OnPreferenceChangeListener {
+        Preference.OnPreferenceChangeListener {
 
     private static final String PANEL_SHORTCUTS_PRESS_TYPE =
             "panel_shortcuts_press_type";
@@ -152,12 +152,14 @@ public class PanelShortcutFragment extends SettingsPreferenceFragment implements
         mHeaderBarIconColor.setAlphaSliderEnabled(true);
 
         mHeaderBarRippleColor = (ColorPickerPreference) findPreference(PANEL_SHORTCUTS_RIPPLE_COLOR);
-        mHeaderBarRippleColor.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(mResolver,
-                    Settings.System.PANEL_SHORTCUTS_RIPPLE_COLOR, DEFAULT_COLOR);
+                Settings.System.PANEL_SHORTCUTS_RIPPLE_COLOR,
+                DEFAULT_COLOR); 
+        mHeaderBarRippleColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mHeaderBarRippleColor.setSummary(hexColor);
-        mHeaderBarRippleColor.setNewPreviewColor(intColor);
+        mHeaderBarRippleColor.setOnPreferenceChangeListener(this);
+        mHeaderBarRippleColor.setAlphaSliderEnabled(true);
 
         mShortcutSelection = findPreference(SHORTCUT_SELECTION);
 
@@ -250,6 +252,25 @@ public class PanelShortcutFragment extends SettingsPreferenceFragment implements
                     Settings.System.PANEL_SHORTCUTS_RIPPLE_COLOR_MODE, intValue);
             preference.setSummary(mHeaderBarRippleColorMode.getEntries()[index]);
             return true;
+<<<<<<< HEAD
+=======
+        /*} else if (preference == mHeaderBarIconColor) {
+            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(
+                    String.valueOf(newValue)));
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.PANEL_SHORTCUTS_ICON_COLOR, intHex);
+            refreshSettings();
+            return true;
+        } else if (preference == mHeaderBarRippleColor) {
+            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(
+                    String.valueOf(newValue)));
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.PANEL_SHORTCUTS_RIPPLE_COLOR, intHex);
+            refreshSettings();
+            return true;
+>>>>>>> fde32a2... Cyanide Theming 1/5
         } else if (preference == mHeaderBarIconColor) {
             String hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));

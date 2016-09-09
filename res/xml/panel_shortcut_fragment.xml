@@ -64,6 +64,6 @@
     <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="panel_shortcuts_ripple_color"
         android:title="@string/colors_buttons_bar_ripple_color_title"
-        android:defaultValue="0xffffffff" />
+        android:defaultValue="0xffffffff" />-->
 
 </PreferenceScreen>
