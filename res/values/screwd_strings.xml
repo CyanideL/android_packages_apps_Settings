@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014 Screw'd Android Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="customization">Customization</string>
+    <string name="screwd_settings">Screw\'d Settings</string>
+    
+    <!-- About phone screen, Screw'd version name-->
+    <string name="mod_version">Screw\'d version</string>
+    <!-- About phone screen, Screw'd unknown name-->
+    <string name="mod_version_default">Unknown</string>
+    <!-- About phone screen, build date of ROM -->
+    <string name="build_date">Build date</string>
+    <string name="build_date_default">2012-01-01-0000</string>
+    <!--  About device screen, Hardware info -->
+    <string name="hardware_info">Hardware info</string>
+    <!--  About device Screen, hardware info, rear camera -->
+    <string name="device_rear_camera">Rear camera</string>
+    <!--  About device Screen, hardware info, front camera -->
+    <string name="device_front_camera">Front facing camera</string>
+    <!--  About device Screen, hardware info, screen res -->
+    <string name="device_screen_resolution">Screen resolution</string>
+    <!--  About device Screen, hardware info, GPU info -->
+    <string name="gpu_info">GPU</string>
+    <!-- About device screen, Cpu info. -->
+    <string name="cpu_info">CPU</string>
+    <!-- About device screen, Chipset info -->
+    <string name="chipset_info">Chipset</string>
+    <!-- About phone screen, Free memory info -->
+    <string name="mem_info">Memory</string>
+    <!-- Vendor version -->
+    <string name="vendor_version">Vendor version</string>
+    <string name="vendor_version_default">Unknown</string>
+
+    <!-- Display : Rotation -->
+    <string name="display_rotation_title">Rotation angles</string>
+    <string name="display_rotation_disabled">Disabled</string>
+    <string name="display_rotation_unit">degrees</string>
+    <string name="display_rotation_category_title">Rotation</string>
+    <string name="display_rotation_0_title">0 degrees</string>
+    <string name="display_rotation_90_title">90 degrees</string>
+    <string name="display_rotation_180_title">180 degrees</string>
+    <string name="display_rotation_270_title">270 degrees</string>
+
+    <!-- Density category -->
+    <string name="density_category">Density options</string>
+
+    <!-- Volume settings - Volume adjustment sound -->
+    <string name="volume_adjust_sounds_title">Volume adjustment sounds</string>
+
+    <!-- MediaScanner behavior on boot -->
+    <string name="options_settings_title">Options</string>
+    <string name="media_scanner_on_boot_title">MediaScanner behavior on boot</string>
+    <string name="media_scanner_on_boot_enabled">Scan media</string>
+    <string name="media_scanner_on_boot_ask">Ask to scan (notification)</string>
+    <string name="media_scanner_on_boot_disabled">Do not scan media</string>
+
+    <!-- Advanced storage settings -->
+   <string name="storage_advanced_titlebar">Advanced Storage</string>
+   <string name="storage_menu_advanced">Advanced</string>
+
+   <!-- USB data automatic unlock -->
+   <string name="usb_data_auto_unlock_title">Unlock USB data</string>
+   <string name="usb_data_auto_unlock_summary">Allow unlocked data access to your phone\'s storage through USB (MTP, PTP)</string>
+   <string name="usb_data_auto_unlock_warning_summary">Your device will establish unprotected connections, everytime you connect it to a PC. Secured lockscreens disable this option automatically.\n\nThis is still an experimental feature, use with caution.</string>
+
+</resources>
