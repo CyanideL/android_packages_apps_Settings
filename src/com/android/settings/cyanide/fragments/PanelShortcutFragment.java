@@ -252,25 +252,6 @@ public class PanelShortcutFragment extends SettingsPreferenceFragment implements
                     Settings.System.PANEL_SHORTCUTS_RIPPLE_COLOR_MODE, intValue);
             preference.setSummary(mHeaderBarRippleColorMode.getEntries()[index]);
             return true;
-<<<<<<< HEAD
-=======
-        /*} else if (preference == mHeaderBarIconColor) {
-            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(
-                    String.valueOf(newValue)));
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(mResolver,
-                    Settings.System.PANEL_SHORTCUTS_ICON_COLOR, intHex);
-            refreshSettings();
-            return true;
-        } else if (preference == mHeaderBarRippleColor) {
-            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(
-                    String.valueOf(newValue)));
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(mResolver,
-                    Settings.System.PANEL_SHORTCUTS_RIPPLE_COLOR, intHex);
-            refreshSettings();
-            return true;
->>>>>>> fde32a2... Cyanide Theming 1/5
         } else if (preference == mHeaderBarIconColor) {
             String hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
