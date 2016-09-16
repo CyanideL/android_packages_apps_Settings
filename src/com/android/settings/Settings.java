@@ -163,5 +163,8 @@ public class Settings extends SettingsActivity {
     public static class SystemSettings extends SettingsActivity { /* empty */ }
     public static class ShortcutBarSettingsActivity extends SettingsActivity { /* empty */ }
     public static class ActionListSettingsActivity extends SettingsActivity { /* empty */ }
+
+    // Cyanide Central
     public static class CyanideModsActivity extends SettingsActivity { /* empty */ }
+    public static class ThemesActivity extends SettingsActivity { /* empty */ }
 }

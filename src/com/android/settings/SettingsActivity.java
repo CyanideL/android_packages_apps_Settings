@@ -140,6 +140,7 @@ import java.net.URISyntaxException;
 // Cyanide Additions
 import com.android.settings.cyanide.dslv.ActionListViewSettings;
 import com.android.settings.cyanide.fragments.PanelShortcutFragment;
+import com.android.settings.cyanide.ThemeSettings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -370,6 +371,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             AutomaticStorageManagerSettings.class.getName()
             PanelShortcutFragment.class.getName(),
             ActionListViewSettings.class.getName(),
+            ThemeSettings.class.getName(),
     };
 
 

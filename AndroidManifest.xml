@@ -152,13 +152,31 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="com.android.settings.SHORTCUT" />
             </intent-filter>
-            <intent-filter android:priority="4">
+            <intent-filter android:priority="2">
                 <action android:name="com.android.settings.action.SETTINGS" />
             </intent-filter>
             <meta-data android:name="com.android.settings.category"
                 android:value="com.android.settings.category.cyanidemods" />
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.CyanideMods" />
+        </activity>
+
+        <activity android:name="Settings$ThemesActivity"
+                android:label="@string/theme_settings_title"
+                android:icon="@drawable/ic_settings_themes"
+                android:taskAffinity="" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+            <intent-filter android:priority="1">
+                <action android:name="com.android.settings.action.SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category"
+                android:value="com.android.settings.category.cyanidemods" />
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.cyanide.ThemeSettings" />
         </activity>
 
         <activity android:name=".Settings$DeviceSettings"

@@ -85,15 +85,17 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_AUTO_BRIGHTNESS = "auto_brightness";
     private static final String KEY_AUTO_ROTATE = "auto_rotate";
     private static final String KEY_NIGHT_DISPLAY = "night_display";
-    private static final String KEY_NIGHT_MODE = "night_mode";
     private static final String KEY_CAMERA_GESTURE = "camera_gesture";
     private static final String KEY_WALLPAPER = "wallpaper";
+    private static final String KEY_CAMERA_GESTURE = "camera_gesture";
+    private static final String KEY_CAMERA_DOUBLE_TAP_POWER_GESTURE
+            = "camera_double_tap_power_gesture";
+    //private static final String KEY_WALLPAPER = "wallpaper";
     private static final String KEY_VR_DISPLAY_PREF = "vr_display_pref";
 
     private Preference mFontSizePref;
 
     private TimeoutListPreference mScreenTimeoutPreference;
-    private ListPreference mNightModePreference;
     private Preference mScreenSaverPreference;
     private SwitchPreference mLiftToWakePreference;
     private SwitchPreference mDozePreference;
@@ -237,13 +239,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         } else {
             removePreference(KEY_VR_DISPLAY_PREF);
         }
-
-        mNightModePreference = (ListPreference) findPreference(KEY_NIGHT_MODE);
-        final UiModeManager uiManager = (UiModeManager) getSystemService(
-                    Context.UI_MODE_SERVICE);
-            final int currentNightMode = uiManager.getNightMode();
-            mNightModePreference.setValue(String.valueOf(currentNightMode));
-            mNightModePreference.setOnPreferenceChangeListener(this);
     }
 
     private static boolean allowAllRotations(Context context) {
@@ -332,7 +327,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
         updateTimeoutPreferenceDescription(currentTimeout);
 
-        disablePreferenceIfManaged(KEY_WALLPAPER, UserManager.DISALLOW_SET_WALLPAPER);
+        //disablePreferenceIfManaged(KEY_WALLPAPER, UserManager.DISALLOW_SET_WALLPAPER);
     }
 
     private void updateState() {
@@ -424,15 +419,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             Settings.Secure.putInt(getContentResolver(), CAMERA_GESTURE_DISABLED,
                     value ? 0 : 1 /* Backwards because setting is for disabling */);
         }
-        if (preference == mNightModePreference) {
-            try {
-                final int value = Integer.parseInt((String) objValue);
-                final UiModeManager uiManager = (UiModeManager) getSystemService(
-                        Context.UI_MODE_SERVICE);
-                uiManager.setNightMode(value);
-            } catch (NumberFormatException e) {
-                Log.e(TAG, "could not persist night mode setting", e);
-            }
+        if (preference == mCameraDoubleTapPowerGesturePreference) {
+            boolean value = (Boolean) objValue;
+            Settings.Secure.putInt(getContentResolver(), CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED,
+                    value ? 0 : 1 /* Backwards because setting is for disabling */);
         }
         return true;
     }
