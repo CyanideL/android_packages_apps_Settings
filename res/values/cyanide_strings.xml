@@ -16,6 +16,9 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <string name="cyanidemods_title">CyanideMods</string>
+    <string name="cyanide_center_title">Cyanide Central</string>
+
     <!-- General Strings -->
     <string name="ok">OK</string>
     <string name="reset">Reset</string>

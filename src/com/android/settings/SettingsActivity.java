@@ -232,6 +232,8 @@ public class SettingsActivity extends SettingsDrawerActivity
 
     private static final int REQUEST_SUGGESTION = 42;
 
+    private static final String CYANIDEMODS = "com.android.settings.CyanideMods";
+
     private String mFragmentClass;
 
     private CharSequence mInitialTitle;
@@ -1024,6 +1026,13 @@ public class SettingsActivity extends SettingsDrawerActivity
      */
     private Fragment switchToFragment(String fragmentName, Bundle args, boolean validate,
             boolean addToBackStack, int titleResId, CharSequence title, boolean withTransition) {
+        if (CYANIDEMODS.equals(fragmentName)) {
+            Intent cyanideModsIntent = new Intent();
+            cyanideModsIntent.setClassName("com.rogersb11.cyanide", "com.rogersb11.cyanide.MainActivity");
+            startActivity(cyanideModsIntent);
+            finish();
+            return null;
+        }
         if (validate && !isValidFragment(fragmentName)) {
             throw new IllegalArgumentException("Invalid fragment for this activity: "
                     + fragmentName);
