@@ -54,6 +54,13 @@
                 android:title="@string/camera_gesture_title"
                 android:summary="@string/camera_gesture_desc" />
 
+        <com.android.settings.cyanide.GlobalSettingSwitchPreference
+                android:key="heads_up_notifications_enabled"
+                android:title="@string/heads_up_notifications"
+                android:summaryOn="@string/summary_heads_up_enabled"
+                android:summaryOff="@string/summary_heads_up_disabled"
+                android:defaultValue="true" />
+
         <PreferenceScreen
                 android:key="screensaver"
                 android:title="@string/screensaver_settings_title"
