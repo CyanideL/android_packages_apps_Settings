@@ -412,4 +412,9 @@
     <!-- Launch Dev Tools -->
     <string name="development_tools_title">Development tools</string>
 
+    <!-- Heads up -->
+    <string name="heads_up_notifications">Heads Up</string>
+    <string name="summary_heads_up_enabled">Pop-up notifications are enabled</string>
+    <string name="summary_heads_up_disabled">Pop-up notifications are disabled</string>
+
 </resources>
