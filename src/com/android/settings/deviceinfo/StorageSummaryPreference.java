@@ -52,7 +52,7 @@ public class StorageSummaryPreference extends Preference {
         }
 
         final TextView summary = (TextView) view.findViewById(android.R.id.summary);
-        summary.setTextColor(Color.parseColor("#8a000000"));
+        summary.setTextColor(getContext().getResources().getColor(R.color.storage_summary_text_color));
 
         super.onBindViewHolder(view);
     }

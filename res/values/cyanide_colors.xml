@@ -24,5 +24,6 @@
     <color name="floating_action_button_touch_tint">#80ffffff</color>
 
     <color name="white">#ffffffff</color>
+    <color name="storage_summary_text_color">#8a000000</color>
 
 </resources>
