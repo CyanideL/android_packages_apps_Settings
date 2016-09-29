@@ -20,13 +20,6 @@
     android:title="@string/theme_settings_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <ListPreference
-        android:key="night_auto_mode"
-        android:entries="@array/night_auto_mode_entries"
-        android:entryValues="@array/night_auto_mode_values"
-        android:title="@string/night_auto_mode_title"
-        android:dialogTitle="@string/night_auto_mode_title" />
-
     <SwitchPreference
         android:key="force_custom_colors"
         android:title="@string/theme_override_custom_colors_title"

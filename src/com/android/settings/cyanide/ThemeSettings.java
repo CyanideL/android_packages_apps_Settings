@@ -55,7 +55,6 @@ public class ThemeSettings extends SettingsPreferenceFragment implements
     private static final String TAG = "ThemeSettings";
 
     private static final String NIGHT_MODE = "night_mode";
-    private static final String NIGHT_AUTO_MODE = "night_auto_mode";
     private static final String FORCE_CUSTOM_COLORS = "force_custom_colors";
     public static final String SUBSTRATUM_PACKAGE_NAME = "projekt.substratum";
     public static final String SUBSTRATUM_ACTIVITY_NAME = "projekt.substratum.LauncherActivity";
@@ -67,7 +66,6 @@ public class ThemeSettings extends SettingsPreferenceFragment implements
     private static final int DLG_RESET = 0;
 
     private ListPreference mNightModePreference;
-    private ListPreference mNightAutoMode;
     private SwitchPreference mForceCustomColor;
     private PreferenceCategory mSubstratum;
 
@@ -89,31 +87,6 @@ public class ThemeSettings extends SettingsPreferenceFragment implements
 
         PreferenceScreen prefSet = getPreferenceScreen();
         mResolver = getActivity().getContentResolver();
-
-        int mNightAutoModeOn = Settings.Secure.getInt(mResolver,
-                  Settings.Secure.UI_NIGHT_AUTO_MODE, 0);
-
-        mNightAutoMode = (ListPreference) prefSet.findPreference(NIGHT_AUTO_MODE);
-        mNightAutoMode.setValue(String.valueOf(
-                Settings.Secure.getInt(mResolver,
-                Settings.Secure.UI_NIGHT_AUTO_MODE, 0)));
-        mNightAutoMode.setSummary(mNightAutoMode.getEntry());
-
-        mNightAutoMode.setOnPreferenceChangeListener(
-            new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference,
-                        Object newValue) {
-                String val = (String) newValue;
-                Settings.Secure.putInt(mResolver,
-                    Settings.Secure.UI_NIGHT_AUTO_MODE,
-                    Integer.valueOf(val));
-                int index = mNightAutoMode.findIndexOfValue(val);
-                mNightAutoMode.setSummary(
-                    mNightAutoMode.getEntries()[index]);
-                return true;
-            }
-        });
 
         mNightModePreference = (ListPreference) findPreference(NIGHT_MODE);
         final UiModeManager uiManager = (UiModeManager) getSystemService(
@@ -209,8 +182,6 @@ public class ThemeSettings extends SettingsPreferenceFragment implements
                     .setNeutralButton(R.string.reset_android,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            Settings.Secure.putInt(getOwner().mResolver,
-                                    Settings.Secure.UI_NIGHT_AUTO_MODE, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.FORCE_CUSTOM_COLORS, 0);
                             final IUiModeManager uiModeManagerService = IUiModeManager.Stub.asInterface(
@@ -226,8 +197,6 @@ public class ThemeSettings extends SettingsPreferenceFragment implements
                     .setPositiveButton(R.string.reset_developer,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            Settings.Secure.putInt(getOwner().mResolver,
-                                    Settings.Secure.UI_NIGHT_AUTO_MODE, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.FORCE_CUSTOM_COLORS, 0);
                             final IUiModeManager uiModeManagerService = IUiModeManager.Stub.asInterface(
