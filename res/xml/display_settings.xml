@@ -132,6 +132,10 @@
 
         </PreferenceCategory>
 
+        <PreferenceCategory
+                android:key="density_category"
+                android:title="@string/density_category">
+
         <PreferenceScreen
                 android:key="font_size"
                 android:title="@string/title_font_size"
@@ -146,12 +150,6 @@
         <com.android.settings.display.DensityPreference
                 android:key="density"
                 android:title="@string/developer_smallest_width" />
-
-        <!-- expanded desktop -->
-        <PreferenceScreen
-                android:key="expanded_desktop"
-                android:title="@string/power_menu_expanded_desktop"
-                android:fragment="com.android.settings.applications.ExpandedDesktopPreferenceFragment" />
 
         </PreferenceCategory>
 
