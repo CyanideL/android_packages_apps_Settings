@@ -105,7 +105,7 @@ public class ChooseLockPatternSize extends PreferenceActivity {
 
         @Override
         protected int getMetricsCategory() {
-            return MetricsEvent.SCREWD;
+            return MetricsEvent.CYANIDE_SHIT;
         }
     }
 }
