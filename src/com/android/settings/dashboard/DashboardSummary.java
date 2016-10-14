@@ -16,10 +16,7 @@
 
 package com.android.settings.dashboard;
 
-import android.app.ActionBar;
-import android.content.ContentResolver;
 import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -44,8 +41,6 @@ import com.android.settingslib.SuggestionParser;
 import com.android.settingslib.drawer.DashboardCategory;
 import com.android.settingslib.drawer.SettingsDrawerActivity;
 import com.android.settingslib.drawer.Tile;
-
-import com.android.internal.util.cyanide.SettingsCustomHelper;
 
 import java.util.List;
 
@@ -75,7 +70,6 @@ public class DashboardSummary extends InstrumentedFragment
     private ConditionManager mConditionManager;
     private SuggestionParser mSuggestionParser;
     private LinearLayoutManager mLayoutManager;
-    private ActionBar mActionBar;
     private SuggestionsChecks mSuggestionsChecks;
 
     @Override
@@ -88,8 +82,6 @@ public class DashboardSummary extends InstrumentedFragment
         long startTime = System.currentTimeMillis();
         super.onCreate(savedInstanceState);
 
-        final SettingsActivity activity = (SettingsActivity) getActivity();
-        mActionBar = activity.getActionBar();
         List<DashboardCategory> categories =
                 ((SettingsActivity) getActivity()).getDashboardCategories();
         mSummaryLoader = new SummaryLoader(getActivity(), categories);
@@ -175,7 +167,6 @@ public class DashboardSummary extends InstrumentedFragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        container.setBackgroundColor(SettingsCustomHelper.getSettingsBgColor(getActivity()));
         return inflater.inflate(R.layout.dashboard, container, false);
     }
 
@@ -220,8 +211,6 @@ public class DashboardSummary extends InstrumentedFragment
         List<DashboardCategory> categories =
                 ((SettingsActivity) getActivity()).getDashboardCategories();
         mAdapter.setCategories(categories);
-        mActionBar.setBackgroundDrawable(new ColorDrawable(SettingsCustomHelper.getSettingsToolbarColor(getActivity())));
-        mActionBar.setElevation(0);
 
         // recheck to see if any suggestions have been changed.
         new SuggestionLoader().execute();

@@ -47,8 +47,6 @@ import com.android.settings.search.Index;
 
 import java.util.HashMap;
 
-import com.android.internal.util.cyanide.SettingsCustomHelper;
-
 public class SearchResultsSummary extends InstrumentedFragment {
 
     private static final String LOG_TAG = "SearchResultsSummary";
@@ -72,9 +70,6 @@ public class SearchResultsSummary extends InstrumentedFragment {
     private ViewGroup mLayoutResults;
 
     private String mQuery;
-    private static TextView query;
-    private static TextView mTitle;
-    private static ImageView mIcon;
 
     private boolean mShowResults;
 
@@ -484,14 +479,10 @@ public class SearchResultsSummary extends InstrumentedFragment {
                 view = convertView;
             }
 
-            query = (TextView) view.findViewById(R.id.title);
+            TextView query = (TextView) view.findViewById(R.id.title);
 
             SuggestionItem item = (SuggestionItem) getItem(position);
             query.setText(item.query);
-            if (query != null) {
-                query.setTextColor(SettingsCustomHelper.getSettingsTextColor(mContext));
-                query.setTypeface(DashboardAdapter.mFontStyle);
-            }
 
             return view;
         }
@@ -613,6 +604,8 @@ public class SearchResultsSummary extends InstrumentedFragment {
             }
 
             View view;
+            TextView textTitle;
+            ImageView imageView;
 
             if (convertView == null) {
                 view = mInflater.inflate(R.layout.search_result_item, parent, false);
@@ -620,29 +613,25 @@ public class SearchResultsSummary extends InstrumentedFragment {
                 view = convertView;
             }
 
-            mTitle = (TextView) view.findViewById(R.id.title);
-            mIcon = (ImageView) view.findViewById(R.id.icon);
+            textTitle = (TextView) view.findViewById(R.id.title);
+            imageView = (ImageView) view.findViewById(R.id.icon);
 
             final SearchResult result = (SearchResult) getItem(position);
-            mTitle.setText(result.title);
-            if (mTitle != null) {
-                mTitle.setTypeface(DashboardAdapter.mFontStyle);
-                mTitle.setTextColor(SettingsCustomHelper.getSettingsTextColor(mContext));
-            }
+            textTitle.setText(result.title);
 
             if (result.iconResId != R.drawable.empty_icon) {
                 final Context packageContext = result.context;
                 final Drawable drawable;
                 try {
                     drawable = packageContext.getDrawable(result.iconResId);
-                    mIcon.setImageDrawable(drawable);
+                    imageView.setImageDrawable(drawable);
                 } catch (Resources.NotFoundException nfe) {
                     // Not much we can do except logging
                     Log.e(LOG_TAG, "Cannot load Drawable for " + result.title);
                 }
             } else {
-                mIcon.setImageDrawable(null);
-                mIcon.setBackgroundResource(R.drawable.empty_icon);
+                imageView.setImageDrawable(null);
+                imageView.setBackgroundResource(R.drawable.empty_icon);
             }
 
             return view;

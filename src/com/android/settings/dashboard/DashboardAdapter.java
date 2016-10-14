@@ -16,14 +16,10 @@
 package com.android.settings.dashboard;
 
 import android.content.ComponentName;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Icon;
-import android.graphics.PorterDuff.Mode;
-import android.graphics.Typeface;
-import android.provider.Settings;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -50,9 +46,6 @@ import com.android.settingslib.drawer.Tile;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.android.internal.util.cyanide.FontHelper;
-import com.android.internal.util.cyanide.SettingsCustomHelper;
-
 public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.DashboardItemHolder>
         implements View.OnClickListener {
     public static final String TAG = "DashboardAdapter";
@@ -73,7 +66,6 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
     private final IconCache mCache;
 
     private final Context mContext;
-    private static Context fContext;
 
     private List<DashboardCategory> mCategories;
     private List<Condition> mConditions;
@@ -87,11 +79,9 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
 
     private Condition mExpandedCondition = null;
     private SuggestionParser mSuggestionParser;
-    public static Typeface mFontStyle;
 
     public DashboardAdapter(Context context, SuggestionParser parser) {
         mContext = context;
-        fContext = context;
         mCache = new IconCache(context);
         mSuggestionParser = parser;
 
@@ -140,7 +130,6 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
             }
         }
         recountItems();
-        updateFontStyle();
     }
 
     public void setConditions(List<Condition> conditions) {
@@ -230,14 +219,12 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
         switch (mTypes.get(position)) {
             case R.layout.dashboard_category:
                 onBindCategory(holder, (DashboardCategory) mItems.get(position));
-                holder.itemView.setBackgroundColor(SettingsCustomHelper.getSettingsBgColor(mContext));
                 break;
             case R.layout.dashboard_tile:
                 final Tile tile = (Tile) mItems.get(position);
                 onBindTile(holder, tile);
                 holder.itemView.setTag(tile);
                 holder.itemView.setOnClickListener(this);
-                holder.itemView.setBackgroundColor(SettingsCustomHelper.getSettingsBgColor(mContext));
                 break;
             case R.layout.suggestion_header:
                 onBindSuggestionHeader(holder);
@@ -333,14 +320,9 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
 
     private void onBindTile(DashboardItemHolder holder, Tile tile) {
         holder.icon.setImageDrawable(mCache.getIcon(tile.icon));
-        holder.icon.setImageTintList(SettingsCustomHelper.getSettingsIconColorList(fContext));
         holder.title.setText(tile.title);
-        holder.title.setTextColor(SettingsCustomHelper.getSettingsTextColor(fContext));
-        holder.title.setTextSize(SettingsCustomHelper.getSettingsTextSize(fContext));
         if (!TextUtils.isEmpty(tile.summary)) {
             holder.summary.setText(tile.summary);
-            holder.summary.setTextColor(SettingsCustomHelper.getSettingsSummaryTextColor(fContext));
-            holder.summary.setTextSize(SettingsCustomHelper.getSettingsSummaryTextSize(fContext));
             holder.summary.setVisibility(View.VISIBLE);
         } else {
             holder.summary.setVisibility(View.GONE);
@@ -349,8 +331,6 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
 
     private void onBindCategory(DashboardItemHolder holder, DashboardCategory category) {
         holder.title.setText(category.title);
-        holder.title.setTextColor(SettingsCustomHelper.getSettingsCategoryTextColor(mContext));
-        holder.title.setTextSize(SettingsCustomHelper.getSettingsCategoryTextSize(fContext));
     }
 
     private void onBindSeeAll(DashboardItemHolder holder) {
@@ -457,108 +437,7 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
             super(itemView);
             icon = (ImageView) itemView.findViewById(android.R.id.icon);
             title = (TextView) itemView.findViewById(android.R.id.title);
-            if (icon != null) {
-                icon.setColorFilter(SettingsCustomHelper.getSettingsIconColor(fContext), Mode.MULTIPLY);
-            }
-            if (title != null) {
-                title.setTypeface(mFontStyle);
-                title.setTextColor(SettingsCustomHelper.getSettingsTextColor(fContext));
-                title.setTextSize(SettingsCustomHelper.getSettingsTextSize(fContext));
-            }
             summary = (TextView) itemView.findViewById(android.R.id.summary);
-            if (summary != null) {
-                summary.setTypeface(mFontStyle);
-                summary.setTextColor(SettingsCustomHelper.getSettingsSummaryTextColor(fContext));
-                summary.setTextSize(SettingsCustomHelper.getSettingsSummaryTextSize(fContext));
-            }
-        }
-    }
-
-    private void updateFontStyle() {
-        final int mFontStyle = Settings.System.getInt(fContext.getContentResolver(),
-                Settings.System.SETTINGS_FONT_STYLE, FontHelper.FONT_COMINGSOON);
-
-        getFontStyle(mFontStyle);
-    }
-
-    public static void getFontStyle(int font) {
-        switch (font) {
-            case FontHelper.FONT_NORMAL:
-            default:
-                mFontStyle = FontHelper.NORMAL;
-                break;
-            case FontHelper.FONT_ITALIC:
-                mFontStyle = FontHelper.ITALIC;
-                break;
-            case FontHelper.FONT_BOLD:
-                mFontStyle = FontHelper.BOLD;
-                break;
-            case FontHelper.FONT_BOLD_ITALIC:
-                mFontStyle = FontHelper.BOLD_ITALIC;
-                break;
-            case FontHelper.FONT_LIGHT:
-                mFontStyle = FontHelper.LIGHT;
-                break;
-            case FontHelper.FONT_LIGHT_ITALIC:
-                mFontStyle = FontHelper.LIGHT_ITALIC;
-                break;
-            case FontHelper.FONT_THIN:
-                mFontStyle = FontHelper.THIN;
-                break;
-            case FontHelper.FONT_THIN_ITALIC:
-                mFontStyle = FontHelper.THIN_ITALIC;
-                break;
-            case FontHelper.FONT_CONDENSED:
-                mFontStyle = FontHelper.CONDENSED;
-                break;
-            case FontHelper.FONT_CONDENSED_ITALIC:
-                mFontStyle = FontHelper.CONDENSED_ITALIC;
-                break;
-            case FontHelper.FONT_CONDENSED_LIGHT:
-                mFontStyle = FontHelper.CONDENSED_LIGHT;
-                break;
-            case FontHelper.FONT_CONDENSED_LIGHT_ITALIC:
-                mFontStyle = FontHelper.CONDENSED_LIGHT_ITALIC;
-                break;
-            case FontHelper.FONT_CONDENSED_BOLD:
-                mFontStyle = FontHelper.CONDENSED_BOLD;
-                break;
-            case FontHelper.FONT_CONDENSED_BOLD_ITALIC:
-                mFontStyle = FontHelper.CONDENSED_BOLD_ITALIC;
-                break;
-            case FontHelper.FONT_MEDIUM:
-                mFontStyle = FontHelper.MEDIUM;
-                break;
-            case FontHelper.FONT_MEDIUM_ITALIC:
-                mFontStyle = FontHelper.MEDIUM_ITALIC;
-                break;
-            case FontHelper.FONT_BLACK:
-                mFontStyle = FontHelper.BLACK;
-                break;
-            case FontHelper.FONT_BLACK_ITALIC:
-                mFontStyle = FontHelper.BLACK_ITALIC;
-                break;
-            case FontHelper.FONT_DANCINGSCRIPT:
-                mFontStyle = FontHelper.DANCINGSCRIPT;
-                break;
-            case FontHelper.FONT_DANCINGSCRIPT_BOLD:
-                mFontStyle = FontHelper.DANCINGSCRIPT_BOLD;
-                break;
-            case FontHelper.FONT_COMINGSOON:
-                mFontStyle = FontHelper.COMINGSOON;
-                break;
-            case FontHelper.FONT_NOTOSERIF:
-                mFontStyle = FontHelper.NOTOSERIF;
-                break;
-            case FontHelper.FONT_NOTOSERIF_ITALIC:
-                mFontStyle = FontHelper.NOTOSERIF_ITALIC;
-                break;
-            case FontHelper.FONT_NOTOSERIF_BOLD:
-                mFontStyle = FontHelper.NOTOSERIF_BOLD;
-                break;
-            case FontHelper.FONT_NOTOSERIF_BOLD_ITALIC:
-                mFontStyle = FontHelper.NOTOSERIF_BOLD_ITALIC;
-                break;
         }
     }
 }
