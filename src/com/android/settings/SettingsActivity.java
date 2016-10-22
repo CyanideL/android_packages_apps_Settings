@@ -138,8 +138,7 @@ import com.android.settingslib.drawer.Tile;
 import java.net.URISyntaxException;
 
 // Cyanide Additions
-import com.android.settings.cyanide.dslv.ActionListViewSettings;
-import com.android.settings.cyanide.fragments.PanelShortcutFragment;
+import com.android.settings.cyanide.CyanideStartActivity;
 import com.android.settings.cyanide.ThemeSettings;
 
 import java.util.ArrayList;
@@ -233,7 +232,6 @@ public class SettingsActivity extends SettingsDrawerActivity
 
     private static final int REQUEST_SUGGESTION = 42;
 
-    private static final String CYANIDEMODS = "com.android.settings.CyanideMods";
     private static final String SUPERSU_FRAGMENT = "com.android.settings.SuperSU";
 
     private String mFragmentClass;
@@ -372,6 +370,8 @@ public class SettingsActivity extends SettingsDrawerActivity
             PanelShortcutFragment.class.getName(),
             ActionListViewSettings.class.getName(),
             ThemeSettings.class.getName(),
+            CyanideStartActivity.class.getName(),
+
     };
 
 
@@ -1029,13 +1029,6 @@ public class SettingsActivity extends SettingsDrawerActivity
      */
     private Fragment switchToFragment(String fragmentName, Bundle args, boolean validate,
             boolean addToBackStack, int titleResId, CharSequence title, boolean withTransition) {
-        if (CYANIDEMODS.equals(fragmentName)) {
-            Intent cyanideModsIntent = new Intent();
-            cyanideModsIntent.setClassName("com.rogersb11.cyanide", "com.rogersb11.cyanide.MainActivity");
-            startActivity(cyanideModsIntent);
-            finish();
-            return null;
-        }
         if (SUPERSU_FRAGMENT.equals(fragmentName)) {
             Intent superSUIntent = new Intent();
             superSUIntent.setClassName("eu.chainfire.supersu", "eu.chainfire.supersu.MainActivity");

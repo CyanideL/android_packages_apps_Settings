@@ -522,4 +522,7 @@
     <string name="profile_choose_app">Choose app</string>
     <string name="reset">Reset</string>
 
+    <!-- Summaries -->
+    <string name="summary_cyanide">You won\'t find any vaccines in here</string>
+
 </resources>

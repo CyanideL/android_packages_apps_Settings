@@ -143,22 +143,28 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="Settings$CyanideModsActivity"
+        <activity android:name="Settings$CyanideModsStartActivity"
                 android:label="@string/cyanidemods_title"
                 android:icon="@drawable/ic_cyanide"
                 android:taskAffinity="" >
+            <intent-filter android:priority="1">
+                <action android:name="com.android.settings.cyanide.CyanideStartActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="com.android.settings.SHORTCUT" />
             </intent-filter>
-            <intent-filter android:priority="2">
+            <intent-filter android:priority="9">
                 <action android:name="com.android.settings.action.SETTINGS" />
             </intent-filter>
             <meta-data android:name="com.android.settings.category"
                 android:value="com.android.settings.category.cyanidemods" />
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.CyanideMods" />
+                android:value="com.android.settings.cyanide.CyanideStartActivity" />
+            <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
+                android:value="true" />
         </activity>
 
         <activity android:name="Settings$ThemesActivity"
