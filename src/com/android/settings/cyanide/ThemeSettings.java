@@ -16,6 +16,7 @@
 
 package com.android.settings.cyanide;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -49,6 +50,7 @@ import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
+import com.android.settings.dashboard.SummaryLoader;
 
 public class ThemeSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -255,4 +257,31 @@ public class ThemeSettings extends SettingsPreferenceFragment implements
     protected int getMetricsCategory() {
         return MetricsEvent.CYANIDE_SHIT;
     }
+
+    private static class SummaryProvider implements SummaryLoader.SummaryProvider {
+
+        private final Context mContext;
+        private final SummaryLoader mSummaryLoader;
+
+        public SummaryProvider(Context context, SummaryLoader summaryLoader) {
+            mContext = context;
+            mSummaryLoader = summaryLoader;
+        }
+
+        @Override
+        public void setListening(boolean listening) {
+            if (listening) {
+                mSummaryLoader.setSummary(this, mContext.getString(R.string.summary_themes));
+            }
+        }
+    }
+
+    public static final SummaryLoader.SummaryProviderFactory SUMMARY_PROVIDER_FACTORY
+            = new SummaryLoader.SummaryProviderFactory() {
+        @Override
+        public SummaryLoader.SummaryProvider createSummaryProvider(Activity activity,
+                                                                   SummaryLoader summaryLoader) {
+            return new SummaryProvider(activity, summaryLoader);
+        }
+    };
 }

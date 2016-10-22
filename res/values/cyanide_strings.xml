@@ -524,5 +524,6 @@
 
     <!-- Summaries -->
     <string name="summary_cyanide">You won\'t find any vaccines in here</string>
+    <string name="summary_themes">Select between the three default themes</string>
 
 </resources>
