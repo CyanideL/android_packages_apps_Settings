@@ -58,6 +58,7 @@ import com.android.settingslib.RestrictedPreference;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.provider.Settings.Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED;
 import static android.provider.Settings.Secure.CAMERA_GESTURE_DISABLED;
 import static android.provider.Settings.Secure.DOUBLE_TAP_TO_WAKE;
 import static android.provider.Settings.Secure.DOZE_ENABLED;
@@ -87,7 +88,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_NIGHT_DISPLAY = "night_display";
     private static final String KEY_CAMERA_GESTURE = "camera_gesture";
     private static final String KEY_WALLPAPER = "wallpaper";
-    private static final String KEY_CAMERA_GESTURE = "camera_gesture";
     private static final String KEY_CAMERA_DOUBLE_TAP_POWER_GESTURE
             = "camera_double_tap_power_gesture";
     //private static final String KEY_WALLPAPER = "wallpaper";
@@ -102,6 +102,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private SwitchPreference mTapToWakePreference;
     private SwitchPreference mAutoBrightnessPreference;
     private SwitchPreference mCameraGesturePreference;
+    private SwitchPreference mCameraDoubleTapPowerGesturePreference;
 
     @Override
     protected int getMetricsCategory() {
