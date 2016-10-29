@@ -111,12 +111,6 @@
         </PreferenceCategory>
 
         <PreferenceCategory
-                android:key="density_category"
-                android:title="@string/density_category">
-
-        </PreferenceCategory>
-
-        <PreferenceCategory
                 android:key="leds"
                 android:title="@string/omni_leds" >
 
