@@ -66,7 +66,7 @@
         <item name="fingerprint_layout_theme">@style/FingerprintLayoutTheme</item>
         <item name="fingerprint_progress_bar_size">@dimen/setup_fingerprint_progress_bar_size</item>
         <item name="fingerprint_ring_radius">@dimen/setup_fingerprint_ring_radius</item>
-        <item name="ic_menu_add">@drawable/ic_menu_add_dark</item>
+        <item name="ic_menu_add">@drawable/ic_menu_add</item>
         <item name="ic_menu_moreoverflow">@*android:drawable/ic_menu_moreoverflow_material</item>
         <item name="ic_wps">@drawable/ic_wps_dark</item>
         <item name="setup_divider_color">@color/setup_divider_color_dark</item>
